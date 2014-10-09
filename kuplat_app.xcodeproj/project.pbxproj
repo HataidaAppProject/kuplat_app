@@ -1,0 +1,433 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8436BED719E6D08F0088FF70 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8436BED619E6D08F0088FF70 /* main.m */; };
+		8436BEDA19E6D08F0088FF70 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8436BED919E6D08F0088FF70 /* AppDelegate.m */; };
+		8436BEDD19E6D08F0088FF70 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8436BEDC19E6D08F0088FF70 /* FirstViewController.m */; };
+		8436BEE019E6D08F0088FF70 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8436BEDF19E6D08F0088FF70 /* SecondViewController.m */; };
+		8436BEE319E6D08F0088FF70 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8436BEE119E6D08F0088FF70 /* Main.storyboard */; };
+		8436BEE519E6D08F0088FF70 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8436BEE419E6D08F0088FF70 /* Images.xcassets */; };
+		8436BEE819E6D08F0088FF70 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8436BEE619E6D08F0088FF70 /* LaunchScreen.xib */; };
+		8436BEF419E6D08F0088FF70 /* kuplat_appTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8436BEF319E6D08F0088FF70 /* kuplat_appTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8436BEEE19E6D08F0088FF70 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8436BEC919E6D08F0088FF70 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8436BED019E6D08F0088FF70;
+			remoteInfo = kuplat_app;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8436BED119E6D08F0088FF70 /* kuplat_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kuplat_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8436BED519E6D08F0088FF70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8436BED619E6D08F0088FF70 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8436BED819E6D08F0088FF70 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		8436BED919E6D08F0088FF70 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		8436BEDB19E6D08F0088FF70 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
+		8436BEDC19E6D08F0088FF70 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		8436BEDE19E6D08F0088FF70 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		8436BEDF19E6D08F0088FF70 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		8436BEE219E6D08F0088FF70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8436BEE419E6D08F0088FF70 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		8436BEE719E6D08F0088FF70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		8436BEED19E6D08F0088FF70 /* kuplat_appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kuplat_appTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8436BEF219E6D08F0088FF70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8436BEF319E6D08F0088FF70 /* kuplat_appTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = kuplat_appTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8436BECE19E6D08F0088FF70 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8436BEEA19E6D08F0088FF70 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8436BEC819E6D08F0088FF70 = {
+			isa = PBXGroup;
+			children = (
+				8436BED319E6D08F0088FF70 /* kuplat_app */,
+				8436BEF019E6D08F0088FF70 /* kuplat_appTests */,
+				8436BED219E6D08F0088FF70 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8436BED219E6D08F0088FF70 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8436BED119E6D08F0088FF70 /* kuplat_app.app */,
+				8436BEED19E6D08F0088FF70 /* kuplat_appTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8436BED319E6D08F0088FF70 /* kuplat_app */ = {
+			isa = PBXGroup;
+			children = (
+				8436BED819E6D08F0088FF70 /* AppDelegate.h */,
+				8436BED919E6D08F0088FF70 /* AppDelegate.m */,
+				8436BEDB19E6D08F0088FF70 /* FirstViewController.h */,
+				8436BEDC19E6D08F0088FF70 /* FirstViewController.m */,
+				8436BEDE19E6D08F0088FF70 /* SecondViewController.h */,
+				8436BEDF19E6D08F0088FF70 /* SecondViewController.m */,
+				8436BEE119E6D08F0088FF70 /* Main.storyboard */,
+				8436BEE419E6D08F0088FF70 /* Images.xcassets */,
+				8436BEE619E6D08F0088FF70 /* LaunchScreen.xib */,
+				8436BED419E6D08F0088FF70 /* Supporting Files */,
+			);
+			path = kuplat_app;
+			sourceTree = "<group>";
+		};
+		8436BED419E6D08F0088FF70 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8436BED519E6D08F0088FF70 /* Info.plist */,
+				8436BED619E6D08F0088FF70 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8436BEF019E6D08F0088FF70 /* kuplat_appTests */ = {
+			isa = PBXGroup;
+			children = (
+				8436BEF319E6D08F0088FF70 /* kuplat_appTests.m */,
+				8436BEF119E6D08F0088FF70 /* Supporting Files */,
+			);
+			path = kuplat_appTests;
+			sourceTree = "<group>";
+		};
+		8436BEF119E6D08F0088FF70 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8436BEF219E6D08F0088FF70 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8436BED019E6D08F0088FF70 /* kuplat_app */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8436BEF719E6D08F0088FF70 /* Build configuration list for PBXNativeTarget "kuplat_app" */;
+			buildPhases = (
+				8436BECD19E6D08F0088FF70 /* Sources */,
+				8436BECE19E6D08F0088FF70 /* Frameworks */,
+				8436BECF19E6D08F0088FF70 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = kuplat_app;
+			productName = kuplat_app;
+			productReference = 8436BED119E6D08F0088FF70 /* kuplat_app.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8436BEEC19E6D08F0088FF70 /* kuplat_appTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8436BEFA19E6D08F0088FF70 /* Build configuration list for PBXNativeTarget "kuplat_appTests" */;
+			buildPhases = (
+				8436BEE919E6D08F0088FF70 /* Sources */,
+				8436BEEA19E6D08F0088FF70 /* Frameworks */,
+				8436BEEB19E6D08F0088FF70 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8436BEEF19E6D08F0088FF70 /* PBXTargetDependency */,
+			);
+			name = kuplat_appTests;
+			productName = kuplat_appTests;
+			productReference = 8436BEED19E6D08F0088FF70 /* kuplat_appTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8436BEC919E6D08F0088FF70 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = Wakabayashi.Lab;
+				TargetAttributes = {
+					8436BED019E6D08F0088FF70 = {
+						CreatedOnToolsVersion = 6.0.1;
+					};
+					8436BEEC19E6D08F0088FF70 = {
+						CreatedOnToolsVersion = 6.0.1;
+						TestTargetID = 8436BED019E6D08F0088FF70;
+					};
+				};
+			};
+			buildConfigurationList = 8436BECC19E6D08F0088FF70 /* Build configuration list for PBXProject "kuplat_app" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8436BEC819E6D08F0088FF70;
+			productRefGroup = 8436BED219E6D08F0088FF70 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8436BED019E6D08F0088FF70 /* kuplat_app */,
+				8436BEEC19E6D08F0088FF70 /* kuplat_appTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8436BECF19E6D08F0088FF70 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8436BEE319E6D08F0088FF70 /* Main.storyboard in Resources */,
+				8436BEE819E6D08F0088FF70 /* LaunchScreen.xib in Resources */,
+				8436BEE519E6D08F0088FF70 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8436BEEB19E6D08F0088FF70 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8436BECD19E6D08F0088FF70 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8436BEE019E6D08F0088FF70 /* SecondViewController.m in Sources */,
+				8436BEDA19E6D08F0088FF70 /* AppDelegate.m in Sources */,
+				8436BEDD19E6D08F0088FF70 /* FirstViewController.m in Sources */,
+				8436BED719E6D08F0088FF70 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8436BEE919E6D08F0088FF70 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8436BEF419E6D08F0088FF70 /* kuplat_appTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8436BEEF19E6D08F0088FF70 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8436BED019E6D08F0088FF70 /* kuplat_app */;
+			targetProxy = 8436BEEE19E6D08F0088FF70 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8436BEE119E6D08F0088FF70 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8436BEE219E6D08F0088FF70 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8436BEE619E6D08F0088FF70 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8436BEE719E6D08F0088FF70 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8436BEF519E6D08F0088FF70 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		8436BEF619E6D08F0088FF70 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8436BEF819E6D08F0088FF70 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = kuplat_app/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		8436BEF919E6D08F0088FF70 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = kuplat_app/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		8436BEFB19E6D08F0088FF70 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = kuplat_appTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/kuplat_app.app/kuplat_app";
+			};
+			name = Debug;
+		};
+		8436BEFC19E6D08F0088FF70 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = kuplat_appTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/kuplat_app.app/kuplat_app";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8436BECC19E6D08F0088FF70 /* Build configuration list for PBXProject "kuplat_app" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8436BEF519E6D08F0088FF70 /* Debug */,
+				8436BEF619E6D08F0088FF70 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8436BEF719E6D08F0088FF70 /* Build configuration list for PBXNativeTarget "kuplat_app" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8436BEF819E6D08F0088FF70 /* Debug */,
+				8436BEF919E6D08F0088FF70 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		8436BEFA19E6D08F0088FF70 /* Build configuration list for PBXNativeTarget "kuplat_appTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8436BEFB19E6D08F0088FF70 /* Debug */,
+				8436BEFC19E6D08F0088FF70 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8436BEC919E6D08F0088FF70 /* Project object */;
+}
