@@ -1,5 +1,5 @@
 //
-//  FirstViewController.h
+//  EventViewController.h
 //  kuplat_app
 //
 //  Created by 青野和巳 on 2014/10/09.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FirstViewController : UIViewController
+@interface EventViewController : UIViewController
 
 
 @end

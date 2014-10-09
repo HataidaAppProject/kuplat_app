@@ -1,5 +1,5 @@
 //
-//  SecondViewController.h
+//  HomeViewController.h
 //  kuplat_app
 //
 //  Created by 青野和巳 on 2014/10/09.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SecondViewController : UIViewController
+@interface HomeViewController : UIViewController
 
 
 @end

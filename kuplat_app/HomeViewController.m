@@ -1,18 +1,18 @@
 //
-//  FirstViewController.m
+//  HomeViewController.m
 //  kuplat_app
 //
 //  Created by 青野和巳 on 2014/10/09.
 //  Copyright (c) 2014年 Wakabayashi.Lab. All rights reserved.
 //
 
-#import "FirstViewController.h"
+#import "HomeViewController.h"
 
-@interface FirstViewController ()
+@interface HomeViewController ()
 
 @end
 
-@implementation FirstViewController
+@implementation HomeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
