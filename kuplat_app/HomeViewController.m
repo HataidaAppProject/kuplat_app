@@ -14,14 +14,42 @@
 
 @implementation HomeViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    /*****************
+       ホーム画面上部
+    *****************/
+    
+    
+    /*****************
+       ホーム画面下部
+    *****************/
+    //タップを有効化
+    _imgTrendEvent.userInteractionEnabled = YES;
+    _imgTrendRestaurant.userInteractionEnabled = YES;
+    //タグを設定
+    _imgTrendEvent.tag = 1;
+    _imgTrendRestaurant.tag = 2;
+    //アスペクト比を保ったままサイズ調整
+    _imgTrendEvent.contentMode = UIViewContentModeScaleAspectFill;
+    [_imgTrendEvent setClipsToBounds:YES];
+    _imgTrendRestaurant.contentMode = UIViewContentModeScaleAspectFill;
+    [_imgTrendRestaurant setClipsToBounds:YES];
+    //画像を指定
+    _imgTrendEvent.image = [UIImage imageNamed: @"SampleTrendEvent"];
+    _imgTrendRestaurant.image = [UIImage imageNamed: @"SampleTrendRestaurant"];
+    
 }
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)pagingAction:(id)sender {
+}
 @end

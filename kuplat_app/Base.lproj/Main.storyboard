@@ -8,7 +8,7 @@
         <!--KU PLAT-->
         <scene sceneID="30u-Wn-HaT">
             <objects>
-                <viewController id="FZV-Aa-mdQ" sceneMemberID="viewController">
+                <viewController id="FZV-Aa-mdQ" customClass="HomeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="d5I-cO-OkH"/>
                         <viewControllerLayoutGuide type="bottom" id="mFs-4Y-gIt"/>
@@ -18,43 +18,61 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="top" translatesAutoresizingMaskIntoConstraints="NO" id="Foy-UW-kZ1" userLabel="Trend View">
-                                <rect key="frame" x="26" y="94" width="548" height="247"/>
+                                <rect key="frame" x="26" y="94" width="548" height="262"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EHx-wa-sg9" userLabel="Trend Restaurant View">
                                 <rect key="frame" x="310" y="371" width="264" height="150"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trend Restaurant" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jDd-hD-gbQ">
-                                        <rect key="frame" x="67" y="8" width="131" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trend Restaurant" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HWj-9k-Xn6">
+                                        <rect key="frame" x="74" y="0.0" width="117" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="23H-yA-1B2"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sA2-Qw-UAu">
+                                        <rect key="frame" x="0.0" y="23" width="264" height="127"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.97254901960784312" green="0.79607843137254897" blue="0.67450980392156867" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="jDd-hD-gbQ" firstAttribute="top" secondItem="EHx-wa-sg9" secondAttribute="top" constant="8" id="KEq-G8-tjm"/>
+                                    <constraint firstAttribute="bottom" secondItem="sA2-Qw-UAu" secondAttribute="bottom" id="8xp-mN-X3q"/>
+                                    <constraint firstItem="sA2-Qw-UAu" firstAttribute="top" secondItem="HWj-9k-Xn6" secondAttribute="bottom" constant="2" id="Bpl-wM-AkY"/>
                                     <constraint firstAttribute="height" constant="150" id="SRV-9W-fq3"/>
-                                    <constraint firstAttribute="centerX" secondItem="jDd-hD-gbQ" secondAttribute="centerX" id="bRy-d3-joL"/>
-                                    <constraint firstItem="jDd-hD-gbQ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="EHx-wa-sg9" secondAttribute="top" constant="8" id="g83-zQ-uIf"/>
-                                    <constraint firstAttribute="centerX" secondItem="jDd-hD-gbQ" secondAttribute="centerX" id="o7F-4l-gRL"/>
+                                    <constraint firstAttribute="trailing" secondItem="sA2-Qw-UAu" secondAttribute="trailing" id="VDv-Dl-Xuf"/>
+                                    <constraint firstItem="HWj-9k-Xn6" firstAttribute="top" secondItem="EHx-wa-sg9" secondAttribute="top" id="Xd2-gU-vCz"/>
+                                    <constraint firstAttribute="centerX" secondItem="HWj-9k-Xn6" secondAttribute="centerX" id="rCy-eC-Yxy"/>
+                                    <constraint firstItem="sA2-Qw-UAu" firstAttribute="leading" secondItem="EHx-wa-sg9" secondAttribute="leading" id="yLT-f1-KXQ"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RMY-vw-J6p" userLabel="Trend Event View">
                                 <rect key="frame" x="26" y="371" width="264" height="150"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trend Event" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kIq-MB-ZT1">
-                                        <rect key="frame" x="87" y="8" width="91" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Pw6-EU-U6M">
+                                        <rect key="frame" x="0.0" y="23" width="264" height="127"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trend Event" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="564-Iz-nPA">
+                                        <rect key="frame" x="92" y="0.0" width="81" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="YuH-uY-wgH"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.77254901960784317" green="0.8784313725490196" blue="0.70980392156862748" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="kIq-MB-ZT1" firstAttribute="top" secondItem="RMY-vw-J6p" secondAttribute="top" constant="8" id="qSz-ZS-v15"/>
-                                    <constraint firstAttribute="centerX" secondItem="kIq-MB-ZT1" secondAttribute="centerX" id="slC-CT-wBI"/>
+                                    <constraint firstItem="Pw6-EU-U6M" firstAttribute="leading" secondItem="RMY-vw-J6p" secondAttribute="leading" id="G4u-P4-3lI"/>
+                                    <constraint firstItem="564-Iz-nPA" firstAttribute="top" secondItem="RMY-vw-J6p" secondAttribute="top" id="Hpw-5D-lGh"/>
+                                    <constraint firstItem="Pw6-EU-U6M" firstAttribute="top" secondItem="564-Iz-nPA" secondAttribute="bottom" constant="2" id="L9H-ju-he8"/>
+                                    <constraint firstAttribute="bottom" secondItem="Pw6-EU-U6M" secondAttribute="bottom" id="YFg-ll-blj"/>
+                                    <constraint firstAttribute="trailing" secondItem="Pw6-EU-U6M" secondAttribute="trailing" id="Yjv-U2-RFD"/>
+                                    <constraint firstAttribute="centerX" secondItem="564-Iz-nPA" secondAttribute="centerX" id="k84-dw-R2Y"/>
                                     <constraint firstAttribute="height" constant="150" id="xHy-hi-y01"/>
                                 </constraints>
                             </view>
@@ -66,7 +84,7 @@
                             <constraint firstItem="RMY-vw-J6p" firstAttribute="bottom" secondItem="EHx-wa-sg9" secondAttribute="bottom" id="JUS-3W-jm4"/>
                             <constraint firstItem="RMY-vw-J6p" firstAttribute="leading" secondItem="VM3-U0-ckS" secondAttribute="leadingMargin" constant="10" id="JmB-XB-d5B"/>
                             <constraint firstItem="Foy-UW-kZ1" firstAttribute="top" secondItem="d5I-cO-OkH" secondAttribute="bottom" constant="30" id="MfZ-8j-5yU"/>
-                            <constraint firstItem="RMY-vw-J6p" firstAttribute="top" secondItem="Foy-UW-kZ1" secondAttribute="bottom" constant="30" id="Pwi-bw-Ff7"/>
+                            <constraint firstItem="RMY-vw-J6p" firstAttribute="top" secondItem="Foy-UW-kZ1" secondAttribute="bottom" constant="15" id="Pwi-bw-Ff7"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Foy-UW-kZ1" secondAttribute="trailing" constant="10" id="Pzh-9Q-Mdo"/>
                             <constraint firstItem="Foy-UW-kZ1" firstAttribute="leading" secondItem="VM3-U0-ckS" secondAttribute="leadingMargin" constant="10" id="Td9-hO-3E2"/>
                             <constraint firstAttribute="trailingMargin" secondItem="EHx-wa-sg9" secondAttribute="trailing" constant="10" id="a6b-H9-Jui"/>
@@ -75,8 +93,14 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="KU PLAT" id="eEI-f3-EV2">
-                        <barButtonItem key="rightBarButtonItem" image="menu" id="kn4-dE-vsN"/>
+                        <barButtonItem key="rightBarButtonItem" image="menu" id="kn4-dE-vsN">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="imgTrendEvent" destination="Pw6-EU-U6M" id="XpY-9z-DhH"/>
+                        <outlet property="imgTrendRestaurant" destination="sA2-Qw-UAu" id="75J-tm-yh4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Ae-Lt-FxT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -96,7 +120,9 @@
                         <color key="backgroundColor" red="0.94117647058823528" green="0.97254901960784312" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="EVENT" id="Rgq-yg-F5Y">
-                        <barButtonItem key="rightBarButtonItem" image="menu" id="ofB-MD-2FI"/>
+                        <barButtonItem key="rightBarButtonItem" image="menu" id="ofB-MD-2FI">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
@@ -117,7 +143,9 @@
                         <color key="backgroundColor" red="0.99215686274509807" green="0.94901960784313721" blue="0.92156862745098034" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="RESTAURANT" id="lh2-Vd-CeM">
-                        <barButtonItem key="rightBarButtonItem" image="menu" id="rxF-qG-0Rz"/>
+                        <barButtonItem key="rightBarButtonItem" image="menu" id="rxF-qG-0Rz">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zcK-mi-TC9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -138,7 +166,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="MAP" id="RfH-Oj-CVo">
-                        <barButtonItem key="rightBarButtonItem" image="menu" id="864-y0-xeL"/>
+                        <barButtonItem key="rightBarButtonItem" image="menu" id="864-y0-xeL">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hcu-2q-5E4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -159,7 +189,9 @@
                         <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="PROFILE" id="opo-eq-Ikv">
-                        <barButtonItem key="rightBarButtonItem" image="menu" id="Wa7-AU-tGH"/>
+                        <barButtonItem key="rightBarButtonItem" image="menu" id="Wa7-AU-tGH">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kYD-Kk-Jfv" userLabel="First Responder" sceneMemberID="firstResponder"/>
