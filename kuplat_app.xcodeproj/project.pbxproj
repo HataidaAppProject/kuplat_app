@@ -15,6 +15,9 @@
 		8436BEE519E6D08F0088FF70 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8436BEE419E6D08F0088FF70 /* Images.xcassets */; };
 		8436BEE819E6D08F0088FF70 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8436BEE619E6D08F0088FF70 /* LaunchScreen.xib */; };
 		8436BEF419E6D08F0088FF70 /* kuplat_appTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8436BEF319E6D08F0088FF70 /* kuplat_appTests.m */; };
+		8436BF0719EE0DB00088FF70 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8436BF0619EE0DB00088FF70 /* MapViewController.m */; };
+		8436BF0919EE0E4C0088FF70 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8436BF0819EE0E4C0088FF70 /* ProfileViewController.m */; };
+		8436BF0B19EE0E5F0088FF70 /* RestaurantViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8436BF0A19EE0E5F0088FF70 /* RestaurantViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +46,12 @@
 		8436BEED19E6D08F0088FF70 /* kuplat_appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kuplat_appTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8436BEF219E6D08F0088FF70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8436BEF319E6D08F0088FF70 /* kuplat_appTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = kuplat_appTests.m; sourceTree = "<group>"; };
+		8436BF0319EE0D880088FF70 /* RestaurantViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RestaurantViewController.h; sourceTree = "<group>"; };
+		8436BF0419EE0D970088FF70 /* MapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		8436BF0519EE0DA40088FF70 /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		8436BF0619EE0DB00088FF70 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		8436BF0819EE0E4C0088FF70 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		8436BF0A19EE0E5F0088FF70 /* RestaurantViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +99,12 @@
 				8436BEDC19E6D08F0088FF70 /* HomeViewController.m */,
 				8436BEDE19E6D08F0088FF70 /* EventViewController.h */,
 				8436BEDF19E6D08F0088FF70 /* EventViewController.m */,
+				8436BF0319EE0D880088FF70 /* RestaurantViewController.h */,
+				8436BF0A19EE0E5F0088FF70 /* RestaurantViewController.m */,
+				8436BF0419EE0D970088FF70 /* MapViewController.h */,
+				8436BF0619EE0DB00088FF70 /* MapViewController.m */,
+				8436BF0519EE0DA40088FF70 /* ProfileViewController.h */,
+				8436BF0819EE0E4C0088FF70 /* ProfileViewController.m */,
 				8436BEE119E6D08F0088FF70 /* Main.storyboard */,
 				8436BEE419E6D08F0088FF70 /* Images.xcassets */,
 				8436BEE619E6D08F0088FF70 /* LaunchScreen.xib */,
@@ -225,7 +240,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8436BEE019E6D08F0088FF70 /* EventViewController.m in Sources */,
+				8436BF0B19EE0E5F0088FF70 /* RestaurantViewController.m in Sources */,
 				8436BEDA19E6D08F0088FF70 /* AppDelegate.m in Sources */,
+				8436BF0719EE0DB00088FF70 /* MapViewController.m in Sources */,
+				8436BF0919EE0E4C0088FF70 /* ProfileViewController.m in Sources */,
 				8436BEDD19E6D08F0088FF70 /* HomeViewController.m in Sources */,
 				8436BED719E6D08F0088FF70 /* main.m in Sources */,
 			);
@@ -418,6 +436,7 @@
 				8436BEF919E6D08F0088FF70 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8436BEFA19E6D08F0088FF70 /* Build configuration list for PBXNativeTarget "kuplat_appTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +445,7 @@
 				8436BEFC19E6D08F0088FF70 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
