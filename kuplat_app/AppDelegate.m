@@ -23,6 +23,9 @@
     [UINavigationBar appearance].barTintColor = [UIColor whiteColor];
     //[[UITabBar appearance] setBackgroundColor:[UIColor whiteColor]]; //これだと不透明が残った
     
+    //Googleマップ
+    [GMSServices provideAPIKey:@"AIzaSyAAZoEAozcwh4JBXbb0xfQaNE_JnMUni_Y"];
+    
     return YES;
 }
 
