@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		841FF43D19F4F1B10047CCCB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 841FF43C19F4F1B10047CCCB /* Images.xcassets */; };
 		8436BED719E6D08F0088FF70 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8436BED619E6D08F0088FF70 /* main.m */; };
 		8436BEDA19E6D08F0088FF70 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8436BED919E6D08F0088FF70 /* AppDelegate.m */; };
 		8436BEDD19E6D08F0088FF70 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8436BEDC19E6D08F0088FF70 /* HomeViewController.m */; };
 		8436BEE019E6D08F0088FF70 /* EventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8436BEDF19E6D08F0088FF70 /* EventViewController.m */; };
 		8436BEE319E6D08F0088FF70 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8436BEE119E6D08F0088FF70 /* Main.storyboard */; };
-		8436BEE519E6D08F0088FF70 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8436BEE419E6D08F0088FF70 /* Images.xcassets */; };
 		8436BEE819E6D08F0088FF70 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8436BEE619E6D08F0088FF70 /* LaunchScreen.xib */; };
 		8436BEF419E6D08F0088FF70 /* kuplat_appTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8436BEF319E6D08F0088FF70 /* kuplat_appTests.m */; };
 		8436BF0719EE0DB00088FF70 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8436BF0619EE0DB00088FF70 /* MapViewController.m */; };
@@ -31,6 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		841FF43C19F4F1B10047CCCB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8436BED119E6D08F0088FF70 /* kuplat_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kuplat_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8436BED519E6D08F0088FF70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8436BED619E6D08F0088FF70 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -41,7 +42,6 @@
 		8436BEDE19E6D08F0088FF70 /* EventViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventViewController.h; sourceTree = "<group>"; };
 		8436BEDF19E6D08F0088FF70 /* EventViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventViewController.m; sourceTree = "<group>"; };
 		8436BEE219E6D08F0088FF70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		8436BEE419E6D08F0088FF70 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8436BEE719E6D08F0088FF70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		8436BEED19E6D08F0088FF70 /* kuplat_appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kuplat_appTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8436BEF219E6D08F0088FF70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -106,7 +106,7 @@
 				8436BF0519EE0DA40088FF70 /* ProfileViewController.h */,
 				8436BF0819EE0E4C0088FF70 /* ProfileViewController.m */,
 				8436BEE119E6D08F0088FF70 /* Main.storyboard */,
-				8436BEE419E6D08F0088FF70 /* Images.xcassets */,
+				841FF43C19F4F1B10047CCCB /* Images.xcassets */,
 				8436BEE619E6D08F0088FF70 /* LaunchScreen.xib */,
 				8436BED419E6D08F0088FF70 /* Supporting Files */,
 			);
@@ -219,9 +219,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				841FF43D19F4F1B10047CCCB /* Images.xcassets in Resources */,
 				8436BEE319E6D08F0088FF70 /* Main.storyboard in Resources */,
 				8436BEE819E6D08F0088FF70 /* LaunchScreen.xib in Resources */,
-				8436BEE519E6D08F0088FF70 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

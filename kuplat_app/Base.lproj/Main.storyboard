@@ -225,7 +225,7 @@
         <scene sceneID="RDB-Ci-51H">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Emq-XN-BNJ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="HOME" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="HOME" image="home" id="acW-dT-cKf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="LnA-0A-eNt">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -244,7 +244,7 @@
         <scene sceneID="ePY-NP-2rO">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Hc2-u9-78b" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="RESTAURANT" id="Txg-27-OTF"/>
+                    <tabBarItem key="tabBarItem" title="RESTAURANT" image="restaurant" id="Txg-27-OTF"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="2sa-kf-jmz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -263,7 +263,7 @@
         <scene sceneID="j2f-nA-8hI">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="A3b-at-Rmr" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="MAP" id="u8h-bJ-cd1"/>
+                    <tabBarItem key="tabBarItem" title="MAP" image="map" id="u8h-bJ-cd1"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="siy-7a-iwr">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -282,7 +282,7 @@
         <scene sceneID="r4G-jm-UmS">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kGD-WI-mbZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="PROFILE" id="vnb-v9-NjP"/>
+                    <tabBarItem key="tabBarItem" title="PROFILE" image="profile" id="vnb-v9-NjP"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ACX-87-cuC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -301,7 +301,7 @@
         <scene sceneID="x9d-fc-JGL">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gfn-KY-1fv" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="EVENT" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="EVENT" image="event" id="cPa-gy-q4n"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="fdc-2x-aEY">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -318,8 +318,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
+        <image name="event" width="30" height="30"/>
+        <image name="home" width="30" height="30"/>
+        <image name="map" width="30" height="30"/>
         <image name="menu" width="24" height="24"/>
-        <image name="second" width="30" height="30"/>
+        <image name="profile" width="30" height="30"/>
+        <image name="restaurant" width="30" height="30"/>
     </resources>
 </document>
