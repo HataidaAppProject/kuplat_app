@@ -14,10 +14,15 @@
 
 @implementation HomeViewController
 
+- (void)viewWillAppear:(BOOL)animated {
+    //タブ色の設定 rgb=0,0,0
+    [self.tabBarController.tabBar setTintColor:[UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:1.0]];
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+        
     /*****************
        ホーム画面上部
     *****************/

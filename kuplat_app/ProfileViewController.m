@@ -14,6 +14,11 @@
 
 @implementation ProfileViewController
 
+- (void)viewWillAppear:(BOOL)animated {
+    //タブ色の設定 rgb=210,149,41
+    [self.tabBarController.tabBar setTintColor:[UIColor colorWithRed:0.824 green:0.584 blue:0.161 alpha:1.0]];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.

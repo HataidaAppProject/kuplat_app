@@ -14,8 +14,15 @@
 
 @implementation EventViewController
 
+- (void)viewWillAppear:(BOOL)animated {
+    //タブ色の設定 rgb=74,133,34
+    [self.tabBarController.tabBar setTintColor:[UIColor colorWithRed:0.290 green:0.522 blue:0.133 alpha:1.0]];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[UITabBar appearance] setTintColor:[UIColor greenColor]];
+
     // Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -23,5 +30,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 @end
