@@ -17,6 +17,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    //ナビゲーションバーとタブバーの背景色を白にする
+    [UITabBar appearance].barTintColor = [UIColor whiteColor];
+    [UINavigationBar appearance].barTintColor = [UIColor whiteColor];
+    //[[UITabBar appearance] setBackgroundColor:[UIColor whiteColor]]; //これだと不透明が残った
+    
     return YES;
 }
 
@@ -50,5 +56,6 @@
 
 - (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
 }
+
 
 @end
