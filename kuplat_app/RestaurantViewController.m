@@ -17,6 +17,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     //タブ色の設定 rgb=190,82,36
     [self.tabBarController.tabBar setTintColor:[UIColor colorWithRed:0.745 green:0.322 blue:0.141 alpha:1.0]];
+    [self.navigationController.navigationBar setTintColor:[UIColor colorWithRed:0.745 green:0.322 blue:0.141 alpha:1.0]];
 }
 
 - (void)viewDidLoad {

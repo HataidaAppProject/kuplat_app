@@ -18,6 +18,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     //タブ色の設定 rgb=0,0,0
     [self.tabBarController.tabBar setTintColor:[UIColor blackColor]];
+    [self.navigationController.navigationBar setTintColor:[UIColor blackColor]];
 }
 
 
@@ -55,6 +56,11 @@
     switch (touch.view.tag) {
         case 1:
         {
+            // 選択タブをイベントに変更
+            //self.tabBarController.selectedIndex = 1;
+            // ***これやると遷移したところで止まる***
+            
+            // イベント詳細へ遷移
             UIStoryboard *sb = [UIStoryboard storyboardWithName:@"EventDetailViewController" bundle:nil];
             EventDetailViewController *con = [sb instantiateInitialViewController];
             [self.navigationController pushViewController:con animated:YES];
@@ -72,6 +78,4 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)pagingAction:(id)sender {
-}
 @end
