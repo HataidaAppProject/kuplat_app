@@ -19,6 +19,10 @@
 		8436BF0719EE0DB00088FF70 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8436BF0619EE0DB00088FF70 /* MapViewController.m */; };
 		8436BF0919EE0E4C0088FF70 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8436BF0819EE0E4C0088FF70 /* ProfileViewController.m */; };
 		8436BF0B19EE0E5F0088FF70 /* RestaurantViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8436BF0A19EE0E5F0088FF70 /* RestaurantViewController.m */; };
+		845100DB19F93FF10015F583 /* EventDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845100DA19F93FF10015F583 /* EventDetailView.xib */; };
+		845100E419FA36E00015F583 /* EventDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 845100E319FA36E00015F583 /* EventDetailViewController.storyboard */; };
+		845100E619FA380B0015F583 /* EventDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 845100E519FA380B0015F583 /* EventDetailViewController.m */; };
+		845100EA19FA47E10015F583 /* EventDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 845100E919FA47E10015F583 /* EventDetailView.m */; };
 		84ECC6D619F54511002B9A24 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 84ECC6D419F54511002B9A24 /* Podfile */; };
 		84ECC6D719F54511002B9A24 /* TemplateIcon2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84ECC6D519F54511002B9A24 /* TemplateIcon2x.png */; };
 		84F8AF2B19F578BC001BE0FD /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F8AF2A19F578BC001BE0FD /* GoogleMaps.framework */; };
@@ -70,6 +74,12 @@
 		8436BF0619EE0DB00088FF70 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		8436BF0819EE0E4C0088FF70 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		8436BF0A19EE0E5F0088FF70 /* RestaurantViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantViewController.m; sourceTree = "<group>"; };
+		845100DA19F93FF10015F583 /* EventDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventDetailView.xib; sourceTree = "<group>"; };
+		845100E319FA36E00015F583 /* EventDetailViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EventDetailViewController.storyboard; sourceTree = "<group>"; };
+		845100E519FA380B0015F583 /* EventDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventDetailViewController.m; sourceTree = "<group>"; };
+		845100E719FA38210015F583 /* EventDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventDetailViewController.h; sourceTree = "<group>"; };
+		845100E819FA47AC0015F583 /* EventDetailView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventDetailView.h; sourceTree = "<group>"; };
+		845100E919FA47E10015F583 /* EventDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventDetailView.m; sourceTree = "<group>"; };
 		84ECC6D419F54511002B9A24 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		84ECC6D519F54511002B9A24 /* TemplateIcon2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TemplateIcon2x.png; sourceTree = "<group>"; };
 		84F8AF2A19F578BC001BE0FD /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = "../../Downloads/GoogleMaps-iOS-1.8.1/GoogleMaps.framework"; sourceTree = "<group>"; };
@@ -146,6 +156,7 @@
 			children = (
 				8436BED819E6D08F0088FF70 /* AppDelegate.h */,
 				8436BED919E6D08F0088FF70 /* AppDelegate.m */,
+				8436BEE119E6D08F0088FF70 /* Main.storyboard */,
 				8436BEDB19E6D08F0088FF70 /* HomeViewController.h */,
 				8436BEDC19E6D08F0088FF70 /* HomeViewController.m */,
 				8436BEDE19E6D08F0088FF70 /* EventViewController.h */,
@@ -156,7 +167,12 @@
 				8436BF0619EE0DB00088FF70 /* MapViewController.m */,
 				8436BF0519EE0DA40088FF70 /* ProfileViewController.h */,
 				8436BF0819EE0E4C0088FF70 /* ProfileViewController.m */,
-				8436BEE119E6D08F0088FF70 /* Main.storyboard */,
+				845100E719FA38210015F583 /* EventDetailViewController.h */,
+				845100E519FA380B0015F583 /* EventDetailViewController.m */,
+				845100E319FA36E00015F583 /* EventDetailViewController.storyboard */,
+				845100E819FA47AC0015F583 /* EventDetailView.h */,
+				845100E919FA47E10015F583 /* EventDetailView.m */,
+				845100DA19F93FF10015F583 /* EventDetailView.xib */,
 				841FF43C19F4F1B10047CCCB /* Images.xcassets */,
 				8436BEE619E6D08F0088FF70 /* LaunchScreen.xib */,
 				8436BED419E6D08F0088FF70 /* Supporting Files */,
@@ -256,11 +272,12 @@
 		8436BEC919E6D08F0088FF70 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0600;
+				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = Wakabayashi.Lab;
 				TargetAttributes = {
 					8436BED019E6D08F0088FF70 = {
 						CreatedOnToolsVersion = 6.0.1;
+						DevelopmentTeam = 9UHGWB8493;
 					};
 					8436BEEC19E6D08F0088FF70 = {
 						CreatedOnToolsVersion = 6.0.1;
@@ -295,9 +312,11 @@
 				84ECC6D719F54511002B9A24 /* TemplateIcon2x.png in Resources */,
 				841FF43D19F4F1B10047CCCB /* Images.xcassets in Resources */,
 				8436BEE319E6D08F0088FF70 /* Main.storyboard in Resources */,
+				845100DB19F93FF10015F583 /* EventDetailView.xib in Resources */,
 				84F8AF2E19F579B5001BE0FD /* GoogleMaps.bundle in Resources */,
 				84ECC6D619F54511002B9A24 /* Podfile in Resources */,
 				8436BEE819E6D08F0088FF70 /* LaunchScreen.xib in Resources */,
+				845100E419FA36E00015F583 /* EventDetailViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,11 +336,13 @@
 			files = (
 				8436BEE019E6D08F0088FF70 /* EventViewController.m in Sources */,
 				8436BF0B19EE0E5F0088FF70 /* RestaurantViewController.m in Sources */,
+				845100E619FA380B0015F583 /* EventDetailViewController.m in Sources */,
 				8436BEDA19E6D08F0088FF70 /* AppDelegate.m in Sources */,
 				8436BF0719EE0DB00088FF70 /* MapViewController.m in Sources */,
 				8436BF0919EE0E4C0088FF70 /* ProfileViewController.m in Sources */,
 				8436BEDD19E6D08F0088FF70 /* HomeViewController.m in Sources */,
 				8436BED719E6D08F0088FF70 /* main.m in Sources */,
+				845100EA19FA47E10015F583 /* EventDetailView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,7 +388,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -410,7 +430,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -446,8 +465,9 @@
 		8436BEF819E6D08F0088FF70 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/admin/Downloads/GoogleMaps-iOS-1.8.1",
@@ -456,14 +476,16 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
 		8436BEF919E6D08F0088FF70 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/admin/Downloads/GoogleMaps-iOS-1.8.1",
@@ -472,6 +494,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

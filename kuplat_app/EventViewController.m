@@ -7,6 +7,7 @@
 //
 
 #import "EventViewController.h"
+#import "EventDetailViewController.h"
 
 @interface EventViewController ()
 
@@ -21,14 +22,64 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[UITabBar appearance] setTintColor:[UIColor greenColor]];
-
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    self.title = @"EVENT";
+    
+    // デリゲートメソッドをこのクラスで実装する
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    
+    // テーブルに表示したいデータソースをセット
+    self.menuItems = [NSMutableArray arrayWithCapacity:10];
+    [self.menuItems addObject:@"イベント詳細"];
+    [self.menuItems addObject:@"イベント詳細遷移テスト"];
+    [self.menuItems addObject:@"イベント詳細"];
+    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+#pragma mark - UITableView DataSource
+
+/**
+ テーブルに表示するデータ件数を返します。（必須）
+ @return NSInteger : データ件数
+ */
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.menuItems.count;
+}
+
+/**
+ テーブルに表示するセルを返します。（必須）
+ @return UITableViewCell : テーブルセル
+ */
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"Cell";
+    // 再利用できるセルがあれば再利用する
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    //UITableViewCell *cell = [_tableView dequeueReusableCellWithIdentifier:_STCellId];
+    if (!cell) {
+        // 再利用できない場合は新規で作成
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                      reuseIdentifier:CellIdentifier];
+    }
+    
+    cell.textLabel.text = [_menuItems objectAtIndex:indexPath.row];
+    //cell.textLabel.text = self.menuItems[indexPath.row];
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    return cell;
+}
+
+#pragma mark - UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == 1) {
+        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"EventDetailViewController" bundle:nil];
+        EventDetailViewController *con = [sb instantiateInitialViewController];
+        [self.navigationController pushViewController:con animated:YES];
+    }
 }
 
 

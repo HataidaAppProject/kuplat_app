@@ -7,6 +7,7 @@
 //
 
 #import "HomeViewController.h"
+#import "EventDetailViewController.h"
 
 @interface HomeViewController ()
 
@@ -48,7 +49,23 @@
     
 }
 
-
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch *touch = [touches anyObject];
+    switch (touch.view.tag) {
+        case 1:
+        {
+            UIStoryboard *sb = [UIStoryboard storyboardWithName:@"EventDetailViewController" bundle:nil];
+            EventDetailViewController *con = [sb instantiateInitialViewController];
+            [self.navigationController pushViewController:con animated:YES];
+            break;
+        }
+        case 2:
+            break;
+        default:
+            break;
+    }
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

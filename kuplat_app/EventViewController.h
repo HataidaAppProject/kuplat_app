@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EventViewController : UIViewController
+@interface EventViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property(strong, nonatomic) NSMutableArray *menuItems;
 
 @end
 
