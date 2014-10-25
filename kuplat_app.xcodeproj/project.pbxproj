@@ -24,7 +24,6 @@
 		845100E619FA380B0015F583 /* EventDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 845100E519FA380B0015F583 /* EventDetailViewController.m */; };
 		845100EA19FA47E10015F583 /* EventDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 845100E919FA47E10015F583 /* EventDetailView.m */; };
 		84ECC6D619F54511002B9A24 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 84ECC6D419F54511002B9A24 /* Podfile */; };
-		84ECC6D719F54511002B9A24 /* TemplateIcon2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84ECC6D519F54511002B9A24 /* TemplateIcon2x.png */; };
 		84F8AF2B19F578BC001BE0FD /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F8AF2A19F578BC001BE0FD /* GoogleMaps.framework */; };
 		84F8AF2E19F579B5001BE0FD /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 84F8AF2D19F579B5001BE0FD /* GoogleMaps.bundle */; };
 		84F8AF3019F579E0001BE0FD /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F8AF2F19F579E0001BE0FD /* AVFoundation.framework */; };
@@ -81,7 +80,6 @@
 		845100E819FA47AC0015F583 /* EventDetailView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventDetailView.h; sourceTree = "<group>"; };
 		845100E919FA47E10015F583 /* EventDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventDetailView.m; sourceTree = "<group>"; };
 		84ECC6D419F54511002B9A24 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
-		84ECC6D519F54511002B9A24 /* TemplateIcon2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TemplateIcon2x.png; sourceTree = "<group>"; };
 		84F8AF2A19F578BC001BE0FD /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = "../../Downloads/GoogleMaps-iOS-1.8.1/GoogleMaps.framework"; sourceTree = "<group>"; };
 		84F8AF2D19F579B5001BE0FD /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GoogleMaps.bundle; sourceTree = "<group>"; };
 		84F8AF2F19F579E0001BE0FD /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -134,7 +132,6 @@
 			isa = PBXGroup;
 			children = (
 				84ECC6D419F54511002B9A24 /* Podfile */,
-				84ECC6D519F54511002B9A24 /* TemplateIcon2x.png */,
 				8436BED319E6D08F0088FF70 /* kuplat_app */,
 				8436BEF019E6D08F0088FF70 /* kuplat_appTests */,
 				84F8AF2C19F57987001BE0FD /* Frameworks */,
@@ -309,7 +306,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84ECC6D719F54511002B9A24 /* TemplateIcon2x.png in Resources */,
 				841FF43D19F4F1B10047CCCB /* Images.xcassets in Resources */,
 				8436BEE319E6D08F0088FF70 /* Main.storyboard in Resources */,
 				845100DB19F93FF10015F583 /* EventDetailView.xib in Resources */,

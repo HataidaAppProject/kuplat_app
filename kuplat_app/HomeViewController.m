@@ -48,6 +48,12 @@
     _imgTrendEvent.image = [UIImage imageNamed: @"SampleTrendEvent"];
     _imgTrendRestaurant.image = [UIImage imageNamed: @"SampleTrendRestaurant"];
     
+    // 戻るボタンを変更
+    UIBarButtonItem* btn = [[UIBarButtonItem alloc] initWithTitle:@"HOME"
+                                                            style:UIBarButtonItemStylePlain
+                                                           target:nil
+                                                           action:nil];
+    self.navigationItem.backBarButtonItem = btn;
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
@@ -64,6 +70,7 @@
             UIStoryboard *sb = [UIStoryboard storyboardWithName:@"EventDetailViewController" bundle:nil];
             EventDetailViewController *con = [sb instantiateInitialViewController];
             [self.navigationController pushViewController:con animated:YES];
+            
             break;
         }
         case 2:

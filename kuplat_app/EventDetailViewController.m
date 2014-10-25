@@ -19,9 +19,10 @@
 @implementation EventDetailViewController
 
 - (void)viewWillAppear:(BOOL)animated {
-    //タブ色の設定 rgb=74,133,34
-    [self.tabBarController.tabBar setTintColor:[UIColor colorWithRed:0.290 green:0.522 blue:0.133 alpha:1.0]];
-    [self.navigationController.navigationBar setTintColor:[UIColor colorWithRed:0.290 green:0.522 blue:0.133 alpha:1.0]];
+    //タブ色の設定 遷移元のviewWillAppearを呼び出す
+    NSInteger index = [self.navigationController.viewControllers count];
+    UIViewController *parent = [self.navigationController.viewControllers objectAtIndex:index-2];
+    [parent viewWillAppear:YES];
 }
 
 - (void)viewDidLoad {
