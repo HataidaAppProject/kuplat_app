@@ -70,6 +70,7 @@
                                                              constant:0]];
     
     //アスペクト比を保ったままサイズ調整
+    
     _contentView.imageView.contentMode = UIViewContentModeScaleAspectFill;
     [_contentView.imageView setClipsToBounds:YES];
     _contentView.imageView.image = [UIImage imageNamed:@"SampleTrendEvent"];

@@ -62,14 +62,18 @@
     switch (touch.view.tag) {
         case 1:
         {
-            // 選択タブをイベントに変更
-            //self.tabBarController.selectedIndex = 1;
-            // ***これやると遷移したところで止まる***
-            
             // イベント詳細へ遷移
             UIStoryboard *sb = [UIStoryboard storyboardWithName:@"EventDetailViewController" bundle:nil];
             EventDetailViewController *con = [sb instantiateInitialViewController];
-            [self.navigationController pushViewController:con animated:YES];
+
+            // EVENTタブのViewControllerを取得する
+            UINavigationController *vc = self.tabBarController.viewControllers[1];
+            // EVENTタブを選択済みにする
+            self.tabBarController.selectedViewController = vc;
+            // UINavigationControllerに追加済みのViewを一旦取り除く
+            [vc popToRootViewControllerAnimated:NO];
+            // EVENTViewの画面遷移処理を呼び出す
+            [vc pushViewController:con animated:YES];
             
             break;
         }
