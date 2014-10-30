@@ -70,7 +70,24 @@
                                                              constant:0]];
     
     //アスペクト比を保ったままサイズ調整
-    
+    UIScreen *sc = [UIScreen mainScreen];
+    self.contentView.imageView.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.contentView.imageView addConstraint:[NSLayoutConstraint constraintWithItem:self.contentView.imageView
+                                                                       attribute:NSLayoutAttributeWidth
+                                                                       relatedBy:NSLayoutRelationEqual
+                                                                          toItem:nil
+                                                                       attribute:NSLayoutAttributeWidth
+                                                                      multiplier:0.0
+                                                                        //constant:250]];
+                                                                        constant:sc.applicationFrame.size.width - 30]];
+    /*[self.contentView.imageView addConstraint:[NSLayoutConstraint constraintWithItem:self.contentView.imageView
+                                                                           attribute:NSLayoutAttributeCenterX
+                                                                           relatedBy:NSLayoutRelationEqual
+                                                                              toItem:self.contentView
+                                                                           attribute:NSLayoutAttributeCenterX
+                                                                          multiplier:0.0
+                                                                            constant:0.0]];
+    */
     _contentView.imageView.contentMode = UIViewContentModeScaleAspectFill;
     [_contentView.imageView setClipsToBounds:YES];
     _contentView.imageView.image = [UIImage imageNamed:@"SampleTrendEvent"];

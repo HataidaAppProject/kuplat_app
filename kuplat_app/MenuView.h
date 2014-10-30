@@ -9,11 +9,12 @@
 #import <UIKit/UIKit.h>
 
 typedef NS_ENUM(NSInteger, MenuViewSelectedItemType) {
-    MenuViewSelectedItemTypeAddRestaurant = 1,
+    MenuViewSelectedItemTypeAddRestaurant = 0,
     MenuViewSelectedItemTypeAddEvent,
     MenuViewSelectedItemTypeModifyUserInfo,
     MenuViewSelectedItemTypeCntact,
-    MenuViewSelectedItemTypeAppInfo
+    MenuViewSelectedItemTypeAppInfo,
+    MenuItemNum
 };
 
 

@@ -62,7 +62,7 @@
                                                                      toItem:nil
                                                                   attribute:NSLayoutAttributeHeight
                                                                  multiplier:1.0
-                                                                   constant:self.navigationController.navigationBar.frame.size.height*5]];
+                                                                   constant:self.navigationController.navigationBar.frame.size.height*MenuItemNum]];
     // 底辺と画面の上端
     [menuLayoutConstraints addObject:[NSLayoutConstraint constraintWithItem:self.overlayView
                                                                   attribute:NSLayoutAttributeTop
@@ -136,6 +136,7 @@
         default:
             break;
     }
+    
 }
 
 

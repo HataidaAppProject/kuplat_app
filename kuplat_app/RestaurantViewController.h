@@ -10,6 +10,10 @@
 
 @interface RestaurantViewController : UIViewController
 
+/**
+  *  サムネイル・デバイス名・セル番号で構成されたカスタムセルのIDです。
+  */
+//static NSString * const RestaurantTableViewCustomCellIdentifier = @"RestaurantTableCell";
 
 @end
 
