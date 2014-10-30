@@ -210,9 +210,7 @@
                 <constraint firstItem="Ty0-jM-D4X" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="2iv-Lc-Jf7"/>
                 <constraint firstItem="Ty0-jM-D4X" firstAttribute="trailing" secondItem="5zb-W0-HhQ" secondAttribute="trailing" id="6Qa-Iu-lJW"/>
                 <constraint firstItem="cbD-ll-6eD" firstAttribute="trailing" secondItem="5zb-W0-HhQ" secondAttribute="trailing" id="6Sa-By-LvV"/>
-                <constraint firstAttribute="trailing" secondItem="5zb-W0-HhQ" secondAttribute="trailing" constant="10" id="CcX-R8-QgG"/>
                 <constraint firstItem="Ty0-jM-D4X" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="HWs-2f-xc0"/>
-                <constraint firstAttribute="centerX" secondItem="Ty0-jM-D4X" secondAttribute="centerX" id="PZq-wD-RHI"/>
                 <constraint firstItem="5zb-W0-HhQ" firstAttribute="top" secondItem="Ty0-jM-D4X" secondAttribute="bottom" constant="10" id="Rwy-ac-ApE"/>
                 <constraint firstAttribute="centerX" secondItem="Ty0-jM-D4X" secondAttribute="centerX" id="VKI-G0-JeF"/>
                 <constraint firstItem="DfG-CH-oE1" firstAttribute="top" secondItem="Bsz-S4-fK4" secondAttribute="bottom" constant="8" id="aeG-xr-hxL"/>
@@ -222,17 +220,9 @@
                 <constraint firstAttribute="trailing" secondItem="Ty0-jM-D4X" secondAttribute="trailing" constant="10" id="mmx-1J-c1Q"/>
                 <constraint firstItem="cbD-ll-6eD" firstAttribute="trailing" secondItem="DfG-CH-oE1" secondAttribute="trailing" id="pLo-tJ-0RU"/>
                 <constraint firstItem="Bsz-S4-fK4" firstAttribute="top" secondItem="5zb-W0-HhQ" secondAttribute="bottom" constant="8" id="sp4-D5-77v"/>
-                <constraint firstItem="5zb-W0-HhQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="yYb-6K-Pzp"/>
                 <constraint firstItem="cbD-ll-6eD" firstAttribute="trailing" secondItem="Bsz-S4-fK4" secondAttribute="trailing" id="zNA-K4-ktd"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <variation key="default">
-                <mask key="constraints">
-                    <exclude reference="PZq-wD-RHI"/>
-                    <exclude reference="CcX-R8-QgG"/>
-                    <exclude reference="yYb-6K-Pzp"/>
-                </mask>
-            </variation>
             <point key="canvasLocation" x="162" y="1155.5"/>
         </view>
     </objects>

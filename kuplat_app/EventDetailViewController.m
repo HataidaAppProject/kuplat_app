@@ -31,11 +31,11 @@
     self.title = @"イベント詳細";
     
     // スクロールの中身となるView（STVerticalScrollContentView）の生成
-    _contentView = [[EventDetailView alloc] initWithFrame:self.scrollView.bounds];
+    self.contentView = [[EventDetailView alloc] initWithFrame:self.scrollView.bounds];
     // Constraintは自分で設定するのでNO
-    _contentView.translatesAutoresizingMaskIntoConstraints = NO;
+    self.contentView.translatesAutoresizingMaskIntoConstraints = NO;
     // Subviewとして追加
-    [_scrollView addSubview:_contentView];
+    [self.scrollView addSubview:self.contentView];
     //
     // Constraintの設定。
     // STVerticalScrollContentViewの上下左右の間隔0pxとする
@@ -88,10 +88,10 @@
                                                                           multiplier:0.0
                                                                             constant:0.0]];
     */
-    _contentView.imageView.contentMode = UIViewContentModeScaleAspectFill;
-    [_contentView.imageView setClipsToBounds:YES];
-    _contentView.imageView.image = [UIImage imageNamed:@"SampleTrendEvent"];
-    _contentView.informationText.text = @"テストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト";
+    self.contentView.imageView.contentMode = UIViewContentModeScaleAspectFill;
+    [self.contentView.imageView setClipsToBounds:YES];
+    self.contentView.imageView.image = [UIImage imageNamed:@"SampleTrendEvent"];
+    self.contentView.informationText.text = @"テストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト";
     
     
     /**********************

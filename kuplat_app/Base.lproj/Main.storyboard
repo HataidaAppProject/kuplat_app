@@ -92,11 +92,11 @@
                             <constraint firstItem="RMY-vw-J6p" firstAttribute="leading" secondItem="VM3-U0-ckS" secondAttribute="leadingMargin" constant="10" id="JmB-XB-d5B"/>
                             <constraint firstItem="Foy-UW-kZ1" firstAttribute="top" secondItem="d5I-cO-OkH" secondAttribute="bottom" constant="30" id="MfZ-8j-5yU"/>
                             <constraint firstItem="FzC-KG-dM3" firstAttribute="top" secondItem="d5I-cO-OkH" secondAttribute="bottom" id="PSt-CO-6lm"/>
-                            <constraint firstItem="FzC-KG-dM3" firstAttribute="leading" secondItem="VM3-U0-ckS" secondAttribute="leadingMargin" constant="-16" id="PW0-CE-TEe"/>
+                            <constraint firstItem="FzC-KG-dM3" firstAttribute="leading" secondItem="VM3-U0-ckS" secondAttribute="leading" id="PW0-CE-TEe"/>
                             <constraint firstItem="RMY-vw-J6p" firstAttribute="top" secondItem="Foy-UW-kZ1" secondAttribute="bottom" constant="15" id="Pwi-bw-Ff7"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Foy-UW-kZ1" secondAttribute="trailing" constant="10" id="Pzh-9Q-Mdo"/>
                             <constraint firstItem="Foy-UW-kZ1" firstAttribute="leading" secondItem="VM3-U0-ckS" secondAttribute="leadingMargin" constant="10" id="Td9-hO-3E2"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="FzC-KG-dM3" secondAttribute="trailing" constant="-16" id="VOt-P9-loh"/>
+                            <constraint firstAttribute="trailing" secondItem="FzC-KG-dM3" secondAttribute="trailing" id="VOt-P9-loh"/>
                             <constraint firstAttribute="trailingMargin" secondItem="EHx-wa-sg9" secondAttribute="trailing" constant="10" id="a6b-H9-Jui"/>
                             <constraint firstItem="mFs-4Y-gIt" firstAttribute="top" secondItem="RMY-vw-J6p" secondAttribute="bottom" constant="30" id="b9I-HL-igu"/>
                             <constraint firstItem="RMY-vw-J6p" firstAttribute="height" secondItem="EHx-wa-sg9" secondAttribute="height" id="rXJ-tx-z8A"/>
@@ -155,13 +155,41 @@
                     <view key="view" contentMode="scaleToFill" id="lzR-Uo-9UP">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Zkg-3s-Y4h">
+                                <rect key="frame" x="0.0" y="64" width="600" height="37"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="xW5-aA-JSC"/>
+                                </constraints>
+                                <color key="pageIndicatorTintColor" red="0.66274509800000003" green="0.81960784310000001" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="currentPageIndicatorTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </pageControl>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XVT-Na-5SH">
+                                <rect key="frame" x="0.0" y="101" width="600" height="450"/>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" red="0.99215686274509807" green="0.94901960784313721" blue="0.92156862745098034" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="XVT-Na-5SH" firstAttribute="trailing" secondItem="Zkg-3s-Y4h" secondAttribute="trailing" id="3Tl-Hv-R5t"/>
+                            <constraint firstItem="XVT-Na-5SH" firstAttribute="leading" secondItem="lzR-Uo-9UP" secondAttribute="leading" id="744-0f-bAO"/>
+                            <constraint firstItem="XVT-Na-5SH" firstAttribute="top" secondItem="Zkg-3s-Y4h" secondAttribute="bottom" id="8b5-Ie-VUo"/>
+                            <constraint firstItem="Ozm-iU-FD8" firstAttribute="top" secondItem="XVT-Na-5SH" secondAttribute="bottom" id="KOd-YL-FvB"/>
+                            <constraint firstAttribute="trailing" secondItem="XVT-Na-5SH" secondAttribute="trailing" id="pjL-wT-6QJ"/>
+                            <constraint firstItem="Ozm-iU-FD8" firstAttribute="top" secondItem="XVT-Na-5SH" secondAttribute="bottom" id="qs2-vo-ga2"/>
+                            <constraint firstItem="XVT-Na-5SH" firstAttribute="leading" secondItem="Zkg-3s-Y4h" secondAttribute="leading" id="rRJ-EI-4pl"/>
+                            <constraint firstItem="Zkg-3s-Y4h" firstAttribute="top" secondItem="zT8-5r-CIP" secondAttribute="bottom" id="yxZ-TL-M2f"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="RESTAURANT" id="lh2-Vd-CeM">
                         <barButtonItem key="rightBarButtonItem" image="menu" id="rxF-qG-0Rz">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="pageControl" destination="Zkg-3s-Y4h" id="z59-7E-LBO"/>
+                        <outlet property="scrollView" destination="XVT-Na-5SH" id="ODC-81-ppO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zcK-mi-TC9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

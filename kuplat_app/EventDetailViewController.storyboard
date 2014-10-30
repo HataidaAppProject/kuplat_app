@@ -25,10 +25,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="Jjd-o9-yAL" secondAttribute="trailing" constant="-16" id="0OX-15-Y9j"/>
+                            <constraint firstAttribute="trailing" secondItem="Jjd-o9-yAL" secondAttribute="trailing" id="0OX-15-Y9j"/>
                             <constraint firstItem="Jjd-o9-yAL" firstAttribute="top" secondItem="p2A-hj-aBZ" secondAttribute="topMargin" id="3Or-r4-Z6t"/>
                             <constraint firstItem="3tH-Vd-cdh" firstAttribute="top" secondItem="Jjd-o9-yAL" secondAttribute="bottom" id="N0X-0O-Y0F"/>
-                            <constraint firstItem="Jjd-o9-yAL" firstAttribute="leading" secondItem="p2A-hj-aBZ" secondAttribute="leadingMargin" constant="-16" id="li5-Gp-0Or"/>
+                            <constraint firstItem="Jjd-o9-yAL" firstAttribute="leading" secondItem="p2A-hj-aBZ" secondAttribute="leading" id="li5-Gp-0Or"/>
                         </constraints>
                     </view>
                     <connections>
