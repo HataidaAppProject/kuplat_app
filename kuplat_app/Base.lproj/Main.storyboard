@@ -78,17 +78,25 @@
                                     <constraint firstAttribute="height" constant="150" id="xHy-hi-y01"/>
                                 </constraints>
                             </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FzC-KG-dM3" userLabel="overlay">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="EHx-wa-sg9" firstAttribute="leading" secondItem="RMY-vw-J6p" secondAttribute="trailing" constant="20" id="0TG-jp-2Mj"/>
                             <constraint firstItem="RMY-vw-J6p" firstAttribute="width" secondItem="EHx-wa-sg9" secondAttribute="width" id="0Xp-UH-o6w"/>
+                            <constraint firstItem="mFs-4Y-gIt" firstAttribute="top" secondItem="FzC-KG-dM3" secondAttribute="bottom" id="Fug-GW-ktP"/>
                             <constraint firstItem="RMY-vw-J6p" firstAttribute="bottom" secondItem="EHx-wa-sg9" secondAttribute="bottom" id="JUS-3W-jm4"/>
                             <constraint firstItem="RMY-vw-J6p" firstAttribute="leading" secondItem="VM3-U0-ckS" secondAttribute="leadingMargin" constant="10" id="JmB-XB-d5B"/>
                             <constraint firstItem="Foy-UW-kZ1" firstAttribute="top" secondItem="d5I-cO-OkH" secondAttribute="bottom" constant="30" id="MfZ-8j-5yU"/>
+                            <constraint firstItem="FzC-KG-dM3" firstAttribute="top" secondItem="d5I-cO-OkH" secondAttribute="bottom" id="PSt-CO-6lm"/>
+                            <constraint firstItem="FzC-KG-dM3" firstAttribute="leading" secondItem="VM3-U0-ckS" secondAttribute="leadingMargin" constant="-16" id="PW0-CE-TEe"/>
                             <constraint firstItem="RMY-vw-J6p" firstAttribute="top" secondItem="Foy-UW-kZ1" secondAttribute="bottom" constant="15" id="Pwi-bw-Ff7"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Foy-UW-kZ1" secondAttribute="trailing" constant="10" id="Pzh-9Q-Mdo"/>
                             <constraint firstItem="Foy-UW-kZ1" firstAttribute="leading" secondItem="VM3-U0-ckS" secondAttribute="leadingMargin" constant="10" id="Td9-hO-3E2"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="FzC-KG-dM3" secondAttribute="trailing" constant="-16" id="VOt-P9-loh"/>
                             <constraint firstAttribute="trailingMargin" secondItem="EHx-wa-sg9" secondAttribute="trailing" constant="10" id="a6b-H9-Jui"/>
                             <constraint firstItem="mFs-4Y-gIt" firstAttribute="top" secondItem="RMY-vw-J6p" secondAttribute="bottom" constant="30" id="b9I-HL-igu"/>
                             <constraint firstItem="RMY-vw-J6p" firstAttribute="height" secondItem="EHx-wa-sg9" secondAttribute="height" id="rXJ-tx-z8A"/>
@@ -97,11 +105,15 @@
                     <navigationItem key="navigationItem" title="KU PLAT" id="eEI-f3-EV2">
                         <barButtonItem key="rightBarButtonItem" image="menu" id="kn4-dE-vsN">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="tappedMenuButton:" destination="FZV-Aa-mdQ" id="KfY-ob-Y6l"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="imgTrendEvent" destination="Pw6-EU-U6M" id="XpY-9z-DhH"/>
                         <outlet property="imgTrendRestaurant" destination="sA2-Qw-UAu" id="75J-tm-yh4"/>
+                        <outlet property="overlayView" destination="FzC-KG-dM3" id="eHV-mA-fLl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Ae-Lt-FxT" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -7,10 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MenuView.h"
+#import "EventDetailViewController.h"
 
-@interface HomeViewController : UIViewController
+@interface HomeViewController : UIViewController <MenuViewDelegate>
+
+//メニュー
+@property (strong, nonatomic) MenuView *menuView;
+@property (weak, nonatomic) IBOutlet UIView *overlayView;
+
+//トレンド
 @property (weak, nonatomic) IBOutlet UIImageView *imgTrendEvent;
 @property (weak, nonatomic) IBOutlet UIImageView *imgTrendRestaurant;
+
 
 
 @end

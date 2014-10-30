@@ -23,6 +23,8 @@
 		845100E419FA36E00015F583 /* EventDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 845100E319FA36E00015F583 /* EventDetailViewController.storyboard */; };
 		845100E619FA380B0015F583 /* EventDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 845100E519FA380B0015F583 /* EventDetailViewController.m */; };
 		845100EA19FA47E10015F583 /* EventDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 845100E919FA47E10015F583 /* EventDetailView.m */; };
+		84B792771A016BE60054AE31 /* MenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B792761A016BE60054AE31 /* MenuView.m */; };
+		84B7927B1A016C6F0054AE31 /* MenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B7927A1A016C6F0054AE31 /* MenuView.xib */; };
 		84ECC6D619F54511002B9A24 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 84ECC6D419F54511002B9A24 /* Podfile */; };
 		84F8AF2B19F578BC001BE0FD /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F8AF2A19F578BC001BE0FD /* GoogleMaps.framework */; };
 		84F8AF2E19F579B5001BE0FD /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 84F8AF2D19F579B5001BE0FD /* GoogleMaps.bundle */; };
@@ -79,6 +81,9 @@
 		845100E719FA38210015F583 /* EventDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventDetailViewController.h; sourceTree = "<group>"; };
 		845100E819FA47AC0015F583 /* EventDetailView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventDetailView.h; sourceTree = "<group>"; };
 		845100E919FA47E10015F583 /* EventDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventDetailView.m; sourceTree = "<group>"; };
+		84B792751A016BE60054AE31 /* MenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuView.h; sourceTree = "<group>"; };
+		84B792761A016BE60054AE31 /* MenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuView.m; sourceTree = "<group>"; };
+		84B7927A1A016C6F0054AE31 /* MenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuView.xib; sourceTree = "<group>"; };
 		84ECC6D419F54511002B9A24 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		84F8AF2A19F578BC001BE0FD /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = "../../Downloads/GoogleMaps-iOS-1.8.1/GoogleMaps.framework"; sourceTree = "<group>"; };
 		84F8AF2D19F579B5001BE0FD /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GoogleMaps.bundle; sourceTree = "<group>"; };
@@ -170,6 +175,9 @@
 				845100E819FA47AC0015F583 /* EventDetailView.h */,
 				845100E919FA47E10015F583 /* EventDetailView.m */,
 				845100DA19F93FF10015F583 /* EventDetailView.xib */,
+				84B792751A016BE60054AE31 /* MenuView.h */,
+				84B792761A016BE60054AE31 /* MenuView.m */,
+				84B7927A1A016C6F0054AE31 /* MenuView.xib */,
 				841FF43C19F4F1B10047CCCB /* Images.xcassets */,
 				8436BEE619E6D08F0088FF70 /* LaunchScreen.xib */,
 				8436BED419E6D08F0088FF70 /* Supporting Files */,
@@ -311,6 +319,7 @@
 				845100DB19F93FF10015F583 /* EventDetailView.xib in Resources */,
 				84F8AF2E19F579B5001BE0FD /* GoogleMaps.bundle in Resources */,
 				84ECC6D619F54511002B9A24 /* Podfile in Resources */,
+				84B7927B1A016C6F0054AE31 /* MenuView.xib in Resources */,
 				8436BEE819E6D08F0088FF70 /* LaunchScreen.xib in Resources */,
 				845100E419FA36E00015F583 /* EventDetailViewController.storyboard in Resources */,
 			);
@@ -339,6 +348,7 @@
 				8436BEDD19E6D08F0088FF70 /* HomeViewController.m in Sources */,
 				8436BED719E6D08F0088FF70 /* main.m in Sources */,
 				845100EA19FA47E10015F583 /* EventDetailView.m in Sources */,
+				84B792771A016BE60054AE31 /* MenuView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
