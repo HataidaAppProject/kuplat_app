@@ -156,30 +156,81 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Zkg-3s-Y4h">
-                                <rect key="frame" x="0.0" y="64" width="600" height="37"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bqm-vj-aBK">
+                                <rect key="frame" x="200" y="64" width="200" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="37" id="xW5-aA-JSC"/>
+                                    <constraint firstAttribute="height" constant="44" id="86j-Zm-szp"/>
                                 </constraints>
-                                <color key="pageIndicatorTintColor" red="0.66274509800000003" green="0.81960784310000001" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="currentPageIndicatorTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            </pageControl>
+                                <state key="normal" title="ラーメン">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="restaurantList2BottonDidPush:" destination="eQZ-vE-t7q" eventType="touchUpInside" id="opc-LR-YNz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lgB-P8-igS">
+                                <rect key="frame" x="400" y="64" width="200" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="nBb-Hp-ngR"/>
+                                </constraints>
+                                <state key="normal" title="レストラン">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="restaurantList3BottonDidPush:" destination="eQZ-vE-t7q" eventType="touchUpInside" id="Huw-z5-a7k"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nlN-Qu-4ai">
+                                <rect key="frame" x="0.0" y="64" width="200" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="sCR-rN-E9H"/>
+                                </constraints>
+                                <state key="normal" title="カフェ">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="restaurantList1BottonDidPush:" destination="eQZ-vE-t7q" eventType="touchUpInside" id="gsp-ZW-9Fh"/>
+                                </connections>
+                            </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XVT-Na-5SH">
-                                <rect key="frame" x="0.0" y="101" width="600" height="450"/>
+                                <rect key="frame" x="0.0" y="108" width="600" height="443"/>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" red="0.99215686274509807" green="0.94901960784313721" blue="0.92156862745098034" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="XVT-Na-5SH" firstAttribute="trailing" secondItem="Zkg-3s-Y4h" secondAttribute="trailing" id="3Tl-Hv-R5t"/>
-                            <constraint firstItem="XVT-Na-5SH" firstAttribute="leading" secondItem="lzR-Uo-9UP" secondAttribute="leading" id="744-0f-bAO"/>
-                            <constraint firstItem="XVT-Na-5SH" firstAttribute="top" secondItem="Zkg-3s-Y4h" secondAttribute="bottom" id="8b5-Ie-VUo"/>
-                            <constraint firstItem="Ozm-iU-FD8" firstAttribute="top" secondItem="XVT-Na-5SH" secondAttribute="bottom" id="KOd-YL-FvB"/>
-                            <constraint firstAttribute="trailing" secondItem="XVT-Na-5SH" secondAttribute="trailing" id="pjL-wT-6QJ"/>
-                            <constraint firstItem="Ozm-iU-FD8" firstAttribute="top" secondItem="XVT-Na-5SH" secondAttribute="bottom" id="qs2-vo-ga2"/>
-                            <constraint firstItem="XVT-Na-5SH" firstAttribute="leading" secondItem="Zkg-3s-Y4h" secondAttribute="leading" id="rRJ-EI-4pl"/>
-                            <constraint firstItem="Zkg-3s-Y4h" firstAttribute="top" secondItem="zT8-5r-CIP" secondAttribute="bottom" id="yxZ-TL-M2f"/>
+                            <constraint firstItem="XVT-Na-5SH" firstAttribute="top" secondItem="lgB-P8-igS" secondAttribute="bottom" id="5hA-O4-cCG"/>
+                            <constraint firstItem="bqm-vj-aBK" firstAttribute="width" secondItem="lgB-P8-igS" secondAttribute="width" id="6MT-V3-37e"/>
+                            <constraint firstItem="bqm-vj-aBK" firstAttribute="leading" secondItem="nlN-Qu-4ai" secondAttribute="trailing" id="9QW-rm-MdR"/>
+                            <constraint firstItem="bqm-vj-aBK" firstAttribute="bottom" secondItem="nlN-Qu-4ai" secondAttribute="bottom" id="9vN-bX-YM7"/>
+                            <constraint firstItem="bqm-vj-aBK" firstAttribute="top" secondItem="nlN-Qu-4ai" secondAttribute="top" id="C7N-oM-faQ"/>
+                            <constraint firstAttribute="trailing" secondItem="lgB-P8-igS" secondAttribute="trailing" id="CEl-wp-S0n"/>
+                            <constraint firstItem="Ozm-iU-FD8" firstAttribute="top" secondItem="XVT-Na-5SH" secondAttribute="bottom" id="MMN-dd-JwT"/>
+                            <constraint firstItem="bqm-vj-aBK" firstAttribute="bottom" secondItem="lgB-P8-igS" secondAttribute="bottom" id="N2R-Lb-Vkp"/>
+                            <constraint firstItem="bqm-vj-aBK" firstAttribute="width" secondItem="nlN-Qu-4ai" secondAttribute="width" id="RFW-18-PFX"/>
+                            <constraint firstItem="XVT-Na-5SH" firstAttribute="top" secondItem="bqm-vj-aBK" secondAttribute="bottom" id="Ue7-nn-hFI"/>
+                            <constraint firstItem="lgB-P8-igS" firstAttribute="top" secondItem="zT8-5r-CIP" secondAttribute="bottom" id="VEa-V4-nO2"/>
+                            <constraint firstItem="XVT-Na-5SH" firstAttribute="leading" secondItem="lzR-Uo-9UP" secondAttribute="leading" id="dmG-ZB-4bN"/>
+                            <constraint firstAttribute="trailing" secondItem="XVT-Na-5SH" secondAttribute="trailing" id="lJu-3Q-Ijz"/>
+                            <constraint firstItem="bqm-vj-aBK" firstAttribute="top" secondItem="zT8-5r-CIP" secondAttribute="bottom" id="sUS-br-cug"/>
+                            <constraint firstItem="XVT-Na-5SH" firstAttribute="top" secondItem="nlN-Qu-4ai" secondAttribute="bottom" id="wTo-vG-s9v"/>
+                            <constraint firstItem="nlN-Qu-4ai" firstAttribute="top" secondItem="zT8-5r-CIP" secondAttribute="bottom" id="wuY-RW-1MO"/>
+                            <constraint firstItem="XVT-Na-5SH" firstAttribute="top" secondItem="nlN-Qu-4ai" secondAttribute="bottom" id="yas-pM-s9e"/>
+                            <constraint firstItem="bqm-vj-aBK" firstAttribute="top" secondItem="lgB-P8-igS" secondAttribute="top" id="ygV-aF-Srl"/>
+                            <constraint firstItem="lgB-P8-igS" firstAttribute="leading" secondItem="bqm-vj-aBK" secondAttribute="trailing" id="zAz-lT-BLa"/>
+                            <constraint firstItem="nlN-Qu-4ai" firstAttribute="leading" secondItem="lzR-Uo-9UP" secondAttribute="leading" id="zzM-De-72p"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="5hA-O4-cCG"/>
+                                <exclude reference="Ue7-nn-hFI"/>
+                                <exclude reference="yas-pM-s9e"/>
+                                <exclude reference="sUS-br-cug"/>
+                                <exclude reference="VEa-V4-nO2"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="RESTAURANT" id="lh2-Vd-CeM">
                         <barButtonItem key="rightBarButtonItem" image="menu" id="rxF-qG-0Rz">
@@ -187,7 +238,12 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="pageControl" destination="Zkg-3s-Y4h" id="z59-7E-LBO"/>
+                        <outlet property="RestaurantList1Button" destination="nlN-Qu-4ai" id="2Wo-kC-nLy"/>
+                        <outlet property="RestaurantList2Button" destination="bqm-vj-aBK" id="u5O-tG-3qx"/>
+                        <outlet property="RestaurantList3Button" destination="lgB-P8-igS" id="cPE-aS-JnY"/>
+                        <outlet property="restaurantList1Button" destination="nlN-Qu-4ai" id="65J-BW-Stq"/>
+                        <outlet property="restaurantList2Button" destination="bqm-vj-aBK" id="6LT-ny-PJf"/>
+                        <outlet property="restaurantList3Button" destination="lgB-P8-igS" id="d1n-hq-1QT"/>
                         <outlet property="scrollView" destination="XVT-Na-5SH" id="ODC-81-ppO"/>
                     </connections>
                 </viewController>

@@ -9,7 +9,6 @@
 #import "MapViewController.h"
 
 @interface MapViewController () {
-    GMSMapView *mapView;
 }
 
 @end
@@ -29,14 +28,14 @@
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:35.02625564504444
                                                             longitude:135.78081168761904
                                                                  zoom:15];
-    mapView = [GMSMapView mapWithFrame:CGRectZero camera:camera];
+    self.mapView = [GMSMapView mapWithFrame:CGRectZero camera:camera];
     //ユーザの現在地の表示オプション
-    mapView.myLocationEnabled = YES;
+    self.mapView.myLocationEnabled = YES;
     //現在地ボタンの表示オプション
-    mapView.settings.myLocationButton = YES;
+    self.mapView.settings.myLocationButton = YES;
     
     //地図を表示
-    self.view = mapView;
+    self.view = self.mapView;
     
     //マーカーの追加
     [self addMarkers];
@@ -54,14 +53,14 @@
     event0.snippet = @"時間：□時から☆時，主催：△";
     event0.position = CLLocationCoordinate2DMake(35.02625564504444, 135.78081168761904);
     event0.icon = [GMSMarker markerImageWithColor:eventMarkerColor];
-    event0.map = mapView;
+    event0.map = self.mapView;
     
     GMSMarker *restaurant0 = [[GMSMarker alloc] init];
     restaurant0.title = @"ルネ";
     restaurant0.snippet = @"営業時間：□時から☆時";
     restaurant0.position = CLLocationCoordinate2DMake(35.027243, 135.778164);
     restaurant0.icon = [GMSMarker markerImageWithColor:restaurantMarkerColor];
-    restaurant0.map = mapView;
+    restaurant0.map = self.mapView;
 }
 
 - (void)didReceiveMemoryWarning {

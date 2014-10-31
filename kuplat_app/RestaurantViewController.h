@@ -17,16 +17,30 @@ typedef NS_ENUM(NSInteger, MenuViewSelectedItemType) {
 
 @interface RestaurantViewController : UIViewController <UIScrollViewDelegate> {}
 
+// スクロールView
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
+// リスト選択ボタン
+@property (weak, nonatomic) IBOutlet UIButton *restaurantList1Button;
+@property (weak, nonatomic) IBOutlet UIButton *restaurantList2Button;
+@property (weak, nonatomic) IBOutlet UIButton *restaurantList3Button;
+// リスト遷移を追うナビゲータ
+@property (strong, nonatomic) UIView *restaurantListNaviView;
 
-@property UIView *contentView;
-@property CGSize originalFrameSize;
-@property NSInteger currentPage;
+// 横長のView
+@property (strong, nonatomic) UIView *contentView;
+// スクロールに指定するviewのサイズ
+@property (nonatomic) CGSize originalFrameSize;
+// ページ番号
+@property (nonatomic) NSInteger currentPage;
 
-- (void)doWhenPagingOccurred;
 
-//- (IBAction)changePage:(id)sender;
+
+- (void)scrollViewDidScroll:(UIScrollView *)sender;
+- (IBAction)restaurantList1BottonDidPush:(id)sender;
+- (IBAction)restaurantList2BottonDidPush:(id)sender;
+- (IBAction)restaurantList3BottonDidPush:(id)sender;
+- (void)didWhenChangingList;
+
 
 /**
   *  サムネイル・デバイス名・セル番号で構成されたカスタムセルのIDです。

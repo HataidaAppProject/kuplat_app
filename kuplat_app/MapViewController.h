@@ -11,6 +11,7 @@
 
 @interface MapViewController : UIViewController
 - (void)addMarkers;
+@property(strong,nonatomic) GMSMapView *mapView;
 
 @end
 

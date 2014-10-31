@@ -85,19 +85,19 @@
        ホーム画面下部
     *****************/
     //タップを有効化
-    _imgTrendEvent.userInteractionEnabled = YES;
-    _imgTrendRestaurant.userInteractionEnabled = YES;
+    self.imgTrendEvent.userInteractionEnabled = YES;
+    self.imgTrendRestaurant.userInteractionEnabled = YES;
     //タグを設定
-    _imgTrendEvent.tag = 1;
-    _imgTrendRestaurant.tag = 2;
+    self.imgTrendEvent.tag = 1;
+    self.imgTrendRestaurant.tag = 2;
     //アスペクト比を保ったままサイズ調整
-    _imgTrendEvent.contentMode = UIViewContentModeScaleAspectFill;
-    [_imgTrendEvent setClipsToBounds:YES];
-    _imgTrendRestaurant.contentMode = UIViewContentModeScaleAspectFill;
-    [_imgTrendRestaurant setClipsToBounds:YES];
+    self.imgTrendEvent.contentMode = UIViewContentModeScaleAspectFill;
+    [self.imgTrendEvent setClipsToBounds:YES];
+    self.imgTrendRestaurant.contentMode = UIViewContentModeScaleAspectFill;
+    [self.imgTrendRestaurant setClipsToBounds:YES];
     //画像を指定
-    _imgTrendEvent.image = [UIImage imageNamed: @"SampleTrendEvent"];
-    _imgTrendRestaurant.image = [UIImage imageNamed: @"SampleTrendRestaurant"];
+    self.imgTrendEvent.image = [UIImage imageNamed: @"SampleTrendEvent"];
+    self.imgTrendRestaurant.image = [UIImage imageNamed: @"SampleTrendRestaurant"];
     
     // 戻るボタンを変更
     UIBarButtonItem* btn = [[UIBarButtonItem alloc] initWithTitle:@"HOME"

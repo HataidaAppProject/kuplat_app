@@ -10,11 +10,11 @@
 
 typedef NS_ENUM(NSInteger, MenuViewSelectedItemType) {
     MenuViewSelectedItemTypeAddRestaurant = 0,
-    MenuViewSelectedItemTypeAddEvent,
-    MenuViewSelectedItemTypeModifyUserInfo,
-    MenuViewSelectedItemTypeCntact,
-    MenuViewSelectedItemTypeAppInfo,
-    MenuItemNum
+    MenuViewSelectedItemTypeAddEvent = 1,
+    MenuViewSelectedItemTypeModifyUserInfo = 2,
+    MenuViewSelectedItemTypeCntact = 3,
+    MenuViewSelectedItemTypeAppInfo = 4,
+    MenuItemNum = 5
 };
 
 

@@ -40,21 +40,21 @@
     // Constraintの設定。
     // STVerticalScrollContentViewの上下左右の間隔0pxとする
     //
-    [_scrollView addConstraint:[NSLayoutConstraint constraintWithItem:_contentView
+    [self.scrollView addConstraint:[NSLayoutConstraint constraintWithItem:_contentView
                                                             attribute:NSLayoutAttributeLeading
                                                             relatedBy:NSLayoutRelationEqual
                                                                toItem:_scrollView
                                                             attribute:NSLayoutAttributeLeading
                                                            multiplier:1.0f
                                                              constant:0]];
-    [_scrollView addConstraint:[NSLayoutConstraint constraintWithItem:_contentView
+    [self.scrollView addConstraint:[NSLayoutConstraint constraintWithItem:_contentView
                                                             attribute:NSLayoutAttributeTrailing
                                                             relatedBy:NSLayoutRelationEqual
                                                                toItem:_scrollView
                                                             attribute:NSLayoutAttributeTrailing
                                                            multiplier:1.0f
                                                              constant:0]];
-    [_scrollView addConstraint:[NSLayoutConstraint constraintWithItem:_contentView
+    [self.scrollView addConstraint:[NSLayoutConstraint constraintWithItem:_contentView
                                                             attribute:NSLayoutAttributeTop
                                                             relatedBy:NSLayoutRelationEqual
                                                                toItem:_scrollView
