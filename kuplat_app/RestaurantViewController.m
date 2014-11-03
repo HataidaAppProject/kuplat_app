@@ -51,17 +51,21 @@
     CGRect contentRect = CGRectMake(0, 0, self.originalFrameSize.width * 3, self.originalFrameSize.height);
     self.contentView = [[UIView alloc] initWithFrame:contentRect];
     // 3つのリストを作成
-    UIView *subContent1View = [[UIView alloc] initWithFrame:CGRectMake(self.originalFrameSize.width * RestaurantList1, 0, self.originalFrameSize.width, self.originalFrameSize.height)];
-    UIView *subContent2View = [[UIView alloc] initWithFrame:CGRectMake(self.originalFrameSize.width * RestaurantList2, 0, self.originalFrameSize.width, self.originalFrameSize.height)];
-    UIView *subContent3View = [[UIView alloc] initWithFrame:CGRectMake(self.originalFrameSize.width * RestaurantList3, 0, self.originalFrameSize.width, self.originalFrameSize.height)];
+    self.restaurantTableView1 = [[UITableView alloc] initWithFrame:CGRectMake(self.originalFrameSize.width * RestaurantList1, 0, self.originalFrameSize.width, self.originalFrameSize.height)];
+    self.restaurantTableView2 = [[UITableView alloc] initWithFrame:CGRectMake(self.originalFrameSize.width * RestaurantList2, 0, self.originalFrameSize.width, self.originalFrameSize.height)];
+    self.restaurantTableView3 = [[UITableView alloc] initWithFrame:CGRectMake(self.originalFrameSize.width * RestaurantList3, 0, self.originalFrameSize.width, self.originalFrameSize.height)];
     // とりあえず色分けしとく
-    subContent1View.backgroundColor = [UIColor greenColor];
-    subContent2View.backgroundColor = [UIColor blueColor];
-    subContent3View.backgroundColor = [UIColor redColor];
+    [self.restaurantTableView1 setBackgroundColor:[UIColor greenColor]];
+    [self.restaurantTableView2 setBackgroundColor:[UIColor blueColor]];
+    [self.restaurantTableView3 setBackgroundColor:[UIColor redColor]];
+    // タグ
+    [self.restaurantTableView1 setTag:RestaurantList1];
+    [self.restaurantTableView2 setTag:RestaurantList2];
+    [self.restaurantTableView3 setTag:RestaurantList3];
     // 全部コンテンツViewに追加
-    [self.contentView addSubview:subContent1View];
-    [self.contentView addSubview:subContent2View];
-    [self.contentView addSubview:subContent3View];
+    [self.contentView addSubview:self.restaurantTableView1];
+    [self.contentView addSubview:self.restaurantTableView2];
+    [self.contentView addSubview:self.restaurantTableView3];
     // スクロールViewにコンテンツViewを追加
     [self.scrollView addSubview:self.contentView];
     
@@ -100,16 +104,134 @@
     self.restaurantList3Button.backgroundColor = [UIColor clearColor];
     
     
-    
     /**************
      (未)リストの実装
      **************/
+    // デリゲートメソッドをこのクラスで実装する
+    [self.restaurantTableView1 setDelegate:self];
+    [self.restaurantTableView2 setDelegate:self];
+    [self.restaurantTableView3 setDelegate:self];
+    [self.restaurantTableView1 setDataSource:self];
+    [self.restaurantTableView2 setDataSource:self];
+    [self.restaurantTableView3 setDataSource:self];
+    // カスタムセルを設定
+    [self.restaurantTableView1 registerNib:[UINib nibWithNibName:@"EventTableViewCell" bundle:nil] forCellReuseIdentifier:@"Cell"];
+    [self.restaurantTableView2 registerNib:[UINib nibWithNibName:@"EventTableViewCell" bundle:nil] forCellReuseIdentifier:@"Cell"];
+    [self.restaurantTableView3 registerNib:[UINib nibWithNibName:@"EventTableViewCell" bundle:nil] forCellReuseIdentifier:@"Cell"];
+    // セルの区切り線を消去
+    [self.restaurantTableView1 setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    [self.restaurantTableView2 setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    [self.restaurantTableView3 setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
     
     
+    // テーブルに表示したいデータソースをセット
+    self.menuItems = [NSMutableArray arrayWithCapacity:10];
+    [self.menuItems addObject:@"イベントイベントイベントイベントイベントイベントイベント詳細"];
+    [self.menuItems addObject:@"イベント詳細遷移テスト"];
+    [self.menuItems addObject:@"京大カレー部 カレー販売"];
+    [self.menuItems addObject:@"佐々木"];
+    [self.menuItems addObject:@"潮野"];
+    [self.menuItems addObject:@"テスト"];
+    [self.menuItems addObject:@"てすと"];
     
 }
 
+
+
+///
+// テーブルにアイテムを追加
+///
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    switch (tableView.tag) {
+        case RestaurantList1:
+        {
+            
+            break;
+        }
+        case RestaurantList2:
+        {
+            
+            break;
+        }
+        case RestaurantList3:
+        {
+            
+            break;
+        }
+        default:
+            break;
+    }
+}
+
+// テーブルに表示するデータ件数を返す
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.menuItems.count;
+}
+
+// テーブルに表示するセルを返す
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    EventTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    if (cell == nil) {
+        cell = [[EventTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
+    }
+    
+    switch (tableView.tag) {
+        case RestaurantList1:
+        {
+            break;
+        }
+        case RestaurantList2:
+        {
+            [cell.eventTitle setText:[self.menuItems objectAtIndex:indexPath.row]];
+            [cell.eventImage setImage:[UIImage imageNamed:@"SampleTrendEvent"]];
+            [cell.eventNumOfFavs setText:@"10名"];
+            [cell.eventDate setText:@"2014.11.10"];
+            [cell.eventPlace setText:@"京大"];
+            [cell.eventCost setText:@"1,000円"];
+            break;
+        }
+        case RestaurantList3:
+        {
+            [cell.eventImage setImage:[UIImage imageNamed:@"SampleTrendRestaurant"]];
+            [cell.eventNumOfFavs setText:@"100名"];
+            [cell.eventDate setText:@"2014.11.100"];
+            [cell.eventPlace setText:@"京大00"];
+            [cell.eventCost setText:@"10,000円"];
+            break;
+        }
+        default:
+            break;
+    }
+    
+    // アイテムの右端に矢印表示
+    //cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    return cell;
+}
+
+// テーブルアイテムの上下左右に余白を挿入する
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    EventTableViewCell *iCell = (EventTableViewCell *) cell;
+    iCell.insetH = 8.0;
+    iCell.insetV = 4.0;
+}
+
+// セルの高さを返す
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 110;
+}
+
+
+
+///
+// スクロール
+///
 - (void)scrollViewDidScroll:(UIScrollView *)sender {
     
     // 現在の表示位置（左上）のx座標とUIScrollViewの表示幅から，現在のページ番号を計算

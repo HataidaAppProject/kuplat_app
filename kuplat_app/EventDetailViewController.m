@@ -30,7 +30,7 @@
     
     self.title = @"イベント詳細";
     
-    // スクロールの中身となるView（STVerticalScrollContentView）の生成
+    // スクロールの中身となるViewの生成
     self.contentView = [[EventDetailView alloc] initWithFrame:self.scrollView.bounds];
     // Constraintは自分で設定するのでNO
     self.contentView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -40,31 +40,31 @@
     // Constraintの設定。
     // STVerticalScrollContentViewの上下左右の間隔0pxとする
     //
-    [self.scrollView addConstraint:[NSLayoutConstraint constraintWithItem:_contentView
+    [self.scrollView addConstraint:[NSLayoutConstraint constraintWithItem:self.contentView
                                                             attribute:NSLayoutAttributeLeading
                                                             relatedBy:NSLayoutRelationEqual
-                                                               toItem:_scrollView
+                                                               toItem:self.scrollView
                                                             attribute:NSLayoutAttributeLeading
                                                            multiplier:1.0f
                                                              constant:0]];
-    [self.scrollView addConstraint:[NSLayoutConstraint constraintWithItem:_contentView
+    [self.scrollView addConstraint:[NSLayoutConstraint constraintWithItem:self.contentView
                                                             attribute:NSLayoutAttributeTrailing
                                                             relatedBy:NSLayoutRelationEqual
-                                                               toItem:_scrollView
+                                                               toItem:self.scrollView
                                                             attribute:NSLayoutAttributeTrailing
                                                            multiplier:1.0f
                                                              constant:0]];
-    [self.scrollView addConstraint:[NSLayoutConstraint constraintWithItem:_contentView
+    [self.scrollView addConstraint:[NSLayoutConstraint constraintWithItem:self.contentView
                                                             attribute:NSLayoutAttributeTop
                                                             relatedBy:NSLayoutRelationEqual
-                                                               toItem:_scrollView
+                                                               toItem:self.scrollView
                                                             attribute:NSLayoutAttributeTop
                                                            multiplier:1.0f
                                                              constant:0]];
-    [_scrollView addConstraint:[NSLayoutConstraint constraintWithItem:_contentView
+    [_scrollView addConstraint:[NSLayoutConstraint constraintWithItem:self.contentView
                                                             attribute:NSLayoutAttributeBottom
                                                             relatedBy:NSLayoutRelationEqual
-                                                               toItem:_scrollView
+                                                               toItem:self.scrollView
                                                             attribute:NSLayoutAttributeBottom
                                                            multiplier:1.0f
                                                              constant:0]];

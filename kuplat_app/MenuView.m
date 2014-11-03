@@ -93,6 +93,32 @@
 - (void)tappedButtonWithType:(MenuViewSelectedItemType)type
 {
     if ([self.delegate respondsToSelector:@selector(menuViewDidSelectedItem:type:)]) {
+        
+        switch (type) {
+            case MenuViewSelectedItemTypeAddRestaurant:
+            {
+                NSLog(@"ここでも");
+                break;
+            }
+            case MenuViewSelectedItemTypeAddEvent:
+                
+                break;
+                
+            case MenuViewSelectedItemTypeModifyUserInfo:
+                
+                break;
+                
+            case MenuViewSelectedItemTypeCntact:
+                
+                break;
+                
+            case MenuViewSelectedItemTypeAppInfo:
+                
+                break;
+                
+            default:
+                break;
+        }
         [self.delegate menuViewDidSelectedItem:self type:type];
     }
     [self closeMenuView];

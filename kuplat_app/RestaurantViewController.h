@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EventTableViewCell.h"
 
 typedef NS_ENUM(NSInteger, MenuViewSelectedItemType) {
     RestaurantList1 = 0,
@@ -15,7 +16,16 @@ typedef NS_ENUM(NSInteger, MenuViewSelectedItemType) {
     RestaurantListsNum = 3
 };
 
-@interface RestaurantViewController : UIViewController <UIScrollViewDelegate> {}
+@interface RestaurantViewController : UIViewController <UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate> {}
+
+
+// リストに表示するアイテムを格納
+@property(strong, nonatomic) NSMutableArray *menuItems;
+// リスト
+@property(strong, nonatomic) UITableView *restaurantTableView1;
+@property(strong, nonatomic) UITableView *restaurantTableView2;
+@property(strong, nonatomic) UITableView *restaurantTableView3;
+
 
 // スクロールView
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;

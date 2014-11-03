@@ -156,37 +156,13 @@
 
 - (void)menuViewDidSelectedItem:(MenuView *)menuView type:(MenuViewSelectedItemType)type
 {
-    switch (type) {
-        case MenuViewSelectedItemTypeAddRestaurant:
-
-            break;
-            
-        case MenuViewSelectedItemTypeAddEvent:
-
-            break;
-            
-        case MenuViewSelectedItemTypeModifyUserInfo:
-
-            break;
-            
-        case MenuViewSelectedItemTypeCntact:
-
-            break;
-            
-        case MenuViewSelectedItemTypeAppInfo:
-
-            break;
-            
-        default:
-            break;
-    }
     [self hiddenOverlayView];
 }
 
 - (void)showOverlayView
 {
     self.overlayView.hidden = NO;
-    self.overlayView.alpha = 0.5;
+    self.overlayView.alpha = 0.0;
     
     [UIView animateWithDuration:0.3f
                           delay:0.05f
@@ -208,7 +184,7 @@
                           delay:0.05f
                         options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
-                         self.overlayView.alpha = 0.5;
+                         self.overlayView.alpha = 0.0;
                      }
                      completion:^(BOOL finished){
                          self.overlayView.hidden = YES;
