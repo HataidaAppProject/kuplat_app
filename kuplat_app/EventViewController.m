@@ -7,7 +7,6 @@
 //
 
 #import "EventViewController.h"
-#import "EventDetailViewController.h"
 
 @interface EventViewController ()
 
@@ -24,17 +23,30 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"EVENT";
+    // 背景色 rgb=240,248,236
+    [self setTitle:@"EVENT"];
+    [self.view setBackgroundColor:[UIColor colorWithRed:0.941 green:0.973 blue:0.925 alpha:1.0]];
     
     // デリゲートメソッドをこのクラスで実装する
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
+    // カスタムセルを設定
+    [self.tableView registerNib:[UINib nibWithNibName:@"EventTableViewCell" bundle:nil] forCellReuseIdentifier:@"Cell"];
+    // セルの区切り線を消去
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    
+    
+    
     // テーブルに表示したいデータソースをセット
     self.menuItems = [NSMutableArray arrayWithCapacity:10];
-    [self.menuItems addObject:@"イベント詳細"];
+    [self.menuItems addObject:@"イベントイベントイベントイベントイベントイベントイベント詳細"];
     [self.menuItems addObject:@"イベント詳細遷移テスト"];
-    [self.menuItems addObject:@"イベント詳細"];
+    [self.menuItems addObject:@"京大カレー部 カレー販売"];
+    [self.menuItems addObject:@"佐々木"];
+    [self.menuItems addObject:@"潮野"];
+    [self.menuItems addObject:@"テスト"];
+    [self.menuItems addObject:@"てすと"];
     
 }
 
@@ -42,8 +54,7 @@
 #pragma mark - UITableView DataSource
 
 /**
- テーブルに表示するデータ件数を返します。（必須）
- @return NSInteger : データ件数
+ テーブルに表示するデータ件数を返す
  */
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -51,28 +62,24 @@
 }
 
 /**
- テーブルに表示するセルを返します。（必須）
- @return UITableViewCell : テーブルセル
+ テーブルに表示するセルを返す
  */
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    // 再利用できるセルがあれば再利用する
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    //UITableViewCell *cell = [_tableView dequeueReusableCellWithIdentifier:_STCellId];
-    if (!cell) {
-        // 再利用できない場合は新規で作成
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                      reuseIdentifier:CellIdentifier];
-    }
     
-    cell.textLabel.text = [_menuItems objectAtIndex:indexPath.row];
-    //cell.textLabel.text = self.menuItems[indexPath.row];
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    EventTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    
+    [cell.eventTitle setText:[self.menuItems objectAtIndex:indexPath.row]];
+    [cell.eventImage setImage:[UIImage imageNamed:@"SampleTrendEvent"]];
+    [cell.eventNumOfFavs setText:@"10名"];
+    [cell.eventDate setText:@"2014.11.10"];
+    [cell.eventPlace setText:@"京大"];
+    [cell.eventCost setText:@"1,000円"];
+    
+    // アイテムの右端に矢印表示
+    //cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }
-
-#pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -83,5 +90,22 @@
     }
 }
 
+/**
+ テーブルアイテムの上下左右に余白を挿入する
+ */
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    EventTableViewCell *iCell = (EventTableViewCell *) cell;
+    iCell.insetH = 8.0;
+    iCell.insetV = 4.0;
+}
+
+/**
+ セルの高さを返す
+ */
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 110;
+}
 
 @end

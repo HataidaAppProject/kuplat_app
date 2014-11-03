@@ -14,4 +14,29 @@
 
 @implementation EventTableViewCell
 
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+{
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+        // Initialization code
+    }
+    return self;
+}
+
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated
+{
+    [super setSelected:selected animated:animated];
+    
+    // Configure the view for the selected state
+}
+
+- (void)setFrame:(CGRect)frame
+{
+    frame.origin.x += self.insetH;
+    frame.size.width -= 2 * self.insetH;
+    frame.origin.y += self.insetV;
+    frame.size.height -= 2 * self.insetV;
+    [super setFrame:frame];
+}
+
 @end

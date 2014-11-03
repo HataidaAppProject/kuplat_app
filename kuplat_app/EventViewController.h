@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EventDetailViewController.h"
+#import "EventTableViewCell.h"
 
 @interface EventViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+//リストに表示するアイテムを格納
 @property(strong, nonatomic) NSMutableArray *menuItems;
 
 @end
