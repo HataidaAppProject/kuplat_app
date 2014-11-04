@@ -15,21 +15,26 @@
 @implementation EventDetailViewController
 
 - (void)viewWillAppear:(BOOL)animated {
+    
+    //タブ色の設定 rgb=74,133,34
+    [self.tabBarController.tabBar setTintColor:[UIColor colorWithRed:0.290 green:0.522 blue:0.133 alpha:1.0]];
+    [self.navigationController.navigationBar setTintColor:[UIColor colorWithRed:0.290 green:0.522 blue:0.133 alpha:1.0]];
+
     //タブ色の設定 遷移元のviewWillAppearを呼び出す
-    NSInteger index = [self.navigationController.viewControllers count];
-    UIViewController *parent = [self.navigationController.viewControllers objectAtIndex:index-2];
-    [parent viewWillAppear:YES];
+    //NSInteger index = [self.navigationController.viewControllers count];
+    //UIViewController *parent = [self.navigationController.viewControllers objectAtIndex:index-2];
+    //[parent viewWillAppear:YES];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"イベント詳細";
+    [self setTitle:@"イベント詳細"];
     
     // スクロールの中身となるViewの生成
     self.contentView = [[EventDetailView alloc] initWithFrame:self.scrollView.bounds];
     // Constraintは自分で設定するのでNO
-    self.contentView.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.contentView setTranslatesAutoresizingMaskIntoConstraints:NO];
     // Subviewとして追加
     [self.scrollView addSubview:self.contentView];
     
@@ -55,7 +60,7 @@
                                                             attribute:NSLayoutAttributeTop
                                                            multiplier:1.0f
                                                              constant:0]];
-    [_scrollView addConstraint:[NSLayoutConstraint constraintWithItem:self.contentView
+    [self.scrollView addConstraint:[NSLayoutConstraint constraintWithItem:self.contentView
                                                             attribute:NSLayoutAttributeBottom
                                                             relatedBy:NSLayoutRelationEqual
                                                                toItem:self.scrollView
@@ -65,20 +70,28 @@
     
     //アスペクト比を保ったままサイズ調整
     UIScreen *sc = [UIScreen mainScreen];
-    self.contentView.imageView.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.contentView.imageView setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self.contentView.imageView addConstraint:[NSLayoutConstraint constraintWithItem:self.contentView.imageView
                                                                        attribute:NSLayoutAttributeWidth
                                                                        relatedBy:NSLayoutRelationEqual
                                                                           toItem:nil
                                                                        attribute:NSLayoutAttributeWidth
                                                                       multiplier:0.0
-                                                                        constant:250]];
-                                                                        //constant:sc.applicationFrame.size.width - 30]];
-    self.contentView.imageView.contentMode = UIViewContentModeScaleAspectFill;
+                                                                        constant:sc.applicationFrame.size.width - 16]];
+    [self.contentView.imageView setContentMode:UIViewContentModeScaleAspectFill];
     [self.contentView.imageView setClipsToBounds:YES];
-    self.contentView.imageView.image = [UIImage imageNamed:@"SampleTrendEvent"];
+    [self.contentView.imageView setImage:[UIImage imageNamed:@"SampleTrendEvent"]];
+    
+    [self.contentView.eventNumOfFav setText:@"10名"];
+    [self.contentView.eventDate setText:@"2014.11.20"];
+    [self.contentView.eventCost setText:@"1,000円"];
+    [self.contentView.eventAddress setText:@"京大グラウンド"];
+    
+    [self.contentView.aboutText setNumberOfLines:0];
+    [self.contentView.aboutText setText:@"毎年恒例のなんちゃらかんちゃらhugahugafogehoge"];
+    
     [self.contentView.informationText setNumberOfLines:0];
-    self.contentView.informationText.text = @"テストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト";
+    [self.contentView.informationText setText:@"テストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト"];
     
     
     /**********************

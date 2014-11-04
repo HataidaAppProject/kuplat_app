@@ -19,7 +19,8 @@
 @property (strong, nonatomic) IBOutlet UIView *backgroundView;
 // イベント情報
 @property (weak, nonatomic) IBOutlet UILabel *eventTitle;
-@property (weak, nonatomic) IBOutlet UILabel *eventDateAndTime;
+@property (weak, nonatomic) IBOutlet UILabel *eventNumOfFav;
+@property (weak, nonatomic) IBOutlet UILabel *eventDate;
 @property (weak, nonatomic) IBOutlet UILabel *eventCost;
 @property (weak, nonatomic) IBOutlet UILabel *eventAddress;
 @property (weak, nonatomic) IBOutlet UILabel *aboutText;
