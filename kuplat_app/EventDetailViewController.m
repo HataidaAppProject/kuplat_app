@@ -32,10 +32,8 @@
     self.contentView.translatesAutoresizingMaskIntoConstraints = NO;
     // Subviewとして追加
     [self.scrollView addSubview:self.contentView];
-    //
-    // Constraintの設定。
-    // STVerticalScrollContentViewの上下左右の間隔0pxとする
-    //
+    
+    // Constraintの設定
     [self.scrollView addConstraint:[NSLayoutConstraint constraintWithItem:self.contentView
                                                             attribute:NSLayoutAttributeLeading
                                                             relatedBy:NSLayoutRelationEqual
@@ -74,19 +72,12 @@
                                                                           toItem:nil
                                                                        attribute:NSLayoutAttributeWidth
                                                                       multiplier:0.0
-                                                                        //constant:250]];
-                                                                        constant:sc.applicationFrame.size.width - 30]];
-    /*[self.contentView.imageView addConstraint:[NSLayoutConstraint constraintWithItem:self.contentView.imageView
-                                                                           attribute:NSLayoutAttributeCenterX
-                                                                           relatedBy:NSLayoutRelationEqual
-                                                                              toItem:self.contentView
-                                                                           attribute:NSLayoutAttributeCenterX
-                                                                          multiplier:0.0
-                                                                            constant:0.0]];
-    */
+                                                                        constant:250]];
+                                                                        //constant:sc.applicationFrame.size.width - 30]];
     self.contentView.imageView.contentMode = UIViewContentModeScaleAspectFill;
     [self.contentView.imageView setClipsToBounds:YES];
     self.contentView.imageView.image = [UIImage imageNamed:@"SampleTrendEvent"];
+    [self.contentView.informationText setNumberOfLines:0];
     self.contentView.informationText.text = @"テストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト";
     
     
@@ -110,11 +101,10 @@
 
 }
 
-// 画面表示される時や画面回転した後に、
-// viewDidLayoutSubviewsが呼ばれる
+// 画面表示される時や画面回転した後に呼ばれる
 - (void)viewDidLayoutSubviews
 {
-    [_contentView setLayoutWidth:_scrollView.frame.size.width];
+    [self.contentView setLayoutWidth:self.scrollView.frame.size.width];
 }
 
 - (void)didReceiveMemoryWarning {

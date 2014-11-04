@@ -10,9 +10,6 @@
 
 @interface EventDetailView  ()
 
-@property (weak, nonatomic) UIView *contentView;
-@property (nonatomic) CGSize layoutSize;
-
 @end
 
 @implementation EventDetailView
@@ -41,7 +38,7 @@
 {
     // xibからViewをロードし、Subviewとして貼り付ける。
     // ロードしたViewはcontentViewプロパティへ入れる。
-    _contentView = [self st_loadAndAddContentViewFromNibNamed:@"EventDetailView"];
+    self.contentView = [self st_loadAndAddContentViewFromNibNamed:@"EventDetailView"];
 }
 
 - (UIView *)st_loadAndAddContentViewFromNibNamed:(NSString *)nibNamed
@@ -56,15 +53,13 @@
 
 - (void)setLayoutWidth:(CGFloat)width
 {
-    // 幅の設定
-    _layoutSize.width = width;
-    // Labelのレイアウト幅は、_layoutSize.widthから左右のマージン分を引いたもの。
-    _informationText.preferredMaxLayoutWidth = _layoutSize.width - 20*2;
+    CGFloat height;
+    // Labelのレイアウト幅は、layoutSize.widthから左右のマージン分を引いたもの。
+    self.informationText.preferredMaxLayoutWidth = width - 20*2;
     // systemLayoutSizeFittingSizeでConstraintのルールに従って高さを自動計算する。
-    // selfではなく_contentViewであることに注意。
-    _layoutSize.height = [_contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
-    // 小数点を四捨五入する
-    _layoutSize.height = round(_layoutSize.height);
+    height = round([self.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height);
+    // layoutSizeを指定
+    self.layoutSize = CGSizeMake(width, height);
     // intrinsicContentSizeが変わったことをAuto Layoutに知らせる
     [self invalidateIntrinsicContentSize];
 }
@@ -72,7 +67,7 @@
 - (CGSize)intrinsicContentSize
 {
     // この中でsystemLayoutSizeFittingSizeを呼ばないこと。
-    return _layoutSize;
+    return self.layoutSize;
 }
 
 @end

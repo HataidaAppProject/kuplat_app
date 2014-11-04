@@ -9,6 +9,7 @@
         <!--Event Detail View Controller-->
         <scene sceneID="qKE-BD-5LM">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CZK-Wg-e9y" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="EventDetailViewController" id="nWL-ga-BlT" customClass="EventDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lnZ-d1-5d8"/>
@@ -35,7 +36,6 @@
                         <outlet property="scrollView" destination="Jjd-o9-yAL" id="Ei1-VR-hUt"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CZK-Wg-e9y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1718" y="763"/>
         </scene>

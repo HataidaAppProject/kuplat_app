@@ -30,6 +30,10 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *mapViewBottomConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *aboutViewBottomConstraint;
 
+
+@property (weak, nonatomic) UIView *contentView;
+@property (nonatomic) CGSize layoutSize;
+
 /**
  * レイアウト幅を設定
  */

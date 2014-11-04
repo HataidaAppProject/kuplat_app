@@ -211,17 +211,18 @@
     [self setStar:cell.restaurantStar4 score:[cell.restaurantScore.text floatValue] th:4.0];
     [self setStar:cell.restaurantStar5 score:[cell.restaurantScore.text floatValue] th:5.0];
     
+    // セルの上下左右にマージンを追加
+    cell.insetH = 8.0;
+    cell.insetV = 4.0;
+    
     // アイテムの右端に矢印表示
     //cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }
 
-// テーブルアイテムの上下左右に余白を挿入する
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    RestaurantTableViewCell *iCell = (RestaurantTableViewCell *) cell;
-    iCell.insetH = 8.0;
-    iCell.insetV = 4.0;
+    
 }
 
 // セルの高さを返す
