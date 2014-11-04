@@ -28,15 +28,15 @@
     self.menuView = [[[NSBundle mainBundle] loadNibNamed:@"MenuView"
                                                    owner:self
                                                  options:nil] lastObject];
-    self.menuView.delegate = self;
+    [self.menuView setDelegate:self];
     
     [self.menuView setTranslatesAutoresizingMaskIntoConstraints:NO];
     NSMutableArray *menuLayoutConstraints = [[NSMutableArray alloc] init];
     // 右端揃え
-    [menuLayoutConstraints addObject:[NSLayoutConstraint constraintWithItem:self.view
+    [menuLayoutConstraints addObject:[NSLayoutConstraint constraintWithItem:self.menuView
                                                                   attribute:NSLayoutAttributeRight
                                                                   relatedBy:NSLayoutRelationEqual
-                                                                     toItem:self.menuView
+                                                                     toItem:self.view
                                                                   attribute:NSLayoutAttributeRight
                                                                  multiplier:1.0
                                                                    constant:0.0]];
@@ -85,26 +85,20 @@
        ホーム画面下部
     *****************/
     //タップを有効化
-    self.imgTrendEvent.userInteractionEnabled = YES;
-    self.imgTrendRestaurant.userInteractionEnabled = YES;
+    [self.imgTrendEvent setUserInteractionEnabled:YES];
+    [self.imgTrendRestaurant setUserInteractionEnabled:YES];
     //タグを設定
-    self.imgTrendEvent.tag = 1;
-    self.imgTrendRestaurant.tag = 2;
+    [self.imgTrendEvent setTag:1];
+    [self.imgTrendRestaurant setTag:2];
     //アスペクト比を保ったままサイズ調整
-    self.imgTrendEvent.contentMode = UIViewContentModeScaleAspectFill;
+    [self.imgTrendEvent setContentMode:UIViewContentModeScaleAspectFill];
     [self.imgTrendEvent setClipsToBounds:YES];
-    self.imgTrendRestaurant.contentMode = UIViewContentModeScaleAspectFill;
+    [self.imgTrendRestaurant setContentMode:UIViewContentModeScaleAspectFill];
     [self.imgTrendRestaurant setClipsToBounds:YES];
     //画像を指定
-    self.imgTrendEvent.image = [UIImage imageNamed: @"SampleTrendEvent"];
-    self.imgTrendRestaurant.image = [UIImage imageNamed: @"SampleTrendRestaurant"];
+    [self.imgTrendEvent setImage:[UIImage imageNamed: @"SampleTrendEvent"]];
+    [self.imgTrendRestaurant setImage:[UIImage imageNamed: @"SampleTrendRestaurant"]];
     
-    // 戻るボタンを変更
-    UIBarButtonItem* btn = [[UIBarButtonItem alloc] initWithTitle:@"HOME"
-                                                            style:UIBarButtonItemStylePlain
-                                                           target:nil
-                                                           action:nil];
-    self.navigationItem.backBarButtonItem = btn;
 }
 
 /*****************

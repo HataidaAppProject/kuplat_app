@@ -1,14 +1,14 @@
 //
-//  EventTableViewCell.m
+//  RestaurantTableViewCell.m
 //  kuplat_app
 //
-//  Created by 青野和巳 on 2014/10/30.
+//  Created by 青野和巳 on 2014/11/04.
 //  Copyright (c) 2014年 Wakabayashi.Lab. All rights reserved.
 //
 
-#import "EventTableViewCell.h"
+#import "RestaurantTableViewCell.h"
 
-@implementation EventTableViewCell
+@implementation RestaurantTableViewCell
 
 - (void)awakeFromNib {
     // Initialization code

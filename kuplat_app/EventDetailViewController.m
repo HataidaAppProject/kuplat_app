@@ -7,12 +7,8 @@
 //
 
 #import "EventDetailViewController.h"
-#import "EventDetailView.h"
 
 @interface EventDetailViewController ()
-
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (strong, nonatomic) EventDetailView *contentView;
 
 @end
 

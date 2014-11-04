@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "EventTableViewCell.h"
+#import "RestaurantTableViewCell.h"
+#import "EventDetailViewController.h"
 
 typedef NS_ENUM(NSInteger, MenuViewSelectedItemType) {
     RestaurantList1 = 0,
@@ -16,7 +17,7 @@ typedef NS_ENUM(NSInteger, MenuViewSelectedItemType) {
     RestaurantListsNum = 3
 };
 
-@interface RestaurantViewController : UIViewController <UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate> {}
+@interface RestaurantViewController : UIViewController <UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate>
 
 
 // リストに表示するアイテムを格納
@@ -44,18 +45,6 @@ typedef NS_ENUM(NSInteger, MenuViewSelectedItemType) {
 @property (nonatomic) NSInteger currentPage;
 
 
-
-- (void)scrollViewDidScroll:(UIScrollView *)sender;
-- (IBAction)restaurantList1BottonDidPush:(id)sender;
-- (IBAction)restaurantList2BottonDidPush:(id)sender;
-- (IBAction)restaurantList3BottonDidPush:(id)sender;
-- (void)didWhenChangingList;
-
-
-/**
-  *  サムネイル・デバイス名・セル番号で構成されたカスタムセルのIDです。
-  */
-//static NSString * const RestaurantTableViewCustomCellIdentifier = @"RestaurantTableCell";
 
 @end
 

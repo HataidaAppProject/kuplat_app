@@ -124,20 +124,80 @@
         <scene sceneID="wg7-f3-ORb">
             <objects>
                 <viewController id="8rJ-Kc-sve" customClass="EventViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="mcm-IL-ks1">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IH5-nE-PG8"/>
+                        <viewControllerLayoutGuide type="bottom" id="Q2s-7w-cFD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wJs-NM-qRY">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kry-sp-KOi">
+                                <rect key="frame" x="0.0" y="64" width="200" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="DYo-rF-FPE"/>
+                                </constraints>
+                                <state key="normal" title="サークル・部活">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="eventList1BottonDidPush:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="bfR-Q0-Buj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ey7-Ey-Hqd">
+                                <rect key="frame" x="200" y="64" width="200" height="44"/>
+                                <state key="normal" title="就活">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="eventList2BottonDidPush:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="EvF-0g-oT9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tSS-wH-o2n">
+                                <rect key="frame" x="400" y="64" width="200" height="44"/>
+                                <state key="normal" title="セミナー・他">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="eventList3BottonDidPush:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="66s-bN-Zf9"/>
+                                </connections>
+                            </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FCi-kt-yEA">
+                                <rect key="frame" x="0.0" y="108" width="600" height="443"/>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="sectionIndexBackgroundColor" red="0.80427443080000005" green="0.90196078430000004" blue="0.80269828830000001" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="sectionIndexTrackingBackgroundColor" red="0.80427443080000005" green="0.90196078430000004" blue="0.80269828830000001" alpha="1" colorSpace="calibratedRGB"/>
-                    </tableView>
+                        <constraints>
+                            <constraint firstItem="tSS-wH-o2n" firstAttribute="top" secondItem="IH5-nE-PG8" secondAttribute="bottom" id="427-aQ-Z0e"/>
+                            <constraint firstItem="kry-sp-KOi" firstAttribute="leading" secondItem="wJs-NM-qRY" secondAttribute="leading" id="5Rb-yV-Whe"/>
+                            <constraint firstItem="FCi-kt-yEA" firstAttribute="leading" secondItem="wJs-NM-qRY" secondAttribute="leading" id="BtK-cZ-cPf"/>
+                            <constraint firstItem="kry-sp-KOi" firstAttribute="width" secondItem="Ey7-Ey-Hqd" secondAttribute="width" id="GlI-o8-bbW"/>
+                            <constraint firstItem="Q2s-7w-cFD" firstAttribute="top" secondItem="FCi-kt-yEA" secondAttribute="bottom" id="OJP-YD-kDM"/>
+                            <constraint firstItem="FCi-kt-yEA" firstAttribute="top" secondItem="kry-sp-KOi" secondAttribute="bottom" id="Ro3-WA-Ftx"/>
+                            <constraint firstItem="Ey7-Ey-Hqd" firstAttribute="top" secondItem="IH5-nE-PG8" secondAttribute="bottom" id="SMO-wb-QzB"/>
+                            <constraint firstAttribute="trailing" secondItem="FCi-kt-yEA" secondAttribute="trailing" id="cuj-gw-ZCQ"/>
+                            <constraint firstItem="kry-sp-KOi" firstAttribute="width" secondItem="tSS-wH-o2n" secondAttribute="width" id="dJn-Nz-aan"/>
+                            <constraint firstItem="Ey7-Ey-Hqd" firstAttribute="leading" secondItem="kry-sp-KOi" secondAttribute="trailing" id="fds-8m-I5f"/>
+                            <constraint firstItem="kry-sp-KOi" firstAttribute="top" secondItem="IH5-nE-PG8" secondAttribute="bottom" id="iv1-4N-Kc7"/>
+                            <constraint firstAttribute="trailing" secondItem="tSS-wH-o2n" secondAttribute="trailing" id="l3t-vc-Zfw"/>
+                            <constraint firstItem="tSS-wH-o2n" firstAttribute="leading" secondItem="Ey7-Ey-Hqd" secondAttribute="trailing" id="pnj-gT-wie"/>
+                            <constraint firstItem="FCi-kt-yEA" firstAttribute="top" secondItem="tSS-wH-o2n" secondAttribute="bottom" id="qha-Qq-ylj"/>
+                            <constraint firstItem="FCi-kt-yEA" firstAttribute="top" secondItem="Ey7-Ey-Hqd" secondAttribute="bottom" id="rsT-cT-4NO"/>
+                        </constraints>
+                    </view>
                     <navigationItem key="navigationItem" title="EVENT" id="Rgq-yg-F5Y">
                         <barButtonItem key="rightBarButtonItem" image="menu" id="ofB-MD-2FI">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="tableView" destination="mcm-IL-ks1" id="gm8-ls-spR"/>
+                        <outlet property="eventList1Button" destination="kry-sp-KOi" id="klB-hP-lC6"/>
+                        <outlet property="eventList2Button" destination="Ey7-Ey-Hqd" id="c6Z-vE-zUk"/>
+                        <outlet property="eventList3Button" destination="tSS-wH-o2n" id="oRL-6s-vRM"/>
+                        <outlet property="scrollView" destination="FCi-kt-yEA" id="6du-st-fBo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
@@ -156,43 +216,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bqm-vj-aBK">
-                                <rect key="frame" x="200" y="64" width="200" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="86j-Zm-szp"/>
-                                </constraints>
-                                <state key="normal" title="ラーメン">
-                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="restaurantList2BottonDidPush:" destination="eQZ-vE-t7q" eventType="touchUpInside" id="opc-LR-YNz"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lgB-P8-igS">
-                                <rect key="frame" x="400" y="64" width="200" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="nBb-Hp-ngR"/>
-                                </constraints>
-                                <state key="normal" title="レストラン">
-                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="restaurantList3BottonDidPush:" destination="eQZ-vE-t7q" eventType="touchUpInside" id="Huw-z5-a7k"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nlN-Qu-4ai">
                                 <rect key="frame" x="0.0" y="64" width="200" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="sCR-rN-E9H"/>
+                                    <constraint firstAttribute="height" constant="44" id="4kx-2N-Thg"/>
                                 </constraints>
                                 <state key="normal" title="カフェ">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="restaurantList1BottonDidPush:" destination="eQZ-vE-t7q" eventType="touchUpInside" id="gsp-ZW-9Fh"/>
+                                    <action selector="restaurantList1BottonDidPush:" destination="eQZ-vE-t7q" eventType="touchUpInside" id="Gpd-GN-a8t"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bqm-vj-aBK">
+                                <rect key="frame" x="200" y="64" width="200" height="44"/>
+                                <state key="normal" title="ラーメン">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="restaurantList2BottonDidPush:" destination="eQZ-vE-t7q" eventType="touchUpInside" id="BKL-Zj-EiB"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lgB-P8-igS">
+                                <rect key="frame" x="400" y="64" width="200" height="44"/>
+                                <state key="normal" title="レストラン">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="restaurantList3BottonDidPush:" destination="eQZ-vE-t7q" eventType="touchUpInside" id="jK2-zz-0HV"/>
                                 </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XVT-Na-5SH">
@@ -201,36 +255,22 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="XVT-Na-5SH" firstAttribute="top" secondItem="lgB-P8-igS" secondAttribute="bottom" id="5hA-O4-cCG"/>
-                            <constraint firstItem="bqm-vj-aBK" firstAttribute="width" secondItem="lgB-P8-igS" secondAttribute="width" id="6MT-V3-37e"/>
-                            <constraint firstItem="bqm-vj-aBK" firstAttribute="leading" secondItem="nlN-Qu-4ai" secondAttribute="trailing" id="9QW-rm-MdR"/>
-                            <constraint firstItem="bqm-vj-aBK" firstAttribute="bottom" secondItem="nlN-Qu-4ai" secondAttribute="bottom" id="9vN-bX-YM7"/>
-                            <constraint firstItem="bqm-vj-aBK" firstAttribute="top" secondItem="nlN-Qu-4ai" secondAttribute="top" id="C7N-oM-faQ"/>
-                            <constraint firstAttribute="trailing" secondItem="lgB-P8-igS" secondAttribute="trailing" id="CEl-wp-S0n"/>
-                            <constraint firstItem="Ozm-iU-FD8" firstAttribute="top" secondItem="XVT-Na-5SH" secondAttribute="bottom" id="MMN-dd-JwT"/>
-                            <constraint firstItem="bqm-vj-aBK" firstAttribute="bottom" secondItem="lgB-P8-igS" secondAttribute="bottom" id="N2R-Lb-Vkp"/>
-                            <constraint firstItem="bqm-vj-aBK" firstAttribute="width" secondItem="nlN-Qu-4ai" secondAttribute="width" id="RFW-18-PFX"/>
-                            <constraint firstItem="XVT-Na-5SH" firstAttribute="top" secondItem="bqm-vj-aBK" secondAttribute="bottom" id="Ue7-nn-hFI"/>
-                            <constraint firstItem="lgB-P8-igS" firstAttribute="top" secondItem="zT8-5r-CIP" secondAttribute="bottom" id="VEa-V4-nO2"/>
-                            <constraint firstItem="XVT-Na-5SH" firstAttribute="leading" secondItem="lzR-Uo-9UP" secondAttribute="leading" id="dmG-ZB-4bN"/>
-                            <constraint firstAttribute="trailing" secondItem="XVT-Na-5SH" secondAttribute="trailing" id="lJu-3Q-Ijz"/>
-                            <constraint firstItem="bqm-vj-aBK" firstAttribute="top" secondItem="zT8-5r-CIP" secondAttribute="bottom" id="sUS-br-cug"/>
-                            <constraint firstItem="XVT-Na-5SH" firstAttribute="top" secondItem="nlN-Qu-4ai" secondAttribute="bottom" id="wTo-vG-s9v"/>
-                            <constraint firstItem="nlN-Qu-4ai" firstAttribute="top" secondItem="zT8-5r-CIP" secondAttribute="bottom" id="wuY-RW-1MO"/>
-                            <constraint firstItem="XVT-Na-5SH" firstAttribute="top" secondItem="nlN-Qu-4ai" secondAttribute="bottom" id="yas-pM-s9e"/>
-                            <constraint firstItem="bqm-vj-aBK" firstAttribute="top" secondItem="lgB-P8-igS" secondAttribute="top" id="ygV-aF-Srl"/>
-                            <constraint firstItem="lgB-P8-igS" firstAttribute="leading" secondItem="bqm-vj-aBK" secondAttribute="trailing" id="zAz-lT-BLa"/>
-                            <constraint firstItem="nlN-Qu-4ai" firstAttribute="leading" secondItem="lzR-Uo-9UP" secondAttribute="leading" id="zzM-De-72p"/>
+                            <constraint firstItem="bqm-vj-aBK" firstAttribute="leading" secondItem="nlN-Qu-4ai" secondAttribute="trailing" id="4YO-eT-sOg"/>
+                            <constraint firstItem="bqm-vj-aBK" firstAttribute="top" secondItem="zT8-5r-CIP" secondAttribute="bottom" id="9dK-QZ-Zmc"/>
+                            <constraint firstItem="XVT-Na-5SH" firstAttribute="top" secondItem="nlN-Qu-4ai" secondAttribute="bottom" id="ABc-cy-sNb"/>
+                            <constraint firstItem="XVT-Na-5SH" firstAttribute="top" secondItem="bqm-vj-aBK" secondAttribute="bottom" id="Bfu-Nb-JYU"/>
+                            <constraint firstItem="nlN-Qu-4ai" firstAttribute="leading" secondItem="lzR-Uo-9UP" secondAttribute="leading" id="Dcl-gb-Gqu"/>
+                            <constraint firstItem="XVT-Na-5SH" firstAttribute="top" secondItem="lgB-P8-igS" secondAttribute="bottom" id="IZh-Nc-b20"/>
+                            <constraint firstItem="nlN-Qu-4ai" firstAttribute="top" secondItem="zT8-5r-CIP" secondAttribute="bottom" id="NTa-t6-IGh"/>
+                            <constraint firstItem="lgB-P8-igS" firstAttribute="top" secondItem="zT8-5r-CIP" secondAttribute="bottom" id="PlB-fh-s0i"/>
+                            <constraint firstItem="Ozm-iU-FD8" firstAttribute="top" secondItem="XVT-Na-5SH" secondAttribute="bottom" id="U2G-r7-5Ik"/>
+                            <constraint firstAttribute="trailing" secondItem="XVT-Na-5SH" secondAttribute="trailing" id="YIS-aR-pXv"/>
+                            <constraint firstItem="lgB-P8-igS" firstAttribute="width" secondItem="nlN-Qu-4ai" secondAttribute="width" id="o76-7n-Y3e"/>
+                            <constraint firstItem="bqm-vj-aBK" firstAttribute="width" secondItem="nlN-Qu-4ai" secondAttribute="width" id="oeI-Qb-7AR"/>
+                            <constraint firstItem="lgB-P8-igS" firstAttribute="leading" secondItem="bqm-vj-aBK" secondAttribute="trailing" id="q5I-XE-Yo0"/>
+                            <constraint firstAttribute="trailing" secondItem="lgB-P8-igS" secondAttribute="trailing" id="qTW-h2-gHK"/>
+                            <constraint firstItem="XVT-Na-5SH" firstAttribute="leading" secondItem="lzR-Uo-9UP" secondAttribute="leading" id="s9r-mg-V0D"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="5hA-O4-cCG"/>
-                                <exclude reference="Ue7-nn-hFI"/>
-                                <exclude reference="yas-pM-s9e"/>
-                                <exclude reference="sUS-br-cug"/>
-                                <exclude reference="VEa-V4-nO2"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="RESTAURANT" id="lh2-Vd-CeM">
                         <barButtonItem key="rightBarButtonItem" image="menu" id="rxF-qG-0Rz">
@@ -238,13 +278,10 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="RestaurantList1Button" destination="nlN-Qu-4ai" id="2Wo-kC-nLy"/>
-                        <outlet property="RestaurantList2Button" destination="bqm-vj-aBK" id="u5O-tG-3qx"/>
-                        <outlet property="RestaurantList3Button" destination="lgB-P8-igS" id="cPE-aS-JnY"/>
-                        <outlet property="restaurantList1Button" destination="nlN-Qu-4ai" id="65J-BW-Stq"/>
-                        <outlet property="restaurantList2Button" destination="bqm-vj-aBK" id="6LT-ny-PJf"/>
-                        <outlet property="restaurantList3Button" destination="lgB-P8-igS" id="d1n-hq-1QT"/>
-                        <outlet property="scrollView" destination="XVT-Na-5SH" id="ODC-81-ppO"/>
+                        <outlet property="restaurantList1Button" destination="nlN-Qu-4ai" id="FAl-kX-1wn"/>
+                        <outlet property="restaurantList2Button" destination="bqm-vj-aBK" id="SUf-io-Jp7"/>
+                        <outlet property="restaurantList3Button" destination="lgB-P8-igS" id="M7p-aJ-RYM"/>
+                        <outlet property="scrollView" destination="XVT-Na-5SH" id="hsk-J3-ScS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zcK-mi-TC9" userLabel="First Responder" sceneMemberID="firstResponder"/>

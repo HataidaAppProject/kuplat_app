@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EventDetailView.h"
 
 @interface EventDetailViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (strong, nonatomic) EventDetailView *contentView;
 
 @end
