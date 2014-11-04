@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Zr7-15-lZq">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <scenes>
+        <!--Restaurant Detail View Controller-->
+        <scene sceneID="Xhe-B7-bia">
+            <objects>
+                <viewController storyboardIdentifier="RestaurantDetailViewController" id="Zr7-15-lZq" customClass="RestaurantDetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kjZ-Mp-fZM"/>
+                        <viewControllerLayoutGuide type="bottom" id="tHO-X2-IVJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="s66-Sl-rfK">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tx3-xe-k0D">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" red="0.99215686270000003" green="0.94901960780000005" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="tx3-xe-k0D" secondAttribute="trailing" id="6Ca-is-DFn"/>
+                            <constraint firstItem="tHO-X2-IVJ" firstAttribute="top" secondItem="tx3-xe-k0D" secondAttribute="bottom" id="DmB-yp-7Ma"/>
+                            <constraint firstItem="tx3-xe-k0D" firstAttribute="leading" secondItem="s66-Sl-rfK" secondAttribute="leading" id="Ip5-Ew-DIr"/>
+                            <constraint firstItem="tx3-xe-k0D" firstAttribute="top" secondItem="s66-Sl-rfK" secondAttribute="top" id="atD-Fk-K10"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="scrollView" destination="tx3-xe-k0D" id="WiC-Oe-1v9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lNq-LL-Sj8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="546" y="475"/>
+        </scene>
+    </scenes>
+</document>

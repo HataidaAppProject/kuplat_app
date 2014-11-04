@@ -126,7 +126,22 @@
             break;
         }
         case 2:
+        {
+            // イベント詳細へ遷移
+            UIStoryboard *sb = [UIStoryboard storyboardWithName:@"RestaurantDetailViewController" bundle:nil];
+            EventDetailViewController *con = [sb instantiateInitialViewController];
+            
+            // RESTAURANTタブのViewControllerを取得する
+            UINavigationController *vc = self.tabBarController.viewControllers[2];
+            // RESTAURANTタブを選択済みにする
+            self.tabBarController.selectedViewController = vc;
+            // UINavigationControllerに追加済みのViewを一旦取り除く
+            [vc popToRootViewControllerAnimated:NO];
+            // RESTAURANTViewの画面遷移処理を呼び出す
+            [vc pushViewController:con animated:YES];
+            
             break;
+        }
         default:
             break;
     }

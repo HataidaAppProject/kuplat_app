@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "MenuView.h"
 #import "EventDetailViewController.h"
+#import "RestaurantDetailViewController.h"
 
 @interface HomeViewController : UIViewController <MenuViewDelegate>
 

@@ -124,7 +124,7 @@
     // テーブルに表示したいデータソースをセット
     self.menuItems = [NSMutableArray arrayWithCapacity:10];
     [self.menuItems addObject:@"イベントイベントイベントイベントイベントイベントイベント詳細"];
-    [self.menuItems addObject:@"イベント詳細遷移テスト"];
+    [self.menuItems addObject:@"レストラン詳細遷移テスト"];
     [self.menuItems addObject:@"京大カレー部 カレー販売"];
     [self.menuItems addObject:@"佐々木"];
     [self.menuItems addObject:@"潮野"];
@@ -148,7 +148,7 @@
         case RestaurantList2:
         {
             
-            UIStoryboard *sb = [UIStoryboard storyboardWithName:@"EventDetailViewController" bundle:nil];
+            UIStoryboard *sb = [UIStoryboard storyboardWithName:@"RestaurantDetailViewController" bundle:nil];
             EventDetailViewController *con = [sb instantiateInitialViewController];
             [self.navigationController pushViewController:con animated:YES];
             break;
@@ -220,10 +220,6 @@
     return cell;
 }
 
--(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-}
 
 // セルの高さを返す
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
