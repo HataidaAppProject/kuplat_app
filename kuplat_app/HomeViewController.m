@@ -82,6 +82,28 @@
     
     
     /*****************
+     トレンド情報をサーバから読み込む
+     *****************/
+    self.trendRestaurant = [[RestaurantItem alloc] init];
+    self.trendRestaurant.image = [UIImage imageNamed:@"SampleTrendRestaurant"];
+    self.trendRestaurant.name = @"トレンドRestaurant";
+    self.trendRestaurant.type = @"カフェ";
+    self.trendRestaurant.score = @"2.3";
+    self.trendRestaurant.coupon = @"ランチタイムに限り，この画面提示で100円引き！";
+    self.trendRestaurant.address = @"元田中";
+    self.trendRestaurant.review.department = @"経済学部";
+    self.trendRestaurant.review.grade = 1;
+    self.trendRestaurant.review.sex = @"男性";
+    self.trendRestaurant.review.score = @"3.1";
+    self.trendRestaurant.review.text = @"うまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうま";
+    self.trendRestaurant.menu.menu = @"担々麺";
+    self.trendRestaurant.menu.price = 1000;
+    self.trendRestaurant.information.phoneNumber = @"075-xxxx-xxxx";
+    self.trendRestaurant.information.businessHours = @"11:00~22:00";
+    self.trendRestaurant.information.clodedDays = @"毎週月曜，年末年始";
+    self.trendRestaurant.information.url = @"http://fugafuga";
+    
+    /*****************
        ホーム画面下部
     *****************/
     //タップを有効化
@@ -95,10 +117,8 @@
     [self.imgTrendEvent setClipsToBounds:YES];
     [self.imgTrendRestaurant setContentMode:UIViewContentModeScaleAspectFill];
     [self.imgTrendRestaurant setClipsToBounds:YES];
-    //画像を指定
     [self.imgTrendEvent setImage:[UIImage imageNamed: @"SampleTrendEvent"]];
-    [self.imgTrendRestaurant setImage:[UIImage imageNamed: @"SampleTrendRestaurant"]];
-    
+    [self.imgTrendRestaurant setImage:self.trendRestaurant.image];
 }
 
 /*****************
@@ -111,34 +131,36 @@
         case 1:
         {
             // イベント詳細へ遷移
-            UIStoryboard *sb = [UIStoryboard storyboardWithName:@"EventDetailViewController" bundle:nil];
-            EventDetailViewController *con = [sb instantiateInitialViewController];
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"EventDetailViewController" bundle:nil];
+            EventDetailViewController *eventDetailViewController = [storyboard instantiateInitialViewController];
 
             // EVENTタブのViewControllerを取得する
-            UINavigationController *vc = self.tabBarController.viewControllers[1];
+            UINavigationController *eventTabViewController = self.tabBarController.viewControllers[1];
             // EVENTタブを選択済みにする
-            self.tabBarController.selectedViewController = vc;
+            self.tabBarController.selectedViewController = eventTabViewController;
             // UINavigationControllerに追加済みのViewを一旦取り除く
-            [vc popToRootViewControllerAnimated:NO];
+            [eventTabViewController popToRootViewControllerAnimated:NO];
             // EVENTViewの画面遷移処理を呼び出す
-            [vc pushViewController:con animated:YES];
+            [eventTabViewController pushViewController:eventDetailViewController animated:YES];
             
             break;
         }
         case 2:
         {
             // イベント詳細へ遷移
-            UIStoryboard *sb = [UIStoryboard storyboardWithName:@"RestaurantDetailViewController" bundle:nil];
-            EventDetailViewController *con = [sb instantiateInitialViewController];
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"RestaurantDetailViewController" bundle:nil];
+            RestaurantDetailViewController *restaurantDetailViewController = [storyboard instantiateInitialViewController];
+            // トレンドイベントの情報を渡す
+            restaurantDetailViewController.restaurant = self.trendRestaurant;
             
             // RESTAURANTタブのViewControllerを取得する
-            UINavigationController *vc = self.tabBarController.viewControllers[2];
+            UINavigationController *restaurantTabViewController = self.tabBarController.viewControllers[2];
             // RESTAURANTタブを選択済みにする
-            self.tabBarController.selectedViewController = vc;
+            self.tabBarController.selectedViewController = restaurantTabViewController;
             // UINavigationControllerに追加済みのViewを一旦取り除く
-            [vc popToRootViewControllerAnimated:NO];
+            [restaurantTabViewController popToRootViewControllerAnimated:NO];
             // RESTAURANTViewの画面遷移処理を呼び出す
-            [vc pushViewController:con animated:YES];
+            [restaurantTabViewController pushViewController:restaurantDetailViewController animated:YES];
             
             break;
         }

@@ -20,7 +20,7 @@
                 <outlet property="menuText" destination="TkM-Ph-Kzh" id="xfJ-Xd-zMd"/>
                 <outlet property="menuView" destination="mwf-M2-ai4" id="e17-cL-k9r"/>
                 <outlet property="menuViewBottomConstraint" destination="WcB-eP-hZM" id="EwP-nw-SwX"/>
-                <outlet property="restaurantAddress" destination="alM-5f-pGJ" id="VhC-rB-0K1"/>
+                <outlet property="restaurantAddress" destination="i4K-fP-sKg" id="yoe-Z2-imG"/>
                 <outlet property="restaurantCoupon" destination="VMf-f5-yT4" id="oiF-Gc-fGj"/>
                 <outlet property="restaurantName" destination="7ky-JP-hiw" id="AlJ-Od-sGQ"/>
                 <outlet property="restaurantScore" destination="X56-V6-gc0" id="Qwh-hE-mMb"/>

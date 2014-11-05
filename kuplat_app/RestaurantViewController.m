@@ -101,7 +101,7 @@
     
     
     /**************
-     (未)リストの実装
+     リストの実装
      **************/
     // デリゲートメソッドをこのクラスで実装する
     [self.restaurantTableView1 setDelegate:self];
@@ -120,17 +120,19 @@
     [self.restaurantTableView3 setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
     
-    
-    // データソースのセット
-    self.menuItems = [NSMutableArray arrayWithCapacity:10];
+    /**************************
+     データソースのセット サーバから
+     **************************/
+    self.restaurantsItems1 = [NSMutableArray arrayWithCapacity:10];
+    self.restaurantsItems2 = [NSMutableArray arrayWithCapacity:10];
+    self.restaurantsItems3 = [NSMutableArray arrayWithCapacity:10];
     
     NSInteger i;
     for (i=0; i<10; i++) {
 
         RestaurantItem *restaurant = [[RestaurantItem alloc] init];
-        restaurant.image = [UIImage imageNamed:@"SampleTrendrestaurant"];
-
-        // test
+        
+        restaurant.image = [UIImage imageNamed:@"SampleTrendRestaurant"];
         switch (i) {
             case 0:
             {
@@ -177,6 +179,7 @@
         
         restaurant.type = @"ラーメン";
         restaurant.score = @"4.3";
+        restaurant.coupon = @"ランチタイムに限り，この画面提示で100円引き！";
         restaurant.address = @"元田中";
         restaurant.review.department = @"経済学部";
         restaurant.review.grade = 1;
@@ -190,7 +193,9 @@
         restaurant.information.clodedDays = @"毎週月曜，年末年始";
         restaurant.information.url = @"http://fugafuga";
         
-        [self.menuItems addObject:restaurant];
+        [self.restaurantsItems1 addObject:restaurant];
+        [self.restaurantsItems2 addObject:restaurant];
+        [self.restaurantsItems3 addObject:restaurant];
     }
     
 }
@@ -201,72 +206,103 @@
 ///
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    RestaurantItem *restaurant;
     switch (tableView.tag) {
         case RestaurantList1:
         {
-            
+            restaurant = [self.restaurantsItems1 objectAtIndex:indexPath.row];
             break;
         }
         case RestaurantList2:
         {
-            
-            UIStoryboard *sb = [UIStoryboard storyboardWithName:@"RestaurantDetailViewController" bundle:nil];
-            EventDetailViewController *con = [sb instantiateInitialViewController];
-            [self.navigationController pushViewController:con animated:YES];
+            restaurant = [self.restaurantsItems2 objectAtIndex:indexPath.row];
             break;
         }
         case RestaurantList3:
         {
-            
+            restaurant = [self.restaurantsItems3 objectAtIndex:indexPath.row];
             break;
         }
         default:
             break;
     }
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"RestaurantDetailViewController" bundle:nil];
+    RestaurantDetailViewController *restaurantDetailViewController = [storyboard instantiateInitialViewController];
+    restaurantDetailViewController.restaurant = restaurant;
+    [self.navigationController pushViewController:restaurantDetailViewController animated:YES];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSLog(@"prepareForSegue : RestaurantViewController");
 }
 
 // テーブルに表示するデータ件数を返す
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.menuItems.count;
+    
+    NSInteger count;
+    switch (tableView.tag) {
+        case RestaurantList1:
+        {
+            count = self.restaurantsItems1.count;
+            break;
+        }
+        case RestaurantList2:
+        {
+            count = self.restaurantsItems2.count;
+            break;
+        }
+        case RestaurantList3:
+        {
+            count = self.restaurantsItems3.count;
+            break;
+        }
+        default:
+            break;
+    }
+    
+    return count;
 }
 
 // テーブルに表示するセルを返す
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    RestaurantItem *restaurant = [self.menuItems objectAtIndex:indexPath.row];
     
     RestaurantTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     if (cell == nil) {
         cell = [[RestaurantTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
     }
     
-    // レビューを3行まで表示
-    [cell.restaurantReview setNumberOfLines:3];
-    
+    RestaurantItem *restaurant;
     switch (tableView.tag) {
         case RestaurantList1:
         {
+            restaurant = [self.restaurantsItems1 objectAtIndex:indexPath.row];
             break;
         }
         case RestaurantList2:
         {
-            [cell.restaurantName setText:restaurant.name];
-            [cell.restaurantImage setImage:restaurant.image];
-            [cell.restaurantScore setText:restaurant.score];
-            [cell.restaurantReview setText:restaurant.review.text];
+            restaurant = [self.restaurantsItems2 objectAtIndex:indexPath.row];
             break;
         }
         case RestaurantList3:
         {
-            [cell.restaurantImage setImage:[UIImage imageNamed:@"SampleTrendrestaurant"]];
-            [cell.restaurantScore setText:@"1.0"];
-            [cell.restaurantReview setText:@"まず"];
+            restaurant = [self.restaurantsItems3 objectAtIndex:indexPath.row];
             break;
         }
         default:
             break;
     }
+    
+    [cell.restaurantName setText:restaurant.name];
+    [cell.restaurantImage setImage:restaurant.image];
+    [cell.restaurantScore setText:restaurant.score];
+    // レビューを3行まで表示
+    [cell.restaurantReview setNumberOfLines:3];
+    [cell.restaurantReview setText:restaurant.review.text];
+    
     // 星をスコアに応じて色付け
     [self setStar:cell.restaurantStar1 score:[cell.restaurantScore.text floatValue] th:1.0];
     [self setStar:cell.restaurantStar2 score:[cell.restaurantScore.text floatValue] th:2.0];
@@ -278,8 +314,6 @@
     cell.insetH = 8.0;
     cell.insetV = 4.0;
     
-    // アイテムの右端に矢印表示
-    //cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }
 

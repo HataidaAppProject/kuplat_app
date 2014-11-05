@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "RestaurantTableViewCell.h"
-#import "EventDetailViewController.h"
+#import "RestaurantDetailViewController.h"
 #import "RestaurantItem.h"
 
 typedef NS_ENUM(NSInteger, MenuViewSelectedItemType) {
@@ -22,7 +22,9 @@ typedef NS_ENUM(NSInteger, MenuViewSelectedItemType) {
 
 
 // リストに表示するアイテムを格納
-@property(strong, nonatomic) NSMutableArray *menuItems;
+@property(strong, nonatomic) NSMutableArray *restaurantsItems1;
+@property(strong, nonatomic) NSMutableArray *restaurantsItems2;
+@property(strong, nonatomic) NSMutableArray *restaurantsItems3;
 // リスト
 @property(strong, nonatomic) UITableView *restaurantTableView1;
 @property(strong, nonatomic) UITableView *restaurantTableView2;

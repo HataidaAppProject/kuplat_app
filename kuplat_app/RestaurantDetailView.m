@@ -39,7 +39,6 @@
 
 - (UIView *)st_loadAndAddContentViewFromNibNamed:(NSString *)nibNamed
 {
-    NSLog(@"こここ");
     UIView *view = [[[NSBundle mainBundle] loadNibNamed:nibNamed owner:self options:nil] objectAtIndex:0];
     view.frame = self.bounds;
     view.translatesAutoresizingMaskIntoConstraints = YES;

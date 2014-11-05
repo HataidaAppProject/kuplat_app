@@ -92,6 +92,45 @@
                                                                             constant:sc.applicationFrame.size.width - 16]];
     [self.contentView.imageView setContentMode:UIViewContentModeScaleAspectFill];
     [self.contentView.imageView setClipsToBounds:YES];
+    [self.contentView.imageView setImage:self.restaurant.image];
+    
+    [self.contentView.restaurantName setText:self.restaurant.name];
+    [self.contentView.restaurantType setText:self.restaurant.type];
+    [self.contentView.restaurantScore setText:self.restaurant.score];
+    
+    [self setStar:self.contentView.star1 score:4.26 th:1.0];
+    [self setStar:self.contentView.star2 score:4.26 th:2.0];
+    [self setStar:self.contentView.star3 score:4.26 th:3.0];
+    [self setStar:self.contentView.star4 score:4.26 th:4.0];
+    [self setStar:self.contentView.star5 score:4.26 th:5.0];
+    
+    [self.contentView.restaurantCoupon setNumberOfLines:0];
+    [self.contentView.restaurantCoupon setText:self.restaurant.coupon];
+    
+    [self.contentView.restaurantAddress setText:self.restaurant.address];
+    
+    [self.contentView.review setNumberOfLines:0];
+    [self.contentView.review setText:self.restaurant.review.text];
+    
+    [self.contentView.menuText setNumberOfLines:0];
+    [self.contentView.menuText setText:[NSString stringWithFormat:@"%@  %lu円\n麻婆飯  700円\nセット  1,000円", self.restaurant.menu.menu, (long)self.restaurant.menu.price]];
+    
+    [self.contentView.informationText setNumberOfLines:0];
+    [self.contentView.informationText setText:@"[電話番号] 075-xxxx-xxxx\n[営業時間] 11:00~22:00\n[定休日]  毎週火曜日\n[外部リンク]  http://www.hogehoge"];
+
+    
+    /*
+    // 画像
+    [self.contentView.imageView setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.contentView.imageView addConstraint:[NSLayoutConstraint constraintWithItem:self.contentView.imageView
+                                                                           attribute:NSLayoutAttributeWidth
+                                                                           relatedBy:NSLayoutRelationEqual
+                                                                              toItem:nil
+                                                                           attribute:NSLayoutAttributeWidth
+                                                                          multiplier:0.0
+                                                                            constant:sc.applicationFrame.size.width - 16]];
+    [self.contentView.imageView setContentMode:UIViewContentModeScaleAspectFill];
+    [self.contentView.imageView setClipsToBounds:YES];
     [self.contentView.imageView setImage:[UIImage imageNamed:@"second"]];
     
     [self.contentView.restaurantName setText:@"担々麺屋"];
@@ -104,10 +143,6 @@
     [self setStar:self.contentView.star4 score:4.26 th:4.0];
     [self setStar:self.contentView.star5 score:4.26 th:5.0];
     
-    [self.contentView.restaurantCoupon setNumberOfLines:0];
-    [self.contentView.restaurantCoupon setText:@"ランチタイムに限り，この画面提示で100円引き！"];
-    
-    [self.contentView.restaurantAddress setText:@"元田中"];
     
     [self.contentView.review setNumberOfLines:0];
     [self.contentView.review setText:@"担々麺美味しい1辛ががおすすめ，麻婆飯も山椒がきいて美味しいよみたいな"];
@@ -117,7 +152,8 @@
     
     [self.contentView.informationText setNumberOfLines:0];
     [self.contentView.informationText setText:@"[電話番号] 075-xxxx-xxxx\n[営業時間] 11:00~22:00\n[定休日]  毎週火曜日\n[外部リンク]  http://www.hogehoge"];
-    
+    */
+     
     /**********************
      アイテムの非表示化(map)
      **********************/

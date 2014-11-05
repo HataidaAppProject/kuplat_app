@@ -10,6 +10,8 @@
 #import "MenuView.h"
 #import "EventDetailViewController.h"
 #import "RestaurantDetailViewController.h"
+//#import "EventItem.h"
+#import "RestaurantItem.h"
 
 @interface HomeViewController : UIViewController <MenuViewDelegate>
 
@@ -20,7 +22,7 @@
 //トレンド
 @property (weak, nonatomic) IBOutlet UIImageView *imgTrendEvent;
 @property (weak, nonatomic) IBOutlet UIImageView *imgTrendRestaurant;
-
+@property (strong, nonatomic) RestaurantItem *trendRestaurant;
 
 
 @end
