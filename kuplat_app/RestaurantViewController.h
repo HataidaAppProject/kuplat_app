@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "RestaurantTableViewCell.h"
 #import "EventDetailViewController.h"
+#import "RestaurantItem.h"
 
 typedef NS_ENUM(NSInteger, MenuViewSelectedItemType) {
     RestaurantList1 = 0,

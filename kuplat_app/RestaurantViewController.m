@@ -121,15 +121,77 @@
     
     
     
-    // テーブルに表示したいデータソースをセット
+    // データソースのセット
     self.menuItems = [NSMutableArray arrayWithCapacity:10];
-    [self.menuItems addObject:@"イベントイベントイベントイベントイベントイベントイベント詳細"];
-    [self.menuItems addObject:@"レストラン詳細遷移テスト"];
-    [self.menuItems addObject:@"京大カレー部 カレー販売"];
-    [self.menuItems addObject:@"佐々木"];
-    [self.menuItems addObject:@"潮野"];
-    [self.menuItems addObject:@"テスト"];
-    [self.menuItems addObject:@"てすと"];
+    
+    NSInteger i;
+    for (i=0; i<10; i++) {
+
+        RestaurantItem *restaurant = [[RestaurantItem alloc] init];
+        restaurant.image = [UIImage imageNamed:@"SampleTrendrestaurant"];
+
+        // test
+        switch (i) {
+            case 0:
+            {
+                restaurant.name = @"レストランレストランレストランレストランレストラン詳細";
+                break;
+            }
+            case 1:
+            {
+                restaurant.name = @"レストラン詳細遷移テスト";
+                break;
+            }
+            case 2:
+            {
+                restaurant.name = @"京大カレー部 カレー販売";
+                break;
+            }
+            case 3:
+            {
+                restaurant.name = @"佐々木";
+                break;
+            }
+            case 4:
+            {
+                restaurant.name = @"潮野";
+                break;
+            }
+            case 5:
+            {
+                restaurant.name = @"テスト";
+                break;
+            }
+            case 6:
+            {
+                restaurant.name = @"てすと";
+                break;
+            }
+            default:
+            {
+                restaurant.name = @"test";
+                break;
+            }
+                break;
+        }
+        
+        restaurant.type = @"ラーメン";
+        restaurant.score = @"4.3";
+        restaurant.address = @"元田中";
+        restaurant.review.department = @"経済学部";
+        restaurant.review.grade = 1;
+        restaurant.review.sex = @"男性";
+        restaurant.review.score = @"3.1";
+        restaurant.review.text = @"うまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうま";
+        restaurant.menu.menu = @"担々麺";
+        restaurant.menu.price = 1000;
+        restaurant.information.phoneNumber = @"075-xxxx-xxxx";
+        restaurant.information.businessHours = @"11:00~22:00";
+        restaurant.information.clodedDays = @"毎週月曜，年末年始";
+        restaurant.information.url = @"http://fugafuga";
+        
+        [self.menuItems addObject:restaurant];
+    }
     
 }
 
@@ -172,6 +234,7 @@
 // テーブルに表示するセルを返す
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    RestaurantItem *restaurant = [self.menuItems objectAtIndex:indexPath.row];
     
     RestaurantTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     if (cell == nil) {
@@ -188,10 +251,10 @@
         }
         case RestaurantList2:
         {
-            [cell.restaurantName setText:[self.menuItems objectAtIndex:indexPath.row]];
-            [cell.restaurantImage setImage:[UIImage imageNamed:@"SampleTrendrestaurant"]];
-            [cell.restaurantScore setText:@"5.0"];
-            [cell.restaurantReview setText:@"うまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうま"];
+            [cell.restaurantName setText:restaurant.name];
+            [cell.restaurantImage setImage:restaurant.image];
+            [cell.restaurantScore setText:restaurant.score];
+            [cell.restaurantReview setText:restaurant.review.text];
             break;
         }
         case RestaurantList3:

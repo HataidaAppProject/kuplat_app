@@ -39,6 +39,7 @@
     [self.scrollView addSubview:self.contentView];
 
     // Constraintの設定
+    UIScreen *sc = [UIScreen mainScreen];
     [self.scrollView addConstraint:[NSLayoutConstraint constraintWithItem:self.contentView
                                                                 attribute:NSLayoutAttributeLeading
                                                                 relatedBy:NSLayoutRelationEqual
@@ -67,12 +68,20 @@
                                                                 attribute:NSLayoutAttributeBottom
                                                                multiplier:1.0f
                                                                  constant:0]];
+    /*
+    [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:self.contentView
+                                                                attribute:NSLayoutAttributeWidth
+                                                                relatedBy:NSLayoutRelationEqual
+                                                                   toItem:nil
+                                                                attribute:NSLayoutAttributeWidth
+                                                               multiplier:1.0f
+                                                                 constant:sc.applicationFrame.size.width]];
+     */
     // クーポンの枠線
     [self.contentView.couponView.layer setBorderWidth:1.0f];
     [self.contentView.couponView.layer setBorderColor:[[UIColor colorWithRed:0.929 green:0.490 blue:0.192 alpha:1.0] CGColor]]; //rgb = 237,125,49
     
     // 画像
-    UIScreen *sc = [UIScreen mainScreen];
     [self.contentView.imageView setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self.contentView.imageView addConstraint:[NSLayoutConstraint constraintWithItem:self.contentView.imageView
                                                                            attribute:NSLayoutAttributeWidth
@@ -83,7 +92,7 @@
                                                                             constant:sc.applicationFrame.size.width - 16]];
     [self.contentView.imageView setContentMode:UIViewContentModeScaleAspectFill];
     [self.contentView.imageView setClipsToBounds:YES];
-    [self.contentView.imageView setImage:[UIImage imageNamed:@"SampleTrendRestaurant"]];
+    [self.contentView.imageView setImage:[UIImage imageNamed:@"second"]];
     
     [self.contentView.restaurantName setText:@"担々麺屋"];
     [self.contentView.restaurantType setText:@"ラーメン"];

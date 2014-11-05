@@ -24,6 +24,10 @@
 		845100E419FA36E00015F583 /* EventDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 845100E319FA36E00015F583 /* EventDetailViewController.storyboard */; };
 		845100E619FA380B0015F583 /* EventDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 845100E519FA380B0015F583 /* EventDetailViewController.m */; };
 		845100EA19FA47E10015F583 /* EventDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 845100E919FA47E10015F583 /* EventDetailView.m */; };
+		84636BEC1A09B4C300AF6601 /* RestaurantItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 84636BEB1A09B4C300AF6601 /* RestaurantItem.m */; };
+		84636BEF1A09BA6200AF6601 /* RestaurantInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 84636BEE1A09BA6200AF6601 /* RestaurantInformation.m */; };
+		84636BF21A09BB5A00AF6601 /* RestaurantReview.m in Sources */ = {isa = PBXBuildFile; fileRef = 84636BF11A09BB5A00AF6601 /* RestaurantReview.m */; };
+		84636BF51A09BC1100AF6601 /* RestaurantMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 84636BF41A09BC1100AF6601 /* RestaurantMenu.m */; };
 		84B792771A016BE60054AE31 /* MenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B792761A016BE60054AE31 /* MenuView.m */; };
 		84B7927B1A016C6F0054AE31 /* MenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B7927A1A016C6F0054AE31 /* MenuView.xib */; };
 		84D6C2661A01FB8B00B4DDAA /* RestaurantTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84D6C2651A01FB8B00B4DDAA /* RestaurantTableViewCell.xib */; };
@@ -94,6 +98,14 @@
 		845100E719FA38210015F583 /* EventDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventDetailViewController.h; sourceTree = "<group>"; };
 		845100E819FA47AC0015F583 /* EventDetailView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventDetailView.h; sourceTree = "<group>"; };
 		845100E919FA47E10015F583 /* EventDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventDetailView.m; sourceTree = "<group>"; };
+		84636BEA1A09B4C300AF6601 /* RestaurantItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantItem.h; sourceTree = "<group>"; };
+		84636BEB1A09B4C300AF6601 /* RestaurantItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantItem.m; sourceTree = "<group>"; };
+		84636BED1A09BA6200AF6601 /* RestaurantInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantInformation.h; sourceTree = "<group>"; };
+		84636BEE1A09BA6200AF6601 /* RestaurantInformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantInformation.m; sourceTree = "<group>"; };
+		84636BF01A09BB5A00AF6601 /* RestaurantReview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantReview.h; sourceTree = "<group>"; };
+		84636BF11A09BB5A00AF6601 /* RestaurantReview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantReview.m; sourceTree = "<group>"; };
+		84636BF31A09BC1000AF6601 /* RestaurantMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantMenu.h; sourceTree = "<group>"; };
+		84636BF41A09BC1100AF6601 /* RestaurantMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantMenu.m; sourceTree = "<group>"; };
 		84B792751A016BE60054AE31 /* MenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuView.h; sourceTree = "<group>"; };
 		84B792761A016BE60054AE31 /* MenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuView.m; sourceTree = "<group>"; };
 		84B7927A1A016C6F0054AE31 /* MenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuView.xib; sourceTree = "<group>"; };
@@ -270,6 +282,14 @@
 				843FE86D1A07E6AC002A8637 /* RestaurantTableViewCell.h */,
 				843FE86E1A07E6AC002A8637 /* RestaurantTableViewCell.m */,
 				84D6C2651A01FB8B00B4DDAA /* RestaurantTableViewCell.xib */,
+				84636BEA1A09B4C300AF6601 /* RestaurantItem.h */,
+				84636BEB1A09B4C300AF6601 /* RestaurantItem.m */,
+				84636BED1A09BA6200AF6601 /* RestaurantInformation.h */,
+				84636BEE1A09BA6200AF6601 /* RestaurantInformation.m */,
+				84636BF01A09BB5A00AF6601 /* RestaurantReview.h */,
+				84636BF11A09BB5A00AF6601 /* RestaurantReview.m */,
+				84636BF31A09BC1000AF6601 /* RestaurantMenu.h */,
+				84636BF41A09BC1100AF6601 /* RestaurantMenu.m */,
 			);
 			name = RestaurantView;
 			sourceTree = "<group>";
@@ -443,19 +463,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				8436BEE019E6D08F0088FF70 /* EventViewController.m in Sources */,
+				84636BEF1A09BA6200AF6601 /* RestaurantInformation.m in Sources */,
 				8436BF0B19EE0E5F0088FF70 /* RestaurantViewController.m in Sources */,
 				845100E619FA380B0015F583 /* EventDetailViewController.m in Sources */,
 				8436BEDA19E6D08F0088FF70 /* AppDelegate.m in Sources */,
 				8436BF0719EE0DB00088FF70 /* MapViewController.m in Sources */,
 				8436BF0919EE0E4C0088FF70 /* ProfileViewController.m in Sources */,
+				84636BEC1A09B4C300AF6601 /* RestaurantItem.m in Sources */,
 				84E1BAE71A092B8B003EA808 /* RestaurantDetailView.m in Sources */,
 				84D6C26B1A020D7100B4DDAA /* EventTableViewCell.m in Sources */,
 				8436BEDD19E6D08F0088FF70 /* HomeViewController.m in Sources */,
 				843FE86F1A07E6AC002A8637 /* RestaurantTableViewCell.m in Sources */,
 				8436BED719E6D08F0088FF70 /* main.m in Sources */,
+				84636BF51A09BC1100AF6601 /* RestaurantMenu.m in Sources */,
 				845100EA19FA47E10015F583 /* EventDetailView.m in Sources */,
 				84E1BAEB1A092BBE003EA808 /* RestaurantDetailViewController.m in Sources */,
 				84B792771A016BE60054AE31 /* MenuView.m in Sources */,
+				84636BF21A09BB5A00AF6601 /* RestaurantReview.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
