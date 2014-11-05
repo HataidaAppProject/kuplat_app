@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view alpha="0.89999999999999991" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="100" horizontalCompressionResistancePriority="100" id="iN0-l3-epB" customClass="MapCustumMarkerView">
+            <rect key="frame" x="0.0" y="0.0" width="100" height="94"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="text" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000027" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rHt-Ii-3Ed">
+                    <rect key="frame" x="5" y="58" width="90" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="subText" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dFj-KY-6El">
+                    <rect key="frame" x="5" y="74" width="90" height="12"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HbC-hf-dJr">
+                    <rect key="frame" x="5" y="4" width="90" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="Oda-Im-h6S"/>
+                        <constraint firstAttribute="width" constant="90" id="ZjR-xR-SIt"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="ZjR-xR-SIt"/>
+                        </mask>
+                    </variation>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="centerX" secondItem="dFj-KY-6El" secondAttribute="centerX" id="0e8-pn-Jn3"/>
+                <constraint firstAttribute="trailing" secondItem="rHt-Ii-3Ed" secondAttribute="trailing" constant="4" id="2mo-o7-4Cy"/>
+                <constraint firstItem="rHt-Ii-3Ed" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="4" id="3pR-nr-Au0"/>
+                <constraint firstAttribute="trailing" secondItem="HbC-hf-dJr" secondAttribute="trailing" constant="5" id="B88-bx-XUo"/>
+                <constraint firstItem="HbC-hf-dJr" firstAttribute="leading" secondItem="rHt-Ii-3Ed" secondAttribute="leading" id="EBC-GS-4XU"/>
+                <constraint firstItem="rHt-Ii-3Ed" firstAttribute="top" secondItem="HbC-hf-dJr" secondAttribute="bottom" constant="4" id="IDd-ih-PWS"/>
+                <constraint firstAttribute="centerX" secondItem="rHt-Ii-3Ed" secondAttribute="centerX" id="IDt-sz-ZN0"/>
+                <constraint firstItem="rHt-Ii-3Ed" firstAttribute="trailing" secondItem="dFj-KY-6El" secondAttribute="trailing" id="R1x-kJ-F1O"/>
+                <constraint firstItem="dFj-KY-6El" firstAttribute="top" secondItem="rHt-Ii-3Ed" secondAttribute="bottom" id="UUw-Kv-Oib"/>
+                <constraint firstItem="rHt-Ii-3Ed" firstAttribute="leading" secondItem="dFj-KY-6El" secondAttribute="leading" id="c02-cQ-xE3"/>
+                <constraint firstItem="HbC-hf-dJr" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="4" id="dlB-V1-XrX"/>
+                <constraint firstItem="HbC-hf-dJr" firstAttribute="trailing" secondItem="rHt-Ii-3Ed" secondAttribute="trailing" id="ndQ-cb-um3"/>
+                <constraint firstItem="HbC-hf-dJr" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="uxL-Lr-lrR"/>
+                <constraint firstItem="dFj-KY-6El" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottomMargin" id="w9u-Hq-xvT"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="2mo-o7-4Cy"/>
+                    <exclude reference="3pR-nr-Au0"/>
+                    <exclude reference="IDt-sz-ZN0"/>
+                    <exclude reference="0e8-pn-Jn3"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="image" destination="HbC-hf-dJr" id="hoa-dP-Ejq"/>
+                <outlet property="subText" destination="dFj-KY-6El" id="Syf-FC-lnC"/>
+                <outlet property="text" destination="rHt-Ii-3Ed" id="mmE-aK-F03"/>
+            </connections>
+            <point key="canvasLocation" x="376" y="317"/>
+        </view>
+    </objects>
+</document>

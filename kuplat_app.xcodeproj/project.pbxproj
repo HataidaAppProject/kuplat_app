@@ -30,6 +30,10 @@
 		84636BF51A09BC1100AF6601 /* RestaurantMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 84636BF41A09BC1100AF6601 /* RestaurantMenu.m */; };
 		84B792771A016BE60054AE31 /* MenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B792761A016BE60054AE31 /* MenuView.m */; };
 		84B7927B1A016C6F0054AE31 /* MenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B7927A1A016C6F0054AE31 /* MenuView.xib */; };
+		84C03CD41A0A72460011BBE2 /* MapCustumMarkerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C03CD31A0A72460011BBE2 /* MapCustumMarkerView.m */; };
+		84C03CD61A0A72620011BBE2 /* MapCustumMarkerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84C03CD51A0A72610011BBE2 /* MapCustumMarkerView.xib */; };
+		84C03CD91A0A84550011BBE2 /* EventItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C03CD81A0A84550011BBE2 /* EventItem.m */; };
+		84C03CDC1A0A8B0C0011BBE2 /* EventInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C03CDB1A0A8B0C0011BBE2 /* EventInformation.m */; };
 		84D6C2661A01FB8B00B4DDAA /* RestaurantTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84D6C2651A01FB8B00B4DDAA /* RestaurantTableViewCell.xib */; };
 		84D6C2681A020B0400B4DDAA /* EventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84D6C2671A020B0400B4DDAA /* EventTableViewCell.xib */; };
 		84D6C26B1A020D7100B4DDAA /* EventTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D6C26A1A020D7100B4DDAA /* EventTableViewCell.m */; };
@@ -109,6 +113,13 @@
 		84B792751A016BE60054AE31 /* MenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuView.h; sourceTree = "<group>"; };
 		84B792761A016BE60054AE31 /* MenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuView.m; sourceTree = "<group>"; };
 		84B7927A1A016C6F0054AE31 /* MenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuView.xib; sourceTree = "<group>"; };
+		84C03CD21A0A72460011BBE2 /* MapCustumMarkerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapCustumMarkerView.h; sourceTree = "<group>"; };
+		84C03CD31A0A72460011BBE2 /* MapCustumMarkerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapCustumMarkerView.m; sourceTree = "<group>"; };
+		84C03CD51A0A72610011BBE2 /* MapCustumMarkerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapCustumMarkerView.xib; sourceTree = "<group>"; };
+		84C03CD71A0A84550011BBE2 /* EventItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventItem.h; sourceTree = "<group>"; };
+		84C03CD81A0A84550011BBE2 /* EventItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventItem.m; sourceTree = "<group>"; };
+		84C03CDA1A0A8B0C0011BBE2 /* EventInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventInformation.h; sourceTree = "<group>"; };
+		84C03CDB1A0A8B0C0011BBE2 /* EventInformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventInformation.m; sourceTree = "<group>"; };
 		84D6C2651A01FB8B00B4DDAA /* RestaurantTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RestaurantTableViewCell.xib; sourceTree = "<group>"; };
 		84D6C2671A020B0400B4DDAA /* EventTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventTableViewCell.xib; sourceTree = "<group>"; };
 		84D6C2691A020D7100B4DDAA /* EventTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventTableViewCell.h; sourceTree = "<group>"; };
@@ -212,6 +223,9 @@
 				843FE8711A084ACD002A8637 /* RestaurantView */,
 				8436BF0419EE0D970088FF70 /* MapViewController.h */,
 				8436BF0619EE0DB00088FF70 /* MapViewController.m */,
+				84C03CD21A0A72460011BBE2 /* MapCustumMarkerView.h */,
+				84C03CD31A0A72460011BBE2 /* MapCustumMarkerView.m */,
+				84C03CD51A0A72610011BBE2 /* MapCustumMarkerView.xib */,
 				8436BF0519EE0DA40088FF70 /* ProfileViewController.h */,
 				8436BF0819EE0E4C0088FF70 /* ProfileViewController.m */,
 				84B792751A016BE60054AE31 /* MenuView.h */,
@@ -264,6 +278,10 @@
 				84D6C2691A020D7100B4DDAA /* EventTableViewCell.h */,
 				84D6C26A1A020D7100B4DDAA /* EventTableViewCell.m */,
 				84D6C2671A020B0400B4DDAA /* EventTableViewCell.xib */,
+				84C03CD71A0A84550011BBE2 /* EventItem.h */,
+				84C03CD81A0A84550011BBE2 /* EventItem.m */,
+				84C03CDA1A0A8B0C0011BBE2 /* EventInformation.h */,
+				84C03CDB1A0A8B0C0011BBE2 /* EventInformation.m */,
 			);
 			name = EventView;
 			sourceTree = "<group>";
@@ -400,6 +418,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84C03CD61A0A72620011BBE2 /* MapCustumMarkerView.xib in Resources */,
 				84D6C2681A020B0400B4DDAA /* EventTableViewCell.xib in Resources */,
 				841FF43D19F4F1B10047CCCB /* Images.xcassets in Resources */,
 				8436BEE319E6D08F0088FF70 /* Main.storyboard in Resources */,
@@ -470,8 +489,11 @@
 				8436BF0719EE0DB00088FF70 /* MapViewController.m in Sources */,
 				8436BF0919EE0E4C0088FF70 /* ProfileViewController.m in Sources */,
 				84636BEC1A09B4C300AF6601 /* RestaurantItem.m in Sources */,
+				84C03CDC1A0A8B0C0011BBE2 /* EventInformation.m in Sources */,
 				84E1BAE71A092B8B003EA808 /* RestaurantDetailView.m in Sources */,
+				84C03CD41A0A72460011BBE2 /* MapCustumMarkerView.m in Sources */,
 				84D6C26B1A020D7100B4DDAA /* EventTableViewCell.m in Sources */,
+				84C03CD91A0A84550011BBE2 /* EventItem.m in Sources */,
 				8436BEDD19E6D08F0088FF70 /* HomeViewController.m in Sources */,
 				843FE86F1A07E6AC002A8637 /* RestaurantTableViewCell.m in Sources */,
 				8436BED719E6D08F0088FF70 /* main.m in Sources */,

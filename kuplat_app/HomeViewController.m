@@ -24,7 +24,139 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // メニュービュー
+    // メニューを設置
+    [self setDropdownMenu];
+    
+    // データをサーバから読み込む
+    [self loadData];
+    
+    /*****************
+       ホーム画面上部
+    *****************/
+    
+    
+    
+    /*****************
+       ホーム画面下部
+    *****************/
+    //タップを有効化
+    [self.imgTrendEvent setUserInteractionEnabled:YES];
+    [self.imgTrendRestaurant setUserInteractionEnabled:YES];
+    //タグを設定
+    [self.imgTrendEvent setTag:1];
+    [self.imgTrendRestaurant setTag:2];
+    //アスペクト比を保ったままサイズ調整
+    [self.imgTrendEvent setContentMode:UIViewContentModeScaleAspectFill];
+    [self.imgTrendEvent setClipsToBounds:YES];
+    [self.imgTrendRestaurant setContentMode:UIViewContentModeScaleAspectFill];
+    [self.imgTrendRestaurant setClipsToBounds:YES];
+    [self.imgTrendEvent setImage:self.trendEvent.image];
+    [self.imgTrendRestaurant setImage:self.trendRestaurant.image];
+}
+
+/*****************
+ 画像をタップした際の遷移
+ *****************/
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch *touch = [touches anyObject];
+    switch (touch.view.tag) {
+        case 1:
+        {
+            // イベント詳細へ遷移
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"EventDetailViewController" bundle:nil];
+            EventDetailViewController *eventDetailViewController = [storyboard instantiateInitialViewController];
+            eventDetailViewController.event = self.trendEvent;
+
+            // EVENTタブのViewControllerを取得する
+            UINavigationController *eventTabViewController = self.tabBarController.viewControllers[1];
+            // EVENTタブを選択済みにする
+            self.tabBarController.selectedViewController = eventTabViewController;
+            // UINavigationControllerに追加済みのViewを一旦取り除く
+            [eventTabViewController popToRootViewControllerAnimated:NO];
+            // EVENTViewの画面遷移処理を呼び出す
+            [eventTabViewController pushViewController:eventDetailViewController animated:YES];
+            NSLog(@"ここから遷移");
+            break;
+        }
+        case 2:
+        {
+            // レストラン詳細へ遷移
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"RestaurantDetailViewController" bundle:nil];
+            RestaurantDetailViewController *restaurantDetailViewController = [storyboard instantiateInitialViewController];
+            // トレンドレストランの情報を渡す
+            restaurantDetailViewController.restaurant = self.trendRestaurant;
+            
+            // RESTAURANTタブのViewControllerを取得する
+            UINavigationController *restaurantTabViewController = self.tabBarController.viewControllers[2];
+            // UINavigationControllerに追加済みのViewを一旦取り除く
+            [restaurantTabViewController popToRootViewControllerAnimated:NO];
+            // RESTAURANTタブを選択済みにする
+            self.tabBarController.selectedViewController = restaurantTabViewController;
+            // RESTAURANTViewの画面遷移処理を呼び出す
+            [restaurantTabViewController pushViewController:restaurantDetailViewController animated:YES];
+            
+            break;
+        }
+        default:
+            break;
+    }
+    
+}
+
+/*****************
+ データの読み込み書込み
+ *****************/
+- (void)loadData
+{
+    /*****************
+     トレンド情報をサーバから読み込む
+     *****************/
+    self.trendEvent = [[EventItem alloc] init];
+    self.trendEvent.image = [UIImage imageNamed: @"SampleTrendEvent"];
+    self.trendEvent.title = @"トレンドイベント";
+    self.trendEvent.numOfFav = @"100";
+    self.trendEvent.date = @"2014.11.11";
+    self.trendEvent.cost = @"1,000円";
+    self.trendEvent.address = @"吉田グラウンド";
+    self.trendEvent.aboutText = @"毎年恒例のなんちゃらかんちゃらfugafugahogehoge";
+    self.trendEvent.information.sponsor = @"サークル";
+    self.trendEvent.information.phoneNumber = @"090-xxxx-xxxx";
+    self.trendEvent.information.url = @"http://hugaga";
+    self.trendEvent.information.others = @"ほげほげ";
+    
+    
+    self.trendRestaurant = [[RestaurantItem alloc] init];
+    self.trendRestaurant.image = [UIImage imageNamed:@"SampleTrendRestaurant"];
+    self.trendRestaurant.name = @"トレンドRestaurant";
+    self.trendRestaurant.type = @"カフェ";
+    self.trendRestaurant.score = @"2.3";
+    self.trendRestaurant.coupon = @"ランチタイムに限り，この画面提示で100円引き！";
+    self.trendRestaurant.address = @"元田中";
+    self.trendRestaurant.review.department = @"経済学部";
+    self.trendRestaurant.review.grade = 1;
+    self.trendRestaurant.review.sex = @"男性";
+    self.trendRestaurant.review.score = @"3.1";
+    self.trendRestaurant.review.text = @"うまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうま";
+    self.trendRestaurant.menu.menu = @"担々麺";
+    self.trendRestaurant.menu.price = 1000;
+    self.trendRestaurant.information.phoneNumber = @"075-xxxx-xxxx";
+    self.trendRestaurant.information.businessHours = @"11:00~22:00";
+    self.trendRestaurant.information.clodedDays = @"毎週月曜，年末年始";
+    self.trendRestaurant.information.url = @"http://fugafuga";
+}
+
+-(void)writeData
+{
+    
+}
+
+
+/*****************
+      メニュー
+ *****************/
+- (void)setDropdownMenu
+{
     self.menuView = [[[NSBundle mainBundle] loadNibNamed:@"MenuView"
                                                    owner:self
                                                  options:nil] lastObject];
@@ -74,106 +206,9 @@
     
     [self.view addSubview:self.menuView];
     [self.view addConstraints:menuLayoutConstraints];
-    
-    
-    /*****************
-       ホーム画面上部
-    *****************/
-    
-    
-    /*****************
-     トレンド情報をサーバから読み込む
-     *****************/
-    self.trendRestaurant = [[RestaurantItem alloc] init];
-    self.trendRestaurant.image = [UIImage imageNamed:@"SampleTrendRestaurant"];
-    self.trendRestaurant.name = @"トレンドRestaurant";
-    self.trendRestaurant.type = @"カフェ";
-    self.trendRestaurant.score = @"2.3";
-    self.trendRestaurant.coupon = @"ランチタイムに限り，この画面提示で100円引き！";
-    self.trendRestaurant.address = @"元田中";
-    self.trendRestaurant.review.department = @"経済学部";
-    self.trendRestaurant.review.grade = 1;
-    self.trendRestaurant.review.sex = @"男性";
-    self.trendRestaurant.review.score = @"3.1";
-    self.trendRestaurant.review.text = @"うまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうま";
-    self.trendRestaurant.menu.menu = @"担々麺";
-    self.trendRestaurant.menu.price = 1000;
-    self.trendRestaurant.information.phoneNumber = @"075-xxxx-xxxx";
-    self.trendRestaurant.information.businessHours = @"11:00~22:00";
-    self.trendRestaurant.information.clodedDays = @"毎週月曜，年末年始";
-    self.trendRestaurant.information.url = @"http://fugafuga";
-    
-    /*****************
-       ホーム画面下部
-    *****************/
-    //タップを有効化
-    [self.imgTrendEvent setUserInteractionEnabled:YES];
-    [self.imgTrendRestaurant setUserInteractionEnabled:YES];
-    //タグを設定
-    [self.imgTrendEvent setTag:1];
-    [self.imgTrendRestaurant setTag:2];
-    //アスペクト比を保ったままサイズ調整
-    [self.imgTrendEvent setContentMode:UIViewContentModeScaleAspectFill];
-    [self.imgTrendEvent setClipsToBounds:YES];
-    [self.imgTrendRestaurant setContentMode:UIViewContentModeScaleAspectFill];
-    [self.imgTrendRestaurant setClipsToBounds:YES];
-    [self.imgTrendEvent setImage:[UIImage imageNamed: @"SampleTrendEvent"]];
-    [self.imgTrendRestaurant setImage:self.trendRestaurant.image];
+
 }
 
-/*****************
- 画像をタップした際の遷移
- *****************/
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    UITouch *touch = [touches anyObject];
-    switch (touch.view.tag) {
-        case 1:
-        {
-            // イベント詳細へ遷移
-            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"EventDetailViewController" bundle:nil];
-            EventDetailViewController *eventDetailViewController = [storyboard instantiateInitialViewController];
-
-            // EVENTタブのViewControllerを取得する
-            UINavigationController *eventTabViewController = self.tabBarController.viewControllers[1];
-            // EVENTタブを選択済みにする
-            self.tabBarController.selectedViewController = eventTabViewController;
-            // UINavigationControllerに追加済みのViewを一旦取り除く
-            [eventTabViewController popToRootViewControllerAnimated:NO];
-            // EVENTViewの画面遷移処理を呼び出す
-            [eventTabViewController pushViewController:eventDetailViewController animated:YES];
-            
-            break;
-        }
-        case 2:
-        {
-            // イベント詳細へ遷移
-            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"RestaurantDetailViewController" bundle:nil];
-            RestaurantDetailViewController *restaurantDetailViewController = [storyboard instantiateInitialViewController];
-            // トレンドイベントの情報を渡す
-            restaurantDetailViewController.restaurant = self.trendRestaurant;
-            
-            // RESTAURANTタブのViewControllerを取得する
-            UINavigationController *restaurantTabViewController = self.tabBarController.viewControllers[2];
-            // RESTAURANTタブを選択済みにする
-            self.tabBarController.selectedViewController = restaurantTabViewController;
-            // UINavigationControllerに追加済みのViewを一旦取り除く
-            [restaurantTabViewController popToRootViewControllerAnimated:NO];
-            // RESTAURANTViewの画面遷移処理を呼び出す
-            [restaurantTabViewController pushViewController:restaurantDetailViewController animated:YES];
-            
-            break;
-        }
-        default:
-            break;
-    }
-    
-}
-
-
-/*****************
-      メニュー
- *****************/
 - (IBAction)tappedMenuButton:(id)sender
 {
     if (self.menuView.isMenuOpen) {

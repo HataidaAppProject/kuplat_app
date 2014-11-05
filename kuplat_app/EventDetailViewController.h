@@ -8,10 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "EventDetailView.h"
+#import "EventItem.h"
 
 @interface EventDetailViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) EventDetailView *contentView;
+
+// 外部からの遷移時に情報を受け取る
+@property (strong, nonatomic) EventItem *event;
 
 @end

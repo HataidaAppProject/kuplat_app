@@ -68,50 +68,57 @@
                                                            multiplier:1.0f
                                                              constant:0]];
     
-    //アスペクト比を保ったままサイズ調整
+    
+    // 情報をViewに書き込む
+    [self writeData];
+    
+}
+
+- (void)writeData
+{
+    [self.contentView.eventTitle setText:self.event.title];
+    //画像アスペクト比を保ったままサイズ調整
     UIScreen *sc = [UIScreen mainScreen];
     [self.contentView.imageView setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self.contentView.imageView addConstraint:[NSLayoutConstraint constraintWithItem:self.contentView.imageView
-                                                                       attribute:NSLayoutAttributeWidth
-                                                                       relatedBy:NSLayoutRelationEqual
-                                                                          toItem:nil
-                                                                       attribute:NSLayoutAttributeWidth
-                                                                      multiplier:0.0
-                                                                        constant:sc.applicationFrame.size.width - 16]];
+                                                                           attribute:NSLayoutAttributeWidth
+                                                                           relatedBy:NSLayoutRelationEqual
+                                                                              toItem:nil
+                                                                           attribute:NSLayoutAttributeWidth
+                                                                          multiplier:0.0
+                                                                            constant:sc.applicationFrame.size.width - 16]];
     [self.contentView.imageView setContentMode:UIViewContentModeScaleAspectFill];
     [self.contentView.imageView setClipsToBounds:YES];
-    [self.contentView.imageView setImage:[UIImage imageNamed:@"SampleTrendEvent"]];
+    [self.contentView.imageView setImage:self.event.image];
     
-    [self.contentView.eventNumOfFav setText:@"10名"];
-    [self.contentView.eventDate setText:@"2014.11.20"];
-    [self.contentView.eventCost setText:@"1,000円"];
-    [self.contentView.eventAddress setText:@"京大グラウンド"];
+    [self.contentView.eventNumOfFav setText:self.event.numOfFav];
+    [self.contentView.eventDate setText:self.event.date];
+    [self.contentView.eventCost setText:self.event.cost];
+    [self.contentView.eventAddress setText:self.event.address];
     
     [self.contentView.aboutText setNumberOfLines:0];
-    [self.contentView.aboutText setText:@"毎年恒例のなんちゃらかんちゃらhugahugafogehoge"];
+    [self.contentView.aboutText setText:self.event.aboutText];
     
-    [self.contentView.informationText setNumberOfLines:0];
-    [self.contentView.informationText setText:@"テストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト"];
-    
+    [self.contentView.informationText setNumberOfLines:1];
+    [self.contentView.informationText setText:self.event.information.sponsor];
     
     /**********************
-      アイテムの非表示化(map)
+     アイテムの非表示化(map)
      **********************/
     /*
-    // viewの非表示化
-    _contentView.mapView.hidden = NO;
-    // viewの高さを0にする
-    [_contentView.mapView addConstraint:[NSLayoutConstraint constraintWithItem:_contentView.mapView
-                                                                     attribute:NSLayoutAttributeHeight
-                                                                     relatedBy:NSLayoutRelationEqual
-                                                                        toItem:nil
-                                                                     attribute:NSLayoutAttributeHeight
-                                                                    multiplier:1.0f
-                                                                      constant:0.0f]];
-    // 直下viewとのマージンを0にする
-    _contentView.mapViewBottomConstraint.constant = 0.0f;
+     // viewの非表示化
+     _contentView.mapView.hidden = NO;
+     // viewの高さを0にする
+     [_contentView.mapView addConstraint:[NSLayoutConstraint constraintWithItem:_contentView.mapView
+     attribute:NSLayoutAttributeHeight
+     relatedBy:NSLayoutRelationEqual
+     toItem:nil
+     attribute:NSLayoutAttributeHeight
+     multiplier:1.0f
+     constant:0.0f]];
+     // 直下viewとのマージンを0にする
+     _contentView.mapViewBottomConstraint.constant = 0.0f;
      */
-
 }
 
 // 画面表示される時や画面回転した後に呼ばれる

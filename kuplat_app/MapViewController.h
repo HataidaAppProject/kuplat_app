@@ -8,10 +8,18 @@
 
 #import <UIKit/UIKit.h>
 #import <GoogleMaps/GoogleMaps.h>
+#import "MapCustumMarkerView.h"
+#import "EventItem.h"
+#import "RestaurantItem.h"
+#import "EventDetailViewController.h"
+#import "RestaurantDetailViewController.h"
 
-@interface MapViewController : UIViewController
-- (void)addMarkers;
+@interface MapViewController : UIViewController<GMSMapViewDelegate>{
+}
+
 @property(strong,nonatomic) GMSMapView *mapView;
+
+- (void)addMarkers;
 
 @end
 
