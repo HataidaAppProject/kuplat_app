@@ -10,13 +10,19 @@
 #import "RestaurantDetailView.h"
 #import "RestaurantItem.h"
 #import <QuartzCore/QuartzCore.h> //viewの枠線用
+#import "MenuView.h"
 
-@interface RestaurantDetailViewController : UIViewController
+@interface RestaurantDetailViewController : UIViewController <MenuViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) RestaurantDetailView *contentView;
 
 // 外部からの遷移時に情報を受け取る
 @property (strong, nonatomic) RestaurantItem *restaurant;
+
+
+//ドロップダウンメニュー
+@property (strong, nonatomic) MenuView *menuView;
+@property (weak, nonatomic) IBOutlet UIView *overlayView;
 
 @end

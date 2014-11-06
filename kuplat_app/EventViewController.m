@@ -26,7 +26,10 @@
     // 背景色 rgb=240,248,236
     [self setTitle:@"EVENT"];
     [self.view setBackgroundColor:[UIColor whiteColor]];
-
+    
+    // メニューを設置
+    [self setDropdownMenu];
+    
     /**********************************************************
      コンテンツのサイズを決める （オリジナルのフレームサイズじゃ駄目だった）
      **********************************************************/
@@ -101,7 +104,7 @@
     
     
     /**************
-     (未)リストの実装
+     リストの実装
      **************/
     // デリゲートメソッドをこのクラスで実装する
     [self.eventTableView1 setDelegate:self];
@@ -119,54 +122,115 @@
     [self.eventTableView2 setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     [self.eventTableView3 setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
-    
-    
-    // テーブルに表示したいデータソースをセット
-    self.menuItems = [NSMutableArray arrayWithCapacity:10];
-    [self.menuItems addObject:@"イベントイベントイベントイベントイベントイベントイベント詳細"];
-    [self.menuItems addObject:@"イベント詳細遷移テスト"];
-    [self.menuItems addObject:@"京大カレー部 カレー販売"];
-    [self.menuItems addObject:@"佐々木"];
-    [self.menuItems addObject:@"潮野"];
-    [self.menuItems addObject:@"テスト"];
-    [self.menuItems addObject:@"てすと"];
-    
+    // データをサーバから取得
+    [self loadData];
 }
 
+/**************************
+ データソースのセット サーバから
+ **************************/
+- (void)loadData
+{
+    
+    self.EventsItems1 = [NSMutableArray arrayWithCapacity:10];
+    self.EventsItems2 = [NSMutableArray arrayWithCapacity:10];
+    self.EventsItems3 = [NSMutableArray arrayWithCapacity:10];
+    
+    NSInteger i;
+    for (i=0; i<10; i++) {
+        
+        EventItem *event = [[EventItem alloc] init];
+        
+        event.image = [UIImage imageNamed: @"SampleTrendEvent"];
+        event.title = [NSString stringWithFormat:@"イベント%d", i];
+        event.numOfFav = @"100";
+        event.date = @"2014.11.11";
+        event.cost = @"1,000円";
+        event.address = @"吉田グラウンド";
+        event.aboutText = @"毎年恒例のなんちゃらかんちゃらfugafugahogehoge";
+        event.information.sponsor = @"サークル";
+        event.information.phoneNumber = @"090-xxxx-xxxx";
+        event.information.url = @"http://hugaga";
+        event.information.others = @"ほげほげ";
+        
+        [self.eventsItems1 addObject:event];
+        [self.eventsItems2 addObject:event];
+        [self.eventsItems3 addObject:event];
+    }
+}
 
 ///
-// テーブルにアイテムを追加
+// テーブルを選択した際のアクション
 ///
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
     
+    // 選択されたイベントを格納
+    self.sendEvent = [[EventItem alloc] init];
     switch (tableView.tag) {
         case EventList1:
         {
-            
+            self.sendEvent = [self.eventsItems1 objectAtIndex:indexPath.row];
             break;
         }
         case EventList2:
         {
-            
-            UIStoryboard *sb = [UIStoryboard storyboardWithName:@"EventDetailViewController" bundle:nil];
-            EventDetailViewController *con = [sb instantiateInitialViewController];
-            [self.navigationController pushViewController:con animated:YES];
+            self.sendEvent = [self.eventsItems2 objectAtIndex:indexPath.row];
             break;
         }
         case EventList3:
         {
-            
+            self.sendEvent = [self.eventsItems3 objectAtIndex:indexPath.row];
             break;
         }
         default:
             break;
+    }
+    
+    // イベント詳細Viewへ遷移
+    [self performSegueWithIdentifier:@"toEventDetailViewController" sender:self];
+
+}
+
+// ビューが遷移するタイミングで呼ばれる
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSLog(@"ここまでおｋ？");
+    //Segueの特定
+    if ( [[segue identifier] isEqualToString:@"toEventDetailViewController"] ) {
+        NSLog(@"ここまでおｋ２？");
+        EventDetailViewController *eventDetailViewController = [segue destinationViewController];
+        //ここで遷移先ビューのクラスの変数receiveStringに値を渡している
+        eventDetailViewController.event = self.sendEvent;
     }
 }
 
 // テーブルに表示するデータ件数を返す
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.menuItems.count;
+    
+    NSInteger count;
+    switch (tableView.tag) {
+        case EventList1:
+        {
+            count = self.eventsItems1.count;
+            break;
+        }
+        case EventList2:
+        {
+            count = self.eventsItems2.count;
+            break;
+        }
+        case EventList3:
+        {
+            count = self.eventsItems3.count;
+            break;
+        }
+        default:
+            break;
+    }
+    
+    return count;
 }
 
 // テーブルに表示するセルを返す
@@ -178,46 +242,44 @@
         cell = [[EventTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
     }
     
+    EventItem *event;
     switch (tableView.tag) {
         case EventList1:
         {
+            event = [self.eventsItems1 objectAtIndex:indexPath.row];
             break;
         }
         case EventList2:
         {
-            [cell.eventTitle setText:[self.menuItems objectAtIndex:indexPath.row]];
-            [cell.eventImage setImage:[UIImage imageNamed:@"SampleTrendEvent"]];
-            [cell.eventNumOfFavs setText:@"10名"];
-            [cell.eventDate setText:@"2014.11.10"];
-            [cell.eventPlace setText:@"京大"];
-            [cell.eventCost setText:@"1,000円"];
+            event = [self.eventsItems2 objectAtIndex:indexPath.row];
             break;
         }
         case EventList3:
         {
-            [cell.eventImage setImage:[UIImage imageNamed:@"SampleTrendEvent"]];
-            [cell.eventNumOfFavs setText:@"100名"];
-            [cell.eventDate setText:@"2014.11.100"];
-            [cell.eventPlace setText:@"京大00"];
-            [cell.eventCost setText:@"10,000円"];
+            event = [self.eventsItems3 objectAtIndex:indexPath.row];
             break;
         }
         default:
             break;
     }
     
+    [cell.eventImage setImage:event.image];
+    [cell.eventTitle setText:event.title];
+    [cell.eventNumOfFavs setText:event.numOfFav];
+    [cell.eventDate setText:event.date];
+    [cell.eventCost setText:event.cost];
+    [cell.eventPlace setText:event.address];
+    
     // セルの上下左右にマージンを追加
     cell.insetH = 8.0;
     cell.insetV = 4.0;
-
-    // アイテムの右端に矢印表示
-    //cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    
     return cell;
+    
 }
 
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
 }
 
 // セルの高さを返す
@@ -283,5 +345,115 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+/*****************
+ メニュー
+ *****************/
+- (void)setDropdownMenu
+{
+    self.menuView = [[[NSBundle mainBundle] loadNibNamed:@"MenuView"
+                                                   owner:self
+                                                 options:nil] lastObject];
+    [self.menuView setDelegate:self];
+    
+    [self.menuView setTranslatesAutoresizingMaskIntoConstraints:NO];
+    NSMutableArray *menuLayoutConstraints = [[NSMutableArray alloc] init];
+    // 右端揃え
+    [menuLayoutConstraints addObject:[NSLayoutConstraint constraintWithItem:self.menuView
+                                                                  attribute:NSLayoutAttributeRight
+                                                                  relatedBy:NSLayoutRelationEqual
+                                                                     toItem:self.view
+                                                                  attribute:NSLayoutAttributeRight
+                                                                 multiplier:1.0
+                                                                   constant:0.0]];
+    // View内に収まるようにする（念のため）
+    [menuLayoutConstraints addObject:[NSLayoutConstraint constraintWithItem:self.menuView
+                                                                  attribute:NSLayoutAttributeHeight
+                                                                  relatedBy:NSLayoutRelationLessThanOrEqual
+                                                                     toItem:self.overlayView
+                                                                  attribute:NSLayoutAttributeHeight
+                                                                 multiplier:1.0
+                                                                   constant:0.0]];
+    [menuLayoutConstraints addObject:[NSLayoutConstraint constraintWithItem:self.menuView
+                                                                  attribute:NSLayoutAttributeWidth
+                                                                  relatedBy:NSLayoutRelationLessThanOrEqual
+                                                                     toItem:self.overlayView
+                                                                  attribute:NSLayoutAttributeWidth
+                                                                 multiplier:1.0
+                                                                   constant:0.0]];
+    // ボタンの1個の高さをNavigationBarの高さにする (縦横比はxibにて1:4)
+    [menuLayoutConstraints addObject:[NSLayoutConstraint constraintWithItem:self.menuView
+                                                                  attribute:NSLayoutAttributeHeight
+                                                                  relatedBy:NSLayoutRelationEqual
+                                                                     toItem:nil
+                                                                  attribute:NSLayoutAttributeHeight
+                                                                 multiplier:1.0
+                                                                   constant:self.navigationController.navigationBar.frame.size.height*MenuItemNum]];
+    // 底辺と画面の上端
+    [menuLayoutConstraints addObject:[NSLayoutConstraint constraintWithItem:self.overlayView
+                                                                  attribute:NSLayoutAttributeTop
+                                                                  relatedBy:NSLayoutRelationEqual
+                                                                     toItem:self.menuView
+                                                                  attribute:NSLayoutAttributeBottom
+                                                                 multiplier:1.0
+                                                                   constant:0.0]];
+    
+    [self.view addSubview:self.menuView];
+    [self.view addConstraints:menuLayoutConstraints];
+    
+}
+
+- (IBAction)tappedMenuButton:(id)sender
+{
+    if (self.menuView.isMenuOpen) {
+        [self hiddenOverlayView];
+    } else {
+        [self showOverlayView];
+    }
+    
+    [self.menuView tappedMenuButton];
+}
+
+- (void)menuViewDidSelectedItem:(MenuView *)menuView type:(MenuViewSelectedItemType)type
+{
+    [self hiddenOverlayView];
+}
+
+- (void)showOverlayView
+{
+    self.overlayView.hidden = NO;
+    self.overlayView.alpha = 0.0;
+    
+    [UIView animateWithDuration:0.3f
+                          delay:0.05f
+                        options:UIViewAnimationOptionCurveEaseInOut
+                     animations:^{
+                         self.overlayView.alpha = 0.5;
+                     }
+                     completion:^(BOOL finished){
+                     }];
+    
+    [UIView commitAnimations];
+}
+
+- (void)hiddenOverlayView
+{
+    self.overlayView.alpha = 0.5;
+    
+    [UIView animateWithDuration:0.3f
+                          delay:0.05f
+                        options:UIViewAnimationOptionCurveEaseInOut
+                     animations:^{
+                         self.overlayView.alpha = 0.0;
+                     }
+                     completion:^(BOOL finished){
+                         self.overlayView.hidden = YES;
+                     }];
+    
+    [UIView commitAnimations];
+}
+
+
 
 @end

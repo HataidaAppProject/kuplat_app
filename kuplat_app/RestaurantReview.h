@@ -11,7 +11,7 @@
 @interface RestaurantReview : NSObject
 
 @property (nonatomic) NSString *department;
-@property (nonatomic) uint grade;
+@property (nonatomic) NSString *grade;
 @property (nonatomic) NSString *sex;
 //@property (nonatomic) float score;
 @property (nonatomic) NSString *score;

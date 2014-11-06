@@ -21,7 +21,6 @@
 		8436BF0B19EE0E5F0088FF70 /* RestaurantViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8436BF0A19EE0E5F0088FF70 /* RestaurantViewController.m */; };
 		843FE86F1A07E6AC002A8637 /* RestaurantTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 843FE86E1A07E6AC002A8637 /* RestaurantTableViewCell.m */; };
 		845100DB19F93FF10015F583 /* EventDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845100DA19F93FF10015F583 /* EventDetailView.xib */; };
-		845100E419FA36E00015F583 /* EventDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 845100E319FA36E00015F583 /* EventDetailViewController.storyboard */; };
 		845100E619FA380B0015F583 /* EventDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 845100E519FA380B0015F583 /* EventDetailViewController.m */; };
 		845100EA19FA47E10015F583 /* EventDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 845100E919FA47E10015F583 /* EventDetailView.m */; };
 		84636BEC1A09B4C300AF6601 /* RestaurantItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 84636BEB1A09B4C300AF6601 /* RestaurantItem.m */; };
@@ -97,7 +96,6 @@
 		843FE86D1A07E6AC002A8637 /* RestaurantTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantTableViewCell.h; sourceTree = "<group>"; };
 		843FE86E1A07E6AC002A8637 /* RestaurantTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantTableViewCell.m; sourceTree = "<group>"; };
 		845100DA19F93FF10015F583 /* EventDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventDetailView.xib; sourceTree = "<group>"; };
-		845100E319FA36E00015F583 /* EventDetailViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EventDetailViewController.storyboard; sourceTree = "<group>"; };
 		845100E519FA380B0015F583 /* EventDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventDetailViewController.m; sourceTree = "<group>"; };
 		845100E719FA38210015F583 /* EventDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventDetailViewController.h; sourceTree = "<group>"; };
 		845100E819FA47AC0015F583 /* EventDetailView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventDetailView.h; sourceTree = "<group>"; };
@@ -271,7 +269,6 @@
 				8436BEDF19E6D08F0088FF70 /* EventViewController.m */,
 				845100E719FA38210015F583 /* EventDetailViewController.h */,
 				845100E519FA380B0015F583 /* EventDetailViewController.m */,
-				845100E319FA36E00015F583 /* EventDetailViewController.storyboard */,
 				845100E819FA47AC0015F583 /* EventDetailView.h */,
 				845100E919FA47E10015F583 /* EventDetailView.m */,
 				845100DA19F93FF10015F583 /* EventDetailView.xib */,
@@ -430,7 +427,6 @@
 				84B7927B1A016C6F0054AE31 /* MenuView.xib in Resources */,
 				84E1BAE41A092B6E003EA808 /* RestaurantDetailView.xib in Resources */,
 				8436BEE819E6D08F0088FF70 /* LaunchScreen.xib in Resources */,
-				845100E419FA36E00015F583 /* EventDetailViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

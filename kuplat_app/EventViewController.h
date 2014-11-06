@@ -9,23 +9,28 @@
 #import <UIKit/UIKit.h>
 #import "EventTableViewCell.h"
 #import "EventDetailViewController.h"
+#import "MenuView.h"
 
-typedef NS_ENUM(NSInteger, MenuViewSelectedItemType) {
+
+typedef NS_ENUM(NSInteger, EventListType) {
     EventList1 = 0,
     EventList2 = 1,
     EventList3 = 2,
     EventListsNum = 3
 };
 
-@interface EventViewController : UIViewController <UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate>
-
+@interface EventViewController : UIViewController <UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate, MenuViewDelegate>
 
 // リストに表示するアイテムを格納
-@property(strong, nonatomic) NSMutableArray *menuItems;
+@property (strong, nonatomic) NSMutableArray *eventsItems1;
+@property (strong, nonatomic) NSMutableArray *eventsItems2;
+@property (strong, nonatomic) NSMutableArray *eventsItems3;
 // リスト
-@property(strong, nonatomic) UITableView *eventTableView1;
-@property(strong, nonatomic) UITableView *eventTableView2;
-@property(strong, nonatomic) UITableView *eventTableView3;
+@property (strong, nonatomic) UITableView *eventTableView1;
+@property (strong, nonatomic) UITableView *eventTableView2;
+@property (strong, nonatomic) UITableView *eventTableView3;
+// 詳細Viewへ渡すEventアイテム
+@property (strong, nonatomic) EventItem *sendEvent;
 
 
 // スクロールView
@@ -44,6 +49,11 @@ typedef NS_ENUM(NSInteger, MenuViewSelectedItemType) {
 // ページ番号
 @property (nonatomic) NSInteger currentPage;
 
+
+
+//ドロップダウンメニュー
+@property (strong, nonatomic) MenuView *menuView;
+@property (weak, nonatomic) IBOutlet UIView *overlayView;
 
 @end
 

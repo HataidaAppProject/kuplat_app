@@ -10,15 +10,16 @@
 #import "RestaurantTableViewCell.h"
 #import "RestaurantDetailViewController.h"
 #import "RestaurantItem.h"
+#import "MenuView.h"
 
-typedef NS_ENUM(NSInteger, MenuViewSelectedItemType) {
+typedef NS_ENUM(NSInteger, RestaurantListType) {
     RestaurantList1 = 0,
     RestaurantList2 = 1,
     RestaurantList3 = 2,
     RestaurantListsNum = 3
 };
 
-@interface RestaurantViewController : UIViewController <UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface RestaurantViewController : UIViewController <UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate, MenuViewDelegate>
 
 
 // リストに表示するアイテムを格納
@@ -48,6 +49,9 @@ typedef NS_ENUM(NSInteger, MenuViewSelectedItemType) {
 @property (nonatomic) NSInteger currentPage;
 
 
+//ドロップダウンメニュー
+@property (strong, nonatomic) MenuView *menuView;
+@property (weak, nonatomic) IBOutlet UIView *overlayView;
 
 @end
 

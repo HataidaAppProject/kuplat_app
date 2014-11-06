@@ -7,10 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MenuView.h"
 
-@interface ProfileViewController : UIViewController
+@interface ProfileViewController : UIViewController <MenuViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *profileImg;
+
+
+//ドロップダウンメニュー
+@property (strong, nonatomic) MenuView *menuView;
+@property (weak, nonatomic) IBOutlet UIView *overlayView;
 
 @end
 

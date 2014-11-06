@@ -134,16 +134,17 @@
     self.trendRestaurant.coupon = @"ランチタイムに限り，この画面提示で100円引き！";
     self.trendRestaurant.address = @"元田中";
     self.trendRestaurant.review.department = @"経済学部";
-    self.trendRestaurant.review.grade = 1;
+    self.trendRestaurant.review.grade = @"1";
     self.trendRestaurant.review.sex = @"男性";
     self.trendRestaurant.review.score = @"3.1";
-    self.trendRestaurant.review.text = @"うまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうま";
+    self.trendRestaurant.review.text = @"うまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうま";
     self.trendRestaurant.menu.menu = @"担々麺";
     self.trendRestaurant.menu.price = 1000;
     self.trendRestaurant.information.phoneNumber = @"075-xxxx-xxxx";
     self.trendRestaurant.information.businessHours = @"11:00~22:00";
     self.trendRestaurant.information.clodedDays = @"毎週月曜，年末年始";
     self.trendRestaurant.information.url = @"http://fugafuga";
+    self.trendRestaurant.information.others = @"そのた";
 }
 
 -(void)writeData

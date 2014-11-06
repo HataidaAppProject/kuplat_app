@@ -171,6 +171,10 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FCi-kt-yEA">
                                 <rect key="frame" x="0.0" y="108" width="600" height="443"/>
                             </scrollView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fq2-s7-vtK" userLabel="overlay">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -179,33 +183,89 @@
                             <constraint firstItem="FCi-kt-yEA" firstAttribute="leading" secondItem="wJs-NM-qRY" secondAttribute="leading" id="BtK-cZ-cPf"/>
                             <constraint firstItem="kry-sp-KOi" firstAttribute="width" secondItem="Ey7-Ey-Hqd" secondAttribute="width" id="GlI-o8-bbW"/>
                             <constraint firstItem="Q2s-7w-cFD" firstAttribute="top" secondItem="FCi-kt-yEA" secondAttribute="bottom" id="OJP-YD-kDM"/>
+                            <constraint firstAttribute="trailing" secondItem="Fq2-s7-vtK" secondAttribute="trailing" id="QHc-rj-O6q"/>
                             <constraint firstItem="FCi-kt-yEA" firstAttribute="top" secondItem="kry-sp-KOi" secondAttribute="bottom" id="Ro3-WA-Ftx"/>
                             <constraint firstItem="Ey7-Ey-Hqd" firstAttribute="top" secondItem="IH5-nE-PG8" secondAttribute="bottom" id="SMO-wb-QzB"/>
                             <constraint firstAttribute="trailing" secondItem="FCi-kt-yEA" secondAttribute="trailing" id="cuj-gw-ZCQ"/>
                             <constraint firstItem="kry-sp-KOi" firstAttribute="width" secondItem="tSS-wH-o2n" secondAttribute="width" id="dJn-Nz-aan"/>
+                            <constraint firstItem="Fq2-s7-vtK" firstAttribute="leading" secondItem="wJs-NM-qRY" secondAttribute="leading" id="fKO-jv-4GK"/>
                             <constraint firstItem="Ey7-Ey-Hqd" firstAttribute="leading" secondItem="kry-sp-KOi" secondAttribute="trailing" id="fds-8m-I5f"/>
                             <constraint firstItem="kry-sp-KOi" firstAttribute="top" secondItem="IH5-nE-PG8" secondAttribute="bottom" id="iv1-4N-Kc7"/>
                             <constraint firstAttribute="trailing" secondItem="tSS-wH-o2n" secondAttribute="trailing" id="l3t-vc-Zfw"/>
+                            <constraint firstItem="Q2s-7w-cFD" firstAttribute="top" secondItem="Fq2-s7-vtK" secondAttribute="bottom" id="lnQ-UH-gA9"/>
                             <constraint firstItem="tSS-wH-o2n" firstAttribute="leading" secondItem="Ey7-Ey-Hqd" secondAttribute="trailing" id="pnj-gT-wie"/>
                             <constraint firstItem="FCi-kt-yEA" firstAttribute="top" secondItem="tSS-wH-o2n" secondAttribute="bottom" id="qha-Qq-ylj"/>
                             <constraint firstItem="FCi-kt-yEA" firstAttribute="top" secondItem="Ey7-Ey-Hqd" secondAttribute="bottom" id="rsT-cT-4NO"/>
+                            <constraint firstItem="Fq2-s7-vtK" firstAttribute="top" secondItem="IH5-nE-PG8" secondAttribute="bottom" id="tkc-yD-SrK"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="EVENT" id="Rgq-yg-F5Y">
                         <barButtonItem key="rightBarButtonItem" image="menu" id="ofB-MD-2FI">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="tappedMenuButton:" destination="8rJ-Kc-sve" id="bVB-dP-kLz"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="eventList1Button" destination="kry-sp-KOi" id="klB-hP-lC6"/>
                         <outlet property="eventList2Button" destination="Ey7-Ey-Hqd" id="c6Z-vE-zUk"/>
                         <outlet property="eventList3Button" destination="tSS-wH-o2n" id="oRL-6s-vRM"/>
+                        <outlet property="overlayView" destination="Fq2-s7-vtK" id="ai4-SM-l4t"/>
                         <outlet property="scrollView" destination="FCi-kt-yEA" id="6du-st-fBo"/>
+                        <segue destination="VaB-c6-IPs" kind="show" identifier="toEventDetailViewController" id="hp3-9l-4Um"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1562" y="348"/>
+        </scene>
+        <!--EVENT詳細-->
+        <scene sceneID="qU6-Iq-GV4">
+            <objects>
+                <viewController id="VaB-c6-IPs" customClass="EventDetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hTL-Qy-eB4"/>
+                        <viewControllerLayoutGuide type="bottom" id="DEC-1h-wgn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3wo-Kx-UZj">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qhw-oF-1Ny">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <color key="backgroundColor" red="0.94117647059999998" green="0.96862745100000003" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
+                            </scrollView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yDF-Wl-avt" userLabel="overlay">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="yDF-Wl-avt" firstAttribute="leading" secondItem="3wo-Kx-UZj" secondAttribute="leading" id="2r9-hY-iyP"/>
+                            <constraint firstAttribute="trailing" secondItem="yDF-Wl-avt" secondAttribute="trailing" id="OU0-Zr-Q3a"/>
+                            <constraint firstItem="DEC-1h-wgn" firstAttribute="top" secondItem="Qhw-oF-1Ny" secondAttribute="bottom" id="WEE-gs-4yN"/>
+                            <constraint firstItem="Qhw-oF-1Ny" firstAttribute="top" secondItem="hTL-Qy-eB4" secondAttribute="bottom" id="fi1-70-swk"/>
+                            <constraint firstItem="Qhw-oF-1Ny" firstAttribute="leading" secondItem="3wo-Kx-UZj" secondAttribute="leading" id="gwP-If-6p0"/>
+                            <constraint firstItem="yDF-Wl-avt" firstAttribute="top" secondItem="hTL-Qy-eB4" secondAttribute="bottom" id="iK0-I9-de2"/>
+                            <constraint firstAttribute="trailing" secondItem="Qhw-oF-1Ny" secondAttribute="trailing" id="nNy-wa-SxT"/>
+                            <constraint firstItem="DEC-1h-wgn" firstAttribute="top" secondItem="yDF-Wl-avt" secondAttribute="bottom" id="qyU-SO-k3Z"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="EVENT詳細" id="LBr-f5-fgh">
+                        <barButtonItem key="rightBarButtonItem" image="menu" id="PYm-Ff-vkb">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="overlayView" destination="yDF-Wl-avt" id="YHF-fV-bWn"/>
+                        <outlet property="scrollView" destination="Qhw-oF-1Ny" id="DU6-rr-5GG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="phH-SW-RHw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2280" y="348"/>
         </scene>
         <!--RESTAURANT-->
         <scene sceneID="Fmw-JN-54b">
@@ -258,6 +318,10 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XVT-Na-5SH">
                                 <rect key="frame" x="0.0" y="108" width="600" height="443"/>
                             </scrollView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U5I-KP-eAh" userLabel="overlay">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -265,14 +329,18 @@
                             <constraint firstItem="bqm-vj-aBK" firstAttribute="top" secondItem="zT8-5r-CIP" secondAttribute="bottom" id="9dK-QZ-Zmc"/>
                             <constraint firstItem="XVT-Na-5SH" firstAttribute="top" secondItem="nlN-Qu-4ai" secondAttribute="bottom" id="ABc-cy-sNb"/>
                             <constraint firstItem="XVT-Na-5SH" firstAttribute="top" secondItem="bqm-vj-aBK" secondAttribute="bottom" id="Bfu-Nb-JYU"/>
+                            <constraint firstItem="U5I-KP-eAh" firstAttribute="top" secondItem="zT8-5r-CIP" secondAttribute="bottom" id="DGB-z0-GHi"/>
                             <constraint firstItem="nlN-Qu-4ai" firstAttribute="leading" secondItem="lzR-Uo-9UP" secondAttribute="leading" id="Dcl-gb-Gqu"/>
                             <constraint firstItem="XVT-Na-5SH" firstAttribute="top" secondItem="lgB-P8-igS" secondAttribute="bottom" id="IZh-Nc-b20"/>
                             <constraint firstItem="nlN-Qu-4ai" firstAttribute="top" secondItem="zT8-5r-CIP" secondAttribute="bottom" id="NTa-t6-IGh"/>
+                            <constraint firstItem="Ozm-iU-FD8" firstAttribute="top" secondItem="U5I-KP-eAh" secondAttribute="bottom" id="Piz-H7-qpG"/>
                             <constraint firstItem="lgB-P8-igS" firstAttribute="top" secondItem="zT8-5r-CIP" secondAttribute="bottom" id="PlB-fh-s0i"/>
                             <constraint firstItem="Ozm-iU-FD8" firstAttribute="top" secondItem="XVT-Na-5SH" secondAttribute="bottom" id="U2G-r7-5Ik"/>
                             <constraint firstAttribute="trailing" secondItem="XVT-Na-5SH" secondAttribute="trailing" id="YIS-aR-pXv"/>
+                            <constraint firstItem="U5I-KP-eAh" firstAttribute="leading" secondItem="lzR-Uo-9UP" secondAttribute="leading" id="ma2-aV-PCA"/>
                             <constraint firstItem="lgB-P8-igS" firstAttribute="width" secondItem="nlN-Qu-4ai" secondAttribute="width" id="o76-7n-Y3e"/>
                             <constraint firstItem="bqm-vj-aBK" firstAttribute="width" secondItem="nlN-Qu-4ai" secondAttribute="width" id="oeI-Qb-7AR"/>
+                            <constraint firstAttribute="trailing" secondItem="U5I-KP-eAh" secondAttribute="trailing" id="ow1-Sa-SjJ"/>
                             <constraint firstItem="lgB-P8-igS" firstAttribute="leading" secondItem="bqm-vj-aBK" secondAttribute="trailing" id="q5I-XE-Yo0"/>
                             <constraint firstAttribute="trailing" secondItem="lgB-P8-igS" secondAttribute="trailing" id="qTW-h2-gHK"/>
                             <constraint firstItem="XVT-Na-5SH" firstAttribute="leading" secondItem="lzR-Uo-9UP" secondAttribute="leading" id="s9r-mg-V0D"/>
@@ -281,9 +349,13 @@
                     <navigationItem key="navigationItem" title="RESTAURANT" id="lh2-Vd-CeM">
                         <barButtonItem key="rightBarButtonItem" image="menu" id="rxF-qG-0Rz">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="tappedMenuButton:" destination="eQZ-vE-t7q" id="j7T-Ay-zeL"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="overlayView" destination="U5I-KP-eAh" id="8g6-JA-EXy"/>
                         <outlet property="restaurantList1Button" destination="nlN-Qu-4ai" id="FAl-kX-1wn"/>
                         <outlet property="restaurantList2Button" destination="bqm-vj-aBK" id="SUf-io-Jp7"/>
                         <outlet property="restaurantList3Button" destination="lgB-P8-igS" id="M7p-aJ-RYM"/>
@@ -305,13 +377,31 @@
                     <view key="view" contentMode="scaleToFill" id="GHj-gD-1eu">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="82t-cm-4aN" userLabel="overlay">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="82t-cm-4aN" firstAttribute="leading" secondItem="GHj-gD-1eu" secondAttribute="leading" id="08Z-HZ-Dop"/>
+                            <constraint firstItem="gIm-6a-0bQ" firstAttribute="top" secondItem="82t-cm-4aN" secondAttribute="bottom" id="5ML-Up-mcT"/>
+                            <constraint firstAttribute="trailing" secondItem="82t-cm-4aN" secondAttribute="trailing" id="HnW-zH-QGN"/>
+                            <constraint firstItem="82t-cm-4aN" firstAttribute="top" secondItem="RbL-Fc-zW8" secondAttribute="bottom" id="kr7-8f-IWo"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="MAP" id="RfH-Oj-CVo">
                         <barButtonItem key="rightBarButtonItem" image="menu" id="864-y0-xeL">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="tappedMenuButton:" destination="y50-bC-2y5" id="z8i-3z-BwK"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="overlayView" destination="82t-cm-4aN" id="xC8-Qh-iJr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hcu-2q-5E4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -433,17 +523,24 @@
                                     <constraint firstAttribute="width" secondItem="K34-mQ-niR" secondAttribute="height" multiplier="1:1" id="89K-lA-BdN"/>
                                 </constraints>
                             </imageView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UzK-RO-XU0" userLabel="overlay">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="MEc-FY-MRD" firstAttribute="top" secondItem="N90-Sd-1D8" secondAttribute="bottom" constant="9" id="2IP-ln-TKo"/>
                             <constraint firstItem="N90-Sd-1D8" firstAttribute="trailing" secondItem="UqY-de-2TU" secondAttribute="trailing" id="6Px-UK-Ho9"/>
                             <constraint firstAttribute="trailingMargin" secondItem="GOc-aE-aEP" secondAttribute="trailing" constant="10" id="GoI-rd-YQL"/>
+                            <constraint firstItem="MEc-FY-MRD" firstAttribute="top" secondItem="UzK-RO-XU0" secondAttribute="bottom" id="KfG-Zv-vPr"/>
+                            <constraint firstItem="UzK-RO-XU0" firstAttribute="leading" secondItem="xCC-n6-LFT" secondAttribute="leading" id="MKg-QB-Ozm"/>
                             <constraint firstItem="bh4-to-gEi" firstAttribute="trailing" secondItem="xCC-n6-LFT" secondAttribute="trailingMargin" id="NFB-aa-jfy"/>
                             <constraint firstItem="awo-gz-9QT" firstAttribute="top" secondItem="bh4-to-gEi" secondAttribute="bottom" constant="8" id="PEn-U6-gW1"/>
                             <constraint firstAttribute="trailingMargin" secondItem="K34-mQ-niR" secondAttribute="trailing" constant="10" id="QAA-hC-H5d"/>
                             <constraint firstItem="UqY-de-2TU" firstAttribute="height" secondItem="N90-Sd-1D8" secondAttribute="height" id="Tw3-2X-Roo"/>
                             <constraint firstItem="bh4-to-gEi" firstAttribute="top" secondItem="4Zh-UQ-0hd" secondAttribute="bottom" constant="8" id="UiI-QO-cbZ"/>
+                            <constraint firstItem="UzK-RO-XU0" firstAttribute="top" secondItem="4Zh-UQ-0hd" secondAttribute="bottom" id="X06-QO-2Q8"/>
                             <constraint firstItem="GOc-aE-aEP" firstAttribute="top" secondItem="UqY-de-2TU" secondAttribute="bottom" constant="23" id="YN2-V7-J2d"/>
                             <constraint firstItem="UqY-de-2TU" firstAttribute="top" secondItem="awo-gz-9QT" secondAttribute="bottom" constant="8" id="cGQ-4F-ikm"/>
                             <constraint firstItem="N90-Sd-1D8" firstAttribute="leading" secondItem="mZt-Fr-Sef" secondAttribute="leading" id="dsi-lM-WrV"/>
@@ -458,6 +555,7 @@
                             <constraint firstItem="mZt-Fr-Sef" firstAttribute="top" secondItem="UqY-de-2TU" secondAttribute="bottom" constant="8" id="r7L-64-feK"/>
                             <constraint firstItem="N90-Sd-1D8" firstAttribute="trailing" secondItem="bh4-to-gEi" secondAttribute="trailing" id="rCe-Is-3Bl"/>
                             <constraint firstItem="N90-Sd-1D8" firstAttribute="top" secondItem="GOc-aE-aEP" secondAttribute="bottom" constant="23" id="s4c-wB-JGp"/>
+                            <constraint firstAttribute="trailing" secondItem="UzK-RO-XU0" secondAttribute="trailing" id="uPZ-MG-2Sp"/>
                             <constraint firstItem="N90-Sd-1D8" firstAttribute="leading" secondItem="awo-gz-9QT" secondAttribute="leading" id="uYe-PM-yEB"/>
                             <constraint firstItem="N90-Sd-1D8" firstAttribute="top" secondItem="mZt-Fr-Sef" secondAttribute="bottom" constant="8" id="yhW-m3-ubu"/>
                             <constraint firstItem="N90-Sd-1D8" firstAttribute="leading" secondItem="bh4-to-gEi" secondAttribute="leading" id="zZt-Zf-wP9"/>
@@ -466,9 +564,13 @@
                     <navigationItem key="navigationItem" title="PROFILE" id="opo-eq-Ikv">
                         <barButtonItem key="rightBarButtonItem" image="menu" id="Wa7-AU-tGH">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="tappedMenuButton:" destination="X7v-8V-HLH" id="Deq-PL-ieT"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="overlayView" destination="UzK-RO-XU0" id="Kzg-IA-l26"/>
                         <outlet property="profileImg" destination="gsD-YF-N7r" id="a0D-SB-CG5"/>
                     </connections>
                 </viewController>

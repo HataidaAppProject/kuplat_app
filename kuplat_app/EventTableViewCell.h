@@ -14,8 +14,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *eventTitle;
 @property (weak, nonatomic) IBOutlet UILabel *eventNumOfFavs;
 @property (weak, nonatomic) IBOutlet UILabel *eventDate;
-@property (weak, nonatomic) IBOutlet UILabel *eventPlace;
 @property (weak, nonatomic) IBOutlet UILabel *eventCost;
+@property (weak, nonatomic) IBOutlet UILabel *eventPlace;
 
 // マージンを調整する
 @property (nonatomic) CGFloat insetH;

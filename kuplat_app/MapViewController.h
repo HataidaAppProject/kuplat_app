@@ -13,13 +13,20 @@
 #import "RestaurantItem.h"
 #import "EventDetailViewController.h"
 #import "RestaurantDetailViewController.h"
+#import "MenuView.h"
 
-@interface MapViewController : UIViewController<GMSMapViewDelegate>{
+@interface MapViewController : UIViewController<GMSMapViewDelegate, MenuViewDelegate>
+{
 }
 
 @property(strong,nonatomic) GMSMapView *mapView;
 
 - (void)addMarkers;
+
+
+//ドロップダウンメニュー
+@property (strong, nonatomic) MenuView *menuView;
+@property (weak, nonatomic) IBOutlet UIView *overlayView;
 
 @end
 

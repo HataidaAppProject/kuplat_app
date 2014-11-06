@@ -27,6 +27,9 @@
     [self setTitle:@"RESTAURANT"];
     [self.view setBackgroundColor:[UIColor whiteColor]];
     
+    // メニューを設置
+    [self setDropdownMenu];
+    
     /**********************************************************
      コンテンツのサイズを決める （オリジナルのフレームサイズじゃ駄目だった）
      **********************************************************/
@@ -120,16 +123,24 @@
     [self.restaurantTableView3 setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
     
-    /**************************
-     データソースのセット サーバから
-     **************************/
+    // データをサーバから取得
+    [self loadData];
+}
+
+
+/**************************
+ データソースのセット サーバから
+ **************************/
+- (void)loadData
+{
+    
     self.restaurantsItems1 = [NSMutableArray arrayWithCapacity:10];
     self.restaurantsItems2 = [NSMutableArray arrayWithCapacity:10];
     self.restaurantsItems3 = [NSMutableArray arrayWithCapacity:10];
     
     NSInteger i;
     for (i=0; i<10; i++) {
-
+        
         RestaurantItem *restaurant = [[RestaurantItem alloc] init];
         
         restaurant.image = [UIImage imageNamed:@"SampleTrendRestaurant"];
@@ -178,11 +189,11 @@
         }
         
         restaurant.type = @"ラーメン";
-        restaurant.score = @"4.3";
+        restaurant.score = [NSString stringWithFormat:@"%d.0", i%6];
         restaurant.coupon = @"ランチタイムに限り，この画面提示で100円引き！";
         restaurant.address = @"元田中";
         restaurant.review.department = @"経済学部";
-        restaurant.review.grade = 1;
+        restaurant.review.grade = @"1";
         restaurant.review.sex = @"男性";
         restaurant.review.score = @"3.1";
         restaurant.review.text = @"うまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうま";
@@ -197,9 +208,8 @@
         [self.restaurantsItems2 addObject:restaurant];
         [self.restaurantsItems3 addObject:restaurant];
     }
-    
-}
 
+}
 
 ///
 // テーブルにアイテムを追加
@@ -394,5 +404,115 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+
+/*****************
+ メニュー
+ *****************/
+- (void)setDropdownMenu
+{
+    self.menuView = [[[NSBundle mainBundle] loadNibNamed:@"MenuView"
+                                                   owner:self
+                                                 options:nil] lastObject];
+    [self.menuView setDelegate:self];
+    
+    [self.menuView setTranslatesAutoresizingMaskIntoConstraints:NO];
+    NSMutableArray *menuLayoutConstraints = [[NSMutableArray alloc] init];
+    // 右端揃え
+    [menuLayoutConstraints addObject:[NSLayoutConstraint constraintWithItem:self.menuView
+                                                                  attribute:NSLayoutAttributeRight
+                                                                  relatedBy:NSLayoutRelationEqual
+                                                                     toItem:self.view
+                                                                  attribute:NSLayoutAttributeRight
+                                                                 multiplier:1.0
+                                                                   constant:0.0]];
+    // View内に収まるようにする（念のため）
+    [menuLayoutConstraints addObject:[NSLayoutConstraint constraintWithItem:self.menuView
+                                                                  attribute:NSLayoutAttributeHeight
+                                                                  relatedBy:NSLayoutRelationLessThanOrEqual
+                                                                     toItem:self.overlayView
+                                                                  attribute:NSLayoutAttributeHeight
+                                                                 multiplier:1.0
+                                                                   constant:0.0]];
+    [menuLayoutConstraints addObject:[NSLayoutConstraint constraintWithItem:self.menuView
+                                                                  attribute:NSLayoutAttributeWidth
+                                                                  relatedBy:NSLayoutRelationLessThanOrEqual
+                                                                     toItem:self.overlayView
+                                                                  attribute:NSLayoutAttributeWidth
+                                                                 multiplier:1.0
+                                                                   constant:0.0]];
+    // ボタンの1個の高さをNavigationBarの高さにする (縦横比はxibにて1:4)
+    [menuLayoutConstraints addObject:[NSLayoutConstraint constraintWithItem:self.menuView
+                                                                  attribute:NSLayoutAttributeHeight
+                                                                  relatedBy:NSLayoutRelationEqual
+                                                                     toItem:nil
+                                                                  attribute:NSLayoutAttributeHeight
+                                                                 multiplier:1.0
+                                                                   constant:self.navigationController.navigationBar.frame.size.height*MenuItemNum]];
+    // 底辺と画面の上端
+    [menuLayoutConstraints addObject:[NSLayoutConstraint constraintWithItem:self.overlayView
+                                                                  attribute:NSLayoutAttributeTop
+                                                                  relatedBy:NSLayoutRelationEqual
+                                                                     toItem:self.menuView
+                                                                  attribute:NSLayoutAttributeBottom
+                                                                 multiplier:1.0
+                                                                   constant:0.0]];
+    
+    [self.view addSubview:self.menuView];
+    [self.view addConstraints:menuLayoutConstraints];
+    
+}
+
+- (IBAction)tappedMenuButton:(id)sender
+{
+    if (self.menuView.isMenuOpen) {
+        [self hiddenOverlayView];
+    } else {
+        [self showOverlayView];
+    }
+    
+    [self.menuView tappedMenuButton];
+}
+
+- (void)menuViewDidSelectedItem:(MenuView *)menuView type:(MenuViewSelectedItemType)type
+{
+    [self hiddenOverlayView];
+}
+
+- (void)showOverlayView
+{
+    self.overlayView.hidden = NO;
+    self.overlayView.alpha = 0.0;
+    
+    [UIView animateWithDuration:0.3f
+                          delay:0.05f
+                        options:UIViewAnimationOptionCurveEaseInOut
+                     animations:^{
+                         self.overlayView.alpha = 0.5;
+                     }
+                     completion:^(BOOL finished){
+                     }];
+    
+    [UIView commitAnimations];
+}
+
+- (void)hiddenOverlayView
+{
+    self.overlayView.alpha = 0.5;
+    
+    [UIView animateWithDuration:0.3f
+                          delay:0.05f
+                        options:UIViewAnimationOptionCurveEaseInOut
+                     animations:^{
+                         self.overlayView.alpha = 0.0;
+                     }
+                     completion:^(BOOL finished){
+                         self.overlayView.hidden = YES;
+                     }];
+    
+    [UIView commitAnimations];
+}
+
 
 @end
