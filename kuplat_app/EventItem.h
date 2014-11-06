@@ -20,5 +20,7 @@
 @property (nonatomic) NSString *address;
 @property (nonatomic) NSString *aboutText;
 @property (nonatomic) EventInformation *information;
+@property (nonatomic) CGFloat latitude;  //緯度
+@property (nonatomic) CGFloat longitude; //経度
 
 @end

@@ -189,7 +189,7 @@
         }
         
         restaurant.type = @"ラーメン";
-        restaurant.score = [NSString stringWithFormat:@"%d.0", i%6];
+        restaurant.score = [NSString stringWithFormat:@"%lu.0", (long)i%6];
         restaurant.coupon = @"ランチタイムに限り，この画面提示で100円引き！";
         restaurant.address = @"元田中";
         restaurant.review.department = @"経済学部";
@@ -212,41 +212,48 @@
 }
 
 ///
-// テーブルにアイテムを追加
+// テーブルを選択した際のアクション
 ///
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    RestaurantItem *restaurant;
+    self.sendRestaurant = [[RestaurantItem alloc] init];
     switch (tableView.tag) {
         case RestaurantList1:
         {
-            restaurant = [self.restaurantsItems1 objectAtIndex:indexPath.row];
+            self.sendRestaurant = [self.restaurantsItems1 objectAtIndex:indexPath.row];
             break;
         }
         case RestaurantList2:
         {
-            restaurant = [self.restaurantsItems2 objectAtIndex:indexPath.row];
+            self.sendRestaurant = [self.restaurantsItems2 objectAtIndex:indexPath.row];
             break;
         }
         case RestaurantList3:
         {
-            restaurant = [self.restaurantsItems3 objectAtIndex:indexPath.row];
+            self.sendRestaurant = [self.restaurantsItems3 objectAtIndex:indexPath.row];
             break;
         }
         default:
             break;
     }
     
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"RestaurantDetailViewController" bundle:nil];
-    RestaurantDetailViewController *restaurantDetailViewController = [storyboard instantiateInitialViewController];
-    restaurantDetailViewController.restaurant = restaurant;
-    [self.navigationController pushViewController:restaurantDetailViewController animated:YES];
+    // イベント詳細Viewへ遷移
+    [self performSegueWithIdentifier:@"toRestaurantDetailViewController" sender:self];
+    
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+// ビューが遷移するタイミングで呼ばれる
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    NSLog(@"prepareForSegue : RestaurantViewController");
+    //Segueの特定
+    if ( [[segue identifier] isEqualToString:@"toRestaurantDetailViewController"] ) {
+        RestaurantDetailViewController *restaurantDetailViewController = [segue destinationViewController];
+        //ここで遷移先ビューのクラスの変数receiveStringに値を渡している
+        restaurantDetailViewController.restaurant = self.sendRestaurant;
+    }
+    
 }
+
 
 // テーブルに表示するデータ件数を返す
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -412,15 +419,15 @@
  *****************/
 - (void)setDropdownMenu
 {
-    self.menuView = [[[NSBundle mainBundle] loadNibNamed:@"MenuView"
-                                                   owner:self
-                                                 options:nil] lastObject];
-    [self.menuView setDelegate:self];
+    self.dropdownMenuView = [[[NSBundle mainBundle] loadNibNamed:@"DropdownMenuView"
+                                                           owner:self
+                                                         options:nil] lastObject];
+    [self.dropdownMenuView setDelegate:self];
     
-    [self.menuView setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.dropdownMenuView setTranslatesAutoresizingMaskIntoConstraints:NO];
     NSMutableArray *menuLayoutConstraints = [[NSMutableArray alloc] init];
     // 右端揃え
-    [menuLayoutConstraints addObject:[NSLayoutConstraint constraintWithItem:self.menuView
+    [menuLayoutConstraints addObject:[NSLayoutConstraint constraintWithItem:self.dropdownMenuView
                                                                   attribute:NSLayoutAttributeRight
                                                                   relatedBy:NSLayoutRelationEqual
                                                                      toItem:self.view
@@ -428,14 +435,14 @@
                                                                  multiplier:1.0
                                                                    constant:0.0]];
     // View内に収まるようにする（念のため）
-    [menuLayoutConstraints addObject:[NSLayoutConstraint constraintWithItem:self.menuView
+    [menuLayoutConstraints addObject:[NSLayoutConstraint constraintWithItem:self.dropdownMenuView
                                                                   attribute:NSLayoutAttributeHeight
                                                                   relatedBy:NSLayoutRelationLessThanOrEqual
                                                                      toItem:self.overlayView
                                                                   attribute:NSLayoutAttributeHeight
                                                                  multiplier:1.0
                                                                    constant:0.0]];
-    [menuLayoutConstraints addObject:[NSLayoutConstraint constraintWithItem:self.menuView
+    [menuLayoutConstraints addObject:[NSLayoutConstraint constraintWithItem:self.dropdownMenuView
                                                                   attribute:NSLayoutAttributeWidth
                                                                   relatedBy:NSLayoutRelationLessThanOrEqual
                                                                      toItem:self.overlayView
@@ -443,7 +450,7 @@
                                                                  multiplier:1.0
                                                                    constant:0.0]];
     // ボタンの1個の高さをNavigationBarの高さにする (縦横比はxibにて1:4)
-    [menuLayoutConstraints addObject:[NSLayoutConstraint constraintWithItem:self.menuView
+    [menuLayoutConstraints addObject:[NSLayoutConstraint constraintWithItem:self.dropdownMenuView
                                                                   attribute:NSLayoutAttributeHeight
                                                                   relatedBy:NSLayoutRelationEqual
                                                                      toItem:nil
@@ -454,42 +461,43 @@
     [menuLayoutConstraints addObject:[NSLayoutConstraint constraintWithItem:self.overlayView
                                                                   attribute:NSLayoutAttributeTop
                                                                   relatedBy:NSLayoutRelationEqual
-                                                                     toItem:self.menuView
+                                                                     toItem:self.dropdownMenuView
                                                                   attribute:NSLayoutAttributeBottom
                                                                  multiplier:1.0
                                                                    constant:0.0]];
-    
-    [self.view addSubview:self.menuView];
+    [self.dropdownMenuView setHidden:YES];
+    [self.view addSubview:self.dropdownMenuView];
     [self.view addConstraints:menuLayoutConstraints];
     
 }
 
 - (IBAction)tappedMenuButton:(id)sender
 {
-    if (self.menuView.isMenuOpen) {
+    if (self.dropdownMenuView.isMenuOpen) {
         [self hiddenOverlayView];
     } else {
         [self showOverlayView];
     }
     
-    [self.menuView tappedMenuButton];
+    [self.dropdownMenuView tappedMenuButton];
 }
 
-- (void)menuViewDidSelectedItem:(MenuView *)menuView type:(MenuViewSelectedItemType)type
+- (void)dropdownMenuViewDidSelectedItem:(DropdownMenuView *)dropdownMenuView type:(DropdownMenuViewSelectedItemType)type
 {
     [self hiddenOverlayView];
 }
 
 - (void)showOverlayView
 {
-    self.overlayView.hidden = NO;
-    self.overlayView.alpha = 0.0;
+    [self.dropdownMenuView setHidden:NO];
+    [self.overlayView setHidden:NO];
+    [self.overlayView setAlpha:0.0];
     
     [UIView animateWithDuration:0.3f
                           delay:0.05f
                         options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
-                         self.overlayView.alpha = 0.5;
+                         [self.overlayView setAlpha:0.5];
                      }
                      completion:^(BOOL finished){
                      }];
@@ -499,16 +507,17 @@
 
 - (void)hiddenOverlayView
 {
-    self.overlayView.alpha = 0.5;
+    [self.overlayView setAlpha:0.5];
     
     [UIView animateWithDuration:0.3f
                           delay:0.05f
                         options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
-                         self.overlayView.alpha = 0.0;
+                         [self.overlayView setAlpha:0.0];
                      }
                      completion:^(BOOL finished){
-                         self.overlayView.hidden = YES;
+                         [self.dropdownMenuView setHidden:YES];
+                         [self.overlayView setHidden:YES];
                      }];
     
     [UIView commitAnimations];

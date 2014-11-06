@@ -7,16 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MenuView.h"
+#import "DropdownMenuView.h"
 #import "EventDetailViewController.h"
 #import "RestaurantDetailViewController.h"
 #import "EventItem.h"
 #import "RestaurantItem.h"
 
-@interface HomeViewController : UIViewController <MenuViewDelegate>
+@interface HomeViewController : UIViewController <DropdownMenuViewDelegate>
 
 //メニュー
-@property (strong, nonatomic) MenuView *menuView;
+@property (strong, nonatomic) DropdownMenuView *dropdownMenuView;
 @property (weak, nonatomic) IBOutlet UIView *overlayView;
 
 //トレンド

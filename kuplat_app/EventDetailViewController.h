@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "EventItem.h"
-#import "MenuView.h"
+#import "DropdownMenuView.h"
 
-@interface EventDetailViewController : UIViewController <MenuViewDelegate>
+@interface EventDetailViewController : UIViewController <DropdownMenuViewDelegate>
 
 // スクロールView
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -42,7 +42,7 @@
 
 
 //ドロップダウンメニュー
-@property (strong, nonatomic) MenuView *menuView;
+@property (strong, nonatomic) DropdownMenuView *dropdownMenuView;
 @property (weak, nonatomic) IBOutlet UIView *overlayView;
 
 @end

@@ -7,15 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MenuView.h"
+#import "DropdownMenuView.h"
 
-@interface ProfileViewController : UIViewController <MenuViewDelegate>
+@interface ProfileViewController : UIViewController <DropdownMenuViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *profileImg;
 
 
 //ドロップダウンメニュー
-@property (strong, nonatomic) MenuView *menuView;
+@property (strong, nonatomic) DropdownMenuView *dropdownMenuView;
 @property (weak, nonatomic) IBOutlet UIView *overlayView;
 
 @end

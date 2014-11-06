@@ -10,7 +10,7 @@
 #import "RestaurantTableViewCell.h"
 #import "RestaurantDetailViewController.h"
 #import "RestaurantItem.h"
-#import "MenuView.h"
+#import "DropdownMenuView.h"
 
 typedef NS_ENUM(NSInteger, RestaurantListType) {
     RestaurantList1 = 0,
@@ -19,8 +19,7 @@ typedef NS_ENUM(NSInteger, RestaurantListType) {
     RestaurantListsNum = 3
 };
 
-@interface RestaurantViewController : UIViewController <UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate, MenuViewDelegate>
-
+@interface RestaurantViewController : UIViewController <UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate, DropdownMenuViewDelegate>
 
 // リストに表示するアイテムを格納
 @property(strong, nonatomic) NSMutableArray *restaurantsItems1;
@@ -30,6 +29,8 @@ typedef NS_ENUM(NSInteger, RestaurantListType) {
 @property(strong, nonatomic) UITableView *restaurantTableView1;
 @property(strong, nonatomic) UITableView *restaurantTableView2;
 @property(strong, nonatomic) UITableView *restaurantTableView3;
+// 詳細Viewへ渡すEventアイテム
+@property (strong, nonatomic) RestaurantItem *sendRestaurant;
 
 
 // スクロールView
@@ -50,7 +51,7 @@ typedef NS_ENUM(NSInteger, RestaurantListType) {
 
 
 //ドロップダウンメニュー
-@property (strong, nonatomic) MenuView *menuView;
+@property (strong, nonatomic) DropdownMenuView *dropdownMenuView;
 @property (weak, nonatomic) IBOutlet UIView *overlayView;
 
 @end

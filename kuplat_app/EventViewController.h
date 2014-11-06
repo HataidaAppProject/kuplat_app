@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "EventTableViewCell.h"
 #import "EventDetailViewController.h"
-#import "MenuView.h"
+#import "DropdownMenuView.h"
 
 
 typedef NS_ENUM(NSInteger, EventListType) {
@@ -19,7 +19,7 @@ typedef NS_ENUM(NSInteger, EventListType) {
     EventListsNum = 3
 };
 
-@interface EventViewController : UIViewController <UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate, MenuViewDelegate>
+@interface EventViewController : UIViewController <UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate, DropdownMenuViewDelegate>
 
 // リストに表示するアイテムを格納
 @property (strong, nonatomic) NSMutableArray *eventsItems1;
@@ -50,9 +50,8 @@ typedef NS_ENUM(NSInteger, EventListType) {
 @property (nonatomic) NSInteger currentPage;
 
 
-
 //ドロップダウンメニュー
-@property (strong, nonatomic) MenuView *menuView;
+@property (strong, nonatomic) DropdownMenuView *dropdownMenuView;
 @property (weak, nonatomic) IBOutlet UIView *overlayView;
 
 @end

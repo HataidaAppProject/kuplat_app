@@ -1,20 +1,20 @@
 //
-//  MenuView.m
+//  DropdownMenuView.m
 //  TopSlideMenuSample
 //
 //  Created by hiraya.shingo on 2014/03/19.
 //  Copyright (c) 2014年 hiraya.shingo. All rights reserved.
 //
 
-#import "MenuView.h"
+#import "DropdownMenuView.h"
 
-@interface MenuView ()
+@interface DropdownMenuView ()
 
 @property (assign, nonatomic, readwrite) BOOL isMenuOpen;
 
 @end
 
-@implementation MenuView
+@implementation DropdownMenuView
 
 #pragma mark - UIView methods
 
@@ -34,23 +34,23 @@
 
 - (void)tappedMenuButton
 {
-    NSLog(@"MenuView - tappedMenuButton");
+    NSLog(@"DropdownMenuView - tappedMenuButton");
     
     if (self.isMenuOpen) {
-        [self closeMenuView];
+        [self closeDropdownMenuView];
     } else {
-        [self openMenuView];
+        [self openDropdownMenuView];
     }
 }
 
 #pragma mark - private methods
 
 /**
- *  close MenuView
+ *  close DropdownMenuView
  */
-- (void)closeMenuView
+- (void)closeDropdownMenuView
 {
-    NSLog(@"closeMenuView");
+    NSLog(@"closeDropdownMenuView");
     // Set new origin of menu
     CGRect menuFrame = self.frame;
     menuFrame.origin.y = menuFrame.origin.y - self.frame.size.height;
@@ -68,11 +68,11 @@
 }
 
 /**
- *  open MenuView
+ *  open DropdownMenuView
  */
-- (void)openMenuView
+- (void)openDropdownMenuView
 {
-    NSLog(@"openMenuView");
+    NSLog(@"openDropdownMenuView");
     // Set new origin of menu
     CGRect menuFrame = self.frame;
     menuFrame.origin.y = menuFrame.origin.y + self.frame.size.height;
@@ -90,64 +90,64 @@
     [UIView commitAnimations];
 }
 
-- (void)tappedButtonWithType:(MenuViewSelectedItemType)type
+- (void)tappedButtonWithType:(DropdownMenuViewSelectedItemType)type
 {
-    if ([self.delegate respondsToSelector:@selector(menuViewDidSelectedItem:type:)]) {
+    if ([self.delegate respondsToSelector:@selector(dropdownMenuViewDidSelectedItem:type:)]) {
         
         switch (type) {
-            case MenuViewSelectedItemTypeAddRestaurant:
+            case DropdownMenuViewSelectedItemTypeAddRestaurant:
             {
                 NSLog(@"ここでも");
                 break;
             }
-            case MenuViewSelectedItemTypeAddEvent:
+            case DropdownMenuViewSelectedItemTypeAddEvent:
                 
                 break;
                 
-            case MenuViewSelectedItemTypeModifyUserInfo:
+            case DropdownMenuViewSelectedItemTypeModifyUserInfo:
                 
                 break;
                 
-            case MenuViewSelectedItemTypeCntact:
+            case DropdownMenuViewSelectedItemTypeCntact:
                 
                 break;
                 
-            case MenuViewSelectedItemTypeAppInfo:
+            case DropdownMenuViewSelectedItemTypeAppInfo:
                 
                 break;
                 
             default:
                 break;
         }
-        [self.delegate menuViewDidSelectedItem:self type:type];
+        [self.delegate dropdownMenuViewDidSelectedItem:self type:type];
     }
-    [self closeMenuView];
+    [self closeDropdownMenuView];
 }
 
 #pragma mark - Action methods
 
 - (IBAction)tappedAddRestaurantButton:(id)sender {
-    [self tappedButtonWithType:MenuViewSelectedItemTypeAddRestaurant];
+    [self tappedButtonWithType:DropdownMenuViewSelectedItemTypeAddRestaurant];
 }
 
 - (IBAction)tappedAddEventButton:(id)sender
 {
-    [self tappedButtonWithType:MenuViewSelectedItemTypeAddEvent];
+    [self tappedButtonWithType:DropdownMenuViewSelectedItemTypeAddEvent];
 }
 
 - (IBAction)tappedModifyUserInfoButton:(id)sender
 {
-    [self tappedButtonWithType:MenuViewSelectedItemTypeModifyUserInfo];
+    [self tappedButtonWithType:DropdownMenuViewSelectedItemTypeModifyUserInfo];
 }
 
 - (IBAction)tappedContactButton:(id)sender
 {
-    [self tappedButtonWithType:MenuViewSelectedItemTypeCntact];
+    [self tappedButtonWithType:DropdownMenuViewSelectedItemTypeCntact];
 }
 
 - (IBAction)tappedAppInfoButton:(id)sender
 {
-    [self tappedButtonWithType:MenuViewSelectedItemTypeAppInfo];
+    [self tappedButtonWithType:DropdownMenuViewSelectedItemTypeAppInfo];
 }
 
 @end

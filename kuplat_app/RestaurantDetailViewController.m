@@ -31,141 +31,70 @@
     
     [self setTitle:@"レストラン詳細"];
     
+    // 情報をViewに書き込む
+    [self writeData];
+    
     // メニューを設置
     [self setDropdownMenu];
     
-    // スクロールの中身となるViewの生成
-    self.contentView = [[RestaurantDetailView alloc] initWithFrame:self.scrollView.bounds];
-    // Constraintは自分で設定するのでNO
-    [self.contentView setTranslatesAutoresizingMaskIntoConstraints:NO];
-    // Subviewとして追加
-    [self.scrollView addSubview:self.contentView];
+    
+}
 
-    // Constraintの設定
-    UIScreen *sc = [UIScreen mainScreen];
-    [self.scrollView addConstraint:[NSLayoutConstraint constraintWithItem:self.contentView
-                                                                attribute:NSLayoutAttributeLeading
-                                                                relatedBy:NSLayoutRelationEqual
-                                                                   toItem:self.scrollView
-                                                                attribute:NSLayoutAttributeLeading
-                                                               multiplier:1.0f
-                                                                 constant:0]];
-    [self.scrollView addConstraint:[NSLayoutConstraint constraintWithItem:self.contentView
-                                                                attribute:NSLayoutAttributeTrailing
-                                                                relatedBy:NSLayoutRelationEqual
-                                                                   toItem:self.scrollView
-                                                                attribute:NSLayoutAttributeTrailing
-                                                               multiplier:1.0f
-                                                                 constant:0]];
-    [self.scrollView addConstraint:[NSLayoutConstraint constraintWithItem:self.contentView
-                                                                attribute:NSLayoutAttributeTop
-                                                                relatedBy:NSLayoutRelationEqual
-                                                                   toItem:self.scrollView
-                                                                attribute:NSLayoutAttributeTop
-                                                               multiplier:1.0f
-                                                                 constant:0]];
-    [self.scrollView addConstraint:[NSLayoutConstraint constraintWithItem:self.contentView
-                                                                attribute:NSLayoutAttributeBottom
-                                                                relatedBy:NSLayoutRelationEqual
-                                                                   toItem:self.scrollView
-                                                                attribute:NSLayoutAttributeBottom
-                                                               multiplier:1.0f
-                                                                 constant:0]];
-    /*
-    [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:self.contentView
-                                                                attribute:NSLayoutAttributeWidth
-                                                                relatedBy:NSLayoutRelationEqual
-                                                                   toItem:nil
-                                                                attribute:NSLayoutAttributeWidth
-                                                               multiplier:1.0f
-                                                                 constant:sc.applicationFrame.size.width]];
-     */
+- (void)writeData
+{
     // クーポンの枠線
-    [self.contentView.couponView.layer setBorderWidth:1.0f];
-    [self.contentView.couponView.layer setBorderColor:[[UIColor colorWithRed:0.929 green:0.490 blue:0.192 alpha:1.0] CGColor]]; //rgb = 237,125,49
+    [self.couponView.layer setBorderWidth:1.0f];
+    [self.couponView.layer setBorderColor:[[UIColor colorWithRed:0.929 green:0.490 blue:0.192 alpha:1.0] CGColor]]; //rgb = 237,125,49
     
     // 画像
-    [self.contentView.imageView setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [self.contentView.imageView addConstraint:[NSLayoutConstraint constraintWithItem:self.contentView.imageView
-                                                                           attribute:NSLayoutAttributeWidth
-                                                                           relatedBy:NSLayoutRelationEqual
-                                                                              toItem:nil
-                                                                           attribute:NSLayoutAttributeWidth
-                                                                          multiplier:0.0
-                                                                            constant:sc.applicationFrame.size.width - 16]];
-    [self.contentView.imageView setContentMode:UIViewContentModeScaleAspectFill];
-    [self.contentView.imageView setClipsToBounds:YES];
-    [self.contentView.imageView setImage:self.restaurant.image];
+    /*
+     [self.imageView setTranslatesAutoresizingMaskIntoConstraints:NO];
+     [self.imageView addConstraint:[NSLayoutConstraint constraintWithItem:self.imageView
+     attribute:NSLayoutAttributeWidth
+     relatedBy:NSLayoutRelationEqual
+     toItem:nil
+     attribute:NSLayoutAttributeWidth
+     multiplier:0.0
+     constant:sc.applicationFrame.size.width - 16]];
+     */
+    [self.imageView setContentMode:UIViewContentModeScaleAspectFill];
+    [self.imageView setClipsToBounds:YES];
+    [self.imageView setImage:self.restaurant.image];
     
-    [self.contentView.restaurantName setText:self.restaurant.name];
-    [self.contentView.restaurantType setText:self.restaurant.type];
-    [self.contentView.restaurantScore setText:self.restaurant.score];
+    [self.restaurantName setText:self.restaurant.name];
+    [self.restaurantType setText:self.restaurant.type];
+    [self.restaurantScore setText:self.restaurant.score];
     
-    [self setStar:self.contentView.star1 score:4.26 th:1.0];
-    [self setStar:self.contentView.star2 score:4.26 th:2.0];
-    [self setStar:self.contentView.star3 score:4.26 th:3.0];
-    [self setStar:self.contentView.star4 score:4.26 th:4.0];
-    [self setStar:self.contentView.star5 score:4.26 th:5.0];
+    [self setStar:self.star1 score:self.restaurant.score.floatValue th:1.0];
+    [self setStar:self.star2 score:self.restaurant.score.floatValue th:2.0];
+    [self setStar:self.star3 score:self.restaurant.score.floatValue th:3.0];
+    [self setStar:self.star4 score:self.restaurant.score.floatValue th:4.0];
+    [self setStar:self.star5 score:self.restaurant.score.floatValue th:5.0];
     
-    [self.contentView.restaurantCoupon setNumberOfLines:0];
-    [self.contentView.restaurantCoupon setText:self.restaurant.coupon];
+    [self.restaurantCoupon setNumberOfLines:0];
+    [self.restaurantCoupon setText:self.restaurant.coupon];
     
-    [self.contentView.restaurantAddress setText:self.restaurant.address];
+    [self.restaurantAddress setText:self.restaurant.address];
     
     //レビューは3行まで
-    [self.contentView.review setNumberOfLines:3];
-    [self.contentView.review setText:self.restaurant.review.text];
+    [self.restaurantReview setNumberOfLines:3];
+    [self.restaurantReview setText:self.restaurant.review.text];
     
-    [self.contentView.menuText setNumberOfLines:0];
-    [self.contentView.menuText setText:[NSString stringWithFormat:@"%@  %lu円\n麻婆飯  700円\nセット  1,000円", self.restaurant.menu.menu, (long)self.restaurant.menu.price]];
+    [self.restaurantMenu setNumberOfLines:0];
+    [self.restaurantMenu setText:[NSString stringWithFormat:@"%@  %lu円\n麻婆飯  700円\nセット  1,000円", self.restaurant.menu.menu, (long)self.restaurant.menu.price]];
     
-    [self.contentView.informationText setNumberOfLines:0];
-    [self.contentView.informationText setText:@"[電話番号] 075-xxxx-xxxx\n[営業時間] 11:00~22:00\n[定休日]  毎週火曜日\n[外部リンク]  http://www.hogehoge"];
-
-    
-    /*
-    // 画像
-    [self.contentView.imageView setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [self.contentView.imageView addConstraint:[NSLayoutConstraint constraintWithItem:self.contentView.imageView
-                                                                           attribute:NSLayoutAttributeWidth
-                                                                           relatedBy:NSLayoutRelationEqual
-                                                                              toItem:nil
-                                                                           attribute:NSLayoutAttributeWidth
-                                                                          multiplier:0.0
-                                                                            constant:sc.applicationFrame.size.width - 16]];
-    [self.contentView.imageView setContentMode:UIViewContentModeScaleAspectFill];
-    [self.contentView.imageView setClipsToBounds:YES];
-    [self.contentView.imageView setImage:[UIImage imageNamed:@"second"]];
-    
-    [self.contentView.restaurantName setText:@"担々麺屋"];
-    [self.contentView.restaurantType setText:@"ラーメン"];
-    [self.contentView.restaurantScore setText:@"4.26"];
-    
-    [self setStar:self.contentView.star1 score:4.26 th:1.0];
-    [self setStar:self.contentView.star2 score:4.26 th:2.0];
-    [self setStar:self.contentView.star3 score:4.26 th:3.0];
-    [self setStar:self.contentView.star4 score:4.26 th:4.0];
-    [self setStar:self.contentView.star5 score:4.26 th:5.0];
+    [self.restaurantInformation setNumberOfLines:0];
+    [self.restaurantInformation setText:[NSString stringWithFormat:@"[電話番号] 075-xxxx-xxxx\n[営業時間] 11:00~22:00\n[定休日]  毎週火曜日\n[外部リンク]  http://www.hogehoged]"]];
     
     
-    [self.contentView.review setNumberOfLines:0];
-    [self.contentView.review setText:@"担々麺美味しい1辛ががおすすめ，麻婆飯も山椒がきいて美味しいよみたいな"];
-    
-    [self.contentView.menuText setNumberOfLines:0];
-    [self.contentView.menuText setText:@"担々麺  720円\n麻婆飯  700円\nセット  1,000円"];
-    
-    [self.contentView.informationText setNumberOfLines:0];
-    [self.contentView.informationText setText:@"[電話番号] 075-xxxx-xxxx\n[営業時間] 11:00~22:00\n[定休日]  毎週火曜日\n[外部リンク]  http://www.hogehoge"];
-    */
-     
     /**********************
      アイテムの非表示化(map)
      **********************/
     /*
      // viewの非表示化
-     _contentView.mapView.hidden = NO;
+     _mapView.hidden = NO;
      // viewの高さを0にする
-     [_contentView.mapView addConstraint:[NSLayoutConstraint constraintWithItem:_contentView.mapView
+     [_mapView addConstraint:[NSLayoutConstraint constraintWithItem:_mapView
      attribute:NSLayoutAttributeHeight
      relatedBy:NSLayoutRelationEqual
      toItem:nil
@@ -173,9 +102,8 @@
      multiplier:1.0f
      constant:0.0f]];
      // 直下viewとのマージンを0にする
-     _contentView.mapViewBottomConstraint.constant = 0.0f;
+     _mapViewBottomConstraint.constant = 0.0f;
      */
-    
 }
 
 // スコアから星の表示を得る
@@ -196,7 +124,7 @@
 // 画面表示される時や画面回転した後に呼ばれる
 - (void)viewDidLayoutSubviews
 {
-    [self.contentView setLayoutWidth:self.scrollView.frame.size.width];
+    //[self.contentView setLayoutWidth:self.scrollView.frame.size.width];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -211,15 +139,15 @@
  *****************/
 - (void)setDropdownMenu
 {
-    self.menuView = [[[NSBundle mainBundle] loadNibNamed:@"MenuView"
+    self.dropdownMenuView = [[[NSBundle mainBundle] loadNibNamed:@"DropdownMenuView"
                                                    owner:self
                                                  options:nil] lastObject];
-    [self.menuView setDelegate:self];
+    [self.dropdownMenuView setDelegate:self];
     
-    [self.menuView setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.dropdownMenuView setTranslatesAutoresizingMaskIntoConstraints:NO];
     NSMutableArray *menuLayoutConstraints = [[NSMutableArray alloc] init];
     // 右端揃え
-    [menuLayoutConstraints addObject:[NSLayoutConstraint constraintWithItem:self.menuView
+    [menuLayoutConstraints addObject:[NSLayoutConstraint constraintWithItem:self.dropdownMenuView
                                                                   attribute:NSLayoutAttributeRight
                                                                   relatedBy:NSLayoutRelationEqual
                                                                      toItem:self.view
@@ -227,14 +155,14 @@
                                                                  multiplier:1.0
                                                                    constant:0.0]];
     // View内に収まるようにする（念のため）
-    [menuLayoutConstraints addObject:[NSLayoutConstraint constraintWithItem:self.menuView
+    [menuLayoutConstraints addObject:[NSLayoutConstraint constraintWithItem:self.dropdownMenuView
                                                                   attribute:NSLayoutAttributeHeight
                                                                   relatedBy:NSLayoutRelationLessThanOrEqual
                                                                      toItem:self.overlayView
                                                                   attribute:NSLayoutAttributeHeight
                                                                  multiplier:1.0
                                                                    constant:0.0]];
-    [menuLayoutConstraints addObject:[NSLayoutConstraint constraintWithItem:self.menuView
+    [menuLayoutConstraints addObject:[NSLayoutConstraint constraintWithItem:self.dropdownMenuView
                                                                   attribute:NSLayoutAttributeWidth
                                                                   relatedBy:NSLayoutRelationLessThanOrEqual
                                                                      toItem:self.overlayView
@@ -242,7 +170,7 @@
                                                                  multiplier:1.0
                                                                    constant:0.0]];
     // ボタンの1個の高さをNavigationBarの高さにする (縦横比はxibにて1:4)
-    [menuLayoutConstraints addObject:[NSLayoutConstraint constraintWithItem:self.menuView
+    [menuLayoutConstraints addObject:[NSLayoutConstraint constraintWithItem:self.dropdownMenuView
                                                                   attribute:NSLayoutAttributeHeight
                                                                   relatedBy:NSLayoutRelationEqual
                                                                      toItem:nil
@@ -253,42 +181,43 @@
     [menuLayoutConstraints addObject:[NSLayoutConstraint constraintWithItem:self.overlayView
                                                                   attribute:NSLayoutAttributeTop
                                                                   relatedBy:NSLayoutRelationEqual
-                                                                     toItem:self.menuView
+                                                                     toItem:self.dropdownMenuView
                                                                   attribute:NSLayoutAttributeBottom
                                                                  multiplier:1.0
                                                                    constant:0.0]];
-    
-    [self.view addSubview:self.menuView];
+    [self.dropdownMenuView setHidden:YES];
+    [self.view addSubview:self.dropdownMenuView];
     [self.view addConstraints:menuLayoutConstraints];
     
 }
 
 - (IBAction)tappedMenuButton:(id)sender
 {
-    if (self.menuView.isMenuOpen) {
+    if (self.dropdownMenuView.isMenuOpen) {
         [self hiddenOverlayView];
     } else {
         [self showOverlayView];
     }
     
-    [self.menuView tappedMenuButton];
+    [self.dropdownMenuView tappedMenuButton];
 }
 
-- (void)menuViewDidSelectedItem:(MenuView *)menuView type:(MenuViewSelectedItemType)type
+- (void)dropdownMenuViewDidSelectedItem:(DropdownMenuView *)dropdownMenuView type:(DropdownMenuViewSelectedItemType)type
 {
     [self hiddenOverlayView];
 }
 
 - (void)showOverlayView
 {
-    self.overlayView.hidden = NO;
-    self.overlayView.alpha = 0.0;
+    [self.dropdownMenuView setHidden:NO];
+    [self.overlayView setHidden:NO];
+    [self.overlayView setAlpha:0.0];
     
     [UIView animateWithDuration:0.3f
                           delay:0.05f
                         options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
-                         self.overlayView.alpha = 0.5;
+                         [self.overlayView setAlpha:0.5];
                      }
                      completion:^(BOOL finished){
                      }];
@@ -298,16 +227,17 @@
 
 - (void)hiddenOverlayView
 {
-    self.overlayView.alpha = 0.5;
+    [self.overlayView setAlpha:0.5];
     
     [UIView animateWithDuration:0.3f
                           delay:0.05f
                         options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
-                         self.overlayView.alpha = 0.0;
+                         [self.overlayView setAlpha:0.0];
                      }
                      completion:^(BOOL finished){
-                         self.overlayView.hidden = YES;
+                         [self.dropdownMenuView setHidden:YES];
+                         [self.overlayView setHidden:YES];
                      }];
     
     [UIView commitAnimations];

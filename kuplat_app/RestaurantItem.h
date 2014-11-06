@@ -23,5 +23,7 @@
 @property (nonatomic) RestaurantReview *review;  //後で配列に
 @property (nonatomic) RestaurantMenu *menu;  //後で配列に
 @property (nonatomic) RestaurantInformation *information;
+@property (nonatomic) CGFloat latitude;  //緯度
+@property (nonatomic) CGFloat longitude; //経度
 
 @end

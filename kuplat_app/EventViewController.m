@@ -131,9 +131,9 @@
 - (void)loadData
 {
     
-    self.EventsItems1 = [NSMutableArray arrayWithCapacity:10];
-    self.EventsItems2 = [NSMutableArray arrayWithCapacity:10];
-    self.EventsItems3 = [NSMutableArray arrayWithCapacity:10];
+    self.eventsItems1 = [NSMutableArray arrayWithCapacity:10];
+    self.eventsItems2 = [NSMutableArray arrayWithCapacity:10];
+    self.eventsItems3 = [NSMutableArray arrayWithCapacity:10];
     
     NSInteger i;
     for (i=0; i<10; i++) {
@@ -141,7 +141,7 @@
         EventItem *event = [[EventItem alloc] init];
         
         event.image = [UIImage imageNamed: @"SampleTrendEvent"];
-        event.title = [NSString stringWithFormat:@"イベント%d", i];
+        event.title = [NSString stringWithFormat:@"イベント%lu", (long)i];
         event.numOfFav = @"100";
         event.date = @"2014.11.11";
         event.cost = @"1,000円";
@@ -188,7 +188,6 @@
     
     // イベント詳細Viewへ遷移
     [self performSegueWithIdentifier:@"toEventDetailViewController" sender:self];
-    NSLog(@"%@", self.class);
 
 }
 
@@ -350,15 +349,15 @@
  *****************/
 - (void)setDropdownMenu
 {
-    self.menuView = [[[NSBundle mainBundle] loadNibNamed:@"MenuView"
-                                                   owner:self
-                                                 options:nil] lastObject];
-    [self.menuView setDelegate:self];
+    self.dropdownMenuView = [[[NSBundle mainBundle] loadNibNamed:@"DropdownMenuView"
+                                                           owner:self
+                                                         options:nil] lastObject];
+    [self.dropdownMenuView setDelegate:self];
     
-    [self.menuView setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.dropdownMenuView setTranslatesAutoresizingMaskIntoConstraints:NO];
     NSMutableArray *menuLayoutConstraints = [[NSMutableArray alloc] init];
     // 右端揃え
-    [menuLayoutConstraints addObject:[NSLayoutConstraint constraintWithItem:self.menuView
+    [menuLayoutConstraints addObject:[NSLayoutConstraint constraintWithItem:self.dropdownMenuView
                                                                   attribute:NSLayoutAttributeRight
                                                                   relatedBy:NSLayoutRelationEqual
                                                                      toItem:self.view
@@ -366,14 +365,14 @@
                                                                  multiplier:1.0
                                                                    constant:0.0]];
     // View内に収まるようにする（念のため）
-    [menuLayoutConstraints addObject:[NSLayoutConstraint constraintWithItem:self.menuView
+    [menuLayoutConstraints addObject:[NSLayoutConstraint constraintWithItem:self.dropdownMenuView
                                                                   attribute:NSLayoutAttributeHeight
                                                                   relatedBy:NSLayoutRelationLessThanOrEqual
                                                                      toItem:self.overlayView
                                                                   attribute:NSLayoutAttributeHeight
                                                                  multiplier:1.0
                                                                    constant:0.0]];
-    [menuLayoutConstraints addObject:[NSLayoutConstraint constraintWithItem:self.menuView
+    [menuLayoutConstraints addObject:[NSLayoutConstraint constraintWithItem:self.dropdownMenuView
                                                                   attribute:NSLayoutAttributeWidth
                                                                   relatedBy:NSLayoutRelationLessThanOrEqual
                                                                      toItem:self.overlayView
@@ -381,7 +380,7 @@
                                                                  multiplier:1.0
                                                                    constant:0.0]];
     // ボタンの1個の高さをNavigationBarの高さにする (縦横比はxibにて1:4)
-    [menuLayoutConstraints addObject:[NSLayoutConstraint constraintWithItem:self.menuView
+    [menuLayoutConstraints addObject:[NSLayoutConstraint constraintWithItem:self.dropdownMenuView
                                                                   attribute:NSLayoutAttributeHeight
                                                                   relatedBy:NSLayoutRelationEqual
                                                                      toItem:nil
@@ -392,42 +391,43 @@
     [menuLayoutConstraints addObject:[NSLayoutConstraint constraintWithItem:self.overlayView
                                                                   attribute:NSLayoutAttributeTop
                                                                   relatedBy:NSLayoutRelationEqual
-                                                                     toItem:self.menuView
+                                                                     toItem:self.dropdownMenuView
                                                                   attribute:NSLayoutAttributeBottom
                                                                  multiplier:1.0
                                                                    constant:0.0]];
-    
-    [self.view addSubview:self.menuView];
+    [self.dropdownMenuView setHidden:YES];
+    [self.view addSubview:self.dropdownMenuView];
     [self.view addConstraints:menuLayoutConstraints];
     
 }
 
 - (IBAction)tappedMenuButton:(id)sender
 {
-    if (self.menuView.isMenuOpen) {
+    if (self.dropdownMenuView.isMenuOpen) {
         [self hiddenOverlayView];
     } else {
         [self showOverlayView];
     }
     
-    [self.menuView tappedMenuButton];
+    [self.dropdownMenuView tappedMenuButton];
 }
 
-- (void)menuViewDidSelectedItem:(MenuView *)menuView type:(MenuViewSelectedItemType)type
+- (void)dropdownMenuViewDidSelectedItem:(DropdownMenuView *)dropdownMenuView type:(DropdownMenuViewSelectedItemType)type
 {
     [self hiddenOverlayView];
 }
 
 - (void)showOverlayView
 {
-    self.overlayView.hidden = NO;
-    self.overlayView.alpha = 0.0;
+    [self.dropdownMenuView setHidden:NO];
+    [self.overlayView setHidden:NO];
+    [self.overlayView setAlpha:0.0];
     
     [UIView animateWithDuration:0.3f
                           delay:0.05f
                         options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
-                         self.overlayView.alpha = 0.5;
+                         [self.overlayView setAlpha:0.5];
                      }
                      completion:^(BOOL finished){
                      }];
@@ -437,21 +437,21 @@
 
 - (void)hiddenOverlayView
 {
-    self.overlayView.alpha = 0.5;
+    [self.overlayView setAlpha:0.5];
     
     [UIView animateWithDuration:0.3f
                           delay:0.05f
                         options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
-                         self.overlayView.alpha = 0.0;
+                         [self.overlayView setAlpha:0.0];
                      }
                      completion:^(BOOL finished){
-                         self.overlayView.hidden = YES;
+                         [self.dropdownMenuView setHidden:YES];
+                         [self.overlayView setHidden:YES];
                      }];
     
     [UIView commitAnimations];
 }
-
 
 
 @end

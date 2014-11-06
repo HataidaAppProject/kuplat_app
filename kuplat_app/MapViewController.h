@@ -9,23 +9,28 @@
 #import <UIKit/UIKit.h>
 #import <GoogleMaps/GoogleMaps.h>
 #import "MapCustumMarkerView.h"
+
 #import "EventItem.h"
 #import "RestaurantItem.h"
 #import "EventDetailViewController.h"
 #import "RestaurantDetailViewController.h"
-#import "MenuView.h"
+#import "DropdownMenuView.h"
 
-@interface MapViewController : UIViewController<GMSMapViewDelegate, MenuViewDelegate>
-{
-}
+@interface MapViewController : UIViewController<GMSMapViewDelegate, DropdownMenuViewDelegate>
+
 
 @property(strong,nonatomic) GMSMapView *mapView;
+
+//
+@property(strong, nonatomic) NSMutableArray *eventsItems;
+@property(strong, nonatomic) NSMutableArray *restaurantsItems;
+
 
 - (void)addMarkers;
 
 
 //ドロップダウンメニュー
-@property (strong, nonatomic) MenuView *menuView;
+@property (strong, nonatomic) DropdownMenuView *dropdownMenuView;
 @property (weak, nonatomic) IBOutlet UIView *overlayView;
 
 @end

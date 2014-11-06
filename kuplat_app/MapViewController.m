@@ -34,31 +34,51 @@
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:35.02625564504444
                                                             longitude:135.78081168761904
                                                                  zoom:15];
-    self.mapView = [GMSMapView mapWithFrame:CGRectZero camera:camera];
+    
+    self.mapView = [GMSMapView mapWithFrame:self.view.frame camera:camera];
     self.mapView.delegate = self;
+    
     //ユーザの現在地の表示オプション
     self.mapView.myLocationEnabled = YES;
+    
     //現在地ボタンの表示オプション
     self.mapView.settings.myLocationButton = YES;
     
-    //地図を表示
-    self.view = self.mapView;
+    //DropdownMenuが見えるように最下層のサブビューに追加
+    [self.view addSubview:self.mapView];
+    [self.view sendSubviewToBack:self.mapView];
     
-    // イベントの読み込み
     
+    // 読み込み
+    [self loadData];
     
     //マーカーの追加
     [self addMarkers];
+    
 }
 
-- (void)addMarkers {
-    
-    //マーカーの色
-    UIColor *eventMarkerColor = [UIColor colorWithRed:0.486 green:0.655 blue:0.376 alpha:1.0];
-    UIColor *restaurantMarkerColor = [UIColor colorWithRed:0.816 green:0.510 blue:0.306 alpha:1.0];
+- (void)loadData
+{
+    self.eventsItems = [NSMutableArray arrayWithCapacity:10];
+    self.restaurantsItems = [NSMutableArray arrayWithCapacity:10];
     
     
     EventItem *event = [[EventItem alloc] init];
+    event.image = [UIImage imageNamed: @"SampleTrendEvent"];
+    event.title = [NSString stringWithFormat:@"map上で表示するイベント"];
+    event.numOfFav = @"1";
+    event.date = @"2014.11.11";
+    event.cost = @"10,000円";
+    event.address = @"時計台";
+    event.aboutText = @"毎年恒例のなんちゃらかんちゃらfugafugahogehoge";
+    event.information.sponsor = @"○×サークル";
+    event.information.phoneNumber = @"090-xxxx-xxxx";
+    event.information.url = @"http://hugaga";
+    event.information.others = @"ほげほげ";
+    event.latitude = 35.02625564504444;
+    event.longitude = 135.78081168761904;
+    [self.eventsItems addObject:event];
+    
     
     
     RestaurantItem *restaurant = [[RestaurantItem alloc] init];
@@ -79,32 +99,47 @@
     restaurant.information.businessHours = @"11:00~22:00";
     restaurant.information.clodedDays = @"毎週月曜，年末年始";
     restaurant.information.url = @"http://fugafuga";
+    restaurant.latitude = 35.027243;
+    restaurant.longitude = 135.778164;
+    [self.restaurantsItems addObject:restaurant];
     
-    
-    
-    GMSMarker *event0 = [[GMSMarker alloc] init];
-    event0.title = @"イベント×月○日";
-    event0.snippet = @"時間：□時から☆時，主催：△";
-    event0.position = CLLocationCoordinate2DMake(35.02625564504444, 135.78081168761904);
-    event0.icon = [GMSMarker markerImageWithColor:eventMarkerColor];
-    event0.map = self.mapView;
-    event0.userData = event;
-    
-    GMSMarker *restaurant0 = [[GMSMarker alloc] init];
-    restaurant0.position = CLLocationCoordinate2DMake(35.027243, 135.778164);
-    restaurant0.icon = [GMSMarker markerImageWithColor:restaurantMarkerColor];
-    restaurant0.map = self.mapView;
-    restaurant0.userData = restaurant;
 }
+
+- (void)addMarkers
+{
+    
+    //マーカーの色
+    UIColor *eventMarkerColor = [UIColor colorWithRed:0.486 green:0.655 blue:0.376 alpha:1.0];
+    UIColor *restaurantMarkerColor = [UIColor colorWithRed:0.816 green:0.510 blue:0.306 alpha:1.0];
+    
+    for (EventItem *event in self.eventsItems) {
+        GMSMarker *eventMarker = [[GMSMarker alloc] init];
+        eventMarker.title = event.title;
+        eventMarker.snippet = event.address;
+        eventMarker.position = CLLocationCoordinate2DMake(event.latitude, event.longitude);
+        eventMarker.icon = [GMSMarker markerImageWithColor:eventMarkerColor];
+        eventMarker.map = self.mapView;
+        eventMarker.userData = event;
+    }
+    
+    for (RestaurantItem *restaurant in self.restaurantsItems) {
+        GMSMarker *restaurantMarker = [[GMSMarker alloc] init];
+        restaurantMarker.title = restaurant.name;
+        restaurantMarker.snippet = restaurant.address;
+        restaurantMarker.position = CLLocationCoordinate2DMake(restaurant.latitude, restaurant.longitude);
+        restaurantMarker.icon = [GMSMarker markerImageWithColor:restaurantMarkerColor];
+        restaurantMarker.map = self.mapView;
+        restaurantMarker.userData = restaurant;
+    }
+    
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-
-- (void)loadEvents {
-}
 
 
 #pragma mark - GMSMapViewDelegate
@@ -158,7 +193,6 @@
         
         event = marker.userData;
         
-        
         // EVENTタブを選択済にする
         UINavigationController *eventTabViewController = self.tabBarController.viewControllers[1];
         self.tabBarController.selectedViewController = eventTabViewController;
@@ -169,24 +203,17 @@
         [eventTabViewController pushViewController:eventDetailViewController animated:YES];
         //[eventTabViewController.viewControllers[0] performSegueWithIdentifier:@"toEventDetailViewController" sender:self];
         
-        
     } else if ([marker.userData class] == [restaurant class]) {
         
         restaurant = marker.userData;
         
-        // レストラン詳細へ遷移
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"RestaurantDetailViewController" bundle:nil];
-        RestaurantDetailViewController *restaurantDetailViewController = [storyboard instantiateInitialViewController];
-        // トレンドレストランの情報を渡す
-        restaurantDetailViewController.restaurant = restaurant;
-        
-        // RESTAURANTタブのViewControllerを取得する
+        // RESTAURANTタブを選択済にする
         UINavigationController *restaurantTabViewController = self.tabBarController.viewControllers[2];
-        // UINavigationControllerに追加済みのViewを一旦取り除く
-        [restaurantTabViewController popToRootViewControllerAnimated:NO];
-        // RESTAURANTタブを選択済みにする
         self.tabBarController.selectedViewController = restaurantTabViewController;
-        // RESTAURANTViewの画面遷移処理を呼び出す
+        [restaurantTabViewController popToRootViewControllerAnimated:NO];
+        // RESTAURANT詳細へ遷移
+        RestaurantDetailViewController *restaurantDetailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"RestaurantDetailViewController"];
+        restaurantDetailViewController.restaurant = restaurant;
         [restaurantTabViewController pushViewController:restaurantDetailViewController animated:YES];
         
     }
@@ -244,15 +271,15 @@
  *****************/
 - (void)setDropdownMenu
 {
-    self.menuView = [[[NSBundle mainBundle] loadNibNamed:@"MenuView"
-                                                   owner:self
-                                                 options:nil] lastObject];
-    [self.menuView setDelegate:self];
+    self.dropdownMenuView = [[[NSBundle mainBundle] loadNibNamed:@"DropdownMenuView"
+                                                           owner:self
+                                                         options:nil] lastObject];
+    [self.dropdownMenuView setDelegate:self];
     
-    [self.menuView setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.dropdownMenuView setTranslatesAutoresizingMaskIntoConstraints:NO];
     NSMutableArray *menuLayoutConstraints = [[NSMutableArray alloc] init];
     // 右端揃え
-    [menuLayoutConstraints addObject:[NSLayoutConstraint constraintWithItem:self.menuView
+    [menuLayoutConstraints addObject:[NSLayoutConstraint constraintWithItem:self.dropdownMenuView
                                                                   attribute:NSLayoutAttributeRight
                                                                   relatedBy:NSLayoutRelationEqual
                                                                      toItem:self.view
@@ -260,14 +287,14 @@
                                                                  multiplier:1.0
                                                                    constant:0.0]];
     // View内に収まるようにする（念のため）
-    [menuLayoutConstraints addObject:[NSLayoutConstraint constraintWithItem:self.menuView
+    [menuLayoutConstraints addObject:[NSLayoutConstraint constraintWithItem:self.dropdownMenuView
                                                                   attribute:NSLayoutAttributeHeight
                                                                   relatedBy:NSLayoutRelationLessThanOrEqual
                                                                      toItem:self.overlayView
                                                                   attribute:NSLayoutAttributeHeight
                                                                  multiplier:1.0
                                                                    constant:0.0]];
-    [menuLayoutConstraints addObject:[NSLayoutConstraint constraintWithItem:self.menuView
+    [menuLayoutConstraints addObject:[NSLayoutConstraint constraintWithItem:self.dropdownMenuView
                                                                   attribute:NSLayoutAttributeWidth
                                                                   relatedBy:NSLayoutRelationLessThanOrEqual
                                                                      toItem:self.overlayView
@@ -275,7 +302,7 @@
                                                                  multiplier:1.0
                                                                    constant:0.0]];
     // ボタンの1個の高さをNavigationBarの高さにする (縦横比はxibにて1:4)
-    [menuLayoutConstraints addObject:[NSLayoutConstraint constraintWithItem:self.menuView
+    [menuLayoutConstraints addObject:[NSLayoutConstraint constraintWithItem:self.dropdownMenuView
                                                                   attribute:NSLayoutAttributeHeight
                                                                   relatedBy:NSLayoutRelationEqual
                                                                      toItem:nil
@@ -286,42 +313,43 @@
     [menuLayoutConstraints addObject:[NSLayoutConstraint constraintWithItem:self.overlayView
                                                                   attribute:NSLayoutAttributeTop
                                                                   relatedBy:NSLayoutRelationEqual
-                                                                     toItem:self.menuView
+                                                                     toItem:self.dropdownMenuView
                                                                   attribute:NSLayoutAttributeBottom
                                                                  multiplier:1.0
                                                                    constant:0.0]];
-    
-    [self.view addSubview:self.menuView];
+    [self.dropdownMenuView setHidden:YES];
+    [self.view addSubview:self.dropdownMenuView];
     [self.view addConstraints:menuLayoutConstraints];
     
 }
 
 - (IBAction)tappedMenuButton:(id)sender
 {
-    if (self.menuView.isMenuOpen) {
+    if (self.dropdownMenuView.isMenuOpen) {
         [self hiddenOverlayView];
     } else {
         [self showOverlayView];
     }
     
-    [self.menuView tappedMenuButton];
+    [self.dropdownMenuView tappedMenuButton];
 }
 
-- (void)menuViewDidSelectedItem:(MenuView *)menuView type:(MenuViewSelectedItemType)type
+- (void)dropdownMenuViewDidSelectedItem:(DropdownMenuView *)dropdownMenuView type:(DropdownMenuViewSelectedItemType)type
 {
     [self hiddenOverlayView];
 }
 
 - (void)showOverlayView
 {
-    self.overlayView.hidden = NO;
-    self.overlayView.alpha = 0.0;
+    [self.dropdownMenuView setHidden:NO];
+    [self.overlayView setHidden:NO];
+    [self.overlayView setAlpha:0.0];
     
     [UIView animateWithDuration:0.3f
                           delay:0.05f
                         options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
-                         self.overlayView.alpha = 0.5;
+                         [self.overlayView setAlpha:0.5];
                      }
                      completion:^(BOOL finished){
                      }];
@@ -331,16 +359,17 @@
 
 - (void)hiddenOverlayView
 {
-    self.overlayView.alpha = 0.5;
+    [self.overlayView setAlpha:0.5];
     
     [UIView animateWithDuration:0.3f
                           delay:0.05f
                         options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
-                         self.overlayView.alpha = 0.0;
+                         [self.overlayView setAlpha:0.0];
                      }
                      completion:^(BOOL finished){
-                         self.overlayView.hidden = YES;
+                         [self.dropdownMenuView setHidden:YES];
+                         [self.overlayView setHidden:YES];
                      }];
     
     [UIView commitAnimations];
