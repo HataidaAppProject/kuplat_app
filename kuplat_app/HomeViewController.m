@@ -63,20 +63,17 @@
     switch (touch.view.tag) {
         case 1:
         {
-            // イベント詳細へ遷移
-            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"EventDetailViewController" bundle:nil];
-            EventDetailViewController *eventDetailViewController = [storyboard instantiateInitialViewController];
-            eventDetailViewController.event = self.trendEvent;
-
-            // EVENTタブのViewControllerを取得する
+            
+            // EVENTタブを選択済にする
             UINavigationController *eventTabViewController = self.tabBarController.viewControllers[1];
-            // EVENTタブを選択済みにする
             self.tabBarController.selectedViewController = eventTabViewController;
-            // UINavigationControllerに追加済みのViewを一旦取り除く
             [eventTabViewController popToRootViewControllerAnimated:NO];
-            // EVENTViewの画面遷移処理を呼び出す
+            // EVENT詳細へ遷移
+            EventDetailViewController *eventDetailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"EventDetailViewController"];
+            eventDetailViewController.event = self.trendEvent;
             [eventTabViewController pushViewController:eventDetailViewController animated:YES];
-            NSLog(@"ここから遷移");
+            //[eventTabViewController.viewControllers[0] performSegueWithIdentifier:@"toEventDetailViewController" sender:self];
+            
             break;
         }
         case 2:
@@ -103,6 +100,7 @@
     }
     
 }
+
 
 /*****************
  データの読み込み書込み

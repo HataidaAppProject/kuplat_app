@@ -29,90 +29,45 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self setTitle:@"イベント詳細"];
     
-    // メニューを設置
-    [self setDropdownMenu];
-    
-    // スクロールの中身となるViewの生成
-    self.contentView = [[EventDetailView alloc] initWithFrame:self.scrollView.bounds];
-    // Constraintは自分で設定するのでNO
-    [self.contentView setTranslatesAutoresizingMaskIntoConstraints:NO];
-    // Subviewとして追加
-    [self.scrollView addSubview:self.contentView];
-    
-    // Constraintの設定
-    [self.scrollView addConstraint:[NSLayoutConstraint constraintWithItem:self.contentView
-                                                            attribute:NSLayoutAttributeLeading
-                                                            relatedBy:NSLayoutRelationEqual
-                                                               toItem:self.scrollView
-                                                            attribute:NSLayoutAttributeLeading
-                                                           multiplier:1.0f
-                                                             constant:0]];
-    [self.scrollView addConstraint:[NSLayoutConstraint constraintWithItem:self.contentView
-                                                            attribute:NSLayoutAttributeTrailing
-                                                            relatedBy:NSLayoutRelationEqual
-                                                               toItem:self.scrollView
-                                                            attribute:NSLayoutAttributeTrailing
-                                                           multiplier:1.0f
-                                                             constant:0]];
-    [self.scrollView addConstraint:[NSLayoutConstraint constraintWithItem:self.contentView
-                                                            attribute:NSLayoutAttributeTop
-                                                            relatedBy:NSLayoutRelationEqual
-                                                               toItem:self.scrollView
-                                                            attribute:NSLayoutAttributeTop
-                                                           multiplier:1.0f
-                                                             constant:0]];
-    [self.scrollView addConstraint:[NSLayoutConstraint constraintWithItem:self.contentView
-                                                            attribute:NSLayoutAttributeBottom
-                                                            relatedBy:NSLayoutRelationEqual
-                                                               toItem:self.scrollView
-                                                            attribute:NSLayoutAttributeBottom
-                                                           multiplier:1.0f
-                                                             constant:0]];
-    
+    [self setTitle:@"EVENT詳細"];
     
     // 情報をViewに書き込む
     [self writeData];
     
+    // メニューを設置
+    [self setDropdownMenu];
+    
 }
+
 
 - (void)writeData
 {
-    [self.contentView.eventTitle setText:self.event.title];
-    //画像アスペクト比を保ったままサイズ調整
-    UIScreen *sc = [UIScreen mainScreen];
-    [self.contentView.imageView setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [self.contentView.imageView addConstraint:[NSLayoutConstraint constraintWithItem:self.contentView.imageView
-                                                                           attribute:NSLayoutAttributeWidth
-                                                                           relatedBy:NSLayoutRelationEqual
-                                                                              toItem:nil
-                                                                           attribute:NSLayoutAttributeWidth
-                                                                          multiplier:0.0
-                                                                            constant:sc.applicationFrame.size.width - 16]];
-    [self.contentView.imageView setContentMode:UIViewContentModeScaleAspectFill];
-    [self.contentView.imageView setClipsToBounds:YES];
-    [self.contentView.imageView setImage:self.event.image];
+    [self.eventTitle setText:self.event.title];
     
-    [self.contentView.eventNumOfFav setText:self.event.numOfFav];
-    [self.contentView.eventDate setText:self.event.date];
-    [self.contentView.eventCost setText:self.event.cost];
-    [self.contentView.eventAddress setText:self.event.address];
+    [self.imageView setContentMode:UIViewContentModeScaleAspectFill];
+    [self.imageView setClipsToBounds:YES];
+    [self.imageView setImage:self.event.image];
     
-    [self.contentView.aboutText setNumberOfLines:0];
-    [self.contentView.aboutText setText:self.event.aboutText];
+    [self.eventNumOfFav setText:self.event.numOfFav];
+    [self.eventDate setText:self.event.date];
+    [self.eventCost setText:self.event.cost];
+    [self.eventAddress setText:self.event.address];
     
-    [self.contentView.informationText setNumberOfLines:1];
-    [self.contentView.informationText setText:self.event.information.sponsor];
+    [self.eventAbout setNumberOfLines:0];
+    [self.eventAbout setText:self.event.aboutText];
+    
+    [self.eventInformation setNumberOfLines:1];
+    [self.eventInformation setText:self.event.information.sponsor];
     
     /**********************
      アイテムの非表示化(map)
      **********************/
     /*
      // viewの非表示化
-     _contentView.mapView.hidden = NO;
+     _mapView.hidden = NO;
      // viewの高さを0にする
-     [_contentView.mapView addConstraint:[NSLayoutConstraint constraintWithItem:_contentView.mapView
+     [_mapView addConstraint:[NSLayoutConstraint constraintWithItem:_mapView
      attribute:NSLayoutAttributeHeight
      relatedBy:NSLayoutRelationEqual
      toItem:nil
@@ -120,14 +75,14 @@
      multiplier:1.0f
      constant:0.0f]];
      // 直下viewとのマージンを0にする
-     _contentView.mapViewBottomConstraint.constant = 0.0f;
+     _mapViewBottomConstraint.constant = 0.0f;
      */
 }
 
 // 画面表示される時や画面回転した後に呼ばれる
 - (void)viewDidLayoutSubviews
 {
-    [self.contentView setLayoutWidth:self.scrollView.frame.size.width];
+    //[self.view setLayoutWidth:self.scrollView.frame.size.width];
 }
 
 - (void)didReceiveMemoryWarning {

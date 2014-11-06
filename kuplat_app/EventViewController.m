@@ -35,7 +35,6 @@
      **********************************************************/
     // 画面サイズに準拠してコンテンツサイズを決める
     CGRect cr = [[UIScreen mainScreen] applicationFrame];
-    //NSLog(@"ステータスバー領域を含まない画面サイズ：幅%f，高さ%f", cr.size.width, cr.size.height);
     self.originalFrameSize = CGSizeMake(cr.size.width,
                                         cr.size.height // ステータスパー除いた高さ
                                         - self.eventList1Button.frame.size.height // リスト選択ボタン
@@ -189,20 +188,20 @@
     
     // イベント詳細Viewへ遷移
     [self performSegueWithIdentifier:@"toEventDetailViewController" sender:self];
+    NSLog(@"%@", self.class);
 
 }
 
 // ビューが遷移するタイミングで呼ばれる
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    NSLog(@"ここまでおｋ？");
     //Segueの特定
     if ( [[segue identifier] isEqualToString:@"toEventDetailViewController"] ) {
-        NSLog(@"ここまでおｋ２？");
         EventDetailViewController *eventDetailViewController = [segue destinationViewController];
         //ここで遷移先ビューのクラスの変数receiveStringに値を渡している
         eventDetailViewController.event = self.sendEvent;
     }
+    
 }
 
 // テーブルに表示するデータ件数を返す
@@ -338,7 +337,6 @@
 // リスト遷移時
 - (void)didWhenChangingList {
     
-    //NSLog(@"リスト遷移したったで");
 }
 
 - (void)didReceiveMemoryWarning {
