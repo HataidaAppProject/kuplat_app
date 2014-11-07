@@ -28,7 +28,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     [self setTitle:@"EVENT詳細"];
     
     // 情報をViewに書き込む
@@ -37,10 +37,14 @@
     // メニューを設置
     [self setDropdownMenu];
     
-    //[self.scrollView setDelegate:self];
-    [self.scrollView setScrollEnabled:YES];
+    // ナビゲーションパーの非透過 -> オフセットが負になるのを防止
+    self.navigationController.toolbar.translucent = NO;
+    self.navigationController.navigationBar.translucent = NO;
 }
 
+- (void)viewDidLayoutSubviews
+{
+}
 
 - (void)writeData
 {
@@ -80,17 +84,17 @@
      */
 }
 
-// 画面表示される時や画面回転した後に呼ばれる
-- (void)viewDidLayoutSubviews
-{
-    //[self.view setLayoutWidth:self.scrollView.frame.size.width];
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+
+- (void)scrollViewDidScroll:(UIScrollView *)sender {
+    //CGPoint offset = self.scrollView.contentOffset;
+    //NSLog(@"x:%f, y:%f", offset.x, offset.y);
+}
 
 
 /*****************
@@ -147,7 +151,7 @@
     [self.dropdownMenuView setHidden:YES];
     [self.view addSubview:self.dropdownMenuView];
     [self.view addConstraints:menuLayoutConstraints];
-    
+    [self.view bringSubviewToFront:self.dropdownMenuView];
 }
 
 - (IBAction)tappedMenuButton:(id)sender
@@ -158,7 +162,8 @@
         [self showOverlayView];
     }
     
-    [self.dropdownMenuView tappedMenuButton];
+    // オフセットも渡してメニューバーが降りてくるようにする
+    [self.dropdownMenuView tappedMenuButtonWithOffset:self.scrollView.contentOffset];
 }
 
 - (void)dropdownMenuViewDidSelectedItem:(DropdownMenuView *)dropdownMenuView type:(DropdownMenuViewSelectedItemType)type
@@ -169,20 +174,14 @@
 
 - (void)showOverlayView
 {
-    // スクロールを一番上に移動し，スクロール禁止にする *メニューバーが見えるように*
-    //CGRect rect = self.scrollView.frame;
-    //rect.origin.y = 0.0;
-    //[self.scrollView scrollRectToVisible:rect animated:YES];
-    //[self.scrollView setContentOffset:CGPointMake(0.0, 0.0) animated:YES];
-    //[self scrollViewShouldScrollToTop:self.scrollView];
-    
+    // スクロール禁止にする
     [self.scrollView setScrollEnabled:NO];
-    [self.dropdownMenuView setHidden:NO];
     [self.overlayView setHidden:NO];
     [self.overlayView setAlpha:0.0];
-    
-    [UIView animateWithDuration:0.3f
-                          delay:0.05f
+    [self.dropdownMenuView setHidden:NO];
+
+    [UIView animateWithDuration:0.3
+                          delay:0.05
                         options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
                          [self.overlayView setAlpha:0.5];
@@ -197,8 +196,8 @@
 {
     [self.overlayView setAlpha:0.5];
     
-    [UIView animateWithDuration:0.3f
-                          delay:0.05f
+    [UIView animateWithDuration:0.3
+                          delay:0.05
                         options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
                          [self.overlayView setAlpha:0.0];

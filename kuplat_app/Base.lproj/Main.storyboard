@@ -229,7 +229,7 @@
                         <viewControllerLayoutGuide type="bottom" id="F0U-SV-yUp"/>
                     </layoutGuides>
                     <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="t4K-mz-X5y">
-                        <rect key="frame" x="0.0" y="0.0" width="420" height="720"/>
+                        <rect key="frame" x="0.0" y="64" width="420" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jkO-CL-YuH">
@@ -524,7 +524,7 @@
                                 </variation>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Z7-TQ-ico" userLabel="overlay">
-                                <rect key="frame" x="0.0" y="0.0" width="420" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="420" height="717"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
@@ -538,9 +538,10 @@
                             <constraint firstItem="jkO-CL-YuH" firstAttribute="leading" secondItem="t4K-mz-X5y" secondAttribute="leading" id="ZW1-Og-99B"/>
                             <constraint firstItem="4Z7-TQ-ico" firstAttribute="top" secondItem="t4K-mz-X5y" secondAttribute="top" id="gs0-0t-jHr"/>
                             <constraint firstAttribute="bottom" secondItem="jkO-CL-YuH" secondAttribute="bottom" id="r6n-aj-7W0"/>
-                            <constraint firstAttribute="bottom" secondItem="4Z7-TQ-ico" secondAttribute="bottom" id="ytG-cn-sel"/>
+                            <constraint firstAttribute="bottom" secondItem="4Z7-TQ-ico" secondAttribute="bottom" constant="-50" id="ytG-cn-sel"/>
                         </constraints>
                     </scrollView>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="RESTAURANT詳細" id="k3G-EM-4Vt" userLabel="RESTAURANT詳細">
                         <barButtonItem key="rightBarButtonItem" image="menu" id="k7q-wn-rz3">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -550,7 +551,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="420" height="720"/>
+                    <size key="freeformSize" width="420" height="780"/>
                     <connections>
                         <outlet property="backgroundView" destination="jkO-CL-YuH" id="ZwC-GR-7rY"/>
                         <outlet property="couponView" destination="BlJ-zj-O9g" id="HGU-xr-L5Q"/>
@@ -737,7 +738,7 @@
                         <viewControllerLayoutGuide type="bottom" id="fHp-Fm-YXu"/>
                     </layoutGuides>
                     <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="2DV-PG-daG">
-                        <rect key="frame" x="0.0" y="0.0" width="400" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="400" height="537"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HGz-UT-2HM">
@@ -1101,7 +1102,7 @@
                                 </constraints>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WZB-wr-qIZ" userLabel="overlay">
-                                <rect key="frame" x="0.0" y="0.0" width="400" height="523"/>
+                                <rect key="frame" x="0.0" y="0.0" width="400" height="623"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
@@ -1121,7 +1122,7 @@
                             <constraint firstItem="WZB-wr-qIZ" firstAttribute="width" secondItem="2DV-PG-daG" secondAttribute="width" id="eje-OA-j5G"/>
                             <constraint firstItem="HGz-UT-2HM" firstAttribute="top" secondItem="2DV-PG-daG" secondAttribute="top" id="qqX-h0-B12"/>
                             <constraint firstItem="WZB-wr-qIZ" firstAttribute="height" secondItem="2DV-PG-daG" secondAttribute="height" id="tZ3-Uj-8z3"/>
-                            <constraint firstAttribute="bottom" secondItem="WZB-wr-qIZ" secondAttribute="bottom" id="wm2-XY-iT7"/>
+                            <constraint firstAttribute="bottom" secondItem="WZB-wr-qIZ" secondAttribute="bottom" constant="-100" id="wm2-XY-iT7"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -1134,6 +1135,7 @@
                             </mask>
                         </variation>
                     </scrollView>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="PROFILE" id="0nK-OI-rra">
                         <barButtonItem key="rightBarButtonItem" image="menu" id="AjY-5Q-dhS">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -1143,7 +1145,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="400" height="600"/>
+                    <size key="freeformSize" width="400" height="650"/>
                     <connections>
                         <outlet property="eventCost" destination="Eq6-Ib-ULH" id="5KK-Ay-hyp"/>
                         <outlet property="eventDate" destination="e8b-dd-MLN" id="SjH-eu-7jS"/>
@@ -1164,6 +1166,7 @@
                         <outlet property="restaurantStar3" destination="LSP-yO-nJG" id="lm8-Df-eIL"/>
                         <outlet property="restaurantStar4" destination="R38-VP-CIY" id="Wav-Rg-cXW"/>
                         <outlet property="restaurantStar5" destination="q7J-kM-unQ" id="IE7-7S-dZ2"/>
+                        <outlet property="scrollView" destination="2DV-PG-daG" id="3zr-xW-Kzi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eW7-AF-0Fv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1298,7 +1301,7 @@
                         <viewControllerLayoutGuide type="bottom" id="XCE-La-8Cy"/>
                     </layoutGuides>
                     <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="kM1-Vg-CUC">
-                        <rect key="frame" x="0.0" y="0.0" width="420" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="420" height="547"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1aU-se-7Sf">
@@ -1510,7 +1513,7 @@
                                 </variation>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K0i-BP-Sd3" userLabel="overlay">
-                                <rect key="frame" x="0.0" y="0.0" width="420" height="548"/>
+                                <rect key="frame" x="0.0" y="0.0" width="420" height="598"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
@@ -1519,7 +1522,7 @@
                             <constraint firstItem="1aU-se-7Sf" firstAttribute="leading" secondItem="kM1-Vg-CUC" secondAttribute="leading" id="7DZ-vg-odc"/>
                             <constraint firstItem="K0i-BP-Sd3" firstAttribute="leading" secondItem="kM1-Vg-CUC" secondAttribute="leading" id="7hV-L0-yqN"/>
                             <constraint firstAttribute="width" secondItem="1aU-se-7Sf" secondAttribute="width" id="JBF-UL-dR6"/>
-                            <constraint firstAttribute="bottom" secondItem="K0i-BP-Sd3" secondAttribute="bottom" id="ah1-ZZ-6Ch"/>
+                            <constraint firstAttribute="bottom" secondItem="K0i-BP-Sd3" secondAttribute="bottom" constant="-50" id="ah1-ZZ-6Ch"/>
                             <constraint firstAttribute="trailing" secondItem="K0i-BP-Sd3" secondAttribute="trailing" id="e2y-cf-tt1"/>
                             <constraint firstAttribute="bottom" secondItem="1aU-se-7Sf" secondAttribute="bottom" id="jFu-qZ-T25"/>
                             <constraint firstAttribute="trailing" secondItem="1aU-se-7Sf" secondAttribute="trailing" id="joU-ms-dPE"/>
@@ -1527,6 +1530,7 @@
                             <constraint firstItem="1aU-se-7Sf" firstAttribute="top" secondItem="kM1-Vg-CUC" secondAttribute="top" id="rkn-e0-Vrm"/>
                         </constraints>
                     </scrollView>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="EVENT詳細" id="UZ8-DS-2g4" userLabel="EVENT詳細">
                         <barButtonItem key="rightBarButtonItem" image="menu" id="r8o-TJ-SYp">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -1536,7 +1540,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="420" height="600"/>
+                    <size key="freeformSize" width="420" height="660"/>
                     <connections>
                         <outlet property="aboutView" destination="9Ub-Cf-Xdm" id="N3u-D0-gwV"/>
                         <outlet property="aboutViewBottomConstraint" destination="d7c-8O-uHt" id="80h-tg-3Tr"/>
@@ -1560,7 +1564,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="2278" y="348"/>
+            <point key="canvasLocation" x="2291" y="177"/>
         </scene>
     </scenes>
     <resources>

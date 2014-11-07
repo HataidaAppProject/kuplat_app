@@ -10,6 +10,7 @@
 #import "DropdownMenuView.h"
 
 @interface ProfileViewController : UIViewController <DropdownMenuViewDelegate>
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @property (weak, nonatomic) IBOutlet UIImageView *profileImg;
 

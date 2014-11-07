@@ -42,6 +42,17 @@
         [self openDropdownMenuView];
     }
 }
+//topがscrollview用
+- (void)tappedMenuButtonWithOffset:(CGPoint)offset
+{
+    //NSLog(@"DropdownMenuView - tappedMenuButton");
+    
+    if (self.isMenuOpen) {
+        [self closeDropdownMenuViewWithOffset:offset];
+    } else {
+        [self openDropdownMenuViewWithOffset:offset];
+    }
+}
 
 #pragma mark - private methods
 
@@ -54,8 +65,25 @@
     // Set new origin of menu
     CGRect menuFrame = self.frame;
     menuFrame.origin.y = menuFrame.origin.y - self.frame.size.height;
-    [UIView animateWithDuration:0.3f
-                          delay:0.05f
+    [UIView animateWithDuration:0.3
+                          delay:0.05
+                        options:UIViewAnimationOptionCurveEaseInOut
+                     animations:^{
+                         self.frame = menuFrame;
+                     }
+                     completion:^(BOOL finished){
+                         self.isMenuOpen = NO;
+                     }];
+    
+    [UIView commitAnimations];
+}
+- (void)closeDropdownMenuViewWithOffset:(CGPoint)offset
+{
+    // ちょと遅いけど
+    CGRect menuFrame = self.frame;
+    menuFrame.origin.y = menuFrame.origin.y - self.frame.size.height - offset.y;
+    [UIView animateWithDuration:0.3 * (self.frame.size.height + offset.y) / self.frame.size.height
+                          delay:0.05
                         options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
                          self.frame = menuFrame;
@@ -77,8 +105,8 @@
     CGRect menuFrame = self.frame;
     menuFrame.origin.y = menuFrame.origin.y + self.frame.size.height;
     
-    [UIView animateWithDuration:0.3f
-                          delay:0.05f
+    [UIView animateWithDuration:0.3
+                          delay:0.05
                         options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
                          self.frame = menuFrame;
@@ -86,6 +114,18 @@
                      completion:^(BOOL finished){
                          self.isMenuOpen = YES;
                      }];
+    
+    [UIView commitAnimations];
+}
+- (void)openDropdownMenuViewWithOffset:(CGPoint)offset
+{
+    // オフセットの分だけ下げる
+    CGRect menuFrame = self.frame;
+    menuFrame.origin.y = menuFrame.origin.y + offset.y;
+    self.frame = menuFrame;
+    
+    // 可視部分はそのまま
+    [self openDropdownMenuView];
     
     [UIView commitAnimations];
 }

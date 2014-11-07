@@ -37,6 +37,9 @@
     // メニューを設置
     [self setDropdownMenu];
     
+    // ナビゲーションパーの非透過 -> オフセットが負になるのを防止
+    self.navigationController.toolbar.translucent = NO;
+    self.navigationController.navigationBar.translucent = NO;
     
 }
 
@@ -140,8 +143,8 @@
 - (void)setDropdownMenu
 {
     self.dropdownMenuView = [[[NSBundle mainBundle] loadNibNamed:@"DropdownMenuView"
-                                                   owner:self
-                                                 options:nil] lastObject];
+                                                           owner:self
+                                                         options:nil] lastObject];
     [self.dropdownMenuView setDelegate:self];
     
     [self.dropdownMenuView setTranslatesAutoresizingMaskIntoConstraints:NO];
@@ -188,7 +191,7 @@
     [self.dropdownMenuView setHidden:YES];
     [self.view addSubview:self.dropdownMenuView];
     [self.view addConstraints:menuLayoutConstraints];
-    
+    [self.view bringSubviewToFront:self.dropdownMenuView];
 }
 
 - (IBAction)tappedMenuButton:(id)sender
@@ -199,7 +202,8 @@
         [self showOverlayView];
     }
     
-    [self.dropdownMenuView tappedMenuButton];
+    // オフセットも渡してメニューバーが降りてくるようにする
+    [self.dropdownMenuView tappedMenuButtonWithOffset:self.scrollView.contentOffset];
 }
 
 - (void)dropdownMenuViewDidSelectedItem:(DropdownMenuView *)dropdownMenuView type:(DropdownMenuViewSelectedItemType)type
@@ -207,14 +211,17 @@
     [self hiddenOverlayView];
 }
 
+
 - (void)showOverlayView
 {
-    [self.dropdownMenuView setHidden:NO];
+    // スクロール禁止にする
+    [self.scrollView setScrollEnabled:NO];
     [self.overlayView setHidden:NO];
     [self.overlayView setAlpha:0.0];
+    [self.dropdownMenuView setHidden:NO];
     
-    [UIView animateWithDuration:0.3f
-                          delay:0.05f
+    [UIView animateWithDuration:0.3
+                          delay:0.05
                         options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
                          [self.overlayView setAlpha:0.5];
@@ -229,19 +236,21 @@
 {
     [self.overlayView setAlpha:0.5];
     
-    [UIView animateWithDuration:0.3f
-                          delay:0.05f
+    [UIView animateWithDuration:0.3
+                          delay:0.05
                         options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
                          [self.overlayView setAlpha:0.0];
                      }
                      completion:^(BOOL finished){
+                         [self.scrollView setScrollEnabled:YES];
                          [self.dropdownMenuView setHidden:YES];
                          [self.overlayView setHidden:YES];
                      }];
     
     [UIView commitAnimations];
 }
+
 
 
 @end

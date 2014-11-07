@@ -34,5 +34,6 @@ typedef NS_ENUM(NSInteger, DropdownMenuViewSelectedItemType) {
 @property (assign, nonatomic, readonly) BOOL isMenuOpen;
 
 - (void)tappedMenuButton;
+- (void)tappedMenuButtonWithOffset:(CGPoint)offset;
 
 @end
