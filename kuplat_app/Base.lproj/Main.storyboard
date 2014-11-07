@@ -129,11 +129,11 @@
                         <viewControllerLayoutGuide type="bottom" id="Q2s-7w-cFD"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="wJs-NM-qRY">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kry-sp-KOi">
-                                <rect key="frame" x="0.0" y="64" width="200" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="200" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="DYo-rF-FPE"/>
                                 </constraints>
@@ -147,7 +147,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ey7-Ey-Hqd">
-                                <rect key="frame" x="200" y="64" width="200" height="44"/>
+                                <rect key="frame" x="200" y="0.0" width="200" height="44"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <state key="normal" title="就活">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -158,7 +158,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tSS-wH-o2n">
-                                <rect key="frame" x="400" y="64" width="200" height="44"/>
+                                <rect key="frame" x="400" y="0.0" width="200" height="44"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <state key="normal" title="セミナー・他">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -169,10 +169,10 @@
                                 </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FCi-kt-yEA">
-                                <rect key="frame" x="0.0" y="108" width="600" height="443"/>
+                                <rect key="frame" x="0.0" y="44" width="600" height="443"/>
                             </scrollView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fq2-s7-vtK" userLabel="overlay">
-                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
@@ -199,6 +199,7 @@
                             <constraint firstItem="Fq2-s7-vtK" firstAttribute="top" secondItem="IH5-nE-PG8" secondAttribute="bottom" id="tkc-yD-SrK"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="EVENT" id="Rgq-yg-F5Y">
                         <barButtonItem key="rightBarButtonItem" image="menu" id="ofB-MD-2FI">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -597,11 +598,11 @@
                         <viewControllerLayoutGuide type="bottom" id="Ozm-iU-FD8"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="lzR-Uo-9UP">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nlN-Qu-4ai">
-                                <rect key="frame" x="0.0" y="64" width="200" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="200" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="4kx-2N-Thg"/>
                                 </constraints>
@@ -615,7 +616,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bqm-vj-aBK">
-                                <rect key="frame" x="200" y="64" width="200" height="44"/>
+                                <rect key="frame" x="200" y="0.0" width="200" height="44"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <state key="normal" title="ラーメン">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -626,7 +627,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lgB-P8-igS">
-                                <rect key="frame" x="400" y="64" width="200" height="44"/>
+                                <rect key="frame" x="400" y="0.0" width="200" height="44"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <state key="normal" title="レストラン">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -637,10 +638,10 @@
                                 </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XVT-Na-5SH">
-                                <rect key="frame" x="0.0" y="108" width="600" height="443"/>
+                                <rect key="frame" x="0.0" y="44" width="600" height="443"/>
                             </scrollView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U5I-KP-eAh" userLabel="overlay">
-                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
@@ -667,6 +668,7 @@
                             <constraint firstItem="XVT-Na-5SH" firstAttribute="leading" secondItem="lzR-Uo-9UP" secondAttribute="leading" id="s9r-mg-V0D"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="RESTAURANT" id="lh2-Vd-CeM">
                         <barButtonItem key="rightBarButtonItem" image="menu" id="rxF-qG-0Rz">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -862,8 +864,8 @@
                                                 <nil key="highlightedColor"/>
                                                 <variation key="default">
                                                     <mask key="constraints">
-                                                        <exclude reference="xFp-pA-ZZf"/>
                                                         <exclude reference="iZX-Ee-O3E"/>
+                                                        <exclude reference="xFp-pA-ZZf"/>
                                                     </mask>
                                                 </variation>
                                             </label>
@@ -1294,7 +1296,6 @@
         <!--EVENT詳細-->
         <scene sceneID="FHy-WI-nnN">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1iK-NW-psE" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="EventDetailViewController" id="5qo-6M-UEB" customClass="EventDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eG9-TS-NbA"/>
@@ -1563,6 +1564,7 @@
                         <outlet property="titleViewBottomConstraint" destination="N7V-sU-ogg" id="nxE-bx-Wdu"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1iK-NW-psE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2291" y="177"/>
         </scene>
