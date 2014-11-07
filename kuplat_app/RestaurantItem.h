@@ -20,10 +20,10 @@
 @property (nonatomic) NSString *score;
 @property (nonatomic) NSString *coupon;
 @property (nonatomic) NSString *address;
+@property (nonatomic) CGFloat latitude;  //緯度
+@property (nonatomic) CGFloat longitude; //経度
 @property (nonatomic) RestaurantReview *review;  //後で配列に
 @property (nonatomic) RestaurantMenu *menu;  //後で配列に
 @property (nonatomic) RestaurantInformation *information;
-@property (nonatomic) CGFloat latitude;  //緯度
-@property (nonatomic) CGFloat longitude; //経度
 
 @end

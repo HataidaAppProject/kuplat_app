@@ -113,23 +113,23 @@
     UIColor *restaurantMarkerColor = [UIColor colorWithRed:0.816 green:0.510 blue:0.306 alpha:1.0];
     
     for (EventItem *event in self.eventsItems) {
-        GMSMarker *eventMarker = [[GMSMarker alloc] init];
-        eventMarker.title = event.title;
-        eventMarker.snippet = event.address;
-        eventMarker.position = CLLocationCoordinate2DMake(event.latitude, event.longitude);
-        eventMarker.icon = [GMSMarker markerImageWithColor:eventMarkerColor];
-        eventMarker.map = self.mapView;
-        eventMarker.userData = event;
+            GMSMarker *eventMarker = [[GMSMarker alloc] init];
+            eventMarker.title = event.title;
+            eventMarker.snippet = event.address;
+            eventMarker.position = CLLocationCoordinate2DMake(event.latitude, event.longitude);
+            eventMarker.icon = [GMSMarker markerImageWithColor:eventMarkerColor];
+            eventMarker.map = self.mapView;
+            eventMarker.userData = event;
     }
     
     for (RestaurantItem *restaurant in self.restaurantsItems) {
-        GMSMarker *restaurantMarker = [[GMSMarker alloc] init];
-        restaurantMarker.title = restaurant.name;
-        restaurantMarker.snippet = restaurant.address;
-        restaurantMarker.position = CLLocationCoordinate2DMake(restaurant.latitude, restaurant.longitude);
-        restaurantMarker.icon = [GMSMarker markerImageWithColor:restaurantMarkerColor];
-        restaurantMarker.map = self.mapView;
-        restaurantMarker.userData = restaurant;
+            GMSMarker *restaurantMarker = [[GMSMarker alloc] init];
+            restaurantMarker.title = restaurant.name;
+            restaurantMarker.snippet = restaurant.address;
+            restaurantMarker.position = CLLocationCoordinate2DMake(restaurant.latitude, restaurant.longitude);
+            restaurantMarker.icon = [GMSMarker markerImageWithColor:restaurantMarkerColor];
+            restaurantMarker.map = self.mapView;
+            restaurantMarker.userData = restaurant;
     }
     
 }

@@ -23,8 +23,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
     // メニューを設置
     [self setDropdownMenu];
+    
     
     // 画像を読み込み，指定色でレンダリング
     UIImage *img = [UIImage imageNamed:@"profile"];
@@ -32,6 +34,7 @@
     [self.profileImg setClipsToBounds:YES];
     self.view.tintColor = [UIColor colorWithRed:0.824 green:0.584 blue:0.161 alpha:1.0];
     self.profileImg.image = [img imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+
     
 }
 
@@ -54,6 +57,7 @@
     [self.dropdownMenuView setDelegate:self];
     
     [self.dropdownMenuView setTranslatesAutoresizingMaskIntoConstraints:NO];
+    //[self.overlayView ]
     NSMutableArray *menuLayoutConstraints = [[NSMutableArray alloc] init];
     // 右端揃え
     [menuLayoutConstraints addObject:[NSLayoutConstraint constraintWithItem:self.dropdownMenuView
@@ -99,8 +103,6 @@
     [self.view addConstraints:menuLayoutConstraints];
     
 }
-
-
 
 - (IBAction)tappedMenuButton:(id)sender
 {

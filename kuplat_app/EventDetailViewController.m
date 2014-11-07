@@ -37,6 +37,8 @@
     // メニューを設置
     [self setDropdownMenu];
     
+    //[self.scrollView setDelegate:self];
+    [self.scrollView setScrollEnabled:YES];
 }
 
 
@@ -164,8 +166,17 @@
     [self hiddenOverlayView];
 }
 
+
 - (void)showOverlayView
 {
+    // スクロールを一番上に移動し，スクロール禁止にする *メニューバーが見えるように*
+    //CGRect rect = self.scrollView.frame;
+    //rect.origin.y = 0.0;
+    //[self.scrollView scrollRectToVisible:rect animated:YES];
+    //[self.scrollView setContentOffset:CGPointMake(0.0, 0.0) animated:YES];
+    //[self scrollViewShouldScrollToTop:self.scrollView];
+    
+    [self.scrollView setScrollEnabled:NO];
     [self.dropdownMenuView setHidden:NO];
     [self.overlayView setHidden:NO];
     [self.overlayView setAlpha:0.0];
@@ -193,6 +204,7 @@
                          [self.overlayView setAlpha:0.0];
                      }
                      completion:^(BOOL finished){
+                         [self.scrollView setScrollEnabled:YES];
                          [self.dropdownMenuView setHidden:YES];
                          [self.overlayView setHidden:YES];
                      }];

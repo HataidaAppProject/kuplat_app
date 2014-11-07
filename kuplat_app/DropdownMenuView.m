@@ -22,7 +22,7 @@
 {
     [super awakeFromNib];
     
-    NSLog(@"awakeFromNib");
+    //NSLog(@"awakeFromNib");
     CGRect menuFrame = self.frame;
     menuFrame.origin.y = menuFrame.origin.y;
 
@@ -34,7 +34,7 @@
 
 - (void)tappedMenuButton
 {
-    NSLog(@"DropdownMenuView - tappedMenuButton");
+    //NSLog(@"DropdownMenuView - tappedMenuButton");
     
     if (self.isMenuOpen) {
         [self closeDropdownMenuView];
@@ -50,7 +50,7 @@
  */
 - (void)closeDropdownMenuView
 {
-    NSLog(@"closeDropdownMenuView");
+    //NSLog(@"closeDropdownMenuView");
     // Set new origin of menu
     CGRect menuFrame = self.frame;
     menuFrame.origin.y = menuFrame.origin.y - self.frame.size.height;
@@ -72,7 +72,7 @@
  */
 - (void)openDropdownMenuView
 {
-    NSLog(@"openDropdownMenuView");
+    //NSLog(@"openDropdownMenuView");
     // Set new origin of menu
     CGRect menuFrame = self.frame;
     menuFrame.origin.y = menuFrame.origin.y + self.frame.size.height;
@@ -97,7 +97,7 @@
         switch (type) {
             case DropdownMenuViewSelectedItemTypeAddRestaurant:
             {
-                NSLog(@"ここでも");
+                //NSLog(@"ここでも");
                 break;
             }
             case DropdownMenuViewSelectedItemTypeAddEvent:
