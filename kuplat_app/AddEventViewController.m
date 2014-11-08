@@ -31,6 +31,10 @@
     
 }
 
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+}
 
 - (void)displayMap
 {
@@ -71,6 +75,34 @@
 }
 
 
+
+- (IBAction)pushAddEventImageBotton:(id)sender {
+    
+    // PhotoLibraryから写真を選択するためのUIImagePickerControllerを作成し、表示する
+    UIImagePickerController *imagePickerController = [UIImagePickerController new];
+    imagePickerController.delegate = self;
+    imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    [self presentViewController:imagePickerController animated:YES completion:nil];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    // UIImagePickerControllerで選択された写真を取得する
+    self.selectedImageView.image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    
+    // Assets Library frameworkによって提供されるURLを取得する
+    //NSURL *url = [info objectForKey:UIImagePickerControllerReferenceURL];
+    
+    // 取得したURLを使用して、PHAssetを取得する
+    //PHFetchResult *fetchResult = [PHAsset fetchAssetsWithALAssetURLs:@[url,] options:nil];
+    //PHAsset *asset = fetchResult.firstObject;
+    
+    // ラベルのテキストを更新する
+    //self.dateLabel.text = asset.creationDate.description;
+    //self.favoritelabel.text = (asset.favorite ? @"registered Favorites" : @"not registered Favorites");
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 - (IBAction)pushAddEventBotton:(id)sender {
 }

@@ -11,7 +11,7 @@
 #import "ANZDropDownField.h"
 #import "DropdownMenuView.h"
 
-@interface AddRestaurantViewController : UIViewController<GMSMapViewDelegate>
+@interface AddRestaurantViewController : UIViewController<GMSMapViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 
 @property (weak, nonatomic) IBOutlet UITextField *restaurantNameField;
@@ -23,6 +23,7 @@
 @property (strong, nonatomic) GMSMarker *marker;
 
 @property (weak, nonatomic) IBOutlet ANZDropDownField *photoTypeSelectionField;
+@property (weak, nonatomic) IBOutlet UIImageView *selectedImageView;
 
 @property (weak, nonatomic) IBOutlet UIView *restaurantMenuField;
 
@@ -39,6 +40,7 @@
 @property (weak, nonatomic) IBOutlet UIView *contentView;
 
 
+- (IBAction)pushAddRestaurantImageBotton:(id)sender;
 
 - (IBAction)pusuAddRestaurantBotton:(id)sender;
 

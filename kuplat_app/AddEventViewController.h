@@ -11,7 +11,7 @@
 #import "ANZDropDownField.h"
 #import "DropdownMenuView.h"
 
-@interface AddEventViewController : UIViewController<GMSMapViewDelegate>
+@interface AddEventViewController : UIViewController<GMSMapViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 
 @property (weak, nonatomic) IBOutlet UITextField *eventTitleField;
@@ -36,6 +36,10 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *eventURL;
 
+@property (weak, nonatomic) IBOutlet UIImageView *selectedImageView;
+
+
+- (IBAction)pushAddEventImageBotton:(id)sender;
 
 - (IBAction)pushAddEventBotton:(id)sender;
 
