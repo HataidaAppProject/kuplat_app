@@ -18,11 +18,18 @@
     //タブ色の設定 rgb=0,0,0
     [self.tabBarController.tabBar setTintColor:[UIColor blackColor]];
     [self.navigationController.navigationBar setTintColor:[UIColor blackColor]];
+
 }
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self setTitle:@"KU PLAT"];
+    
+    // ナビゲーションパーの非透過 -> オフセットが負になるのを防止
+    self.navigationController.toolbar.translucent = NO;
+    self.navigationController.navigationBar.translucent = NO;
     
     // メニューを設置
     [self setDropdownMenu];
@@ -33,8 +40,10 @@
     /*****************
        ホーム画面上部
     *****************/
-    
-    
+    //アスペクト比を保ったままサイズ調整
+    [self.imgTop setContentMode:UIViewContentModeScaleAspectFill];
+    [self.imgTop setClipsToBounds:YES];
+    [self.imgTop setImage:[UIImage imageNamed:@"KUPLATHOME.jpg"]];
     
     /*****************
        ホーム画面下部
@@ -43,8 +52,8 @@
     [self.imgTrendEvent setUserInteractionEnabled:YES];
     [self.imgTrendRestaurant setUserInteractionEnabled:YES];
     //タグを設定
-    [self.imgTrendEvent setTag:1];
-    [self.imgTrendRestaurant setTag:2];
+    [self.imgTrendEvent setTag:TrendEventImageTag];
+    [self.imgTrendRestaurant setTag:TrendRestaurantImageTag];
     //アスペクト比を保ったままサイズ調整
     [self.imgTrendEvent setContentMode:UIViewContentModeScaleAspectFill];
     [self.imgTrendEvent setClipsToBounds:YES];
@@ -61,29 +70,33 @@
 {
     UITouch *touch = [touches anyObject];
     switch (touch.view.tag) {
-        case 1:
+        case TrendEventImageTag:
         {
+            
+            // EVENT詳細Viewを生成
+            EventDetailViewController *eventDetailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"EventDetailViewController"];
+            eventDetailViewController.event = self.trendEvent;
             // EVENTタブを選択済にする
             UINavigationController *eventTabViewController = self.tabBarController.viewControllers[1];
             self.tabBarController.selectedViewController = eventTabViewController;
             [eventTabViewController popToRootViewControllerAnimated:NO];
             // EVENT詳細へ遷移
-            EventDetailViewController *eventDetailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"EventDetailViewController"];
-            eventDetailViewController.event = self.trendEvent;
             [eventTabViewController pushViewController:eventDetailViewController animated:YES];
             //[eventTabViewController.viewControllers[0] performSegueWithIdentifier:@"toEventDetailViewController" sender:self];
             
             break;
         }
-        case 2:
+        case TrendRestaurantImageTag:
         {
+            
+            // RESTAURANT詳細Viewを生成
+            RestaurantDetailViewController *restaurantDetailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"RestaurantDetailViewController"];
+            restaurantDetailViewController.restaurant = self.trendRestaurant;
             // RESTAURANTタブを選択済にする
             UINavigationController *restaurantTabViewController = self.tabBarController.viewControllers[2];
             self.tabBarController.selectedViewController = restaurantTabViewController;
             [restaurantTabViewController popToRootViewControllerAnimated:NO];
             // RESTAURANT詳細へ遷移
-            RestaurantDetailViewController *restaurantDetailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"RestaurantDetailViewController"];
-            restaurantDetailViewController.restaurant = self.trendRestaurant;
             [restaurantTabViewController pushViewController:restaurantDetailViewController animated:YES];
             
             break;
@@ -104,7 +117,7 @@
      トレンド情報をサーバから読み込む
      *****************/
     self.trendEvent = [[EventItem alloc] init];
-    self.trendEvent.image = [UIImage imageNamed: @"SampleTrendEvent"];
+    self.trendEvent.image = [UIImage imageNamed:@"SampleTrendEvent"];
     self.trendEvent.title = @"トレンドイベント";
     self.trendEvent.numOfFav = @"100";
     self.trendEvent.date = @"2014.11.11";

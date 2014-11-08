@@ -26,10 +26,6 @@
     [super viewDidLoad];
     
     
-    // メニューを設置
-    [self setDropdownMenu];
-    
-    
     //初期の中心地点 -今は京大-
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:35.02625564504444
                                                             longitude:135.78081168761904
@@ -55,6 +51,8 @@
     //マーカーの追加
     [self addMarkers];
     
+    // メニューを設置
+    [self setDropdownMenu];
 }
 
 - (void)loadData
@@ -193,31 +191,35 @@
         
         event = marker.userData;
         
+        // EVENT詳細Viewを生成
+        EventDetailViewController *eventDetailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"EventDetailViewController"];
+        eventDetailViewController.event = event;
         // EVENTタブを選択済にする
         UINavigationController *eventTabViewController = self.tabBarController.viewControllers[1];
         self.tabBarController.selectedViewController = eventTabViewController;
         [eventTabViewController popToRootViewControllerAnimated:NO];
         // EVENT詳細へ遷移
-        EventDetailViewController *eventDetailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"EventDetailViewController"];
-        eventDetailViewController.event = event;
         [eventTabViewController pushViewController:eventDetailViewController animated:YES];
         //[eventTabViewController.viewControllers[0] performSegueWithIdentifier:@"toEventDetailViewController" sender:self];
+
         
     } else if ([marker.userData class] == [restaurant class]) {
         
         restaurant = marker.userData;
         
+        // RESTAURANT詳細Viewを生成
+        RestaurantDetailViewController *restaurantDetailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"RestaurantDetailViewController"];
+        restaurantDetailViewController.restaurant = restaurant;
         // RESTAURANTタブを選択済にする
         UINavigationController *restaurantTabViewController = self.tabBarController.viewControllers[2];
         self.tabBarController.selectedViewController = restaurantTabViewController;
         [restaurantTabViewController popToRootViewControllerAnimated:NO];
         // RESTAURANT詳細へ遷移
-        RestaurantDetailViewController *restaurantDetailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"RestaurantDetailViewController"];
-        restaurantDetailViewController.restaurant = restaurant;
         [restaurantTabViewController pushViewController:restaurantDetailViewController animated:YES];
         
     }
 }
+
 
 /**
  * マーカーがタップされて、ウィンドウが表示されるタイミングで通知される。

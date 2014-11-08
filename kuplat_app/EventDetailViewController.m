@@ -30,7 +30,7 @@
     [super viewDidLoad];
 
     [self setTitle:@"EVENT詳細"];
-    
+
     // 情報をViewに書き込む
     [self writeData];
     

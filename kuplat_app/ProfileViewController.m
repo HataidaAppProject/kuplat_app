@@ -24,12 +24,10 @@
     [super viewDidLoad];
     
     
-    // メニューを設置
-    [self setDropdownMenu];
-    
-    // ナビゲーションパーの非透過 -> オフセットが負になるのを防止
+    // ナビゲーションパーの非透過
     self.navigationController.toolbar.translucent = NO;
     self.navigationController.navigationBar.translucent = NO;
+    
     
     // 画像を読み込み，指定色でレンダリング
     UIImage *img = [UIImage imageNamed:@"profile"];
@@ -37,7 +35,21 @@
     [self.profileImg setClipsToBounds:YES];
     [self.view setTintColor:[UIColor colorWithRed:0.824 green:0.584 blue:0.161 alpha:1.0]];
     [self.profileImg setImage:[img imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
-
+    
+    // サーバから一つ呼び出し
+    [self loadData];
+    [self writeData];
+    
+    //タップを有効化
+    [self.favEventView setUserInteractionEnabled:YES];
+    [self.favRestaurantView setUserInteractionEnabled:YES];
+    //タグを設定
+    [self.favEventView setTag:FavoriteEventCellTag];
+    [self.favRestaurantView setTag:FavoriteRestaurantCellTag];
+    
+    
+    // メニューを設置
+    [self setDropdownMenu];
     
 }
 
@@ -47,6 +59,132 @@
 }
 
 
+/*****************
+ データの読み込み書込み
+ *****************/
+- (void)loadData
+{
+    /*****************
+     トレンド情報をサーバから読み込む
+     *****************/
+    self.favEvent = [[EventItem alloc] init];
+    self.favEvent.image = [UIImage imageNamed: @"SampleTrendEvent"];
+    self.favEvent.title = @"お気に入りイベント";
+    self.favEvent.numOfFav = @"100";
+    self.favEvent.date = @"2014.11.11";
+    self.favEvent.cost = @"1,000円";
+    self.favEvent.address = @"吉田グラウンド";
+    self.favEvent.aboutText = @"毎年恒例のなんちゃらかんちゃらfugafugahogehoge毎年恒例のなんちゃらかんちゃらfugafugahogehoge毎年恒例のなんちゃらかんちゃらfugafugahogehoge";
+    self.favEvent.information.sponsor = @"サークル";
+    self.favEvent.information.phoneNumber = @"090-xxxx-xxxx";
+    self.favEvent.information.url = @"http://hugaga";
+    self.favEvent.information.others = @"ほげほげ";
+    
+    
+    self.favRestaurant = [[RestaurantItem alloc] init];
+    self.favRestaurant.image = [UIImage imageNamed:@"SampleTrendRestaurant"];
+    self.favRestaurant.name = @"お気に入りRestaurant";
+    self.favRestaurant.type = @"カフェ";
+    self.favRestaurant.score = @"2.3";
+    self.favRestaurant.coupon = @"ランチタイムに限り，この画面提示で100円引き！";
+    self.favRestaurant.address = @"元田中";
+    self.favRestaurant.review.department = @"経済学部";
+    self.favRestaurant.review.grade = @"1";
+    self.favRestaurant.review.sex = @"男性";
+    self.favRestaurant.review.score = @"3.1";
+    self.favRestaurant.review.text = @"うまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうま";
+    self.favRestaurant.menu.menu = @"担々麺";
+    self.favRestaurant.menu.price = 1000;
+    self.favRestaurant.information.phoneNumber = @"075-xxxx-xxxx";
+    self.favRestaurant.information.businessHours = @"11:00~22:00";
+    self.favRestaurant.information.clodedDays = @"毎週月曜，年末年始";
+    self.favRestaurant.information.url = @"http://fugafuga";
+    self.favRestaurant.information.others = @"そのた";
+}
+
+- (void)writeData
+{
+    [self.eventImage setImage:self.favEvent.image];
+    [self.eventTitle setText:self.favEvent.title];
+    [self.eventNumOfFavs setText:self.favEvent.numOfFav];
+    [self.eventDate setText:self.favEvent.date];
+    [self.eventCost setText:self.favEvent.cost];
+    [self.eventPlace setText:self.favEvent.address];
+    
+    [self.restaurantName setText:self.favRestaurant.name];
+    [self.restaurantImage setImage:self.favRestaurant.image];
+    [self.restaurantScore setText:self.favRestaurant.score];
+    // レビューを3行まで表示
+    [self.restaurantReview setNumberOfLines:3];
+    [self.restaurantReview setText:self.favRestaurant.review.text];
+    
+    // 星をスコアに応じて色付け
+    [self setStar:self.restaurantStar1 score:[self.restaurantScore.text floatValue] th:1.0];
+    [self setStar:self.restaurantStar2 score:[self.restaurantScore.text floatValue] th:2.0];
+    [self setStar:self.restaurantStar3 score:[self.restaurantScore.text floatValue] th:3.0];
+    [self setStar:self.restaurantStar4 score:[self.restaurantScore.text floatValue] th:4.0];
+    [self setStar:self.restaurantStar5 score:[self.restaurantScore.text floatValue] th:5.0];
+
+}
+
+// スコアから星の表示を得る
+- (void)setStar:(UILabel *)star score:(float)score th:(float)val
+{
+    if (score < val) {
+        [star setText:@"☆"];
+        [star setTextColor:[UIColor blackColor]];
+    }
+    else
+    {
+        // 黄色の星 rgb = 249,192,50
+        [star setText:@"★"];
+        [star setTextColor:[UIColor colorWithRed:0.976 green:0.753 blue:0.196 alpha:1.0]];
+    }
+}
+
+/*****************
+ 画像をタップした際の遷移
+ *****************/
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch *touch = [touches anyObject];
+    switch (touch.view.tag) {
+        case FavoriteEventCellTag:
+        {
+            
+            // EVENT詳細Viewを生成
+            EventDetailViewController *eventDetailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"EventDetailViewController"];
+            eventDetailViewController.event = self.favEvent;
+            // EVENTタブを選択済にする
+            UINavigationController *eventTabViewController = self.tabBarController.viewControllers[1];
+            self.tabBarController.selectedViewController = eventTabViewController;
+            [eventTabViewController popToRootViewControllerAnimated:NO];
+            // EVENT詳細へ遷移
+            [eventTabViewController pushViewController:eventDetailViewController animated:YES];
+            //[eventTabViewController.viewControllers[0] performSegueWithIdentifier:@"toEventDetailViewController" sender:self];
+            
+            break;
+        }
+        case FavoriteRestaurantCellTag:
+        {
+            
+            // RESTAURANT詳細Viewを生成
+            RestaurantDetailViewController *restaurantDetailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"RestaurantDetailViewController"];
+            restaurantDetailViewController.restaurant = self.favRestaurant;
+            // RESTAURANTタブを選択済にする
+            UINavigationController *restaurantTabViewController = self.tabBarController.viewControllers[2];
+            self.tabBarController.selectedViewController = restaurantTabViewController;
+            [restaurantTabViewController popToRootViewControllerAnimated:NO];
+            // RESTAURANT詳細へ遷移
+            [restaurantTabViewController pushViewController:restaurantDetailViewController animated:YES];
+            
+            break;
+        }
+        default:
+            break;
+    }
+    
+}
 
 
 /*****************

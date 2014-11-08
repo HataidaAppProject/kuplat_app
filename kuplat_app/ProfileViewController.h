@@ -8,12 +8,22 @@
 
 #import <UIKit/UIKit.h>
 #import "DropdownMenuView.h"
+#import "EventItem.h"
+#import "RestaurantItem.h"
+#import "EventDetailViewController.h"
+#import "RestaurantDetailViewController.h"
+
+typedef NS_ENUM(NSInteger, FavoriteCellTag) {
+    FavoriteEventCellTag = 1,
+    FavoriteRestaurantCellTag = 2
+};
 
 @interface ProfileViewController : UIViewController <DropdownMenuViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @property (weak, nonatomic) IBOutlet UIImageView *profileImg;
 
+@property (nonatomic) EventItem *favEvent;
 @property (weak, nonatomic) IBOutlet UIView *favRestaurantView;
 @property (weak, nonatomic) IBOutlet UIImageView *eventImage;
 @property (weak, nonatomic) IBOutlet UILabel *eventTitle;
@@ -22,6 +32,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *eventPlace;
 @property (weak, nonatomic) IBOutlet UILabel *eventCost;
 
+@property (nonatomic) RestaurantItem *favRestaurant;
 @property (weak, nonatomic) IBOutlet UIView *favEventView;
 @property (weak, nonatomic) IBOutlet UIImageView *restaurantImage;
 @property (weak, nonatomic) IBOutlet UILabel *restaurantName;

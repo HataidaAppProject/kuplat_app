@@ -13,11 +13,18 @@
 #import "EventItem.h"
 #import "RestaurantItem.h"
 
-@interface HomeViewController : UIViewController <DropdownMenuViewDelegate>
+typedef NS_ENUM(NSInteger, TrendImageTag) {
+    TrendEventImageTag = 1,
+    TrendRestaurantImageTag = 2
+};
+
+@interface HomeViewController : UIViewController <UIScrollViewDelegate, DropdownMenuViewDelegate>
 
 //メニュー
 @property (strong, nonatomic) DropdownMenuView *dropdownMenuView;
 @property (weak, nonatomic) IBOutlet UIView *overlayView;
+
+@property (weak, nonatomic) IBOutlet UIImageView *imgTop;
 
 //トレンド
 @property (weak, nonatomic) IBOutlet UIImageView *imgTrendEvent;

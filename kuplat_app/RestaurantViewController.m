@@ -27,6 +27,10 @@
     [self setTitle:@"RESTAURANT"];
     [self.view setBackgroundColor:[UIColor whiteColor]];
     
+    // ナビゲーションパーの非透過 -> オフセットが負になるのを防止
+    self.navigationController.toolbar.translucent = NO;
+    self.navigationController.navigationBar.translucent = NO;
+    
     // メニューを設置
     [self setDropdownMenu];
     
@@ -334,13 +338,6 @@
     return cell;
 }
 
-
-// セルの高さを返す
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 110;
-}
-
 // スコアから星の表示を得る
 - (void)setStar:(UILabel *)star score:(float)score th:(float)val
 {
@@ -354,6 +351,12 @@
         [star setText:@"★"];
         [star setTextColor:[UIColor colorWithRed:0.976 green:0.753 blue:0.196 alpha:1.0]];
     }
+}
+
+// セルの高さを返す
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 110;
 }
 
 ///

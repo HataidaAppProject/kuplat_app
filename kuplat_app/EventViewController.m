@@ -27,6 +27,10 @@
     [self setTitle:@"EVENT"];
     [self.view setBackgroundColor:[UIColor whiteColor]];
     
+    // ナビゲーションパーの非透過 -> オフセットが負になるのを防止
+    self.navigationController.toolbar.translucent = NO;
+    self.navigationController.navigationBar.translucent = NO;
+    
     // メニューを設置
     [self setDropdownMenu];
     
