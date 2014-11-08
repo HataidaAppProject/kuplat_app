@@ -50,24 +50,32 @@
      UIScrollView上に表示するコンテンツの準備
      ************************************/
     // UIScrollViewに表示するコンテンツViewを作成
-    CGRect contentRect = CGRectMake(0, 0, self.originalFrameSize.width * 3, self.originalFrameSize.height);
+    CGRect contentRect = CGRectMake(0, 0, self.originalFrameSize.width * RestaurantListsNum, self.originalFrameSize.height);
     self.contentView = [[UIView alloc] initWithFrame:contentRect];
     // 3つのリストを作成
     self.restaurantTableView1 = [[UITableView alloc] initWithFrame:CGRectMake(self.originalFrameSize.width * RestaurantList1, 0, self.originalFrameSize.width, self.originalFrameSize.height)];
     self.restaurantTableView2 = [[UITableView alloc] initWithFrame:CGRectMake(self.originalFrameSize.width * RestaurantList2, 0, self.originalFrameSize.width, self.originalFrameSize.height)];
     self.restaurantTableView3 = [[UITableView alloc] initWithFrame:CGRectMake(self.originalFrameSize.width * RestaurantList3, 0, self.originalFrameSize.width, self.originalFrameSize.height)];
+    self.restaurantTableView4 = [[UITableView alloc] initWithFrame:CGRectMake(self.originalFrameSize.width * RestaurantList4, 0, self.originalFrameSize.width, self.originalFrameSize.height)];
+    self.restaurantTableView5 = [[UITableView alloc] initWithFrame:CGRectMake(self.originalFrameSize.width * RestaurantList5, 0, self.originalFrameSize.width, self.originalFrameSize.height)];
     // とりあえず色分けしとく
     [self.restaurantTableView1 setBackgroundColor:[UIColor colorWithRed:0.988 green:0.949 blue:0.922 alpha:1.0]];
     [self.restaurantTableView2 setBackgroundColor:[UIColor colorWithRed:0.988 green:0.949 blue:0.922 alpha:1.0]];
     [self.restaurantTableView3 setBackgroundColor:[UIColor colorWithRed:0.988 green:0.949 blue:0.922 alpha:1.0]];
+    [self.restaurantTableView4 setBackgroundColor:[UIColor colorWithRed:0.988 green:0.949 blue:0.922 alpha:1.0]];
+    [self.restaurantTableView5 setBackgroundColor:[UIColor colorWithRed:0.988 green:0.949 blue:0.922 alpha:1.0]];
     // タグ
     [self.restaurantTableView1 setTag:RestaurantList1];
     [self.restaurantTableView2 setTag:RestaurantList2];
     [self.restaurantTableView3 setTag:RestaurantList3];
+    [self.restaurantTableView4 setTag:RestaurantList4];
+    [self.restaurantTableView5 setTag:RestaurantList5];
     // 全部コンテンツViewに追加
     [self.contentView addSubview:self.restaurantTableView1];
     [self.contentView addSubview:self.restaurantTableView2];
     [self.contentView addSubview:self.restaurantTableView3];
+    [self.contentView addSubview:self.restaurantTableView4];
+    [self.contentView addSubview:self.restaurantTableView5];
     // スクロールViewにコンテンツViewを追加
     [self.scrollView addSubview:self.contentView];
     
@@ -94,7 +102,7 @@
      リストの遷移を追うナビゲータ (ボタンの裏に実装)
      ****************************************/
     // リスト選択ボタンと同じ大きさのView
-    CGRect listNaviRect = CGRectMake(self.originalFrameSize.width/3 * self.currentPage, self.restaurantList1Button.frame.origin.y, self.originalFrameSize.width/3, self.restaurantList1Button.frame.size.height);
+    CGRect listNaviRect = CGRectMake(self.originalFrameSize.width / RestaurantListsNum * self.currentPage, self.restaurantList1Button.frame.origin.y, self.originalFrameSize.width/RestaurantListsNum, self.restaurantList1Button.frame.size.height);
     self.restaurantListNaviView = [[UIView alloc] initWithFrame:listNaviRect];
     // 色 event [UIColor colorWithRed:0.941 green:0.973 blue:0.925 alpha:1.0]
     [self.restaurantListNaviView setBackgroundColor:[UIColor colorWithRed:0.988 green:0.949 blue:0.922 alpha:1.0]];
@@ -105,7 +113,15 @@
     [self.restaurantList1Button setBackgroundColor:[UIColor clearColor]];
     [self.restaurantList2Button setBackgroundColor:[UIColor clearColor]];
     [self.restaurantList3Button setBackgroundColor:[UIColor clearColor]];
-    
+    [self.restaurantList4Button setBackgroundColor:[UIColor clearColor]];
+    [self.restaurantList5Button setBackgroundColor:[UIColor clearColor]];
+    // ボタンのフォントサイズの調整
+    [self.restaurantList1Button.titleLabel setAdjustsFontSizeToFitWidth:YES];
+    [self.restaurantList2Button.titleLabel setAdjustsFontSizeToFitWidth:YES];
+    [self.restaurantList3Button.titleLabel setAdjustsFontSizeToFitWidth:YES];
+    [self.restaurantList4Button.titleLabel setAdjustsFontSizeToFitWidth:YES];
+    [self.restaurantList5Button.titleLabel setAdjustsFontSizeToFitWidth:YES];
+
     
     /**************
      リストの実装
@@ -114,17 +130,25 @@
     [self.restaurantTableView1 setDelegate:self];
     [self.restaurantTableView2 setDelegate:self];
     [self.restaurantTableView3 setDelegate:self];
+    [self.restaurantTableView4 setDelegate:self];
+    [self.restaurantTableView5 setDelegate:self];
     [self.restaurantTableView1 setDataSource:self];
     [self.restaurantTableView2 setDataSource:self];
     [self.restaurantTableView3 setDataSource:self];
+    [self.restaurantTableView4 setDataSource:self];
+    [self.restaurantTableView5 setDataSource:self];
     // カスタムセルを設定
     [self.restaurantTableView1 registerNib:[UINib nibWithNibName:@"RestaurantTableViewCell" bundle:nil] forCellReuseIdentifier:@"Cell"];
     [self.restaurantTableView2 registerNib:[UINib nibWithNibName:@"RestaurantTableViewCell" bundle:nil] forCellReuseIdentifier:@"Cell"];
     [self.restaurantTableView3 registerNib:[UINib nibWithNibName:@"RestaurantTableViewCell" bundle:nil] forCellReuseIdentifier:@"Cell"];
+    [self.restaurantTableView4 registerNib:[UINib nibWithNibName:@"RestaurantTableViewCell" bundle:nil] forCellReuseIdentifier:@"Cell"];
+    [self.restaurantTableView5 registerNib:[UINib nibWithNibName:@"RestaurantTableViewCell" bundle:nil] forCellReuseIdentifier:@"Cell"];
     // セルの区切り線を消去
     [self.restaurantTableView1 setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     [self.restaurantTableView2 setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     [self.restaurantTableView3 setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    [self.restaurantTableView4 setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    [self.restaurantTableView5 setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
     
     // データをサーバから取得
@@ -141,6 +165,8 @@
     self.restaurantsItems1 = [NSMutableArray arrayWithCapacity:10];
     self.restaurantsItems2 = [NSMutableArray arrayWithCapacity:10];
     self.restaurantsItems3 = [NSMutableArray arrayWithCapacity:10];
+    self.restaurantsItems4 = [NSMutableArray arrayWithCapacity:10];
+    self.restaurantsItems5 = [NSMutableArray arrayWithCapacity:10];
     
     NSInteger i;
     for (i=0; i<10; i++) {
@@ -216,6 +242,8 @@
         [self.restaurantsItems1 addObject:restaurant];
         [self.restaurantsItems2 addObject:restaurant];
         [self.restaurantsItems3 addObject:restaurant];
+        [self.restaurantsItems4 addObject:restaurant];
+        [self.restaurantsItems5 addObject:restaurant];
     }
 
 }
@@ -281,6 +309,16 @@
             break;
         }
         case RestaurantList3:
+        {
+            count = self.restaurantsItems3.count;
+            break;
+        }
+        case RestaurantList4:
+        {
+            count = self.restaurantsItems3.count;
+            break;
+        }
+        case RestaurantList5:
         {
             count = self.restaurantsItems3.count;
             break;
@@ -375,7 +413,7 @@
     
     // リストNavigatorをスクロールと共に動かす
     CGRect rect = self.restaurantListNaviView.frame;
-    rect.origin.x = offset.x / 3;
+    rect.origin.x = offset.x / RestaurantListsNum;
     self.restaurantListNaviView.frame = rect;
     
     // ページが変わったら
@@ -386,7 +424,7 @@
 }
 
 - (IBAction)restaurantList1BottonDidPush:(id)sender {
-    
+
     // スクロールViewを動かす
     CGRect rect = self.scrollView.frame;
     rect.origin.x = self.originalFrameSize.width * RestaurantList1;
@@ -394,7 +432,7 @@
 }
 
 - (IBAction)restaurantList2BottonDidPush:(id)sender {
-    
+
     // スクロールViewを動かす
     CGRect rect = self.scrollView.frame;
     rect.origin.x = self.originalFrameSize.width * RestaurantList2;
@@ -406,6 +444,22 @@
     // スクロールViewを動かす
     CGRect rect = self.scrollView.frame;
     rect.origin.x = self.originalFrameSize.width * RestaurantList3;
+    [self.scrollView scrollRectToVisible:rect animated:YES];
+}
+
+- (IBAction)restaurantList4BottonDidPush:(id)sender {
+    
+    // スクロールViewを動かす
+    CGRect rect = self.scrollView.frame;
+    rect.origin.x = self.originalFrameSize.width * RestaurantList4;
+    [self.scrollView scrollRectToVisible:rect animated:YES];
+}
+
+- (IBAction)restaurantList5BottonDidPush:(id)sender {
+    
+    // スクロールViewを動かす
+    CGRect rect = self.scrollView.frame;
+    rect.origin.x = self.originalFrameSize.width * RestaurantList5;
     [self.scrollView scrollRectToVisible:rect animated:YES];
 }
 

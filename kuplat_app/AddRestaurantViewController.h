@@ -11,17 +11,35 @@
 #import "ANZDropDownField.h"
 #import "DropdownMenuView.h"
 
-@interface AddRestaurantViewController : UIViewController<GMSMapViewDelegate, DropdownMenuViewDelegate>
+@interface AddRestaurantViewController : UIViewController<GMSMapViewDelegate>
+
+
+@property (weak, nonatomic) IBOutlet UITextField *restaurantNameField;
+
+@property (weak, nonatomic) IBOutlet ANZDropDownField *typeSelectionField;
+
+@property (weak, nonatomic) IBOutlet UIView *mapSuperView;
+@property (strong, nonatomic) GMSMapView *mapView;
+@property (strong, nonatomic) GMSMarker *marker;
+
+@property (weak, nonatomic) IBOutlet ANZDropDownField *photoTypeSelectionField;
+
+@property (weak, nonatomic) IBOutlet UIView *restaurantMenuField;
+
+@property (weak, nonatomic) IBOutlet UITextView *restaurantBusinessHours;
+
+@property (weak, nonatomic) IBOutlet UITextField *restaurantClosedDays;
+
+@property (weak, nonatomic) IBOutlet UITextField *restaurantPhoneNumber;
+
+@property (weak, nonatomic) IBOutlet UITextField *restaurantURL;
+
+
 
 @property (weak, nonatomic) IBOutlet UIView *contentView;
 
-@property (weak, nonatomic) IBOutlet ANZDropDownField *typeSelectionField;
-@property (weak, nonatomic) IBOutlet ANZDropDownField *photoTypeSelectionField;
 
 
-
-// Map
-@property(strong,nonatomic) GMSMapView *mapView;
-@property (weak, nonatomic) IBOutlet UIView *mapSuperView;
+- (IBAction)pusuAddRestaurantBotton:(id)sender;
 
 @end

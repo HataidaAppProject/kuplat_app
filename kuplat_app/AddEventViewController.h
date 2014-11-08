@@ -7,7 +7,36 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <GoogleMaps/GoogleMaps.h>
+#import "ANZDropDownField.h"
+#import "DropdownMenuView.h"
 
-@interface AddEventViewController : UIViewController
+@interface AddEventViewController : UIViewController<GMSMapViewDelegate>
+
+
+@property (weak, nonatomic) IBOutlet UITextField *eventTitleField;
+
+@property (weak, nonatomic) IBOutlet UITextField *eventSponsorField;
+
+@property (weak, nonatomic) IBOutlet ANZDropDownField *dateSelectionY;
+@property (weak, nonatomic) IBOutlet ANZDropDownField *dateSelectionM;
+@property (weak, nonatomic) IBOutlet ANZDropDownField *dateSelectionD;
+@property (weak, nonatomic) IBOutlet ANZDropDownField *dateSelectionH;
+@property (weak, nonatomic) IBOutlet ANZDropDownField *dateSelectionMi;
+
+@property (weak, nonatomic) IBOutlet UITextField *eventCostField;
+
+@property (weak, nonatomic) IBOutlet UIView *mapSuperView;
+@property (strong, nonatomic) GMSMapView *mapView;
+@property (strong, nonatomic) GMSMarker *marker;
+
+@property (weak, nonatomic) IBOutlet UITextView *eventOverviewField;
+
+@property (weak, nonatomic) IBOutlet UITextField *eventSponsorPhoneNumber;
+
+@property (weak, nonatomic) IBOutlet UITextField *eventURL;
+
+
+- (IBAction)pushAddEventBotton:(id)sender;
 
 @end

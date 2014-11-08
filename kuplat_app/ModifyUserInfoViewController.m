@@ -17,4 +17,6 @@
 }
 
 
+- (IBAction)pushModifyUserInfoBotton:(id)sender {
+}
 @end

@@ -16,7 +16,9 @@ typedef NS_ENUM(NSInteger, RestaurantListType) {
     RestaurantList1 = 0,
     RestaurantList2 = 1,
     RestaurantList3 = 2,
-    RestaurantListsNum = 3
+    RestaurantList4 = 3,
+    RestaurantList5 = 4,
+    RestaurantListsNum = 5
 };
 
 @interface RestaurantViewController : UIViewController <UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate, DropdownMenuViewDelegate>
@@ -25,10 +27,14 @@ typedef NS_ENUM(NSInteger, RestaurantListType) {
 @property(strong, nonatomic) NSMutableArray *restaurantsItems1;
 @property(strong, nonatomic) NSMutableArray *restaurantsItems2;
 @property(strong, nonatomic) NSMutableArray *restaurantsItems3;
+@property(strong, nonatomic) NSMutableArray *restaurantsItems4;
+@property(strong, nonatomic) NSMutableArray *restaurantsItems5;
 // リスト
 @property(strong, nonatomic) UITableView *restaurantTableView1;
 @property(strong, nonatomic) UITableView *restaurantTableView2;
 @property(strong, nonatomic) UITableView *restaurantTableView3;
+@property(strong, nonatomic) UITableView *restaurantTableView4;
+@property(strong, nonatomic) UITableView *restaurantTableView5;
 // 詳細Viewへ渡すEventアイテム
 @property (strong, nonatomic) RestaurantItem *sendRestaurant;
 
@@ -39,6 +45,8 @@ typedef NS_ENUM(NSInteger, RestaurantListType) {
 @property (weak, nonatomic) IBOutlet UIButton *restaurantList1Button;
 @property (weak, nonatomic) IBOutlet UIButton *restaurantList2Button;
 @property (weak, nonatomic) IBOutlet UIButton *restaurantList3Button;
+@property (weak, nonatomic) IBOutlet UIButton *restaurantList4Button;
+@property (weak, nonatomic) IBOutlet UIButton *restaurantList5Button;
 // リスト遷移を追うナビゲータ
 @property (strong, nonatomic) UIView *restaurantListNaviView;
 
