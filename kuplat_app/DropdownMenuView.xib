@@ -12,32 +12,18 @@
             <rect key="frame" x="0.0" y="0.0" width="200" height="258"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hmV-2P-YDY">
-                    <rect key="frame" x="0.0" y="0.0" width="200" height="50"/>
-                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="hmV-2P-YDY" secondAttribute="height" multiplier="4:1" id="8vs-yO-cJk"/>
-                    </constraints>
-                    <state key="normal" title="飲食店情報追加">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleShadowColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                    </state>
-                    <connections>
-                        <action selector="tappedAddRestaurantButton:" destination="QVi-ab-RXS" eventType="touchUpInside" id="jto-Rq-xhq"/>
-                    </connections>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tgp-pq-MbK">
                     <rect key="frame" x="0.0" y="52" width="200" height="50"/>
                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="Tgp-pq-MbK" secondAttribute="height" multiplier="4:1" id="cWI-46-Dlp"/>
                     </constraints>
-                    <state key="normal" title="イベント情報追加">
+                    <state key="normal" title="飲食店情報追加">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     </state>
                     <connections>
-                        <action selector="tappedAddEventButton:" destination="QVi-ab-RXS" eventType="touchUpInside" id="dnd-as-Rpk"/>
+                        <action selector="tappedAddRestaurantButton:" destination="QVi-ab-RXS" eventType="touchUpInside" id="T6S-P2-qT0"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YCT-ZC-f7Q">
@@ -80,6 +66,20 @@
                     </state>
                     <connections>
                         <action selector="tappedAppInfoButton:" destination="QVi-ab-RXS" eventType="touchUpInside" id="A94-TP-V4d"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hmV-2P-YDY">
+                    <rect key="frame" x="0.0" y="0.0" width="200" height="50"/>
+                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="hmV-2P-YDY" secondAttribute="height" multiplier="4:1" id="8vs-yO-cJk"/>
+                    </constraints>
+                    <state key="normal" title="イベント情報追加">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    </state>
+                    <connections>
+                        <action selector="tappedAddEventButton:" destination="QVi-ab-RXS" eventType="touchUpInside" id="6hs-bP-jsp"/>
                     </connections>
                 </button>
             </subviews>

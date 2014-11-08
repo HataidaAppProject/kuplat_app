@@ -318,7 +318,7 @@
     // スクロールViewを動かす
     CGRect rect = self.scrollView.frame;
     rect.origin.x = self.originalFrameSize.width * EventList1;
-    [self.scrollView scrollRectToVisible:rect animated:YES];
+    [self.scrollView scrollRectToVisible:rect animated:YES];    
 }
 
 - (IBAction)eventList2BottonDidPush:(id)sender {
@@ -356,6 +356,7 @@
     self.dropdownMenuView = [[[NSBundle mainBundle] loadNibNamed:@"DropdownMenuView"
                                                            owner:self
                                                          options:nil] lastObject];
+    self.dropdownMenuView.tabBarController = self.tabBarController;
     [self.dropdownMenuView setDelegate:self];
     
     [self.dropdownMenuView setTranslatesAutoresizingMaskIntoConstraints:NO];

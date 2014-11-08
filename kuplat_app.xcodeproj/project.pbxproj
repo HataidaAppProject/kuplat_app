@@ -13,7 +13,6 @@
 		8436BEDA19E6D08F0088FF70 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8436BED919E6D08F0088FF70 /* AppDelegate.m */; };
 		8436BEDD19E6D08F0088FF70 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8436BEDC19E6D08F0088FF70 /* HomeViewController.m */; };
 		8436BEE019E6D08F0088FF70 /* EventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8436BEDF19E6D08F0088FF70 /* EventViewController.m */; };
-		8436BEE319E6D08F0088FF70 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8436BEE119E6D08F0088FF70 /* Main.storyboard */; };
 		8436BEE819E6D08F0088FF70 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8436BEE619E6D08F0088FF70 /* LaunchScreen.xib */; };
 		8436BEF419E6D08F0088FF70 /* kuplat_appTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8436BEF319E6D08F0088FF70 /* kuplat_appTests.m */; };
 		8436BF0719EE0DB00088FF70 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8436BF0619EE0DB00088FF70 /* MapViewController.m */; };
@@ -25,6 +24,10 @@
 		84636BEF1A09BA6200AF6601 /* RestaurantInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 84636BEE1A09BA6200AF6601 /* RestaurantInformation.m */; };
 		84636BF21A09BB5A00AF6601 /* RestaurantReview.m in Sources */ = {isa = PBXBuildFile; fileRef = 84636BF11A09BB5A00AF6601 /* RestaurantReview.m */; };
 		84636BF51A09BC1100AF6601 /* RestaurantMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 84636BF41A09BC1100AF6601 /* RestaurantMenu.m */; };
+		849C515C1A0DD0AB004A63DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 849C515B1A0DD0AB004A63DF /* Main.storyboard */; };
+		849C51621A0DF300004A63DF /* AddRestaurantViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 849C51611A0DF300004A63DF /* AddRestaurantViewController.m */; };
+		849C51651A0DF34F004A63DF /* AddEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 849C51641A0DF34F004A63DF /* AddEventViewController.m */; };
+		849C51681A0DF381004A63DF /* ModifyUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 849C51671A0DF381004A63DF /* ModifyUserInfoViewController.m */; };
 		84B792771A016BE60054AE31 /* DropdownMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B792761A016BE60054AE31 /* DropdownMenuView.m */; };
 		84B7927B1A016C6F0054AE31 /* DropdownMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B7927A1A016C6F0054AE31 /* DropdownMenuView.xib */; };
 		84BB09CD1A0DB2F7000AFC38 /* UIScrollView+TouchEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BB09CC1A0DB2F6000AFC38 /* UIScrollView+TouchEvent.m */; };
@@ -78,7 +81,6 @@
 		8436BEDC19E6D08F0088FF70 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		8436BEDE19E6D08F0088FF70 /* EventViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventViewController.h; sourceTree = "<group>"; };
 		8436BEDF19E6D08F0088FF70 /* EventViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventViewController.m; sourceTree = "<group>"; };
-		8436BEE219E6D08F0088FF70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8436BEE719E6D08F0088FF70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		8436BEED19E6D08F0088FF70 /* kuplat_appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kuplat_appTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8436BEF219E6D08F0088FF70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -101,6 +103,13 @@
 		84636BF11A09BB5A00AF6601 /* RestaurantReview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantReview.m; sourceTree = "<group>"; };
 		84636BF31A09BC1000AF6601 /* RestaurantMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantMenu.h; sourceTree = "<group>"; };
 		84636BF41A09BC1100AF6601 /* RestaurantMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantMenu.m; sourceTree = "<group>"; };
+		849C515B1A0DD0AB004A63DF /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		849C51601A0DF300004A63DF /* AddRestaurantViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddRestaurantViewController.h; sourceTree = "<group>"; };
+		849C51611A0DF300004A63DF /* AddRestaurantViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddRestaurantViewController.m; sourceTree = "<group>"; };
+		849C51631A0DF34F004A63DF /* AddEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEventViewController.h; sourceTree = "<group>"; };
+		849C51641A0DF34F004A63DF /* AddEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEventViewController.m; sourceTree = "<group>"; };
+		849C51661A0DF381004A63DF /* ModifyUserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyUserInfoViewController.h; sourceTree = "<group>"; };
+		849C51671A0DF381004A63DF /* ModifyUserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyUserInfoViewController.m; sourceTree = "<group>"; };
 		84B792751A016BE60054AE31 /* DropdownMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropdownMenuView.h; sourceTree = "<group>"; };
 		84B792761A016BE60054AE31 /* DropdownMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropdownMenuView.m; sourceTree = "<group>"; };
 		84B7927A1A016C6F0054AE31 /* DropdownMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DropdownMenuView.xib; sourceTree = "<group>"; };
@@ -205,14 +214,13 @@
 			children = (
 				8436BED819E6D08F0088FF70 /* AppDelegate.h */,
 				8436BED919E6D08F0088FF70 /* AppDelegate.m */,
-				8436BEE119E6D08F0088FF70 /* Main.storyboard */,
+				849C515B1A0DD0AB004A63DF /* Main.storyboard */,
 				8436BEDB19E6D08F0088FF70 /* HomeViewController.h */,
 				8436BEDC19E6D08F0088FF70 /* HomeViewController.m */,
 				843FE8701A084AAB002A8637 /* EventView */,
 				843FE8711A084ACD002A8637 /* RestaurantView */,
 				84F159AA1A0BF67E00F53E3B /* MapView */,
-				8436BF0519EE0DA40088FF70 /* ProfileViewController.h */,
-				8436BF0819EE0E4C0088FF70 /* ProfileViewController.m */,
+				849C51691A0DF39E004A63DF /* ProfileView */,
 				84B792751A016BE60054AE31 /* DropdownMenuView.h */,
 				84B792761A016BE60054AE31 /* DropdownMenuView.m */,
 				84B7927A1A016C6F0054AE31 /* DropdownMenuView.xib */,
@@ -265,6 +273,8 @@
 				84C03CD81A0A84550011BBE2 /* EventItem.m */,
 				84C03CDA1A0A8B0C0011BBE2 /* EventInformation.h */,
 				84C03CDB1A0A8B0C0011BBE2 /* EventInformation.m */,
+				849C51631A0DF34F004A63DF /* AddEventViewController.h */,
+				849C51641A0DF34F004A63DF /* AddEventViewController.m */,
 			);
 			name = EventView;
 			sourceTree = "<group>";
@@ -287,8 +297,21 @@
 				84636BF11A09BB5A00AF6601 /* RestaurantReview.m */,
 				84636BF31A09BC1000AF6601 /* RestaurantMenu.h */,
 				84636BF41A09BC1100AF6601 /* RestaurantMenu.m */,
+				849C51601A0DF300004A63DF /* AddRestaurantViewController.h */,
+				849C51611A0DF300004A63DF /* AddRestaurantViewController.m */,
 			);
 			name = RestaurantView;
+			sourceTree = "<group>";
+		};
+		849C51691A0DF39E004A63DF /* ProfileView */ = {
+			isa = PBXGroup;
+			children = (
+				8436BF0519EE0DA40088FF70 /* ProfileViewController.h */,
+				8436BF0819EE0E4C0088FF70 /* ProfileViewController.m */,
+				849C51661A0DF381004A63DF /* ModifyUserInfoViewController.h */,
+				849C51671A0DF381004A63DF /* ModifyUserInfoViewController.m */,
+			);
+			name = ProfileView;
 			sourceTree = "<group>";
 		};
 		84F159AA1A0BF67E00F53E3B /* MapView */ = {
@@ -412,10 +435,10 @@
 				84C03CD61A0A72620011BBE2 /* MapCustumMarkerView.xib in Resources */,
 				84D6C2681A020B0400B4DDAA /* EventTableViewCell.xib in Resources */,
 				841FF43D19F4F1B10047CCCB /* Images.xcassets in Resources */,
-				8436BEE319E6D08F0088FF70 /* Main.storyboard in Resources */,
 				84F8AF2E19F579B5001BE0FD /* GoogleMaps.bundle in Resources */,
 				84D6C2661A01FB8B00B4DDAA /* RestaurantTableViewCell.xib in Resources */,
 				84ECC6D619F54511002B9A24 /* Podfile in Resources */,
+				849C515C1A0DD0AB004A63DF /* Main.storyboard in Resources */,
 				84B7927B1A016C6F0054AE31 /* DropdownMenuView.xib in Resources */,
 				8436BEE819E6D08F0088FF70 /* LaunchScreen.xib in Resources */,
 			);
@@ -476,14 +499,17 @@
 				8436BF0719EE0DB00088FF70 /* MapViewController.m in Sources */,
 				8436BF0919EE0E4C0088FF70 /* ProfileViewController.m in Sources */,
 				84636BEC1A09B4C300AF6601 /* RestaurantItem.m in Sources */,
+				849C51681A0DF381004A63DF /* ModifyUserInfoViewController.m in Sources */,
 				84C03CDC1A0A8B0C0011BBE2 /* EventInformation.m in Sources */,
 				84BB09CD1A0DB2F7000AFC38 /* UIScrollView+TouchEvent.m in Sources */,
 				84C03CD41A0A72460011BBE2 /* MapCustumMarkerView.m in Sources */,
+				849C51621A0DF300004A63DF /* AddRestaurantViewController.m in Sources */,
 				84D6C26B1A020D7100B4DDAA /* EventTableViewCell.m in Sources */,
 				84C03CD91A0A84550011BBE2 /* EventItem.m in Sources */,
 				8436BEDD19E6D08F0088FF70 /* HomeViewController.m in Sources */,
 				843FE86F1A07E6AC002A8637 /* RestaurantTableViewCell.m in Sources */,
 				8436BED719E6D08F0088FF70 /* main.m in Sources */,
+				849C51651A0DF34F004A63DF /* AddEventViewController.m in Sources */,
 				84636BF51A09BC1100AF6601 /* RestaurantMenu.m in Sources */,
 				84E1BAEB1A092BBE003EA808 /* RestaurantDetailViewController.m in Sources */,
 				84B792771A016BE60054AE31 /* DropdownMenuView.m in Sources */,
@@ -510,14 +536,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		8436BEE119E6D08F0088FF70 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8436BEE219E6D08F0088FF70 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		8436BEE619E6D08F0088FF70 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (

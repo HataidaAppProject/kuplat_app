@@ -36,4 +36,6 @@ typedef NS_ENUM(NSInteger, DropdownMenuViewSelectedItemType) {
 - (void)tappedMenuButton;
 - (void)tappedMenuButtonWithOffset:(CGPoint)offset;
 
+@property (nonatomic) UITabBarController *tabBarController;
+
 @end

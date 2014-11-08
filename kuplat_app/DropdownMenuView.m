@@ -135,27 +135,61 @@
     if ([self.delegate respondsToSelector:@selector(dropdownMenuViewDidSelectedItem:type:)]) {
         
         switch (type) {
-            case DropdownMenuViewSelectedItemTypeAddRestaurant:
+            case DropdownMenuViewSelectedItemTypeAddEvent:
             {
-                //NSLog(@"ここでも");
+                
+                // EVENTタブを選択済にする
+                UINavigationController *eventTabViewController = self.tabBarController.viewControllers[1];
+                self.tabBarController.selectedViewController = eventTabViewController;
+                [eventTabViewController popToRootViewControllerAnimated:NO];
+                // Event追加へ遷移
+                [eventTabViewController.viewControllers[0] performSegueWithIdentifier:@"toAddEventViewController" sender:nil];
                 break;
             }
-            case DropdownMenuViewSelectedItemTypeAddEvent:
+            case DropdownMenuViewSelectedItemTypeAddRestaurant:
+            {
                 
+                // RESTAURANTタブを選択済にする
+                UINavigationController *restaurantTabViewController = self.tabBarController.viewControllers[2];
+                self.tabBarController.selectedViewController = restaurantTabViewController;
+                [restaurantTabViewController popToRootViewControllerAnimated:NO];
+                // Restaurant追加へ遷移
+                [restaurantTabViewController.viewControllers[0] performSegueWithIdentifier:@"toAddRestaurantViewController" sender:nil];
                 break;
-                
+            }
             case DropdownMenuViewSelectedItemTypeModifyUserInfo:
+            {
                 
+                // PROFILEタブを選択済にする
+                UINavigationController *profileTabViewController = self.tabBarController.viewControllers[4];
+                self.tabBarController.selectedViewController = profileTabViewController;
+                [profileTabViewController popToRootViewControllerAnimated:NO];
+                // 登録情報変更へ遷移
+                [profileTabViewController.viewControllers[0] performSegueWithIdentifier:@"toModifyUserInfoViewController" sender:nil];
                 break;
-                
+            }
             case DropdownMenuViewSelectedItemTypeCntact:
+            {
                 
+                // PROFILEタブを選択済にする
+                UINavigationController *profileTabViewController = self.tabBarController.viewControllers[4];
+                self.tabBarController.selectedViewController = profileTabViewController;
+                [profileTabViewController popToRootViewControllerAnimated:NO];
+                // Restaurant追加へ遷移
+                //[profileTabViewController.viewControllers[0] performSegueWithIdentifier:@"toAddRestaurantViewController" sender:nil];
                 break;
-                
+            }
             case DropdownMenuViewSelectedItemTypeAppInfo:
+            {
                 
+                // RESTAURANTタブを選択済にする
+                //UINavigationController *restaurantTabViewController = self.tabBarController.viewControllers[2];
+                //self.tabBarController.selectedViewController = restaurantTabViewController;
+                //[restaurantTabViewController popToRootViewControllerAnimated:NO];
+                // Restaurant追加へ遷移
+                //[restaurantTabViewController.viewControllers[0] performSegueWithIdentifier:@"toAddRestaurantViewController" sender:nil];
                 break;
-                
+            }
             default:
                 break;
         }
@@ -166,13 +200,13 @@
 
 #pragma mark - Action methods
 
-- (IBAction)tappedAddRestaurantButton:(id)sender {
-    [self tappedButtonWithType:DropdownMenuViewSelectedItemTypeAddRestaurant];
-}
-
 - (IBAction)tappedAddEventButton:(id)sender
 {
     [self tappedButtonWithType:DropdownMenuViewSelectedItemTypeAddEvent];
+}
+
+- (IBAction)tappedAddRestaurantButton:(id)sender {
+    [self tappedButtonWithType:DropdownMenuViewSelectedItemTypeAddRestaurant];
 }
 
 - (IBAction)tappedModifyUserInfoButton:(id)sender

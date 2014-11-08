@@ -145,6 +145,7 @@
     self.dropdownMenuView = [[[NSBundle mainBundle] loadNibNamed:@"DropdownMenuView"
                                                            owner:self
                                                          options:nil] lastObject];
+    self.dropdownMenuView.tabBarController = self.tabBarController;
     [self.dropdownMenuView setDelegate:self];
     
     [self.dropdownMenuView setTranslatesAutoresizingMaskIntoConstraints:NO];
