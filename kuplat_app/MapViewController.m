@@ -8,8 +8,7 @@
 
 #import "MapViewController.h"
 
-@interface MapViewController () {
-}
+@interface MapViewController ()
 
 @end
 

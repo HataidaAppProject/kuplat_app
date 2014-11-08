@@ -151,27 +151,32 @@
         switch (i) {
             case 0:
             {
-                restaurant.name = @"レストランレストランレストランレストランレストラン詳細";
+                restaurant.name = @"らうめん";
+                restaurant.review.text = @"れびう";
                 break;
             }
             case 1:
             {
-                restaurant.name = @"レストラン詳細遷移テスト";
+                restaurant.name = @"ラーメン";
+                restaurant.review.text = @"レビュー";
                 break;
             }
             case 2:
             {
-                restaurant.name = @"京大カレー部 カレー販売";
+                restaurant.name = @"店名がものすごく長いとウワサのらーめん";
+                restaurant.review.text = @"レビューもやたら長いレビューもやたら長いレビューもやたら長いレビューもやたら長いレビューもやたら長いレビューもやたら長いレビューもやたら長いレビューもやたら長い";
                 break;
             }
             case 3:
             {
-                restaurant.name = @"佐々木";
+                restaurant.name = @"おいしいらーめん";
+                restaurant.review.text = @"まあまあ";
                 break;
             }
             case 4:
             {
-                restaurant.name = @"潮野";
+                restaurant.name = @"もっとおいしいラーメン";
+                restaurant.review.text = @"げきうま";
                 break;
             }
             case 5:
@@ -200,7 +205,7 @@
         restaurant.review.grade = @"1";
         restaurant.review.sex = @"男性";
         restaurant.review.score = @"3.1";
-        restaurant.review.text = @"うまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうまうま";
+        
         restaurant.menu.menu = @"担々麺";
         restaurant.menu.price = 1000;
         restaurant.information.phoneNumber = @"075-xxxx-xxxx";

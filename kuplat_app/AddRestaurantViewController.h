@@ -7,7 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <GoogleMaps/GoogleMaps.h>
+#import "ANZDropDownField.h"
+#import "DropdownMenuView.h"
 
-@interface AddRestaurantViewController : UIViewController
+@interface AddRestaurantViewController : UIViewController<GMSMapViewDelegate, DropdownMenuViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UIView *contentView;
+
+@property (weak, nonatomic) IBOutlet ANZDropDownField *typeSelectionField;
+@property (weak, nonatomic) IBOutlet ANZDropDownField *photoTypeSelectionField;
+
+
+
+// Map
+@property(strong,nonatomic) GMSMapView *mapView;
+@property (weak, nonatomic) IBOutlet UIView *mapSuperView;
 
 @end
