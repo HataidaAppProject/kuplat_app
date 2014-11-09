@@ -39,6 +39,9 @@
     //現在地ボタンの表示オプション
     self.mapView.settings.myLocationButton = YES;
     
+    //回転のオプション
+    [self.mapView.settings setRotateGestures:NO];
+    
     //DropdownMenuが見えるように最下層のサブビューに追加
     [self.view addSubview:self.mapView];
     [self.view sendSubviewToBack:self.mapView];

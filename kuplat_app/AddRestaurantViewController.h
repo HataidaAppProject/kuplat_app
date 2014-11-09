@@ -12,7 +12,10 @@
 #import "RestaurantMenuPriceTextFieldView.h"
 #import "DropdownMenuView.h"
 
-@interface AddRestaurantViewController : UIViewController<GMSMapViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface AddRestaurantViewController : UIViewController<GMSMapViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, DropdownMenuViewDelegate>
+
+// スクロールView
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 
 @property (weak, nonatomic) IBOutlet UITextField *restaurantNameField;
@@ -46,5 +49,11 @@
 - (IBAction)pushAddRestaurantImageBotton:(id)sender;
 - (IBAction)pushAddRestaurantMenuBotton:(id)sender;
 - (IBAction)pusuAddRestaurantBotton:(id)sender;
+
+
+//ドロップダウンメニュー
+@property (strong, nonatomic) DropdownMenuView *dropdownMenuView;
+@property (weak, nonatomic) IBOutlet UIView *overlayView;
+- (IBAction)tappedMenuButton:(id)sender;
 
 @end

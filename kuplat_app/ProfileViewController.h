@@ -19,6 +19,8 @@ typedef NS_ENUM(NSInteger, FavoriteCellTag) {
 };
 
 @interface ProfileViewController : UIViewController <DropdownMenuViewDelegate>
+
+// スクロールView
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @property (weak, nonatomic) IBOutlet UIImageView *profileImg;
@@ -48,6 +50,7 @@ typedef NS_ENUM(NSInteger, FavoriteCellTag) {
 //ドロップダウンメニュー
 @property (strong, nonatomic) DropdownMenuView *dropdownMenuView;
 @property (weak, nonatomic) IBOutlet UIView *overlayView;
+- (IBAction)tappedMenuButton:(id)sender;
 
 @end
 

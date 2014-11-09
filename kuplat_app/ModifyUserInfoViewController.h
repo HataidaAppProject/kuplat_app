@@ -7,8 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DropdownMenuView.h"
 
-@interface ModifyUserInfoViewController : UIViewController
+@interface ModifyUserInfoViewController : UIViewController <DropdownMenuViewDelegate>
+
+// スクロールView
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+
+
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
 @property (weak, nonatomic) IBOutlet UITextField *mailAddressField;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *sexSelectField;
@@ -18,4 +24,11 @@
 @property (weak, nonatomic) IBOutlet UITextField *clubField3;
 
 - (IBAction)pushModifyUserInfoBotton:(id)sender;
+
+
+//ドロップダウンメニュー
+@property (strong, nonatomic) DropdownMenuView *dropdownMenuView;
+@property (weak, nonatomic) IBOutlet UIView *overlayView;
+- (IBAction)tappedMenuButton:(id)sender;
+
 @end

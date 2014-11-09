@@ -20,10 +20,6 @@ typedef NS_ENUM(NSInteger, TrendImageTag) {
 
 @interface HomeViewController : UIViewController <UIScrollViewDelegate, DropdownMenuViewDelegate>
 
-//メニュー
-@property (strong, nonatomic) DropdownMenuView *dropdownMenuView;
-@property (weak, nonatomic) IBOutlet UIView *overlayView;
-
 @property (weak, nonatomic) IBOutlet UIImageView *imgTop;
 
 //トレンド
@@ -31,6 +27,11 @@ typedef NS_ENUM(NSInteger, TrendImageTag) {
 @property (weak, nonatomic) IBOutlet UIImageView *imgTrendRestaurant;
 @property (strong, nonatomic) RestaurantItem *trendRestaurant;
 @property (strong, nonatomic) EventItem *trendEvent;
+
+//ドロップダウンメニュー
+@property (strong, nonatomic) DropdownMenuView *dropdownMenuView;
+@property (weak, nonatomic) IBOutlet UIView *overlayView;
+- (IBAction)tappedMenuButton:(id)sender;
 
 @end
 

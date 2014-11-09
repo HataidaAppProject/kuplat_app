@@ -11,7 +11,10 @@
 #import "ANZDropDownField.h"
 #import "DropdownMenuView.h"
 
-@interface AddEventViewController : UIViewController<GMSMapViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface AddEventViewController : UIViewController<GMSMapViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, DropdownMenuViewDelegate>
+
+// スクロールView
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 
 @property (weak, nonatomic) IBOutlet UITextField *eventTitleField;
@@ -42,5 +45,11 @@
 - (IBAction)pushAddEventImageBotton:(id)sender;
 
 - (IBAction)pushAddEventBotton:(id)sender;
+
+
+//ドロップダウンメニュー
+@property (strong, nonatomic) DropdownMenuView *dropdownMenuView;
+@property (weak, nonatomic) IBOutlet UIView *overlayView;
+- (IBAction)tappedMenuButton:(id)sender;
 
 @end

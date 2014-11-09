@@ -55,5 +55,6 @@
 //ドロップダウンメニュー
 @property (strong, nonatomic) DropdownMenuView *dropdownMenuView;
 @property (weak, nonatomic) IBOutlet UIView *overlayView;
+- (IBAction)tappedMenuButton:(id)sender;
 
 @end

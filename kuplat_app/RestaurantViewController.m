@@ -270,6 +270,16 @@
             self.sendRestaurant = [self.restaurantsItems3 objectAtIndex:indexPath.row];
             break;
         }
+        case RestaurantList4:
+        {
+            self.sendRestaurant = [self.restaurantsItems4 objectAtIndex:indexPath.row];
+            break;
+        }
+        case RestaurantList5:
+        {
+            self.sendRestaurant = [self.restaurantsItems5 objectAtIndex:indexPath.row];
+            break;
+        }
         default:
             break;
     }
@@ -354,6 +364,16 @@
         case RestaurantList3:
         {
             restaurant = [self.restaurantsItems3 objectAtIndex:indexPath.row];
+            break;
+        }
+        case RestaurantList4:
+        {
+            restaurant = [self.restaurantsItems4 objectAtIndex:indexPath.row];
+            break;
+        }
+        case RestaurantList5:
+        {
+            restaurant = [self.restaurantsItems5 objectAtIndex:indexPath.row];
             break;
         }
         default:
