@@ -8,6 +8,10 @@
 
 #import "RestaurantViewController.h"
 
+//10件づつ表示
+#define ONCE_READ_COUNT 10
+#define SCROLL_VIEW_TAG 10
+
 @interface RestaurantViewController ()
 
 @end
@@ -42,7 +46,7 @@
     //NSLog(@"ステータスバー領域を含まない画面サイズ：幅%f，高さ%f", cr.size.width, cr.size.height);
     self.originalFrameSize = CGSizeMake(cr.size.width,
                                         cr.size.height // ステータスパー除いた高さ
-                                        - self.restaurantList1Button.frame.size.height // リスト選択ボタン
+                                        - self.restaurantList1Button.frame.size.height // リスト選択ボタンの高さ
                                         - self.navigationController.navigationBar.frame.size.height // ナビゲーションバー
                                         - self.tabBarController.tabBar.frame.size.height); // タブ
     
@@ -97,6 +101,7 @@
     [self.scrollView setShowsVerticalScrollIndicator:NO];
     // コンテンツ境界でバウンドさせない
     [self.scrollView setBounces:NO];
+    [self.scrollView setTag:SCROLL_VIEW_TAG];
     
     /****************************************
      リストの遷移を追うナビゲータ (ボタンの裏に実装)
@@ -153,6 +158,12 @@
     
     // データをサーバから取得
     [self loadData];
+    
+    //インディケーター
+    self.indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    [self.indicator setColor:[UIColor darkGrayColor]];
+    [self.indicator setHidesWhenStopped:YES];
+    [self.indicator stopAnimating];
 }
 
 
@@ -422,26 +433,69 @@
     return 110;
 }
 
+
+
 ///
 // スクロール
 ///
 - (void)scrollViewDidScroll:(UIScrollView *)sender {
     
-    // 現在の表示位置（左上）のx座標とUIScrollViewの表示幅から，現在のページ番号を計算
-    CGPoint offset = self.scrollView.contentOffset;
-    NSInteger page = (offset.x + self.originalFrameSize.width/2) / self.originalFrameSize.width;
-    
-    // リストNavigatorをスクロールと共に動かす
-    CGRect rect = self.restaurantListNaviView.frame;
-    rect.origin.x = offset.x / RestaurantListsNum;
-    self.restaurantListNaviView.frame = rect;
-    
-    // ページが変わったら
-    if (self.currentPage != page) {
-        self.currentPage = page;
-        [self didWhenChangingList];
+    switch (sender.tag) {
+        case SCROLL_VIEW_TAG: //スクロールView
+        {
+            // 現在の表示位置（左上）のx座標とUIScrollViewの表示幅から，現在のページ番号を計算
+            CGPoint offset = self.scrollView.contentOffset;
+            NSInteger page = (offset.x + self.originalFrameSize.width/2) / self.originalFrameSize.width;
+            
+            // リストNavigatorをスクロールと共に動かす
+            CGRect rect = self.restaurantListNaviView.frame;
+            rect.origin.x = offset.x / RestaurantListsNum;
+            self.restaurantListNaviView.frame = rect;
+            
+            // ページが変わったら
+            if (self.currentPage != page) {
+                self.currentPage = page;
+                [self didWhenChangingList];
+            }
+            break;
+        }
+        case RestaurantList1:
+        {
+            //一番下までスクロールしたかどうか
+            BOOL leachToBottom = self.restaurantTableView1.contentOffset.y >= (self.restaurantTableView1.contentSize.height - self.restaurantTableView1.bounds.size.height);
+            if (leachToBottom)
+            {
+                NSLog(@"リスト1の一番下");
+                
+                // 読み込み中だったら止める
+                if([_indicator isAnimating]) {
+                    return;
+                }
+            }
+            break;
+        }
+        case RestaurantList2:
+        {
+            break;
+        }
+        case RestaurantList3:
+        {
+            break;
+        }
+        case RestaurantList4:
+        {
+            break;
+        }
+        case RestaurantList5:
+        {
+            break;
+        }
+        default:
+            break;
     }
 }
+
+
 
 - (IBAction)restaurantList1BottonDidPush:(id)sender {
 

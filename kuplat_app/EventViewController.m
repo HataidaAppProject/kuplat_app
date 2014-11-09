@@ -8,6 +8,8 @@
 
 #import "EventViewController.h"
 
+#define SCROLL_VIEW_TAG 10
+
 @interface EventViewController ()
 
 @end
@@ -69,6 +71,7 @@
     [self.contentView addSubview:self.eventTableView3];
     // スクロールViewにコンテンツViewを追加
     [self.scrollView addSubview:self.contentView];
+    [self.scrollView setTag:SCROLL_VIEW_TAG];
     
     
     /*************************
@@ -297,20 +300,51 @@
 ///
 - (void)scrollViewDidScroll:(UIScrollView *)sender {
     
-    // 現在の表示位置（左上）のx座標とUIScrollViewの表示幅から，現在のページ番号を計算
-    CGPoint offset = self.scrollView.contentOffset;
-    NSInteger page = (offset.x + self.originalFrameSize.width/2) / self.originalFrameSize.width;
     
-    // リストNavigatorをスクロールと共に動かす
-    CGRect rect = self.eventListNaviView.frame;
-    rect.origin.x = offset.x / 3;
-    self.eventListNaviView.frame = rect;
     
-    // ページが変わったら
-    if (self.currentPage != page) {
-        self.currentPage = page;
-        [self didWhenChangingList];
+    switch (sender.tag) {
+        case SCROLL_VIEW_TAG: //スクロールView
+        {
+            // 現在の表示位置（左上）のx座標とUIScrollViewの表示幅から，現在のページ番号を計算
+            CGPoint offset = self.scrollView.contentOffset;
+            NSInteger page = (offset.x + self.originalFrameSize.width/2) / self.originalFrameSize.width;
+            
+            // リストNavigatorをスクロールと共に動かす
+            CGRect rect = self.eventListNaviView.frame;
+            rect.origin.x = offset.x / 3;
+            self.eventListNaviView.frame = rect;
+            
+            // ページが変わったら
+            if (self.currentPage != page) {
+                self.currentPage = page;
+                [self didWhenChangingList];
+            }
+            break;
+        }
+        case EventList1:
+        {
+            //一番下までスクロールしたかどうか
+            BOOL leachToBottom = self.eventTableView1.contentOffset.y >= (self.eventTableView1.contentSize.height - self.eventTableView1.bounds.size.height);
+            if (leachToBottom)
+            {
+                NSLog(@"リスト1の一番下");
+                
+                // 読み込み中だったら止める
+            }
+            break;
+        }
+        case EventList2:
+        {
+            break;
+        }
+        case EventList3:
+        {
+            break;
+        }
+        default:
+            break;
     }
+
 }
 
 - (IBAction)eventList1BottonDidPush:(id)sender {

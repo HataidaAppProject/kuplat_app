@@ -58,6 +58,9 @@ typedef NS_ENUM(NSInteger, RestaurantListType) {
 @property (nonatomic) NSInteger currentPage;
 
 
+@property (strong, nonatomic) UIActivityIndicatorView *indicator;
+
+
 //ドロップダウンメニュー
 @property (strong, nonatomic) DropdownMenuView *dropdownMenuView;
 @property (weak, nonatomic) IBOutlet UIView *overlayView;
