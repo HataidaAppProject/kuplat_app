@@ -652,7 +652,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="89D-Rh-FjZ" userLabel="ContentView">
-                                <rect key="frame" x="0.0" y="0.0" width="420" height="1246"/>
+                                <rect key="frame" x="0.0" y="0.0" width="420" height="1216"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="店舗名" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Fg-zu-yQn">
                                         <rect key="frame" x="16" y="28" width="48" height="20"/>
@@ -702,41 +702,41 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="営業時間" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DPs-wp-DSz">
-                                        <rect key="frame" x="16" y="906" width="64" height="20"/>
+                                        <rect key="frame" x="16" y="876" width="64" height="20"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" red="0.92941176469999998" green="0.49019607840000001" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="定休日" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yCf-e6-o2L">
-                                        <rect key="frame" x="16" y="998" width="48" height="20"/>
+                                        <rect key="frame" x="16" y="968" width="48" height="20"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" red="0.92941176469999998" green="0.49019607840000001" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tZD-fn-cFS">
-                                        <rect key="frame" x="16" y="1018" width="388" height="30"/>
+                                        <rect key="frame" x="16" y="988" width="388" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="電話番号" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mbH-ev-A5p">
-                                        <rect key="frame" x="16" y="1060" width="64" height="20"/>
+                                        <rect key="frame" x="16" y="1030" width="64" height="20"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" red="0.92941176469999998" green="0.49019607840000001" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fuz-Bb-KAc">
-                                        <rect key="frame" x="16" y="1080" width="388" height="30"/>
+                                        <rect key="frame" x="16" y="1050" width="388" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="外部リンク" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y3b-lm-NrG">
-                                        <rect key="frame" x="16" y="1122" width="80" height="20"/>
+                                        <rect key="frame" x="16" y="1092" width="80" height="20"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" red="0.92941176469999998" green="0.49019607840000001" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ePm-sR-g6w">
-                                        <rect key="frame" x="16" y="1142" width="388" height="30"/>
+                                        <rect key="frame" x="16" y="1112" width="388" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
@@ -748,7 +748,7 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1da-He-tnm">
-                                        <rect key="frame" x="16" y="1192" width="388" height="30"/>
+                                        <rect key="frame" x="16" y="1162" width="388" height="30"/>
                                         <color key="backgroundColor" red="0.97647058819999999" green="0.75294117650000003" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="飲食店情報追加">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -759,7 +759,7 @@
                                         </connections>
                                     </button>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qW0-oX-aAP">
-                                        <rect key="frame" x="16" y="926" width="388" height="60"/>
+                                        <rect key="frame" x="16" y="896" width="388" height="60"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="vtD-iK-pzc"/>
@@ -793,34 +793,39 @@
                                     </imageView>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="リストから選択" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QtF-D1-2vp" customClass="ANZDropDownField">
                                         <rect key="frame" x="16" y="108" width="388" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="写真の種類をリストから選択" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yO2-Bk-itE" customClass="ANZDropDownField">
                                         <rect key="frame" x="16" y="531" width="388" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="77p-oO-xuk">
-                                        <rect key="frame" x="16" y="815" width="388" height="50"/>
+                                        <rect key="frame" x="16" y="815" width="388" height="20"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="FRa-5P-iG3"/>
+                                            <constraint firstAttribute="height" priority="500" constant="20" id="TfY-7O-vka"/>
                                             <constraint firstAttribute="height" priority="500" constant="50" id="iRD-DD-Exn"/>
                                         </constraints>
                                         <variation key="default">
                                             <mask key="constraints">
                                                 <exclude reference="FRa-5P-iG3"/>
+                                                <exclude reference="iRD-DD-Exn"/>
                                             </mask>
                                         </variation>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h4b-Gv-vi1">
-                                        <rect key="frame" x="16" y="865" width="145" height="29"/>
+                                        <rect key="frame" x="16" y="835" width="145" height="29"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <state key="normal" title="＋ メニューを追加する">
                                             <color key="titleColor" red="0.92941176469999998" green="0.49019607840000001" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="pushAddRestaurantMenuBotton:" destination="bOb-l4-E7M" eventType="touchUpInside" id="gMT-Zn-BIu"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.99215686270000003" green="0.94901960780000005" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -921,6 +926,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="420" height="1400"/>
                     <connections>
+                        <outlet property="addRestaurantMenuBotton" destination="h4b-Gv-vi1" id="8E9-FI-D9d"/>
                         <outlet property="contentView" destination="89D-Rh-FjZ" id="gKA-6n-eq6"/>
                         <outlet property="mapSuperView" destination="Oub-GJ-6Xe" id="FWo-NW-MAj"/>
                         <outlet property="photoTypeSelectionField" destination="yO2-Bk-itE" id="H6H-bh-vts"/>

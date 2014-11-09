@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <GoogleMaps/GoogleMaps.h>
 #import "ANZDropDownField.h"
+#import "RestaurantMenuPriceTextFieldView.h"
 #import "DropdownMenuView.h"
 
 @interface AddRestaurantViewController : UIViewController<GMSMapViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
@@ -26,6 +27,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *selectedImageView;
 
 @property (weak, nonatomic) IBOutlet UIView *restaurantMenuField;
+@property (strong, nonatomic) NSMutableArray *restaurantMenuItems;
+@property (weak, nonatomic) IBOutlet UIButton *addRestaurantMenuBotton;
 
 @property (weak, nonatomic) IBOutlet UITextView *restaurantBusinessHours;
 
@@ -41,7 +44,7 @@
 
 
 - (IBAction)pushAddRestaurantImageBotton:(id)sender;
-
+- (IBAction)pushAddRestaurantMenuBotton:(id)sender;
 - (IBAction)pusuAddRestaurantBotton:(id)sender;
 
 @end

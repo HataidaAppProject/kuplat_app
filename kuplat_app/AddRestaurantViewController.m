@@ -23,6 +23,11 @@
     
     [self displayMap];
     
+    self.restaurantMenuItems = [[NSMutableArray alloc] init];
+    [self.restaurantMenuField setBackgroundColor:[UIColor clearColor]];
+    
+    [self addMenuField];
+    
     self.typeSelectionField.dropList = @[@"カフェ", @"ラーメン", @"レストラン", @"パン・スイーツ", @"居酒屋・バー" ];
     self.photoTypeSelectionField.dropList = @[@"店舗", @"フード", @"メニュー", @"その他"];
 }
@@ -32,6 +37,10 @@
     [super didReceiveMemoryWarning];
 }
 
+
+////
+//   マップ
+////
 - (void)displayMap
 {
     // 初期の中心地点 -これは京大でいいよね-
@@ -53,7 +62,6 @@
     [self.marker setPosition:initLocation];
     [self.marker setMap:self.mapView];
     
-    
 }
 
 // タップした場所を中心にする
@@ -70,8 +78,85 @@
     [self.marker setPosition:position.target];
 }
 
+- (void)addMenuPriceTextField
+{
+    
+}
 
 
+////
+//  メニューFieldを増やす
+////
+-(void)addMenuField
+{
+    
+    RestaurantMenuPriceTextFieldView *newMenuFieldView = [[RestaurantMenuPriceTextFieldView alloc] initWithFrame:CGRectZero];
+    
+    [self.restaurantMenuField addSubview:newMenuFieldView];
+    [newMenuFieldView setTranslatesAutoresizingMaskIntoConstraints:NO];
+    NSMutableArray *layoutConstraints = [[NSMutableArray alloc] init];
+    
+    // 最下部のメニューの底面にTopを合わせる
+    // 最初はViewのトップに合わせる
+    if (self.restaurantMenuItems.count != 0) {
+        [layoutConstraints addObject:[NSLayoutConstraint constraintWithItem:self.restaurantMenuItems.lastObject
+                                                                  attribute:NSLayoutAttributeBottom
+                                                                  relatedBy:NSLayoutRelationEqual
+                                                                     toItem:newMenuFieldView
+                                                                  attribute:NSLayoutAttributeTop
+                                                                 multiplier:1.0
+                                                                   constant:0.0]];
+    } else {
+        [layoutConstraints addObject:[NSLayoutConstraint constraintWithItem:self.restaurantMenuField
+                                                                  attribute:NSLayoutAttributeTop
+                                                                  relatedBy:NSLayoutRelationEqual
+                                                                     toItem:newMenuFieldView
+                                                                  attribute:NSLayoutAttributeTop
+                                                                 multiplier:1.0
+                                                                   constant:0.0]];
+    }
+    // 左右
+    [layoutConstraints addObject:[NSLayoutConstraint constraintWithItem:self.restaurantMenuField
+                                                              attribute:NSLayoutAttributeRight
+                                                              relatedBy:NSLayoutRelationEqual
+                                                                 toItem:newMenuFieldView
+                                                              attribute:NSLayoutAttributeRight
+                                                             multiplier:1.0
+                                                               constant:0.0]];
+    [layoutConstraints addObject:[NSLayoutConstraint constraintWithItem:self.restaurantMenuField
+                                                              attribute:NSLayoutAttributeLeft
+                                                              relatedBy:NSLayoutRelationEqual
+                                                                 toItem:newMenuFieldView
+                                                              attribute:NSLayoutAttributeLeft
+                                                             multiplier:1.0
+                                                               constant:0.0]];
+    // メニュー情報のリストの高さを伸ばす -制約の取消方法が分からなかったため >= で対処-
+    [layoutConstraints addObject:[NSLayoutConstraint constraintWithItem:self.restaurantMenuField
+                                                              attribute:NSLayoutAttributeHeight
+                                                              relatedBy:NSLayoutRelationGreaterThanOrEqual
+                                                                 toItem:nil
+                                                              attribute:NSLayoutAttributeHeight
+                                                             multiplier:1.0
+                                                               constant:newMenuFieldView.frame.size.height * (self.restaurantMenuItems.count + 1)]];
+    
+    [self.restaurantMenuField addConstraints:layoutConstraints];
+    
+    [self.restaurantMenuItems addObject:newMenuFieldView];
+}
+
+- (IBAction)pushAddRestaurantMenuBotton:(id)sender {
+    
+    // メニューと価格が書かれている時のみ増やす
+    RestaurantMenuPriceTextFieldView *lastMenuFieldView = self.restaurantMenuItems.lastObject;
+    if (lastMenuFieldView.menu.hasText && lastMenuFieldView.price.hasText) {
+        [self addMenuField];
+    }
+    [self.addRestaurantMenuBotton setTitle:@"メニュー記入してください" forState:self.addRestaurantMenuBotton.state];
+}
+
+////
+//   画像選択
+////
 - (IBAction)pushAddRestaurantImageBotton:(id)sender {
     
     // PhotoLibraryから写真を選択するためのUIImagePickerControllerを作成し、表示する
@@ -99,6 +184,9 @@
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+
+
 
 - (IBAction)pusuAddRestaurantBotton:(id)sender {
 }
