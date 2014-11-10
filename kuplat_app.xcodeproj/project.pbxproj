@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8410A1E61A106F7700D8558A /* RestaurantMenuPriceTextFieldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8410A1E41A106F7700D8558A /* RestaurantMenuPriceTextFieldView.m */; };
+		8410A1E71A106F7700D8558A /* RestaurantMenuPriceTextFieldView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8410A1E51A106F7700D8558A /* RestaurantMenuPriceTextFieldView.xib */; };
+		8410A1EE1A10739100D8558A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8410A1E81A1071CA00D8558A /* Foundation.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		841FF43D19F4F1B10047CCCB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 841FF43C19F4F1B10047CCCB /* Images.xcassets */; };
 		8435E3A219F58299008D7396 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8435E3A119F58299008D7396 /* libc++.dylib */; };
 		8436BED719E6D08F0088FF70 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8436BED619E6D08F0088FF70 /* main.m */; };
@@ -29,8 +32,8 @@
 		849C51651A0DF34F004A63DF /* AddEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 849C51641A0DF34F004A63DF /* AddEventViewController.m */; };
 		849C51681A0DF381004A63DF /* ModifyUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 849C51671A0DF381004A63DF /* ModifyUserInfoViewController.m */; };
 		849C516C1A0E3A9A004A63DF /* ANZDropDownField.m in Sources */ = {isa = PBXBuildFile; fileRef = 849C516B1A0E3A9A004A63DF /* ANZDropDownField.m */; };
-		849C51781A0F023A004A63DF /* RestaurantMenuPriceTextFieldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 849C51761A0F023A004A63DF /* RestaurantMenuPriceTextFieldView.m */; };
-		849C51791A0F023A004A63DF /* RestaurantMenuPriceTextFieldView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849C51771A0F023A004A63DF /* RestaurantMenuPriceTextFieldView.xib */; };
+		849C517C1A10510A004A63DF /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 849C517B1A10510A004A63DF /* LoginViewController.m */; };
+		849C517F1A105133004A63DF /* RegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 849C517E1A105133004A63DF /* RegistrationViewController.m */; };
 		84B792771A016BE60054AE31 /* DropdownMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B792761A016BE60054AE31 /* DropdownMenuView.m */; };
 		84B7927B1A016C6F0054AE31 /* DropdownMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B7927A1A016C6F0054AE31 /* DropdownMenuView.xib */; };
 		84BB09CD1A0DB2F7000AFC38 /* UIScrollView+TouchEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BB09CC1A0DB2F6000AFC38 /* UIScrollView+TouchEvent.m */; };
@@ -57,7 +60,7 @@
 		84F8AF4219F57A41001BE0FD /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F8AF4119F57A41001BE0FD /* OpenGLES.framework */; };
 		84F8AF4419F57A4D001BE0FD /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F8AF4319F57A4D001BE0FD /* QuartzCore.framework */; };
 		84F8AF4619F57A57001BE0FD /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F8AF4519F57A57001BE0FD /* SystemConfiguration.framework */; };
-		B04FFCC7ACA20214D4633EB1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EF0B393565AFB298C848310A /* libPods.a */; };
+		B04FFCC7ACA20214D4633EB1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EF0B393565AFB298C848310A /* libPods.a */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +76,12 @@
 /* Begin PBXFileReference section */
 		19B1CA722F9A0937DCD6BA56 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		750545632A58B8F29FD9E0F4 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		8410A1E31A106F7700D8558A /* RestaurantMenuPriceTextFieldView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantMenuPriceTextFieldView.h; sourceTree = "<group>"; };
+		8410A1E41A106F7700D8558A /* RestaurantMenuPriceTextFieldView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantMenuPriceTextFieldView.m; sourceTree = "<group>"; };
+		8410A1E51A106F7700D8558A /* RestaurantMenuPriceTextFieldView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RestaurantMenuPriceTextFieldView.xib; sourceTree = "<group>"; };
+		8410A1E81A1071CA00D8558A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		8410A1EA1A1071DF00D8558A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		8410A1EC1A1071FB00D8558A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		841FF43C19F4F1B10047CCCB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8435E3A119F58299008D7396 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		8436BED119E6D08F0088FF70 /* kuplat_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kuplat_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,9 +124,10 @@
 		849C51671A0DF381004A63DF /* ModifyUserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyUserInfoViewController.m; sourceTree = "<group>"; };
 		849C516A1A0E3A9A004A63DF /* ANZDropDownField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANZDropDownField.h; sourceTree = "<group>"; };
 		849C516B1A0E3A9A004A63DF /* ANZDropDownField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANZDropDownField.m; sourceTree = "<group>"; };
-		849C51751A0F023A004A63DF /* RestaurantMenuPriceTextFieldView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestaurantMenuPriceTextFieldView.h; path = "../../../Downloads/CustomViewFromNib-master/CustomViewFromNib/CustomView/RestaurantMenuPriceTextFieldView.h"; sourceTree = "<group>"; };
-		849C51761A0F023A004A63DF /* RestaurantMenuPriceTextFieldView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RestaurantMenuPriceTextFieldView.m; path = "../../../Downloads/CustomViewFromNib-master/CustomViewFromNib/CustomView/RestaurantMenuPriceTextFieldView.m"; sourceTree = "<group>"; };
-		849C51771A0F023A004A63DF /* RestaurantMenuPriceTextFieldView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RestaurantMenuPriceTextFieldView.xib; path = "../../../Downloads/CustomViewFromNib-master/CustomViewFromNib/CustomView/RestaurantMenuPriceTextFieldView.xib"; sourceTree = "<group>"; };
+		849C517A1A10510A004A63DF /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		849C517B1A10510A004A63DF /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		849C517D1A105133004A63DF /* RegistrationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistrationViewController.h; sourceTree = "<group>"; };
+		849C517E1A105133004A63DF /* RegistrationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrationViewController.m; sourceTree = "<group>"; };
 		84B792751A016BE60054AE31 /* DropdownMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropdownMenuView.h; sourceTree = "<group>"; };
 		84B792761A016BE60054AE31 /* DropdownMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropdownMenuView.m; sourceTree = "<group>"; };
 		84B7927A1A016C6F0054AE31 /* DropdownMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DropdownMenuView.xib; sourceTree = "<group>"; };
@@ -136,7 +146,7 @@
 		84D6C26A1A020D7100B4DDAA /* EventTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventTableViewCell.m; sourceTree = "<group>"; };
 		84E1BAE81A092BBE003EA808 /* RestaurantDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantDetailViewController.h; sourceTree = "<group>"; };
 		84E1BAE91A092BBE003EA808 /* RestaurantDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantDetailViewController.m; sourceTree = "<group>"; };
-		84ECC6D419F54511002B9A24 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		84ECC6D419F54511002B9A24 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		84F8AF2A19F578BC001BE0FD /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = "../../Downloads/GoogleMaps-iOS-1.8.1/GoogleMaps.framework"; sourceTree = "<group>"; };
 		84F8AF2D19F579B5001BE0FD /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GoogleMaps.bundle; sourceTree = "<group>"; };
 		84F8AF2F19F579E0001BE0FD /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -159,6 +169,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8410A1EE1A10739100D8558A /* Foundation.framework in Frameworks */,
 				8435E3A219F58299008D7396 /* libc++.dylib in Frameworks */,
 				84F8AF4619F57A57001BE0FD /* SystemConfiguration.framework in Frameworks */,
 				84F8AF4419F57A4D001BE0FD /* QuartzCore.framework in Frameworks */,
@@ -223,6 +234,10 @@
 				8436BED819E6D08F0088FF70 /* AppDelegate.h */,
 				8436BED919E6D08F0088FF70 /* AppDelegate.m */,
 				849C515B1A0DD0AB004A63DF /* Main.storyboard */,
+				849C517A1A10510A004A63DF /* LoginViewController.h */,
+				849C517B1A10510A004A63DF /* LoginViewController.m */,
+				849C517D1A105133004A63DF /* RegistrationViewController.h */,
+				849C517E1A105133004A63DF /* RegistrationViewController.m */,
 				8436BEDB19E6D08F0088FF70 /* HomeViewController.h */,
 				8436BEDC19E6D08F0088FF70 /* HomeViewController.m */,
 				843FE8701A084AAB002A8637 /* EventView */,
@@ -309,9 +324,9 @@
 				84636BF41A09BC1100AF6601 /* RestaurantMenu.m */,
 				849C51601A0DF300004A63DF /* AddRestaurantViewController.h */,
 				849C51611A0DF300004A63DF /* AddRestaurantViewController.m */,
-				849C51751A0F023A004A63DF /* RestaurantMenuPriceTextFieldView.h */,
-				849C51761A0F023A004A63DF /* RestaurantMenuPriceTextFieldView.m */,
-				849C51771A0F023A004A63DF /* RestaurantMenuPriceTextFieldView.xib */,
+				8410A1E31A106F7700D8558A /* RestaurantMenuPriceTextFieldView.h */,
+				8410A1E41A106F7700D8558A /* RestaurantMenuPriceTextFieldView.m */,
+				8410A1E51A106F7700D8558A /* RestaurantMenuPriceTextFieldView.xib */,
 			);
 			name = RestaurantView;
 			sourceTree = "<group>";
@@ -342,6 +357,9 @@
 		84F8AF2C19F57987001BE0FD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8410A1EC1A1071FB00D8558A /* CoreGraphics.framework */,
+				8410A1EA1A1071DF00D8558A /* UIKit.framework */,
+				8410A1E81A1071CA00D8558A /* Foundation.framework */,
 				8435E3A119F58299008D7396 /* libc++.dylib */,
 				84F8AF2A19F578BC001BE0FD /* GoogleMaps.framework */,
 				84F8AF4519F57A57001BE0FD /* SystemConfiguration.framework */,
@@ -447,9 +465,9 @@
 			files = (
 				84C03CD61A0A72620011BBE2 /* MapCustumMarkerView.xib in Resources */,
 				84D6C2681A020B0400B4DDAA /* EventTableViewCell.xib in Resources */,
+				8410A1E71A106F7700D8558A /* RestaurantMenuPriceTextFieldView.xib in Resources */,
 				841FF43D19F4F1B10047CCCB /* Images.xcassets in Resources */,
 				84F8AF2E19F579B5001BE0FD /* GoogleMaps.bundle in Resources */,
-				849C51791A0F023A004A63DF /* RestaurantMenuPriceTextFieldView.xib in Resources */,
 				84D6C2661A01FB8B00B4DDAA /* RestaurantTableViewCell.xib in Resources */,
 				84ECC6D619F54511002B9A24 /* Podfile in Resources */,
 				849C515C1A0DD0AB004A63DF /* Main.storyboard in Resources */,
@@ -507,9 +525,11 @@
 			files = (
 				8436BEE019E6D08F0088FF70 /* EventViewController.m in Sources */,
 				84636BEF1A09BA6200AF6601 /* RestaurantInformation.m in Sources */,
+				849C517C1A10510A004A63DF /* LoginViewController.m in Sources */,
 				8436BF0B19EE0E5F0088FF70 /* RestaurantViewController.m in Sources */,
 				845100E619FA380B0015F583 /* EventDetailViewController.m in Sources */,
 				8436BEDA19E6D08F0088FF70 /* AppDelegate.m in Sources */,
+				8410A1E61A106F7700D8558A /* RestaurantMenuPriceTextFieldView.m in Sources */,
 				8436BF0719EE0DB00088FF70 /* MapViewController.m in Sources */,
 				8436BF0919EE0E4C0088FF70 /* ProfileViewController.m in Sources */,
 				84636BEC1A09B4C300AF6601 /* RestaurantItem.m in Sources */,
@@ -520,7 +540,6 @@
 				849C51621A0DF300004A63DF /* AddRestaurantViewController.m in Sources */,
 				84D6C26B1A020D7100B4DDAA /* EventTableViewCell.m in Sources */,
 				84C03CD91A0A84550011BBE2 /* EventItem.m in Sources */,
-				849C51781A0F023A004A63DF /* RestaurantMenuPriceTextFieldView.m in Sources */,
 				849C516C1A0E3A9A004A63DF /* ANZDropDownField.m in Sources */,
 				8436BEDD19E6D08F0088FF70 /* HomeViewController.m in Sources */,
 				843FE86F1A07E6AC002A8637 /* RestaurantTableViewCell.m in Sources */,
@@ -529,6 +548,7 @@
 				84636BF51A09BC1100AF6601 /* RestaurantMenu.m in Sources */,
 				84E1BAEB1A092BBE003EA808 /* RestaurantDetailViewController.m in Sources */,
 				84B792771A016BE60054AE31 /* DropdownMenuView.m in Sources */,
+				849C517F1A105133004A63DF /* RegistrationViewController.m in Sources */,
 				84636BF21A09BB5A00AF6601 /* RestaurantReview.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

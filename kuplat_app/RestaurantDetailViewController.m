@@ -50,20 +50,11 @@
     [self.couponView.layer setBorderColor:[[UIColor colorWithRed:0.929 green:0.490 blue:0.192 alpha:1.0] CGColor]]; //rgb = 237,125,49
     
     // 画像
-    /*
-     [self.imageView setTranslatesAutoresizingMaskIntoConstraints:NO];
-     [self.imageView addConstraint:[NSLayoutConstraint constraintWithItem:self.imageView
-     attribute:NSLayoutAttributeWidth
-     relatedBy:NSLayoutRelationEqual
-     toItem:nil
-     attribute:NSLayoutAttributeWidth
-     multiplier:0.0
-     constant:sc.applicationFrame.size.width - 16]];
-     */
     [self.imageView setContentMode:UIViewContentModeScaleAspectFill];
     [self.imageView setClipsToBounds:YES];
     [self.imageView setImage:self.restaurant.image];
     
+    [self.restaurantName setNumberOfLines:0];
     [self.restaurantName setText:self.restaurant.name];
     [self.restaurantType setText:self.restaurant.type];
     [self.restaurantScore setText:self.restaurant.score];
@@ -123,6 +114,13 @@
         [star setTextColor:[UIColor colorWithRed:0.976 green:0.753 blue:0.196 alpha:1.0]];
     }
 }
+
+
+// favボタンをおした時
+- (IBAction)pushFavBotton:(id)sender{
+    
+}
+
 
 // 画面表示される時や画面回転した後に呼ばれる
 - (void)viewDidLayoutSubviews

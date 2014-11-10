@@ -48,6 +48,7 @@
 
 - (void)writeData
 {
+    [self.eventTitle setNumberOfLines:0];
     [self.eventTitle setText:self.event.title];
     
     [self.imageView setContentMode:UIViewContentModeScaleAspectFill];
@@ -212,4 +213,6 @@
     [UIView commitAnimations];
 }
 
+- (IBAction)pushFavBotton:(id)sender {
+}
 @end

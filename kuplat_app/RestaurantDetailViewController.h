@@ -48,6 +48,10 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *menuViewBottomConstraint;
 
 
+// favボタン
+- (IBAction)pushFavBotton:(id)sender;
+
+
 // 外部からの遷移時に情報を受け取る
 @property (strong, nonatomic) RestaurantItem *restaurant;
 

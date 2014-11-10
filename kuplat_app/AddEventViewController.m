@@ -52,11 +52,16 @@
     self.mapView = [GMSMapView mapWithFrame:mapRect camera:camera];
     
     [self.mapView setDelegate:self];
+    
+    // 方位固定
     [self.mapView.settings setRotateGestures:NO];
+    // ユーザの現在地の表示オプション
+    self.mapView.myLocationEnabled = YES;
+    
     
     [self.mapSuperView addSubview:self.mapView];
     
-    
+    // 中心にマーカ
     self.marker = [[GMSMarker alloc] init];
     [self.marker setPosition:initLocation];
     [self.marker setMap:self.mapView];
