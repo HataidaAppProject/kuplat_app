@@ -22,6 +22,12 @@
     
     // メニューを設置
     [self setDropdownMenu];
+    
+    // 背景をキリックしたら、キーボードを隠す
+    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeSoftKeyboard)];
+    [self.view addGestureRecognizer:gestureRecognizer];
+    
+    [self.scrollView setKeyboardAvoidingEnabled:YES];
 }
 
 
@@ -141,6 +147,11 @@
                      }];
     
     [UIView commitAnimations];
+}
+
+// キーボードを隠す処理
+- (void)closeSoftKeyboard {
+    [self.view endEditing: YES];
 }
 
 @end

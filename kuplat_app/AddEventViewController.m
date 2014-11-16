@@ -23,16 +23,20 @@
     
     [self displayMap];
     
-    self.dateSelectionY.dropList = @[@"2014年", @"2015年"];
-    self.dateSelectionM.dropList = @[@"1月", @"2月", @"3月", @"4月", @"5月", @"6月", @"7月", @"8月", @"9月", @"10月", @"11月", @"12月"];
-    self.dateSelectionD.dropList = @[@"1日", @"2日", @"3日", @"4日", @"5日", @"6日", @"7日", @"8日", @"9日", @"10日", @"11日", @"12日", @"13日", @"14日", @"15日", @"16日", @"17日", @"18日", @"19日", @"20日", @"21日", @"22日", @"23日", @"24日", @"25日", @"26日", @"27日", @"28日", @"29日", @"30日", @"31日"];
-    self.dateSelectionH.dropList = @[@"1時", @"2時", @"3時", @"4時", @"5時", @"6時", @"7時", @"8時", @"9時", @"10時", @"11時", @"12時", @"13時", @"14時", @"15時", @"16時", @"17時", @"18時", @"19時", @"20時", @"21時", @"22時", @"23時"];
-    self.dateSelectionMi.dropList = @[@"00分", @"15分", @"30分", @"45分"];
-    
-    
     // メニューを設置
     [self setDropdownMenu];
     
+    
+    // 背景をキリックしたら、キーボードを隠す
+    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeSoftKeyboard)];
+    [self.view addGestureRecognizer:gestureRecognizer];
+    
+    //[self.scrollView setKeyboardAvoidingEnabled:YES];
+    
+    self.eventType = @[@"部活・サークル", @"就活", @"セミナー・他"];
+    self.selectedDate = [NSDate date];
+    self.selectedStartTime = [NSDate date];
+    self.selectedEndTime = [NSDate date];
 }
 
 - (void)didReceiveMemoryWarning
@@ -65,8 +69,6 @@
     self.marker = [[GMSMarker alloc] init];
     [self.marker setPosition:initLocation];
     [self.marker setMap:self.mapView];
-    
-    
 }
 
 // タップした場所を中心にする
@@ -111,6 +113,120 @@
     //self.favoritelabel.text = (asset.favorite ? @"registered Favorites" : @"not registered Favorites");
     
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+// イベント系統の選択
+- (IBAction)pushEventTypeField:(id)sender {
+    
+    [ActionSheetStringPicker showPickerWithTitle:@"イベント系統の選択"
+                                            rows:self.eventType
+                                initialSelection:self.selectedEventTypeIndex
+                                          target:self successAction:@selector(eventTypeWasSelected:element:)
+                                    cancelAction:@selector(actionPickerCancelled:) origin:sender];
+}
+- (void)eventTypeWasSelected:(NSNumber *)selectedIndex element:(id)element {
+    self.selectedEventTypeIndex = [selectedIndex intValue];
+    
+    //may have originated from textField or barButtonItem, use an IBOutlet instead of element
+    self.eventTypeField.text = (self.eventType)[(NSUInteger) self.selectedEventTypeIndex];
+}
+- (void)actionPickerCancelled:(id)sender {
+    NSLog(@"Delegate has been informed that ActionSheetPicker was cancelled");
+}
+
+// 日付選択
+- (IBAction)pushDateSelection:(id)sender {
+    
+    ActionSheetDatePicker *datePicker = [[ActionSheetDatePicker alloc] initWithTitle:@"開催日の選択"
+                                                       datePickerMode:UIDatePickerModeDate
+                                                         selectedDate:self.selectedDate
+                                                               target:self
+                                                               action:@selector(dateWasSelected:element:)
+                                                               origin:sender];
+    [datePicker setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"ja_JP"]];
+    // カレンダーは西暦(iOSの設定のカレンダーに該当)
+    NSCalendar *gregorian = [[NSCalendar alloc]initWithCalendarIdentifier:NSGregorianCalendar];
+    gregorian.locale = [NSLocale currentLocale];
+    [datePicker setCalendar:gregorian];
+    [datePicker addCustomButtonWithTitle:@"今日" value:[NSDate date]];
+    [datePicker setHideCancel:YES];
+    [datePicker showActionSheetPicker];
+}
+
+- (void)dateWasSelected:(NSDate *)selectedDate element:(id)element {
+    self.selectedDate = selectedDate;
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy/MM/dd (E)"];
+    [dateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"ja_JP"]];
+    [self.dateSelection setText:[dateFormatter stringFromDate:selectedDate]];
+}
+
+// 開始時刻選択
+- (IBAction)pushStartTimeSelection:(id)sender {
+    
+    NSInteger minuteInterval = 10;
+    //clamp date
+    NSInteger referenceTimeInterval = (NSInteger)[self.selectedStartTime timeIntervalSinceReferenceDate];
+    NSInteger remainingSeconds = referenceTimeInterval % (minuteInterval *60);
+    NSInteger timeRoundedTo10Minutes = referenceTimeInterval - remainingSeconds;
+    if(remainingSeconds>((minuteInterval*60)/2)) {/// round up
+        timeRoundedTo10Minutes = referenceTimeInterval +((minuteInterval*60)-remainingSeconds);
+    }
+    
+    self.selectedStartTime = [NSDate dateWithTimeIntervalSinceReferenceDate:(NSTimeInterval)timeRoundedTo10Minutes];
+    
+    ActionSheetDatePicker *datePicker = [[ActionSheetDatePicker alloc] initWithTitle:@"開始時刻の選択"
+                                                                      datePickerMode:UIDatePickerModeTime
+                                                                        selectedDate:self.selectedStartTime
+                                                                              target:self
+                                                                              action:@selector(startTimeWasSelected:element:)
+                                                                              origin:sender];
+    [datePicker setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"ja_JP"]];
+    [datePicker setMinuteInterval:minuteInterval];
+    [datePicker showActionSheetPicker];
+}
+-(void)startTimeWasSelected:(NSDate *)selectedTime element:(id)element {
+    self.selectedStartTime = selectedTime;
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"H:mm"];
+    [self.startTimeSelection setText:[dateFormatter stringFromDate:selectedTime]];
+}
+
+
+// 終了時刻選択
+- (IBAction)pushEndTimeSelection:(id)sender {
+    
+    NSInteger minuteInterval = 10;
+    //clamp date
+    NSInteger referenceTimeInterval = (NSInteger)[self.selectedEndTime timeIntervalSinceReferenceDate];
+    NSInteger remainingSeconds = referenceTimeInterval % (minuteInterval *60);
+    NSInteger timeRoundedTo10Minutes = referenceTimeInterval - remainingSeconds;
+    if(remainingSeconds>((minuteInterval*60)/2)) {/// round up
+        timeRoundedTo10Minutes = referenceTimeInterval +((minuteInterval*60)-remainingSeconds);
+    }
+    
+    self.selectedEndTime = [NSDate dateWithTimeIntervalSinceReferenceDate:(NSTimeInterval)timeRoundedTo10Minutes];
+    
+    ActionSheetDatePicker *datePicker = [[ActionSheetDatePicker alloc] initWithTitle:@"終了時刻の選択"
+                                                                      datePickerMode:UIDatePickerModeTime
+                                                                        selectedDate:self.selectedEndTime
+                                                                              target:self
+                                                                              action:@selector(endTimeWasSelected:element:)
+                                                                              origin:sender];
+    [datePicker setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"ja_JP"]];
+    [datePicker setMinuteInterval:minuteInterval];
+    [datePicker showActionSheetPicker];
+}
+
+-(void)endTimeWasSelected:(NSDate *)selectedTime element:(id)element {
+    self.selectedEndTime = selectedTime;
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"H:mm"];
+    [self.endTimeSelection setText:[dateFormatter stringFromDate:selectedTime]];
 }
 
 - (IBAction)pushAddEventBotton:(id)sender {
@@ -232,5 +348,17 @@
     
     [UIView commitAnimations];
 }
+
+// キーボードを隠す処理
+- (void)closeSoftKeyboard {
+    [self.view endEditing: YES];
+}
+
+#pragma mark - UITextFieldDelegate
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    return NO;
+}
+
 
 @end

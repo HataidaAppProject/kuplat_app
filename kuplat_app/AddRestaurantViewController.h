@@ -8,11 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <GoogleMaps/GoogleMaps.h>
-#import "ANZDropDownField.h"
 #import "RestaurantMenuPriceTextFieldView.h"
 #import "DropdownMenuView.h"
+#import "UIScrollView+EKKeyboardAvoiding.h"
+#import <ActionSheetPicker-3.0/ActionSheetStringPicker.h>
 
-@interface AddRestaurantViewController : UIViewController<GMSMapViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, DropdownMenuViewDelegate>
+@interface AddRestaurantViewController : UIViewController <GMSMapViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, DropdownMenuViewDelegate>
 
 // スクロールView
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -20,13 +21,20 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *restaurantNameField;
 
-@property (weak, nonatomic) IBOutlet ANZDropDownField *typeSelectionField;
+@property (nonatomic, strong) NSArray *restaurantType;
+@property (nonatomic, assign) NSInteger selectedRestaurantTypeIndex;
+@property (weak, nonatomic) IBOutlet UITextField *restaurantTypeField;
+- (IBAction)pushRestaurantTypeField:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UIView *mapSuperView;
 @property (strong, nonatomic) GMSMapView *mapView;
 @property (strong, nonatomic) GMSMarker *marker;
 
-@property (weak, nonatomic) IBOutlet ANZDropDownField *photoTypeSelectionField;
+@property (nonatomic, strong) NSArray *photoType;
+@property (nonatomic, assign) NSInteger selectedPhotoTypeIndex;
+@property (weak, nonatomic) IBOutlet UITextField *photoTypeField;
+- (IBAction)pushPhotoTypeField:(id)sender;
+
 @property (weak, nonatomic) IBOutlet UIImageView *selectedImageView;
 
 @property (weak, nonatomic) IBOutlet UIView *restaurantMenuField;

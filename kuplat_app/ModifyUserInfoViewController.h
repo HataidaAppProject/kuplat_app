@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "DropdownMenuView.h"
+#import "UIScrollView+EKKeyboardAvoiding.h"
 
 @interface ModifyUserInfoViewController : UIViewController <DropdownMenuViewDelegate>
 

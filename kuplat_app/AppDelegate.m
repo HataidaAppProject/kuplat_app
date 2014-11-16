@@ -24,7 +24,7 @@
     //[[UITabBar appearance] setBackgroundColor:[UIColor whiteColor]]; //これだと不透明が残った
     
     //Googleマップ
-    [GMSServices provideAPIKey:@"AIzaSyAAZoEAozcwh4JBXbb0xfQaNE_JnMUni_Y"];
+    [GMSServices provideAPIKey:@"AIzaSyAsH5dfUEkIUf7NQdhQ4E_0TJMpsaS1T5c"];
     
     return YES;
 }

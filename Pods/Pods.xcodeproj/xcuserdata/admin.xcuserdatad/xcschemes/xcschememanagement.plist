@@ -4,6 +4,16 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Pods-ActionSheetPicker-3.0.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-EKKeyboardAvoiding.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Google-Maps-iOS-SDK.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -17,12 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>3FE391B499E17E5AF1C8C0F1</key>
+		<key>2D797FD2D27BCC42CAA952C7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E03E7B61B25D1CD09ACB60BA</key>
+		<key>ADAAE0C3E3CBB3E3C0E0A7CD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C76C9FB3A224F875F53E8A24</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F3FE53B4F74B8C349E0F2C57</key>
 		<dict>
 			<key>primary</key>
 			<true/>

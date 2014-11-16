@@ -8,24 +8,34 @@
 
 #import <UIKit/UIKit.h>
 #import <GoogleMaps/GoogleMaps.h>
-#import "ANZDropDownField.h"
 #import "DropdownMenuView.h"
+#import <UIScrollView+EKKeyboardAvoiding.h>
+#import <ActionSheetPicker-3.0/ActionSheetDatePicker.h>
+#import <ActionSheetPicker-3.0/ActionSheetStringPicker.h>
 
-@interface AddEventViewController : UIViewController<GMSMapViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, DropdownMenuViewDelegate>
+@interface AddEventViewController : UIViewController<GMSMapViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, DropdownMenuViewDelegate, UITextFieldDelegate>
 
 // スクロールView
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
-
 @property (weak, nonatomic) IBOutlet UITextField *eventTitleField;
+
+@property (nonatomic, strong) NSArray *eventType;
+@property (nonatomic, assign) NSInteger selectedEventTypeIndex;
+@property (weak, nonatomic) IBOutlet UITextField *eventTypeField;
+- (IBAction)pushEventTypeField:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UITextField *eventSponsorField;
 
-@property (weak, nonatomic) IBOutlet ANZDropDownField *dateSelectionY;
-@property (weak, nonatomic) IBOutlet ANZDropDownField *dateSelectionM;
-@property (weak, nonatomic) IBOutlet ANZDropDownField *dateSelectionD;
-@property (weak, nonatomic) IBOutlet ANZDropDownField *dateSelectionH;
-@property (weak, nonatomic) IBOutlet ANZDropDownField *dateSelectionMi;
+@property (nonatomic, strong) NSDate *selectedDate;
+@property (nonatomic, strong) NSDate *selectedStartTime;
+@property (nonatomic, strong) NSDate *selectedEndTime;
+@property (weak, nonatomic) IBOutlet UITextField *dateSelection;
+@property (weak, nonatomic) IBOutlet UITextField *startTimeSelection;
+@property (weak, nonatomic) IBOutlet UITextField *endTimeSelection;
+- (IBAction)pushDateSelection:(id)sender;
+- (IBAction)pushStartTimeSelection:(id)sender;
+- (IBAction)pushEndTimeSelection:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UITextField *eventCostField;
 
@@ -51,5 +61,7 @@
 @property (strong, nonatomic) DropdownMenuView *dropdownMenuView;
 @property (weak, nonatomic) IBOutlet UIView *overlayView;
 - (IBAction)tappedMenuButton:(id)sender;
+
+
 
 @end

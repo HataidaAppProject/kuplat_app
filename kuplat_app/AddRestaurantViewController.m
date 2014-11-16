@@ -28,11 +28,17 @@
     
     [self addMenuField];
     
-    self.typeSelectionField.dropList = @[@"カフェ", @"ラーメン", @"レストラン", @"パン・スイーツ", @"居酒屋・バー" ];
-    self.photoTypeSelectionField.dropList = @[@"店舗", @"フード", @"メニュー", @"その他"];
+    self.restaurantType = @[@"カフェ", @"ラーメン", @"レストラン", @"パン・スイーツ", @"居酒屋・バー" ];
+    self.photoType = @[@"店舗", @"フード", @"メニュー", @"その他"];
     
     // メニューを設置
     [self setDropdownMenu];
+    
+    // 背景をキリックしたら、キーボードを隠す
+    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeSoftKeyboard)];
+    [self.view addGestureRecognizer:gestureRecognizer];
+    
+    [self.scrollView setKeyboardAvoidingEnabled:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -194,6 +200,45 @@
 }
 
 
+// レストラン系統の選択
+- (IBAction)pushRestaurantTypeField:(id)sender {
+    
+    [ActionSheetStringPicker showPickerWithTitle:@"レストラン系統の選択"
+                                            rows:self.restaurantType
+                                initialSelection:self.selectedRestaurantTypeIndex
+                                          target:self successAction:@selector(restaurantTypeWasSelected:element:)
+                                    cancelAction:@selector(actionPickerCancelled:)
+                                          origin:sender];
+}
+- (void)restaurantTypeWasSelected:(NSNumber *)selectedIndex element:(id)element {
+    self.selectedRestaurantTypeIndex = [selectedIndex intValue];
+    
+    //may have originated from textField or barButtonItem, use an IBOutlet instead of element
+    self.restaurantTypeField.text = (self.restaurantType)[(NSUInteger) self.selectedRestaurantTypeIndex];
+}
+- (void)actionPickerCancelled:(id)sender {
+    NSLog(@"Delegate has been informed that ActionSheetPicker was cancelled");
+}
+
+
+// 写真系統の選択
+- (IBAction)pushPhotoTypeField:(id)sender {
+    
+    [ActionSheetStringPicker showPickerWithTitle:@"写真の種類の選択"
+                                            rows:self.photoType
+                                initialSelection:self.selectedPhotoTypeIndex
+                                          target:self successAction:@selector(photoTypeWasSelected:element:)
+                                    cancelAction:@selector(actionPickerCancelled:)
+                                          origin:sender];
+}
+- (void)photoTypeWasSelected:(NSNumber *)selectedIndex element:(id)element {
+    self.selectedPhotoTypeIndex = [selectedIndex intValue];
+    
+    //may have originated from textField or barButtonItem, use an IBOutlet instead of element
+    self.photoTypeField.text = (self.photoType)[(NSUInteger) self.selectedPhotoTypeIndex];
+}
+
+
 - (IBAction)pusuAddRestaurantBotton:(id)sender {
 }
 
@@ -311,6 +356,18 @@
                      }];
     
     [UIView commitAnimations];
+}
+
+// キーボードを隠す処理
+- (void)closeSoftKeyboard {
+    [self.view endEditing: YES];
+}
+
+
+#pragma mark - UITextFieldDelegate
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    return NO;
 }
 
 @end

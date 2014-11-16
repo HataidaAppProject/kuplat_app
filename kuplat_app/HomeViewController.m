@@ -78,10 +78,10 @@
             eventDetailViewController.event = self.trendEvent;
             // EVENTタブを選択済にする
             UINavigationController *eventTabViewController = self.tabBarController.viewControllers[1];
-            self.tabBarController.selectedViewController = eventTabViewController;
             [eventTabViewController popToRootViewControllerAnimated:NO];
             // EVENT詳細へ遷移
             [eventTabViewController pushViewController:eventDetailViewController animated:YES];
+            self.tabBarController.selectedViewController = eventTabViewController;
             //[eventTabViewController.viewControllers[0] performSegueWithIdentifier:@"toEventDetailViewController" sender:self];
             
             break;
@@ -94,10 +94,10 @@
             restaurantDetailViewController.restaurant = self.trendRestaurant;
             // RESTAURANTタブを選択済にする
             UINavigationController *restaurantTabViewController = self.tabBarController.viewControllers[2];
-            self.tabBarController.selectedViewController = restaurantTabViewController;
             [restaurantTabViewController popToRootViewControllerAnimated:NO];
             // RESTAURANT詳細へ遷移
             [restaurantTabViewController pushViewController:restaurantDetailViewController animated:YES];
+            self.tabBarController.selectedViewController = restaurantTabViewController;
             
             break;
         }

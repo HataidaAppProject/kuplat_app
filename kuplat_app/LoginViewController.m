@@ -31,7 +31,10 @@
     // 注意書きは非表示
     [self.noticeLabel setNumberOfLines:0];
     [self.noticeLabel setHidden:YES];
-
+    
+    // 背景をキリックしたら、キーボードを隠す
+    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeSoftKeyboard)];
+    [self.view addGestureRecognizer:gestureRecognizer];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -60,7 +63,6 @@
         certification = YES; //無理やり
         
         
-
         if (certification) {
             // ユーザ情報を持ってメイン画面へ遷移
             [self performSegueWithIdentifier:@"toMain" sender:self];
@@ -76,7 +78,6 @@
         [self.noticeLabel setHidden:NO];
         [self.noticeLabel setText:@"ユーザ名とメールアドレスを入力してください"];
     }
-    
 }
 
 - (IBAction)pushRegistrationButton:(id)sender {
@@ -87,4 +88,10 @@
 {
     NSLog(@"First view return action invoked.");
 }
+
+// キーボードを隠す処理
+- (void)closeSoftKeyboard {
+    [self.view endEditing: YES];
+}
+
 @end

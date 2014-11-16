@@ -41,7 +41,11 @@
     self.checkbox5_YES = NO;
     self.checkbox6_YES = NO;
     
-    NSLog(@"AppName: %@", [[NSBundle mainBundle] bundlePath]);
+    // 背景をキリックしたら、キーボードを隠す
+    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeSoftKeyboard)];
+    [self.view addGestureRecognizer:gestureRecognizer];
+    
+    [self.scrollView setKeyboardAvoidingEnabled:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -166,4 +170,11 @@
         self.checkbox6_YES = YES;
     }
 }
+
+
+// キーボードを隠す処理
+- (void)closeSoftKeyboard {
+    [self.view endEditing: YES];
+}
+
 @end

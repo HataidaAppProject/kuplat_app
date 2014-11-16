@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
+#import "UIScrollView+EKKeyboardAvoiding.h"
 
 @interface RegistrationViewController : UIViewController
+
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @property (weak, nonatomic) IBOutlet UITextField *userNameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *mailAddressTextField;
