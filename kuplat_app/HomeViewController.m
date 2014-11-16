@@ -25,7 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self setTitle:@"KU PLAT"];
+    //[self setTitle:@"KU PLAT"];
     
     // ナビゲーションパーの非透過 -> オフセットが負になるのを防止
     self.navigationController.toolbar.translucent = NO;
@@ -61,50 +61,41 @@
     [self.imgTrendRestaurant setClipsToBounds:YES];
     [self.imgTrendEvent setImage:self.trendEvent.image];
     [self.imgTrendRestaurant setImage:self.trendRestaurant.image];
+    
+    // タップアクション追加
+    [self.imgTrendEvent addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                     action:@selector(tapTrendEventAction:)]];
+    [self.imgTrendRestaurant addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                          action:@selector(tapTrendRestaurantAction:)]];
 }
 
 /*****************
- 画像をタップした際の遷移
+ 画像タップ時
  *****************/
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+-(void)tapTrendEventAction:sender
 {
-    UITouch *touch = [touches anyObject];
-    switch (touch.view.tag) {
-        case TrendEventImageTag:
-        {
-            
-            // EVENT詳細Viewを生成
-            EventDetailViewController *eventDetailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"EventDetailViewController"];
-            eventDetailViewController.event = self.trendEvent;
-            // EVENTタブを選択済にする
-            UINavigationController *eventTabViewController = self.tabBarController.viewControllers[1];
-            [eventTabViewController popToRootViewControllerAnimated:NO];
-            // EVENT詳細へ遷移
-            [eventTabViewController pushViewController:eventDetailViewController animated:YES];
-            self.tabBarController.selectedViewController = eventTabViewController;
-            //[eventTabViewController.viewControllers[0] performSegueWithIdentifier:@"toEventDetailViewController" sender:self];
-            
-            break;
-        }
-        case TrendRestaurantImageTag:
-        {
-            
-            // RESTAURANT詳細Viewを生成
-            RestaurantDetailViewController *restaurantDetailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"RestaurantDetailViewController"];
-            restaurantDetailViewController.restaurant = self.trendRestaurant;
-            // RESTAURANTタブを選択済にする
-            UINavigationController *restaurantTabViewController = self.tabBarController.viewControllers[2];
-            [restaurantTabViewController popToRootViewControllerAnimated:NO];
-            // RESTAURANT詳細へ遷移
-            [restaurantTabViewController pushViewController:restaurantDetailViewController animated:YES];
-            self.tabBarController.selectedViewController = restaurantTabViewController;
-            
-            break;
-        }
-        default:
-            break;
-    }
-    
+    // EVENT詳細Viewを生成
+    EventDetailViewController *eventDetailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"EventDetailViewController"];
+    eventDetailViewController.event = self.trendEvent;
+    // EVENTタブを選択済にする
+    UINavigationController *eventTabViewController = self.tabBarController.viewControllers[1];
+    [eventTabViewController popToRootViewControllerAnimated:NO];
+    // EVENT詳細へ遷移
+    [eventTabViewController pushViewController:eventDetailViewController animated:YES];
+    self.tabBarController.selectedViewController = eventTabViewController;
+    //[eventTabViewController.viewControllers[0] performSegueWithIdentifier:@"toEventDetailViewController" sender:self];
+}
+-(void)tapTrendRestaurantAction:sender
+{
+    // RESTAURANT詳細Viewを生成
+    RestaurantDetailViewController *restaurantDetailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"RestaurantDetailViewController"];
+    restaurantDetailViewController.restaurant = self.trendRestaurant;
+    // RESTAURANTタブを選択済にする
+    UINavigationController *restaurantTabViewController = self.tabBarController.viewControllers[2];
+    [restaurantTabViewController popToRootViewControllerAnimated:NO];
+    // RESTAURANT詳細へ遷移
+    [restaurantTabViewController pushViewController:restaurantDetailViewController animated:YES];
+    self.tabBarController.selectedViewController = restaurantTabViewController;
 }
 
 

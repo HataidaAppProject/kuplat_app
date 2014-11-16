@@ -30,22 +30,15 @@
                                                             longitude:135.78081168761904
                                                                  zoom:15];
     
-    self.mapView = [GMSMapView mapWithFrame:self.view.frame camera:camera];
+    [self.mapView setCamera:camera];
     self.mapView.delegate = self;
     
     //ユーザの現在地の表示オプション
     self.mapView.myLocationEnabled = YES;
-    
     //現在地ボタンの表示オプション
     self.mapView.settings.myLocationButton = YES;
-    
     //回転のオプション
     [self.mapView.settings setRotateGestures:NO];
-    
-    //DropdownMenuが見えるように最下層のサブビューに追加
-    [self.view addSubview:self.mapView];
-    [self.view sendSubviewToBack:self.mapView];
-    
     
     // 読み込み
     [self loadData];
@@ -56,6 +49,7 @@
     // メニューを設置
     [self setDropdownMenu];
 }
+
 
 - (void)loadData
 {

@@ -19,8 +19,7 @@
 @interface MapViewController : UIViewController<GMSMapViewDelegate, DropdownMenuViewDelegate>
 
 
-@property(strong,nonatomic) GMSMapView *mapView;
-
+@property (weak, nonatomic) IBOutlet GMSMapView *mapView;
 //
 @property(strong, nonatomic) NSMutableArray *eventsItems;
 @property(strong, nonatomic) NSMutableArray *restaurantsItems;

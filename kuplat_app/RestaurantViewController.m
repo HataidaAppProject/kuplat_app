@@ -121,12 +121,13 @@
     [self.restaurantList4Button setBackgroundColor:[UIColor clearColor]];
     [self.restaurantList5Button setBackgroundColor:[UIColor clearColor]];
     // ボタンのフォントサイズの調整
+    /*
     [self.restaurantList1Button.titleLabel setAdjustsFontSizeToFitWidth:YES];
     [self.restaurantList2Button.titleLabel setAdjustsFontSizeToFitWidth:YES];
     [self.restaurantList3Button.titleLabel setAdjustsFontSizeToFitWidth:YES];
     [self.restaurantList4Button.titleLabel setAdjustsFontSizeToFitWidth:YES];
     [self.restaurantList5Button.titleLabel setAdjustsFontSizeToFitWidth:YES];
-
+*/
     
     /**************
      リストの実装
@@ -406,7 +407,7 @@
     [self setStar:cell.restaurantStar5 score:[cell.restaurantScore.text floatValue] th:5.0];
     
     // セルの上下左右にマージンを追加
-    cell.insetH = 8.0;
+    cell.insetH = 0.0;
     cell.insetV = 4.0;
     
     return cell;
@@ -430,7 +431,7 @@
 // セルの高さを返す
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 110;
+    return 100;
 }
 
 

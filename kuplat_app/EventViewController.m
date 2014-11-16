@@ -276,7 +276,7 @@
     [cell.eventPlace setText:event.address];
     
     // セルの上下左右にマージンを追加
-    cell.insetH = 8.0;
+    cell.insetH = 0.0;
     cell.insetV = 4.0;
     
     return cell;
@@ -290,7 +290,7 @@
 // セルの高さを返す
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 110;
+    return 100;
 }
 
 
