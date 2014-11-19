@@ -12,40 +12,29 @@
 #import "RestaurantItem.h"
 #import "EventDetailViewController.h"
 #import "RestaurantDetailViewController.h"
+#import "EventTableViewCell.h"
+#import "RestaurantTableViewCell.h"
 
 typedef NS_ENUM(NSInteger, FavoriteCellTag) {
     FavoriteEventCellTag = 1,
     FavoriteRestaurantCellTag = 2
 };
 
-@interface ProfileViewController : UIViewController <DropdownMenuViewDelegate>
+@interface ProfileViewController : UIViewController <DropdownMenuViewDelegate, UITableViewDataSource, UITableViewDelegate>
 
 // スクロールView
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @property (weak, nonatomic) IBOutlet UIImageView *profileImg;
 
-@property (nonatomic) EventItem *favEvent;
-@property (weak, nonatomic) IBOutlet UIView *favRestaurantView;
-@property (weak, nonatomic) IBOutlet UIImageView *eventImage;
-@property (weak, nonatomic) IBOutlet UILabel *eventTitle;
-@property (weak, nonatomic) IBOutlet UILabel *eventNumOfFavs;
-@property (weak, nonatomic) IBOutlet UILabel *eventDate;
-@property (weak, nonatomic) IBOutlet UILabel *eventPlace;
-@property (weak, nonatomic) IBOutlet UILabel *eventCost;
+@property (nonatomic) EventItem *sendEvent;
+@property (nonatomic) RestaurantItem *sendRestaurant;
 
-@property (nonatomic) RestaurantItem *favRestaurant;
-@property (weak, nonatomic) IBOutlet UIView *favEventView;
-@property (weak, nonatomic) IBOutlet UIImageView *restaurantImage;
-@property (weak, nonatomic) IBOutlet UILabel *restaurantName;
-@property (weak, nonatomic) IBOutlet UILabel *restaurantScore;
-@property (weak, nonatomic) IBOutlet UILabel *restaurantReview;
-@property (weak, nonatomic) IBOutlet UILabel *restaurantStar1;
-@property (weak, nonatomic) IBOutlet UILabel *restaurantStar2;
-@property (weak, nonatomic) IBOutlet UILabel *restaurantStar3;
-@property (weak, nonatomic) IBOutlet UILabel *restaurantStar4;
-@property (weak, nonatomic) IBOutlet UILabel *restaurantStar5;
+@property (weak, nonatomic) IBOutlet UITableView *favEventTableView;
+@property(strong, nonatomic) NSMutableArray *eventsItems;
 
+@property (weak, nonatomic) IBOutlet UITableView *favRestaurantTableView;
+@property(strong, nonatomic) NSMutableArray *restaurantsItems;
 
 //ドロップダウンメニュー
 @property (strong, nonatomic) DropdownMenuView *dropdownMenuView;

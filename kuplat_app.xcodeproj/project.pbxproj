@@ -27,6 +27,8 @@
 		84636BEF1A09BA6200AF6601 /* RestaurantInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 84636BEE1A09BA6200AF6601 /* RestaurantInformation.m */; };
 		84636BF21A09BB5A00AF6601 /* RestaurantReview.m in Sources */ = {isa = PBXBuildFile; fileRef = 84636BF11A09BB5A00AF6601 /* RestaurantReview.m */; };
 		84636BF51A09BC1100AF6601 /* RestaurantMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 84636BF41A09BC1100AF6601 /* RestaurantMenu.m */; };
+		8480445E1A1CD6BC006D3FD3 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8480445D1A1CD6BC006D3FD3 /* GoogleMaps.bundle */; };
+		848044601A1CD6CF006D3FD3 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8480445F1A1CD6CF006D3FD3 /* GoogleMaps.framework */; };
 		849C515C1A0DD0AB004A63DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 849C515B1A0DD0AB004A63DF /* Main.storyboard */; };
 		849C51621A0DF300004A63DF /* AddRestaurantViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 849C51611A0DF300004A63DF /* AddRestaurantViewController.m */; };
 		849C51651A0DF34F004A63DF /* AddEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 849C51641A0DF34F004A63DF /* AddEventViewController.m */; };
@@ -45,8 +47,6 @@
 		84D6C26B1A020D7100B4DDAA /* EventTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D6C26A1A020D7100B4DDAA /* EventTableViewCell.m */; };
 		84E1BAEB1A092BBE003EA808 /* RestaurantDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E1BAE91A092BBE003EA808 /* RestaurantDetailViewController.m */; };
 		84ECC6D619F54511002B9A24 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 84ECC6D419F54511002B9A24 /* Podfile */; };
-		84F8AF2B19F578BC001BE0FD /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F8AF2A19F578BC001BE0FD /* GoogleMaps.framework */; };
-		84F8AF2E19F579B5001BE0FD /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 84F8AF2D19F579B5001BE0FD /* GoogleMaps.bundle */; };
 		84F8AF3019F579E0001BE0FD /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F8AF2F19F579E0001BE0FD /* AVFoundation.framework */; };
 		84F8AF3219F579EA001BE0FD /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F8AF3119F579EA001BE0FD /* CoreData.framework */; };
 		84F8AF3419F579F4001BE0FD /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F8AF3319F579F4001BE0FD /* CoreLocation.framework */; };
@@ -114,6 +114,8 @@
 		84636BF11A09BB5A00AF6601 /* RestaurantReview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantReview.m; sourceTree = "<group>"; };
 		84636BF31A09BC1000AF6601 /* RestaurantMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantMenu.h; sourceTree = "<group>"; };
 		84636BF41A09BC1100AF6601 /* RestaurantMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantMenu.m; sourceTree = "<group>"; };
+		8480445D1A1CD6BC006D3FD3 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = "Pods/Google-Maps-iOS-SDK/GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle"; sourceTree = "<group>"; };
+		8480445F1A1CD6CF006D3FD3 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = "Pods/Google-Maps-iOS-SDK/GoogleMaps.framework"; sourceTree = "<group>"; };
 		849C515B1A0DD0AB004A63DF /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		849C51601A0DF300004A63DF /* AddRestaurantViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddRestaurantViewController.h; sourceTree = "<group>"; };
 		849C51611A0DF300004A63DF /* AddRestaurantViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddRestaurantViewController.m; sourceTree = "<group>"; };
@@ -144,8 +146,6 @@
 		84E1BAE81A092BBE003EA808 /* RestaurantDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantDetailViewController.h; sourceTree = "<group>"; };
 		84E1BAE91A092BBE003EA808 /* RestaurantDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantDetailViewController.m; sourceTree = "<group>"; };
 		84ECC6D419F54511002B9A24 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		84F8AF2A19F578BC001BE0FD /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = "../../Downloads/GoogleMaps-iOS-1.8.1/GoogleMaps.framework"; sourceTree = "<group>"; };
-		84F8AF2D19F579B5001BE0FD /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GoogleMaps.bundle; sourceTree = "<group>"; };
 		84F8AF2F19F579E0001BE0FD /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		84F8AF3119F579EA001BE0FD /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		84F8AF3319F579F4001BE0FD /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -180,7 +180,7 @@
 				84F8AF3419F579F4001BE0FD /* CoreLocation.framework in Frameworks */,
 				84F8AF3219F579EA001BE0FD /* CoreData.framework in Frameworks */,
 				84F8AF3019F579E0001BE0FD /* AVFoundation.framework in Frameworks */,
-				84F8AF2B19F578BC001BE0FD /* GoogleMaps.framework in Frameworks */,
+				848044601A1CD6CF006D3FD3 /* GoogleMaps.framework in Frameworks */,
 				B04FFCC7ACA20214D4633EB1 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -356,7 +356,7 @@
 				8410A1EA1A1071DF00D8558A /* UIKit.framework */,
 				8410A1E81A1071CA00D8558A /* Foundation.framework */,
 				8435E3A119F58299008D7396 /* libc++.dylib */,
-				84F8AF2A19F578BC001BE0FD /* GoogleMaps.framework */,
+				8480445F1A1CD6CF006D3FD3 /* GoogleMaps.framework */,
 				84F8AF4519F57A57001BE0FD /* SystemConfiguration.framework */,
 				84F8AF4319F57A4D001BE0FD /* QuartzCore.framework */,
 				84F8AF4119F57A41001BE0FD /* OpenGLES.framework */,
@@ -369,7 +369,7 @@
 				84F8AF3319F579F4001BE0FD /* CoreLocation.framework */,
 				84F8AF3119F579EA001BE0FD /* CoreData.framework */,
 				84F8AF2F19F579E0001BE0FD /* AVFoundation.framework */,
-				84F8AF2D19F579B5001BE0FD /* GoogleMaps.bundle */,
+				8480445D1A1CD6BC006D3FD3 /* GoogleMaps.bundle */,
 				EF0B393565AFB298C848310A /* libPods.a */,
 			);
 			name = Frameworks;
@@ -462,12 +462,12 @@
 				84D6C2681A020B0400B4DDAA /* EventTableViewCell.xib in Resources */,
 				8410A1E71A106F7700D8558A /* RestaurantMenuPriceTextFieldView.xib in Resources */,
 				841FF43D19F4F1B10047CCCB /* Images.xcassets in Resources */,
-				84F8AF2E19F579B5001BE0FD /* GoogleMaps.bundle in Resources */,
 				84D6C2661A01FB8B00B4DDAA /* RestaurantTableViewCell.xib in Resources */,
 				84ECC6D619F54511002B9A24 /* Podfile in Resources */,
 				849C515C1A0DD0AB004A63DF /* Main.storyboard in Resources */,
 				84B7927B1A016C6F0054AE31 /* DropdownMenuView.xib in Resources */,
 				8436BEE819E6D08F0088FF70 /* LaunchScreen.xib in Resources */,
+				8480445E1A1CD6BC006D3FD3 /* GoogleMaps.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -665,7 +665,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/admin/Downloads/GoogleMaps-iOS-1.8.1",
+					"$(PROJECT_DIR)/Pods/Google-Maps-iOS-SDK",
 				);
 				INFOPLIST_FILE = kuplat_app/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -688,7 +688,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/admin/Downloads/GoogleMaps-iOS-1.8.1",
+					"$(PROJECT_DIR)/Pods/Google-Maps-iOS-SDK",
 				);
 				INFOPLIST_FILE = kuplat_app/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
