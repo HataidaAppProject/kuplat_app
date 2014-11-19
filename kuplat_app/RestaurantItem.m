@@ -12,6 +12,12 @@
 
 - (id) init
 {
+    self.image = [[UIImage alloc] init];
+    self.name = [[NSString alloc] init];
+    self.type = [[NSString alloc] init];
+    self.score = [[NSString alloc] init];
+    self.coupon= [[NSString alloc] init];
+    self.address = [[NSString alloc] init];
     self.review = [[RestaurantReview alloc] init];
     self.menu = [[RestaurantMenu alloc] init];
     self.information = [[RestaurantInformation alloc] init];

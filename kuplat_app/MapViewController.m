@@ -205,7 +205,7 @@
         
         // RESTAURANT詳細Viewを生成
         RestaurantDetailViewController *restaurantDetailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"RestaurantDetailViewController"];
-        restaurantDetailViewController.restaurant = restaurant;
+        restaurantDetailViewController.restaurantItem = restaurant;
         // RESTAURANTタブを選択済にする
         UINavigationController *restaurantTabViewController = self.tabBarController.viewControllers[2];
         self.tabBarController.selectedViewController = restaurantTabViewController;

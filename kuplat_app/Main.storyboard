@@ -403,11 +403,11 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="hfW-J9-Ih0" firstAttribute="top" secondItem="BlJ-zj-O9g" secondAttribute="top" constant="8" id="885-Uk-vai"/>
+                                            <constraint firstItem="hfW-J9-Ih0" firstAttribute="top" secondItem="BlJ-zj-O9g" secondAttribute="top" priority="100" constant="8" id="885-Uk-vai"/>
                                             <constraint firstAttribute="trailing" secondItem="ab9-T7-x5W" secondAttribute="trailing" constant="8" id="Kpb-I0-gpu"/>
                                             <constraint firstItem="ab9-T7-x5W" firstAttribute="leading" secondItem="BlJ-zj-O9g" secondAttribute="leading" constant="8" id="ghR-QL-MYr"/>
-                                            <constraint firstAttribute="bottom" secondItem="ab9-T7-x5W" secondAttribute="bottom" constant="8" id="n9k-cd-hFx"/>
-                                            <constraint firstItem="ab9-T7-x5W" firstAttribute="top" secondItem="hfW-J9-Ih0" secondAttribute="bottom" id="ndl-DO-n0d"/>
+                                            <constraint firstAttribute="bottom" secondItem="ab9-T7-x5W" secondAttribute="bottom" priority="100" constant="8" id="n9k-cd-hFx"/>
+                                            <constraint firstItem="ab9-T7-x5W" firstAttribute="top" secondItem="hfW-J9-Ih0" secondAttribute="bottom" priority="100" id="ndl-DO-n0d"/>
                                             <constraint firstItem="hfW-J9-Ih0" firstAttribute="leading" secondItem="BlJ-zj-O9g" secondAttribute="leading" constant="8" id="xEV-9w-3fa"/>
                                         </constraints>
                                     </view>
@@ -563,7 +563,6 @@
                                     <constraint firstItem="11F-4a-Igi" firstAttribute="leading" secondItem="BlJ-zj-O9g" secondAttribute="leading" id="ZIw-hQ-yHd"/>
                                     <constraint firstItem="mcQ-ih-t5e" firstAttribute="trailing" secondItem="11F-4a-Igi" secondAttribute="trailing" id="aFc-EP-M6S"/>
                                     <constraint firstItem="BlJ-zj-O9g" firstAttribute="top" secondItem="hE9-gV-UxY" secondAttribute="bottom" constant="8" id="cy5-KO-GNH"/>
-                                    <constraint firstAttribute="height" priority="500" constant="820" id="en6-My-pDN"/>
                                     <constraint firstItem="BlJ-zj-O9g" firstAttribute="trailing" secondItem="hE9-gV-UxY" secondAttribute="trailing" id="f3h-g3-cHM"/>
                                     <constraint firstAttribute="bottom" secondItem="UJk-YT-tsY" secondAttribute="bottom" priority="100" constant="10" id="mAW-0g-sOw"/>
                                     <constraint firstItem="hE9-gV-UxY" firstAttribute="top" secondItem="TwB-L0-ot5" secondAttribute="bottom" constant="8" id="qQa-IQ-uuu"/>
@@ -572,11 +571,6 @@
                                     <constraint firstAttribute="trailing" secondItem="TwB-L0-ot5" secondAttribute="trailing" constant="8" id="ttf-KD-lM8"/>
                                     <constraint firstItem="mcQ-ih-t5e" firstAttribute="trailing" secondItem="QHD-5E-Mxj" secondAttribute="trailing" id="vvK-8G-UjN"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="en6-My-pDN"/>
-                                    </mask>
-                                </variation>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Z7-TQ-ico" userLabel="overlay">
                                 <rect key="frame" x="0.0" y="0.0" width="420" height="672"/>

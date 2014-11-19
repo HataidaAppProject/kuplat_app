@@ -12,6 +12,12 @@
 
 - (id)init
 {
+    self.title = [[NSString alloc] init];
+    self.numOfFav = [[NSString alloc] init];
+    self.date = [[NSString alloc] init];
+    self.cost = [[NSString alloc] init];
+    self.address = [[NSString alloc] init];
+    self.aboutText = [[NSString alloc] init];
     self.information = [[EventInformation alloc] init];
     return self;
 }

@@ -52,52 +52,50 @@
     // 画像
     [self.imageView setContentMode:UIViewContentModeScaleAspectFill];
     [self.imageView setClipsToBounds:YES];
-    [self.imageView setImage:self.restaurant.image];
+    [self.imageView setImage:self.restaurantItem.image];
     
     [self.restaurantName setNumberOfLines:0];
-    [self.restaurantName setText:self.restaurant.name];
-    [self.restaurantType setText:self.restaurant.type];
-    [self.restaurantScore setText:self.restaurant.score];
+    [self.restaurantName setText:self.restaurantItem.name];
+    [self.restaurantType setText:self.restaurantItem.type];
+    [self.restaurantScore setText:self.restaurantItem.score];
     
-    [self setStar:self.star1 score:self.restaurant.score.floatValue th:1.0];
-    [self setStar:self.star2 score:self.restaurant.score.floatValue th:2.0];
-    [self setStar:self.star3 score:self.restaurant.score.floatValue th:3.0];
-    [self setStar:self.star4 score:self.restaurant.score.floatValue th:4.0];
-    [self setStar:self.star5 score:self.restaurant.score.floatValue th:5.0];
+    [self setStar:self.star1 score:self.restaurantItem.score.floatValue th:1.0];
+    [self setStar:self.star2 score:self.restaurantItem.score.floatValue th:2.0];
+    [self setStar:self.star3 score:self.restaurantItem.score.floatValue th:3.0];
+    [self setStar:self.star4 score:self.restaurantItem.score.floatValue th:4.0];
+    [self setStar:self.star5 score:self.restaurantItem.score.floatValue th:5.0];
     
     [self.restaurantCoupon setNumberOfLines:0];
-    [self.restaurantCoupon setText:self.restaurant.coupon];
+    [self.restaurantCoupon setText:self.restaurantItem.coupon];
     
-    [self.restaurantAddress setText:self.restaurant.address];
+    [self.restaurantAddress setText:self.restaurantItem.address];
     
     //レビューは3行まで
     [self.restaurantReview setNumberOfLines:3];
-    [self.restaurantReview setText:self.restaurant.review.text];
+    [self.restaurantReview setText:self.restaurantItem.review.text];
     
     [self.restaurantMenu setNumberOfLines:0];
-    [self.restaurantMenu setText:[NSString stringWithFormat:@"%@  %lu円\n麻婆飯  700円\nセット  1,000円", self.restaurant.menu.menu, (long)self.restaurant.menu.price]];
+    [self.restaurantMenu setText:[NSString stringWithFormat:@"%@  %lu円\n麻婆飯  700円\nセット  1,000円", self.restaurantItem.menu.menu, (long)self.restaurantItem.menu.price]];
     
     [self.restaurantInformation setNumberOfLines:0];
     [self.restaurantInformation setText:[NSString stringWithFormat:@"[電話番号] 075-xxxx-xxxx\n[営業時間] 11:00~22:00\n[定休日]  毎週火曜日\n[外部リンク]  http://www.hogehoged]"]];
     
     
     /**********************
-     アイテムの非表示化(map)
+     アイテムの非表示化
      **********************/
-    /*
-     // viewの非表示化
-     _mapView.hidden = NO;
-     // viewの高さを0にする
-     [_mapView addConstraint:[NSLayoutConstraint constraintWithItem:_mapView
-     attribute:NSLayoutAttributeHeight
-     relatedBy:NSLayoutRelationEqual
-     toItem:nil
-     attribute:NSLayoutAttributeHeight
-     multiplier:1.0f
-     constant:0.0f]];
-     // 直下viewとのマージンを0にする
-     _mapViewBottomConstraint.constant = 0.0f;
-     */
+    if ([self.restaurantItem.coupon isEqualToString:@""]) {
+        // viewの高さを0にする
+        [self.couponView addConstraint:[NSLayoutConstraint constraintWithItem:self.couponView
+                                                                 attribute:NSLayoutAttributeHeight
+                                                                 relatedBy:NSLayoutRelationEqual
+                                                                    toItem:nil
+                                                                 attribute:NSLayoutAttributeHeight
+                                                                multiplier:1.0f
+                                                                  constant:0.0f]];
+        // 直下viewとのマージンを0にする
+        [self.couponViewBottomConstraint setConstant:0.0f];
+    }
 }
 
 // スコアから星の表示を得る

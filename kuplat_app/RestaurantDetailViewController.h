@@ -53,7 +53,7 @@
 
 
 // 外部からの遷移時に情報を受け取る
-@property (strong, nonatomic) RestaurantItem *restaurant;
+@property (strong, nonatomic) RestaurantItem *restaurantItem;
 
 
 //ドロップダウンメニュー

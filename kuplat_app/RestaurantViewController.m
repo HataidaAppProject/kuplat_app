@@ -308,7 +308,7 @@
     if ( [[segue identifier] isEqualToString:@"toRestaurantDetailViewController"] ) {
         RestaurantDetailViewController *restaurantDetailViewController = [segue destinationViewController];
         //ここで遷移先ビューのクラスの変数receiveStringに値を渡している
-        restaurantDetailViewController.restaurant = self.sendRestaurant;
+        restaurantDetailViewController.restaurantItem = self.sendRestaurant;
     }
     
 }

@@ -66,23 +66,9 @@
     [self.eventInformation setNumberOfLines:1];
     [self.eventInformation setText:self.event.information.sponsor];
     
-    /**********************
-     アイテムの非表示化(map)
-     **********************/
-    /*
-     // viewの非表示化
-     _mapView.hidden = NO;
-     // viewの高さを0にする
-     [_mapView addConstraint:[NSLayoutConstraint constraintWithItem:_mapView
-     attribute:NSLayoutAttributeHeight
-     relatedBy:NSLayoutRelationEqual
-     toItem:nil
-     attribute:NSLayoutAttributeHeight
-     multiplier:1.0f
-     constant:0.0f]];
-     // 直下viewとのマージンを0にする
-     _mapViewBottomConstraint.constant = 0.0f;
-     */
+
+    
+    
 }
 
 
