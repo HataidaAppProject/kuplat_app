@@ -157,6 +157,8 @@
                                                            owner:self
                                                          options:nil] lastObject];
     self.dropdownMenuView.tabBarController = self.tabBarController;
+    self.dropdownMenuView.navigationController = self.navigationController;
+
     [self.dropdownMenuView setDelegate:self];
     
     [self.dropdownMenuView setTranslatesAutoresizingMaskIntoConstraints:NO];
@@ -256,6 +258,16 @@
                      }];
     
     [UIView commitAnimations];
+}
+
+
+- (IBAction)test:(id)sender {
+    
+    
+    CTFeedbackViewController *feedbackViewController = [CTFeedbackViewController controllerWithTopics:CTFeedbackViewController.defaultTopics localizedTopics:CTFeedbackViewController.defaultLocalizedTopics];
+    feedbackViewController.toRecipients = @[@"ctfeedback@example.com"];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:feedbackViewController];
+    [self presentViewController:navigationController animated:YES completion:nil];
 }
 
 

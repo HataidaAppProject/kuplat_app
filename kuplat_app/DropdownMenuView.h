@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CTFeedback/CTFeedbackViewController.h>
 
 typedef NS_ENUM(NSInteger, DropdownMenuViewSelectedItemType) {
     DropdownMenuViewSelectedItemTypeAddRestaurant = 0,
@@ -37,5 +38,5 @@ typedef NS_ENUM(NSInteger, DropdownMenuViewSelectedItemType) {
 - (void)tappedMenuButtonWithOffset:(CGPoint)offset;
 
 @property (nonatomic) UITabBarController *tabBarController;
-
+@property (nonatomic) UINavigationController *navigationController;
 @end

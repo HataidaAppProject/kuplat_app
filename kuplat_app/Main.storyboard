@@ -115,6 +115,15 @@
                                             <constraint firstItem="FF8-6V-OSI" firstAttribute="leading" secondItem="IJe-FX-QUf" secondAttribute="leading" id="r9J-qj-OJu"/>
                                         </constraints>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q0Q-db-5Xx">
+                                        <rect key="frame" x="177" y="242" width="45" height="30"/>
+                                        <state key="normal" title="テスト">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="test:" destination="FZV-Aa-mdQ" eventType="touchUpInside" id="m6O-pv-WoK"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -1357,6 +1366,7 @@
                         <outlet property="profileImg" destination="oPQ-qJ-7Bq" id="QS5-7T-s5u"/>
                         <outlet property="scrollView" destination="2DV-PG-daG" id="3zr-xW-Kzi"/>
                         <segue destination="loo-2U-Lwa" kind="show" identifier="toModifyUserInfoViewController" id="8JS-uI-8eL"/>
+                        <segue destination="3j6-Jw-OBV" kind="presentation" identifier="toFeedbackViewController" id="mif-Bj-YVR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eW7-AF-0Fv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2415,6 +2425,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Ro-7o-N3t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2259" y="2322"/>
+        </scene>
+        <!--Feedback View Controller-->
+        <scene sceneID="L5h-zf-ACa">
+            <objects>
+                <viewController id="3j6-Jw-OBV" customClass="FeedbackViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Tvn-6o-Xjn"/>
+                        <viewControllerLayoutGuide type="bottom" id="oAu-HW-lZd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eh8-xU-eXT">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fQO-xR-84Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2259" y="3221"/>
         </scene>
         <!--ログイン-->
         <scene sceneID="MUc-lB-pET">

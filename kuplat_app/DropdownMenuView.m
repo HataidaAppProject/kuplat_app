@@ -171,17 +171,22 @@
             case DropdownMenuViewSelectedItemTypeCntact:
             {
                 
+                CTFeedbackViewController *feedbackViewController = [CTFeedbackViewController
+                                                                    controllerWithTopics:CTFeedbackViewController.defaultTopics
+                                                                    localizedTopics:CTFeedbackViewController.defaultLocalizedTopics];
+
+                feedbackViewController.toRecipients = @[@"ctfeedback@example.com"];
+                [self.navigationController pushViewController:feedbackViewController animated:YES];
                 // PROFILEタブを選択済にする
-                UINavigationController *profileTabViewController = self.tabBarController.viewControllers[4];
-                self.tabBarController.selectedViewController = profileTabViewController;
-                [profileTabViewController popToRootViewControllerAnimated:NO];
+                //UINavigationController *profileTabViewController = self.tabBarController.viewControllers[4];
+                //self.tabBarController.selectedViewController = profileTabViewController;
+                //[profileTabViewController popToRootViewControllerAnimated:NO];
                 // Restaurant追加へ遷移
-                //[profileTabViewController.viewControllers[0] performSegueWithIdentifier:@"toAddRestaurantViewController" sender:nil];
+                //[profileTabViewController.viewControllers[0] performSegueWithIdentifier:@"toFeedbackViewController" sender:nil];
                 break;
             }
             case DropdownMenuViewSelectedItemTypeAppInfo:
             {
-                
                 // RESTAURANTタブを選択済にする
                 //UINavigationController *restaurantTabViewController = self.tabBarController.viewControllers[2];
                 //self.tabBarController.selectedViewController = restaurantTabViewController;

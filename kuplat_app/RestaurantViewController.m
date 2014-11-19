@@ -560,8 +560,8 @@
                                                            owner:self
                                                          options:nil] lastObject];
     self.dropdownMenuView.tabBarController = self.tabBarController;
-    
-    [self.dropdownMenuView setDelegate:self];
+    self.dropdownMenuView.navigationController = self.navigationController;
+        [self.dropdownMenuView setDelegate:self];
     
     [self.dropdownMenuView setTranslatesAutoresizingMaskIntoConstraints:NO];
     NSMutableArray *menuLayoutConstraints = [[NSMutableArray alloc] init];

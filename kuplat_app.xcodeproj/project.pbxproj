@@ -29,6 +29,7 @@
 		84636BF51A09BC1100AF6601 /* RestaurantMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 84636BF41A09BC1100AF6601 /* RestaurantMenu.m */; };
 		8480445E1A1CD6BC006D3FD3 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8480445D1A1CD6BC006D3FD3 /* GoogleMaps.bundle */; };
 		848044601A1CD6CF006D3FD3 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8480445F1A1CD6CF006D3FD3 /* GoogleMaps.framework */; };
+		848044691A1CFBB9006D3FD3 /* FeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 848044681A1CFBB9006D3FD3 /* FeedbackViewController.m */; };
 		849C515C1A0DD0AB004A63DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 849C515B1A0DD0AB004A63DF /* Main.storyboard */; };
 		849C51621A0DF300004A63DF /* AddRestaurantViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 849C51611A0DF300004A63DF /* AddRestaurantViewController.m */; };
 		849C51651A0DF34F004A63DF /* AddEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 849C51641A0DF34F004A63DF /* AddEventViewController.m */; };
@@ -116,6 +117,8 @@
 		84636BF41A09BC1100AF6601 /* RestaurantMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantMenu.m; sourceTree = "<group>"; };
 		8480445D1A1CD6BC006D3FD3 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = "Pods/Google-Maps-iOS-SDK/GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle"; sourceTree = "<group>"; };
 		8480445F1A1CD6CF006D3FD3 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = "Pods/Google-Maps-iOS-SDK/GoogleMaps.framework"; sourceTree = "<group>"; };
+		848044671A1CFBB9006D3FD3 /* FeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedbackViewController.h; sourceTree = "<group>"; };
+		848044681A1CFBB9006D3FD3 /* FeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedbackViewController.m; sourceTree = "<group>"; };
 		849C515B1A0DD0AB004A63DF /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		849C51601A0DF300004A63DF /* AddRestaurantViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddRestaurantViewController.h; sourceTree = "<group>"; };
 		849C51611A0DF300004A63DF /* AddRestaurantViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddRestaurantViewController.m; sourceTree = "<group>"; };
@@ -333,6 +336,8 @@
 				8436BF0819EE0E4C0088FF70 /* ProfileViewController.m */,
 				849C51661A0DF381004A63DF /* ModifyUserInfoViewController.h */,
 				849C51671A0DF381004A63DF /* ModifyUserInfoViewController.m */,
+				848044671A1CFBB9006D3FD3 /* FeedbackViewController.h */,
+				848044681A1CFBB9006D3FD3 /* FeedbackViewController.m */,
 			);
 			name = ProfileView;
 			sourceTree = "<group>";
@@ -378,9 +383,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8436BED019E6D08F0088FF70 /* kuplat_app */ = {
+		8436BED019E6D08F0088FF70 /* KU PLAT */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8436BEF719E6D08F0088FF70 /* Build configuration list for PBXNativeTarget "kuplat_app" */;
+			buildConfigurationList = 8436BEF719E6D08F0088FF70 /* Build configuration list for PBXNativeTarget "KU PLAT" */;
 			buildPhases = (
 				AA9F74140071035367700E3D /* Check Pods Manifest.lock */,
 				8436BECD19E6D08F0088FF70 /* Sources */,
@@ -392,7 +397,7 @@
 			);
 			dependencies = (
 			);
-			name = kuplat_app;
+			name = "KU PLAT";
 			productName = kuplat_app;
 			productReference = 8436BED119E6D08F0088FF70 /* kuplat_app.app */;
 			productType = "com.apple.product-type.application";
@@ -447,7 +452,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8436BED019E6D08F0088FF70 /* kuplat_app */,
+				8436BED019E6D08F0088FF70 /* KU PLAT */,
 				8436BEEC19E6D08F0088FF70 /* kuplat_appTests */,
 			);
 		};
@@ -526,6 +531,7 @@
 				8436BEDA19E6D08F0088FF70 /* AppDelegate.m in Sources */,
 				8410A1E61A106F7700D8558A /* RestaurantMenuPriceTextFieldView.m in Sources */,
 				8436BF0719EE0DB00088FF70 /* MapViewController.m in Sources */,
+				848044691A1CFBB9006D3FD3 /* FeedbackViewController.m in Sources */,
 				8436BF0919EE0E4C0088FF70 /* ProfileViewController.m in Sources */,
 				84636BEC1A09B4C300AF6601 /* RestaurantItem.m in Sources */,
 				849C51681A0DF381004A63DF /* ModifyUserInfoViewController.m in Sources */,
@@ -560,7 +566,7 @@
 /* Begin PBXTargetDependency section */
 		8436BEEF19E6D08F0088FF70 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 8436BED019E6D08F0088FF70 /* kuplat_app */;
+			target = 8436BED019E6D08F0088FF70 /* KU PLAT */;
 			targetProxy = 8436BEEE19E6D08F0088FF70 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -747,7 +753,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8436BEF719E6D08F0088FF70 /* Build configuration list for PBXNativeTarget "kuplat_app" */ = {
+		8436BEF719E6D08F0088FF70 /* Build configuration list for PBXNativeTarget "KU PLAT" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8436BEF819E6D08F0088FF70 /* Debug */,

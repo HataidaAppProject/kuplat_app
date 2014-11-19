@@ -4,7 +4,17 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>CTFeedback.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-ActionSheetPicker-3.0.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-CTFeedback.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -27,22 +37,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>109E04AEBD758B34020C22F8</key>
+		<key>44711B5D8CEF3042AB873D8A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5031C112AE83D4BCD008EEA3</key>
+		<key>535DAC08B7FBCFB1B29DEA3C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>99C334FF1F77C0DC629D91C5</key>
+		<key>6D590264E31EB36C709F5857</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D90FBAFE69FB26693802CAD8</key>
+		<key>83C3A9770DEAED363578B1B7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B70B2ACC68211ACF01D0F786</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CA5071A54A8839171B4298EA</key>
 		<dict>
 			<key>primary</key>
 			<true/>

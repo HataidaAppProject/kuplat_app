@@ -252,6 +252,7 @@
                                                            owner:self
                                                          options:nil] lastObject];
     self.dropdownMenuView.tabBarController = self.tabBarController;
+    self.dropdownMenuView.navigationController = self.navigationController;
     [self.dropdownMenuView setDelegate:self];
     
     [self.dropdownMenuView setTranslatesAutoresizingMaskIntoConstraints:NO];

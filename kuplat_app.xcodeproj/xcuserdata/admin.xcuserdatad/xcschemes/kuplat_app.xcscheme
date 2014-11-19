@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8436BED019E6D08F0088FF70"
-               BuildableName = "kuplat_app.app"
-               BlueprintName = "kuplat_app"
+               BuildableName = "KU PLAT.app"
+               BlueprintName = "KU PLAT"
                ReferencedContainer = "container:kuplat_app.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -57,8 +57,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8436BED019E6D08F0088FF70"
-            BuildableName = "kuplat_app.app"
-            BlueprintName = "kuplat_app"
+            BuildableName = "KU PLAT.app"
+            BlueprintName = "KU PLAT"
             ReferencedContainer = "container:kuplat_app.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -76,8 +76,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8436BED019E6D08F0088FF70"
-            BuildableName = "kuplat_app.app"
-            BlueprintName = "kuplat_app"
+            BuildableName = "KU PLAT.app"
+            BlueprintName = "KU PLAT"
             ReferencedContainer = "container:kuplat_app.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -94,8 +94,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8436BED019E6D08F0088FF70"
-            BuildableName = "kuplat_app.app"
-            BlueprintName = "kuplat_app"
+            BuildableName = "KU PLAT.app"
+            BlueprintName = "KU PLAT"
             ReferencedContainer = "container:kuplat_app.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
